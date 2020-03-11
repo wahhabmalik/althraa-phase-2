@@ -1,0 +1,65 @@
+.footer {
+  background: transparent linear-gradient(346deg, #e6f2e7 0%, #ffffff 100%) 0%
+    0% no-repeat padding-box;
+  padding-top: 14rem;
+
+  &__menu-inline {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  &__menu_list {
+    list-style: none;
+    margin-bottom: 0;
+
+    &-item {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 4rem;
+      }
+
+      &--link,
+      &--link:link,
+      &--link:visited {
+        font-size: 1.6rem;
+        font-family: $font-secondary-sm;
+        line-height: 1.18;
+        text-decoration: none;
+        color: $color-dark-1;
+        transition: color 0.2s;
+        letter-spacing: 0.016rem;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+  &__para {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: $color-dark-1;
+    font-family: $font-primary;
+    opacity: 0.8;
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__copyright {
+    background-color: $color-white;
+
+    p {
+      font-size: 1.8rem;
+      line-height: 1.8;
+      font-family: $font-primary;
+      color: $color-dark-1;
+      letter-spacing: 0.018rem;
+      margin-bottom: 0;
+      padding: 3rem 0;
+    }
+  }
+}

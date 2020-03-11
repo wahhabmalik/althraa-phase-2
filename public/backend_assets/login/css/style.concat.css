@@ -1,0 +1,492 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-weight: 300;
+  line-height: 1.6;
+  background-color: #fff; }
+
+@font-face {
+  font-family: "Soin Sans Neue Bold";
+  src: url("../fonts/Sans-Neue-Font/Stawix - SoinSansNeue-Bold.otf"); }
+
+@font-face {
+  font-family: "Soin Sans Neue Medium";
+  src: url("../fonts/Sans-Neue-Font/Stawix - SoinSansNeue-Medium.otf"); }
+
+@font-face {
+  font-family: "Soin Sans Neue";
+  src: url("../fonts/Sans-Neue-Font/Stawix - SoinSansNeue-Roman.otf"); }
+
+@font-face {
+  font-family: "Trenda";
+  src: url("../fonts/Trenda/Latinotype - Trenda Regular.otf"); }
+
+@font-face {
+  font-family: "Trenda Bold";
+  src: url("../fonts/Trenda/Latinotype - Trenda Bold.otf"); }
+
+@font-face {
+  font-family: "Trenda Semi Bold";
+  src: url("../fonts/Trenda/Latinotype - Trenda Semibold.otf"); }
+
+@font-face {
+  font-family: "Didact Gothic";
+  src: url("../fonts/didact-gothic/didactgothic-regular.otf"); }
+
+.button,
+.button:link,
+.button:visited {
+  background: #01630a 0% 0% no-repeat padding-box;
+  border-radius: 0.8rem;
+  color: #fff;
+  opacity: 1;
+  padding: 1.5rem 3.3rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  font-family: "Soin Sans Neue Medium", sans-serif;
+  transition: background-color 0.3s; }
+  .button:hover,
+  .button:link:hover,
+  .button:visited:hover {
+    background-color: rgba(1, 99, 10, 0.9); }
+
+.button__block {
+  width: 100% !important;
+  padding: 1.2rem 0;
+  border-radius: 0.5rem;
+  font-size: 1.4 rem; }
+
+.primary-heading {
+  text-align: center;
+  padding: 6rem 0; }
+  .primary-heading span {
+    font-size: 1rem;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    color: #01630a;
+    line-height: 1.3;
+    font-family: "Trenda Bold", sans-serif; }
+  .primary-heading h1 {
+    font-size: 3.6rem;
+    font-family: "Didact Gothic", sans-serif;
+    letter-spacing: 0.036rem;
+    color: #000; }
+
+.button__google {
+  background: transparent;
+  border: 2px solid rgba(34, 34, 34, 0.1);
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: "Soin Sans Neue Medium", sans-serif;
+  color: #222222;
+  padding: 1rem 0;
+  transition: all 0.3s;
+  margin-top: 4rem; }
+  .button__google:hover {
+    border: 2px solid rgba(34, 34, 34, 0.3); }
+  .button__google-img {
+    width: 1.4rem;
+    margin-left: 0.8rem; }
+
+.primary-link {
+  color: #01630a;
+  transition: all 0.3s;
+  font-size: 1.2rem;
+  font-family: "Soin Sans Neue Medium", sans-serif; }
+  .primary-link:hover {
+    color: #222222; }
+
+.footer {
+  background: transparent linear-gradient(346deg, #e6f2e7 0%, #ffffff 100%) 0% 0% no-repeat padding-box;
+  padding-top: 14rem; }
+  .footer__menu-inline {
+    width: 100%;
+    margin-bottom: 4rem; }
+  .footer__menu_list {
+    list-style: none;
+    margin-bottom: 0; }
+    .footer__menu_list-item {
+      display: inline-block; }
+      .footer__menu_list-item:not(:last-child) {
+        margin-right: 4rem; }
+      .footer__menu_list-item--link, .footer__menu_list-item--link:link, .footer__menu_list-item--link:visited {
+        font-size: 1.6rem;
+        font-family: "Trenda Semi Bold", sans-serif;
+        line-height: 1.18;
+        text-decoration: none;
+        color: #555555;
+        transition: color 0.2s;
+        letter-spacing: 0.016rem; }
+        .footer__menu_list-item--link:hover, .footer__menu_list-item--link:link:hover, .footer__menu_list-item--link:visited:hover {
+          color: #01630a; }
+  .footer__para {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #555555;
+    font-family: "Soin Sans Neue", sans-serif;
+    opacity: 0.8; }
+    .footer__para:not(:last-child) {
+      margin-bottom: 1.5rem; }
+  .footer__copyright {
+    background-color: #fff; }
+    .footer__copyright p {
+      font-size: 1.8rem;
+      line-height: 1.8;
+      font-family: "Soin Sans Neue", sans-serif;
+      color: #555555;
+      letter-spacing: 0.018rem;
+      margin-bottom: 0;
+      padding: 3rem 0; }
+
+.header {
+  background-color: #fff; }
+  .header .navbar {
+    padding: 3.3rem 4.4rem !important; }
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+.main-menu .nav-item:not(:last-child) {
+  margin-right: 1.7rem; }
+
+.main-menu .nav-link {
+  text-decoration: none;
+  color: #555555;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  letter-spacing: 0.01rem;
+  text-transform: capitalize;
+  transition: color 0.2s;
+  font-family: "Soin Sans Neue Bold", sans-serif; }
+  .main-menu .nav-link:hover {
+    color: #01630a; }
+
+.ctas .login-btn {
+  color: #01630a;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-right: 1.7rem;
+  text-decoration: none;
+  font-family: "Soin Sans Neue Medium", sans-serif; }
+
+.logo {
+  align-self: center; }
+  .logo__img {
+    width: 100%; }
+
+.heroo {
+  height: 85vh;
+  background: 0% 0% no-repeat padding-box;
+  background-color: transparent;
+  background-image: linear-gradient(194deg, #e6f2e7 0%, #fff 100%); }
+  .heroo__content {
+    padding: 8rem 0;
+    max-width: 60%;
+    margin: 0 auto;
+    text-align: center; }
+    .heroo__content-sub {
+      font-size: 1rem;
+      letter-spacing: 0.18rem;
+      color: #01630a;
+      font-family: "Trenda Bold", sans-serif; }
+    .heroo__content-heading {
+      font-size: 3.6rem !important;
+      color: #222222;
+      line-height: 1.3;
+      letter-spacing: 0;
+      margin-top: 1.2rem;
+      margin-bottom: 1.9rem;
+      font-family: "Archivo Narrow", sans-serif;
+      font-weight: bold; }
+    .heroo__content-desc {
+      color: #777777;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      letter-spacing: 0.16rem;
+      padding: 0 18rem;
+      margin-bottom: 7.7rem;
+      font-family: "Trenda", sans-serif; }
+    .heroo__content-img {
+      width: 100% !important; }
+
+.info {
+  padding: 4rem 0; }
+
+.icon-box {
+  padding: 1rem; }
+  .icon-box__icon {
+    width: 5.7rem;
+    height: 5.7rem;
+    fill: #01630a;
+    opacity: 80%;
+    margin-bottom: 1.8rem; }
+  .icon-box__1 {
+    width: 100%;
+    display: inline-block; }
+    .icon-box__1::before {
+      content: "1";
+      top: 0;
+      left: 50%;
+      transform: translateX(-100%);
+      font-family: "Roboto", sans-serif;
+      display: inline-block;
+      position: absolute;
+      font-size: 9em;
+      line-height: 0.9;
+      color: #222222;
+      text-align: center;
+      opacity: 0.05;
+      z-index: -1; }
+  .icon-box__2 {
+    width: 100%;
+    display: inline-block; }
+    .icon-box__2::before {
+      content: "2";
+      top: 0;
+      left: 50%;
+      transform: translateX(-100%);
+      font-family: "Roboto", sans-serif;
+      display: inline-block;
+      position: absolute;
+      font-size: 9em;
+      line-height: 0.9;
+      color: #222222;
+      text-align: center;
+      opacity: 0.05;
+      z-index: -1; }
+  .icon-box__3 {
+    width: 100%;
+    display: inline-block; }
+    .icon-box__3::before {
+      content: "3";
+      top: 0;
+      left: 50%;
+      transform: translateX(-100%);
+      font-family: "Roboto", sans-serif;
+      display: inline-block;
+      position: absolute;
+      font-size: 9em;
+      line-height: 0.9;
+      color: #222222;
+      text-align: center;
+      opacity: 0.05;
+      z-index: -1; }
+  .icon-box__4 {
+    width: 100%;
+    display: inline-block; }
+    .icon-box__4::before {
+      content: "4";
+      top: 0;
+      left: 50%;
+      transform: translateX(-100%);
+      font-family: "Roboto", sans-serif;
+      display: inline-block;
+      position: absolute;
+      font-size: 9em;
+      line-height: 0.9;
+      color: #222222;
+      text-align: center;
+      opacity: 0.05;
+      z-index: -1; }
+  .icon-box__5 {
+    width: 100%;
+    display: inline-block; }
+    .icon-box__5::before {
+      content: "5";
+      top: 0;
+      left: 50%;
+      transform: translateX(-100%);
+      font-family: "Roboto", sans-serif;
+      display: inline-block;
+      position: absolute;
+      font-size: 9em;
+      line-height: 0.9;
+      color: #222222;
+      text-align: center;
+      opacity: 0.05;
+      z-index: -1; }
+  .icon-box__text {
+    font-size: 2.1rem;
+    line-height: 1.23;
+    color: #000;
+    font-family: "Soin Sans Neue Medium", sans-serif; }
+
+.services__content {
+  max-width: 70%; }
+  .services__content-heading {
+    font-size: 3.6rem;
+    font-family: "Archivo Narrow", sans-serif;
+    font-weight: bold;
+    line-height: 1.3;
+    color: #000;
+    letter-spacing: 0.036rem;
+    margin-bottom: 1.7rem; }
+  .services__content-desc {
+    font-size: 1.6rem;
+    color: #555555;
+    opacity: 0.7;
+    line-height: 1.6;
+    margin-bottom: 5.5rem; }
+  .services__content .button {
+    box-shadow: 0.01rem 0.09rem 0.2rem #01630a; }
+
+.questionnaire {
+  text-align: center;
+  padding: 6rem 0; }
+  .questionnaire .primary-heading h2 {
+    font-weight: bold; }
+  .questionnaire .form__container {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin-bottom: 6rem;
+    font-family: "Trenda Bold", sans-serif; }
+  .questionnaire .form__input {
+    border: 0;
+    border-bottom: 0.1rem solid #707070;
+    font-weight: bold;
+    font-family: inherit;
+    text-align: center; }
+    .questionnaire .form__input:focus {
+      outline: none; }
+    .questionnaire .form__input-age {
+      max-width: 15rem; }
+
+.header__register {
+  border-bottom: 0.3rem solid #f0f1f3; }
+
+.register {
+  height: 90vh;
+  padding: 7rem 0; }
+  .register__container {
+    margin: 0 auto; }
+  .register__heading {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: #222222;
+    font-family: "Soin Sans Neue Bold", sans-serif; }
+  .register__form {
+    margin: 3rem 0; }
+    .register__form .form-group label {
+      line-height: 1.1;
+      color: #222222;
+      font-family: "Soin Sans Neue Bold", sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 1rem; }
+    .register__form .form-control {
+      font-size: 1.4rem;
+      line-height: 1;
+      font-family: "Soin Sans Neue", sans-serif; }
+    .register__form .button__block {
+      margin: 2rem 0; }
+  .register__or {
+    text-align: center;
+    font-size: 2.6rem;
+    color: #989898;
+    font-family: "Soin Sans Neue Bold", sans-serif; }
+  .register__login-link {
+    text-align: center;
+    margin: 2rem 0;
+    font-family: "Soin Sans Neue Medium", sans-serif;
+    color: #222222;
+    font-size: 1.2rem; }
+    .register__login-link a {
+      color: #01630a;
+      transition: color 0.2s;
+      text-decoration: none; }
+      .register__login-link a:hover {
+        color: #222222; }
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #989898;
+  font-size: 1.4rem;
+  line-height: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #989898;
+  font-size: 1.4rem;
+  line-height: 1; }
+
+::placeholder {
+  color: #989898;
+  font-size: 1.4rem;
+  line-height: 1; }
+
+.header__login {
+  border-bottom: 0.3rem solid #f0f1f3; }
+
+.login {
+  height: 90vh;
+  padding: 7rem 0; }
+  .login__container {
+    margin: 0 auto; }
+  .login__heading {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: #222222;
+    font-family: "Soin Sans Neue Bold", sans-serif; }
+  .login__form {
+    margin: 3rem 0; }
+    .login__form .form-group label {
+      line-height: 1.1;
+      color: #222222;
+      font-family: "Soin Sans Neue Bold", sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 1rem; }
+    .login__form .form-control {
+      font-size: 1.4rem;
+      line-height: 1;
+      font-family: "Soin Sans Neue", sans-serif; }
+    .login__form .button__block {
+      margin: 2rem 0; }
+  .login__or {
+    text-align: center;
+    font-size: 2.6rem;
+    color: #989898;
+    font-family: "Soin Sans Neue Bold", sans-serif; }
+  .login__login-link {
+    text-align: center;
+    margin: 2rem 0;
+    font-family: "Soin Sans Neue Medium", sans-serif;
+    color: #222222;
+    font-size: 1.2rem; }
+    .login__login-link a {
+      color: #01630a;
+      transition: color 0.2s;
+      text-decoration: none; }
+      .login__login-link a:hover {
+        color: #222222; }
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #989898;
+  font-size: 1.4rem;
+  line-height: 1; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #989898;
+  font-size: 1.4rem;
+  line-height: 1; }
+
+::placeholder {
+  color: #989898;
+  font-size: 1.4rem;
+  line-height: 1; }

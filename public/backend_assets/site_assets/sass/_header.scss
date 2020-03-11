@@ -1,0 +1,208 @@
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: 20% 1fr;
+  min-height: 100vh;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+.user__menu {
+  background-color: rgba($color-primary, 0.05);
+  height: 100%;
+  padding: 1.5rem 2rem;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-column: 1 / -1;
+    padding: 0 2rem;
+    border-bottom: 0.3rem solid #f0f1f3;
+  }
+
+  &-main {
+    flex-direction: column !important;
+    height: 100%;
+    align-items: flex-start !important;
+    @media only screen and (max-width: $bp-large) {
+      flex-direction: row !important;
+      align-items: center !important;
+    }
+  }
+  &-lists {
+    flex-direction: column;
+    justify-content: space-between;
+
+    .navbar-nav {
+      flex-direction: column !important;
+
+      &:first-child {
+        margin-top: 5rem;
+      }
+
+      .nav-item:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+      .active {
+        .nav-link,
+        .nav-link:link,
+        .nav-link:visited {
+          color: $color-primary;
+          .aicon {
+            fill: $color-primary;
+          }
+        }
+      }
+      .nav-link,
+      .nav-link:link,
+      .nav-link:visited {
+        color: $color-dark;
+        font-size: 1.8rem;
+        font-family: $font-primary-medium;
+        transition: color 0.3s;
+        .aicon {
+          width: 2rem;
+          height: 2rem;
+          margin-right: 1rem;
+          margin-top: -0.5rem;
+          fill: $color-dark;
+        }
+        &:hover {
+          color: $color-primary;
+          .aicon {
+            fill: $color-primary;
+          }
+        }
+      }
+      .user-link,
+      .user-link:link,
+      .user-link:visited {
+        color: $color-dark-1;
+        font-family: $font-primary;
+        font-weight: light;
+        img {
+          max-width: 4.5rem;
+          margin-right: 1rem;
+          margin-top: -0.5rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+$wizard-color-neutral: #ccc !default;
+$wizard-color-active: #4183D7 !default;
+$wizard-color-complete: #87D37C !default;
+$wizard-step-width-height: 64px !default;
+$wizard-step-font-size: 24px !default;
+
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.step-wrapper {
+    padding: 20px 0;
+    display: none;
+    
+    &.active {
+        display: block;
+    }
+}
+
+
+
+.step-indicator {
+    border-collapse: separate;
+    display: table;
+    margin-left: 0px;
+    position: relative;
+    table-layout: fixed;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 0;
+    padding-top: 20px;
+    
+    li {
+        display: table-cell;
+        position: relative;
+        float: none;
+        padding: 0;
+        width: 1%;
+        
+        &:after {
+            background-color: $wizard-color-neutral;
+            content: "";
+            display: block;
+            height: 1px;
+            position: absolute;
+            width: 100%;
+            top: $wizard-step-width-height/2;
+        }
+        
+        &:after {
+            left: 50%;
+        }
+        
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+        
+        &.active {
+            .step {
+                border-color: $wizard-color-active;
+                color: $wizard-color-active;
+            }
+            
+            .caption {
+                color: $wizard-color-active;
+            }
+        }
+        
+        &.complete {
+            &:after {
+                background-color: $wizard-color-complete;
+            }
+            
+            .step {
+                border-color: $wizard-color-complete;
+                color: $wizard-color-complete;
+            }
+            
+            .caption {
+                color: $wizard-color-complete;
+            }
+        }
+    }
+    
+    .step {
+        background-color: #fff;
+        border-radius: 50%;
+        border: 1px solid $wizard-color-neutral;
+        color: $wizard-color-neutral;
+        font-size: $wizard-step-font-size;
+        height: $wizard-step-width-height;
+        line-height: $wizard-step-width-height;
+        margin: 0 auto;
+        position: relative;
+        width: $wizard-step-width-height;
+        z-index: 1;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    .caption {
+        color: $wizard-color-neutral;
+        padding: 11px 16px;
+    }
+}

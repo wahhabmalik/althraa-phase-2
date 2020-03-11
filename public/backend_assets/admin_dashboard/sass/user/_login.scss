@@ -1,0 +1,82 @@
+.header__login {
+    border-bottom: 0.3rem solid #f0f1f3;
+  }
+  
+  .login {
+    height: 90vh;
+    padding: 7rem 0;
+    &__container {
+      margin: 0 auto;
+    }
+    &__heading {
+      font-size: 2.8rem;
+      line-height: 1.1;
+      color: $color-dark;
+      font-family: $font-primary-bold;
+    }
+  
+    &__form {
+      margin: 3rem 0;
+  
+      .form-group label {
+        line-height: 1.1;
+        color: $color-dark;
+        font-family: $font-primary-bold;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+  
+      .form-control {
+        font-size: 1.4rem;
+        line-height: 1;
+        font-family: $font-primary;
+      }
+      .button__block {
+        margin: 2rem 0;
+      }
+    }
+  
+    &__or {
+      text-align: center;
+      font-size: 2.6rem;
+      color: #989898;
+      font-family: $font-primary-bold;
+    }
+    &__login-link {
+      text-align: center;
+      margin: 2rem 0;
+      font-family: $font-primary-medium;
+      color: $color-dark;
+      font-size: 1.2rem;
+  
+      a {
+        color: $color-primary;
+        transition: color 0.2s;
+        text-decoration: none;
+        &:hover {
+          color: $color-dark;
+        }
+      }
+    }
+  }
+  
+  ::-webkit-input-placeholder {
+    /* Edge */
+    color: #989898;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #989898;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  
+  ::placeholder {
+    color: #989898;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  

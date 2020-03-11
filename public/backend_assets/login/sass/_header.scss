@@ -1,0 +1,51 @@
+.header {
+  background-color: $color-white;
+  .navbar{
+    padding: 3.3rem 4.4rem !important;
+  }
+}
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-menu {
+  .nav-item {
+    &:not(:last-child) {
+      margin-right: 1.7rem;
+    }
+  }
+  .nav-link {
+    text-decoration: none;
+    color: $color-dark-1;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    letter-spacing: 0.01rem;
+    text-transform: capitalize;
+    transition: color 0.2s;
+    font-family: $font-primary-bold;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+.ctas {
+  .login-btn {
+    color: $color-primary;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-right: 1.7rem;
+    text-decoration: none;
+    font-family: $font-primary-medium;
+  }
+}
+
+.logo {
+  align-self: center;
+  &__img {
+    width: 100%;
+  }
+}
