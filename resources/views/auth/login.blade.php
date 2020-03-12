@@ -101,14 +101,14 @@
                 </form>
 
                 <div class="login__or">&mdash; {{ trans('lang.login_form.or') }} &mdash;</div>
-                <div class="regsiter__google">
-                <form action="{{ route('redirect', app()->getLocale()) }}" >
-                    <button  class="button__google">
-                      {{ trans('lang.login_form.login_with_google') }}
-                      <img class="button__google-img" src="{{ asset('backend_assets/login/images/google.svg') }}" />
-                    </button>
-                </form>
-                </div>
+                {{-- <div class="regsiter__google">
+                    <form action="{{ route('redirect', app()->getLocale()) }}" >
+                        <button  class="button__google">
+                          {{ trans('lang.login_form.login_with_google') }}
+                          <img class="button__google-img" src="{{ asset('backend_assets/login/images/google.svg') }}" />
+                        </button>
+                    </form>
+                </div> --}}
                 <div class="login__login-link">
                 {{ trans('lang.login_form.dont_have_account') }}
                 <span><a href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.register') }}</a></span>

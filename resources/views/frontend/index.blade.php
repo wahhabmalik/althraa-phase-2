@@ -59,7 +59,7 @@ footer {
 
     <div class="s-100"></div>
 
-    <p class="login_link text-center primary-link">
+    {{-- <p class="login_link text-center primary-link">
         {{ trans('lang.frontend.steps') }}
     </p>
     <h2 class="text-center">
@@ -112,7 +112,7 @@ footer {
         </div>
     </div>
 
-    <div class="s-100"></div>
+    <div class="s-100"></div> --}}
 
 </div>
 

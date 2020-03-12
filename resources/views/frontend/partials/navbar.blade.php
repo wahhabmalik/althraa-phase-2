@@ -16,7 +16,7 @@
 
 <div class="header-area ">
     <div id="sticky-header" class="main-header-area">
-        <div class="container-fluid p-0">
+        <div class="container-fluid p-4">
             <div class="row align-items-center no-gutters">
                 <div class="col-xl-5 col-lg-6 {{ ($request->segment(5) == 'ar') ? 'order-md-3' : '' }}">
                     <div class="main-menu  d-none d-lg-block">
@@ -25,12 +25,12 @@
                                 {{-- <li>
                                     <a class="{{ ($request->segment(2) == 'legal') ? 'active' : '' }}" href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
                                 </li> --}}
-                                <li>
+                               {{--  <li>
                                     <a class="{{ ($request->segment(2) == 'contact') ? 'active' : '' }}" href="{{ route('contact', app()->getLocale()) }}">{{ trans('lang.site_menu.contact') }}</a>
                                 </li>
                                 <li>
                                     <a class="{{ ($request->segment(2) == 'about') ? 'active' : '' }}" href="{{ route('about', app()->getLocale()) }}">{{ trans('lang.site_menu.about_us') }}</a>
-                                </li>
+                                </li> --}}
                                 @auth
                                   @if (auth()->user()->two_factor_code)
                                     <a class="login_link" href="{{ route('verify.index', app()->getLocale()) }}">

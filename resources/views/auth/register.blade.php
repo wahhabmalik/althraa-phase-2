@@ -290,14 +290,14 @@ input[type=number] {
                 </form>
 
                 <div class="login__or">&mdash; {{ trans('lang.login_form.or') }} &mdash;</div>
-                <div class="regsiter__google">
+                {{-- <div class="regsiter__google">
                     <form action="{{ route('redirect', app()->getLocale()) }}" >
                         <button  class="button__google">
                           {{ trans('lang.login_form.login_with_google') }}
                           <img class="button__google-img" src="{{ asset('backend_assets/login/images/google.svg') }}" />
                         </button>
                     </form>
-                </div>
+                </div> --}}
                 <div class="login__login-link">
                 {{ trans('lang.login_form.already_have_account') }}
                 <span><a href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a></span>

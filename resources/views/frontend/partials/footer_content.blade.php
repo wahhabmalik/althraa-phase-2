@@ -52,16 +52,16 @@
                     <div class="{{ ($request->segment(1) == 'ar') ? 'float-left' : '' }}">
                         <nav>
                             <ul id="navigation_footer" >
-                                <li>
+                                {{-- <li>
                                     <a href="{{ route('contact', app()->getLocale()) }}">{{ trans('lang.site_menu.contact') }}</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('about', app()->getLocale()) }}">{{ trans('lang.site_menu.about_us') }}</a>
                                 </li>
                                 <li>
-                                    {{-- <a href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a> --}}
+                                    <a href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a href="{{ route('help', app()->getLocale()) }}">{{ trans('lang.site_menu.help') }}</a>
                                 </li> --}}
                             </ul>
@@ -104,8 +104,8 @@
         </div>
         <div class="s-100"></div>
     </div>
-    <div class="copyright-section text_grey">
+   {{--  <div class="copyright-section text_grey">
         <p class="text-center">© {{ date('Y') }} Althraa. All Rights Reserved.</p>
-    </div>
+    </div> --}}
     
 </footer>
