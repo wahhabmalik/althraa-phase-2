@@ -9,6 +9,7 @@
 <meta name="description" content="{{ althraa_site_description() }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/png" href="{{ althraa_favicon() }}"/>
 <!-- Place favicon.ico in the root directory -->
 

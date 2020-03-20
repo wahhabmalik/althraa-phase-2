@@ -70,21 +70,21 @@ class LoginController extends Controller
     {
         $user->generateTwoFactorCode();
 
-        try 
-        {
-            \Nexmo::message()->send([
-                'to'   => '966'.$user->phone_number,
-                // 'to'   => '966561155526',
-                'from' => '923055644665',
-                'text' => 'Althraa 2F-Auth Key is: '.$user->two_factor_code
-            ]);
-        } catch (\Exception $e) 
-        {
-            \Auth::logout();
-            $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
-            \Session::flash($status['toastr'], $status['msg']);
-            return redirect('/en/login');
-        }
+        // try 
+        // {
+        //     \Nexmo::message()->send([
+        //         'to'   => '966'.$user->phone_number,
+        //         // 'to'   => '966561155526',
+        //         'from' => '923055644665',
+        //         'text' => 'Althraa 2F-Auth Key is: '.$user->two_factor_code
+        //     ]);
+        // } catch (\Exception $e) 
+        // {
+        //     \Auth::logout();
+        //     $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
+        //     \Session::flash($status['toastr'], $status['msg']);
+        //     return redirect('/en/login');
+        // }
 
         
     }

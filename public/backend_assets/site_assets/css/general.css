@@ -127,7 +127,7 @@ h1{
 }
 
 .logo__img{
-	max-width:180px;
+	max-width:110px;
 	max-height: 100px;
 }
 .logo_input {
@@ -436,6 +436,42 @@ p.setting_text {
     color: #01630a;
     border: 2px solid #01630a;
 }
+
+.button_primary{
+    background: #01630a 0% 0% no-repeat padding-box;
+     border-radius: 0.8rem; 
+    color: #fff;
+    opacity: 1;
+    padding: 1.3rem 2rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-family: "Soin Sans Neue Medium", sans-serif;
+    transition: background-color 0.3s;
+    color: #ffffff;
+    /*border: 2px solid #01630a;*/
+
+}
+
+.top-right.links a {
+    font-size: 1.4rem;
+}
+
+.get_started{
+  padding: 0.8rem 4rem;
+  margin-right: 10px;
+}
+
+a.button_primary.lang_btn {
+    padding: 0.8rem 1.5rem !important;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.button_primary:hover{
+    background: #ffffff 0% 0% no-repeat padding-box;
+}
+
 
 .text_grey{
 	color: #989898 !important;
@@ -817,7 +853,7 @@ td.btm_table_td {
 }
 
 a.button_white.lang_btn {
-    padding: 0.8rem 2rem !important;
+    padding: 0.5rem 1rem !important;
     margin-left: 10px;
     margin-right: 10px;
 }

@@ -112,19 +112,19 @@ Route::group([
         return view('frontend.index');
     })->name('/');
 
-    // Route::get('/legal',  function () {
-    //     return view('frontend.pages.legal');
-    // })->name('legal');
+    Route::get('/legal',  function () {
+        return view('frontend.pages.legal');
+    })->name('legal');
     
 
-    // Route::get('/contact',  function () {
-    //     return view('frontend.pages.contact');
-    // })->name('contact');
+    Route::get('/contact',  function () {
+        return view('frontend.pages.contact');
+    })->name('contact');
     
 
-    // Route::get('/about',  function () {
-    //     return view('frontend.pages.about');
-    // })->name('about');
+    Route::get('/about',  function () {
+        return view('frontend.pages.about');
+    })->name('about');
    
    
     // Route::get('/pricing',  function () {

@@ -12,7 +12,7 @@ return [
     'register' => 'Register',
     'logout' => 'Logout',
     'registration' => 'Registration',
-    'get_started' => 'Get Started',
+    'get_started' => 'Start Now',
     'control_panel' => 'Control Panel',
 
     'email_address' => 'Email Address',
@@ -346,8 +346,8 @@ return [
 
 
     'site_menu' => [
-        'legal' => 'Legal',
-        'contact' => 'Contact Us',
+        'legal' => 'Legal disclosure',
+        'contact' => 'Call Us',
         'about_us' => 'About Us',
         'pricing' => 'Pricing',
         'help' => 'Help',
@@ -411,49 +411,6 @@ return [
         'view_liabilities' => 'View Liabilities',
     ],
     
-
-    // frontend page
-    'frontend' => [
-        'althraa' => 'ALTHRAA',
-
-        'two_factor_verification' => 'Two Factor Verification',
-        'two_factor_message' => 'We have sent you Two Factor Authentication Code. If you have not received it, click ',
-        'two_factor_here' => 'here',
-        'two_factor_verification_code' => 'two factor verification code',
-        'enter_two_factor_authentication_code_here' => 'enter two factor authentication code here',
-        'verify' => 'verify',
-
-        'slider_heading' => 'Althraa is your online financial advisor that helps you bulding your wealth.',
-        'slider_text' => ' Here at Althraa we like to help to people that want to have control over their financial life. No awkward calls, no shame.',
-
-        'steps' => 'STEPS',
-        'how_does_it_work' => 'How does it work?',
-
-        '1' => '1',
-        '2' => '2',
-        '3' => '3',
-        '4' => '4',
-        '5' => '5',
-
-        'answer_our_questions' => 'Answers our Questions',
-        'get_report' => 'Get report',
-        'get_long_term_plans' => 'Get long term plans',
-        'start_the_implementation' => 'Start the implementation',
-        'periodic_evaluation' => 'Periodic Evaluation',
-
-
-        'personal_financial_planning' => 'Personal Financial planning',
-        'personal_financial_planning_text' => 'Here in Althraa everything is about giving you what you need. The questionnaire gives us the ability to make customized plans for every client we have.',
-
-        'get_started' => 'Get Started',
-        'get_started_uppercase' => 'GET STARTED',
-
-        'invest_your_own_money' => 'Invest your own money',
-        'invest_your_own_money_text' => 'Once you get your plan from us you will also be prepared for planned investing, so you can get the most out of your money and get it to work for you.',
-
-        'periodic_evaluation_text' => 'Here in Althraa everything is about giving you what you need. The questionnaire gives us the ability to make customized plans for every client we have.',
-    ],
-
 
     'frontend_footer_content' => [
         'what_are_you_waiting_for' => 'What are you waiting for?',
@@ -757,5 +714,57 @@ return [
     ],
 
     'results' => 'Results',
+
+
+    // frontend page
+    'frontend' => [
+        'althraa' => 'ALTHRAA',
+
+        'two_factor_verification' => 'Two Factor Verification',
+        'two_factor_message' => 'We have sent you Two Factor Authentication Code. If you have not received it, click ',
+        'two_factor_here' => 'here',
+        'two_factor_verification_code' => 'two factor verification code',
+        'enter_two_factor_authentication_code_here' => 'enter two factor authentication code here',
+        'verify' => 'verify',
+
+        'slider_heading' => 'Althraa is your online financial advisor that helps you bulding your wealth.',
+        'slider_text' => ' Here at Althraa we like to help to people that want to have control over their financial life. No awkward calls, no shame.',
+
+        'steps' => 'STEPS',
+        'how_does_it_work' => 'How does it work?',
+
+        '1' => '1',
+        '2' => '2',
+        '3' => '3',
+        '4' => '4',
+        '5' => '5',
+
+        'answer_our_questions' => 'Answers our Questions',
+        'get_report' => 'Get report',
+        'get_long_term_plans' => 'Get long term plans',
+        'start_the_implementation' => 'Start the implementation',
+        'periodic_evaluation' => 'Periodic Evaluation',
+
+
+        'personal_financial_planning' => 'Personal Financial planning',
+        'personal_financial_planning_text' => 'Here in Althraa everything is about giving you what you need. The questionnaire gives us the ability to make customized plans for every client we have.',
+
+        'get_started' => 'Get Started',
+        'get_started_uppercase' => 'GET STARTED',
+
+        'invest_your_own_money' => 'Invest your own money',
+        'invest_your_own_money_text' => 'Once you get your plan from us you will also be prepared for planned investing, so you can get the most out of your money and get it to work for you.',
+
+        'periodic_evaluation_text' => 'Here in Althraa everything is about giving you what you need. The questionnaire gives us the ability to make customized plans for every client we have.',
+
+        'ribbon_heading' => '',
+        'ribbon_text' => '',
+        'secondary_text_slider' => '',
+
+        'home_icon_text_1' => '',
+        'home_icon_text_2' => '',
+        'home_icon_text_3' => '',
+    ],
+
 
 ];

@@ -1,7 +1,7 @@
 @inject('request', 'Illuminate\Http\Request')
 
 <footer>
-    <div class="container text-center">
+    {{-- <div class="container text-center">
         <p class="login_link primary-link">
             {{ trans('lang.frontend.get_started_uppercase') }}
         </p>
@@ -26,7 +26,7 @@
             <button 
             class="button" 
             type="submit" 
-            {{-- href="{{ route('register',app()->getLocale()) }}" --}}
+            href="{{ route('register',app()->getLocale()) }}"
             >
                 {{ trans('lang.frontend_footer_content.start_the_questionnaire') }}
             </button>
@@ -40,10 +40,10 @@
                 <div class="col-sm-6 {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
                     <a href="{{ route('/',app()->getLocale()) }}"><img
                       class="logo__img"
-                      {{-- srcset="
+                      srcset="
                         {{ asset('backend_assets/login/images/logo/logotype.png    1x') }},
                         {{ asset('backend_assets/login/images/logo/logotype@2x.png 2x') }}
-                      " --}}
+                      "
                       src="{{ althraa_logo() }}"
                       alt="Althraa Logo"
                     /></a>
@@ -52,7 +52,7 @@
                     <div class="{{ ($request->segment(1) == 'ar') ? 'float-left' : '' }}">
                         <nav>
                             <ul id="navigation_footer" >
-                                {{-- <li>
+                                <li>
                                     <a href="{{ route('contact', app()->getLocale()) }}">{{ trans('lang.site_menu.contact') }}</a>
                                 </li>
                                 <li>
@@ -63,7 +63,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('help', app()->getLocale()) }}">{{ trans('lang.site_menu.help') }}</a>
-                                </li> --}}
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -103,9 +103,9 @@
             </div>
         </div>
         <div class="s-100"></div>
-    </div>
-   {{--  <div class="copyright-section text_grey">
-        <p class="text-center">© {{ date('Y') }} Althraa. All Rights Reserved.</p>
     </div> --}}
+    <div class="copyright-section text_grey">
+        <p class="text-center">© {{ date('Y') }} Zokhor. All Rights Reserved</p>
+    </div>
     
 </footer>

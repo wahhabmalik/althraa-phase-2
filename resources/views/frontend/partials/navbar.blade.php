@@ -16,21 +16,25 @@
 
 <div class="header-area ">
     <div id="sticky-header" class="main-header-area">
-        <div class="container-fluid p-4">
+        <div class="container-fluid p-2">
             <div class="row align-items-center no-gutters">
                 <div class="col-xl-5 col-lg-6 {{ ($request->segment(5) == 'ar') ? 'order-md-3' : '' }}">
                     <div class="main-menu  d-none d-lg-block">
                         <nav>
                             <ul id="navigation" class="{{ ($request->segment(1) == 'ar') ? 'rtl_structure text-right' : '' }}">
-                                {{-- <li>
-                                    <a class="{{ ($request->segment(2) == 'legal') ? 'active' : '' }}" href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
-                                </li> --}}
-                               {{--  <li>
+                                
+                                <li>
                                     <a class="{{ ($request->segment(2) == 'contact') ? 'active' : '' }}" href="{{ route('contact', app()->getLocale()) }}">{{ trans('lang.site_menu.contact') }}</a>
                                 </li>
+
                                 <li>
                                     <a class="{{ ($request->segment(2) == 'about') ? 'active' : '' }}" href="{{ route('about', app()->getLocale()) }}">{{ trans('lang.site_menu.about_us') }}</a>
-                                </li> --}}
+                                </li>
+
+                                <li>
+                                    <a class="{{ ($request->segment(2) == 'legal') ? 'active' : '' }}" href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
+                                </li>
+
                                 @auth
                                   @if (auth()->user()->two_factor_code)
                                     <a class="login_link" href="{{ route('verify.index', app()->getLocale()) }}">
@@ -58,15 +62,15 @@
                                   <li class="auth_resp">
                                       <a class="{{ ($request->segment(2) == 'register') ? 'active' : '' }}" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
                                   </li>
-                                  <li class="auth_resp">
+                                  {{-- <li class="auth_resp">
                                       <a class="{{ ($request->segment(2) == 'login') ? 'active' : '' }}" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a>
-                                  </li>
+                                  </li> --}}
                                 @endauth
 
                                 @switch($request->segment(1))
                                     @case('ar')
                                         @foreach (config('app.available_locales') as $locale)
-                                          <a class="button_white lang_btn auth_resp"
+                                          <a class="button_primary lang_btn auth_resp"
                                              style="margin-bottom: 10px;" 
                                              href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
                                               @if (app()->getLocale() == $locale) style="font-weight: bold;" @endif>{{ trans('lang.language') }}
@@ -78,7 +82,7 @@
                                     @case('en')
                                         @foreach (config('app.available_locales') as $key => $locale)
                                             @if($key == 1)
-                                              <a class="button_white lang_btn auth_resp"
+                                              <a class="button_primary lang_btn auth_resp"
                                                  style="margin-bottom: 10px;" 
                                                  href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
                                                   @if (app()->getLocale() == $locale) style="font-weight: bold;" @endif>
@@ -94,11 +98,11 @@
                                 @endswitch
                                 {{-- <li>
                                     <a class="{{ ($request->segment(2) == 'pricing') ? 'active' : '' }}" href="{{ route('pricing', app()->getLocale()) }}">{{ trans('lang.site_menu.pricing') }}</a>
-                                </li> --}}
-                                {{-- <li>
+                                </li>
+                                <li>
                                     <a class="{{ ($request->segment(2) == 'help') ? 'active' : '' }}" href="{{ route('help', app()->getLocale()) }}">{{ trans('lang.site_menu.help') }}</a>
-                                </li> --}}
-                                {{-- <li>
+                                </li>
+                                <li>
                                     <a class="{{ ($request->segment(2) == 'careers') ? 'active' : '' }}" href="{{ route('careers', app()->getLocale()) }}">{{ trans('lang.site_menu.careers') }}</a>
                                 </li> --}}
                             </ul>
@@ -146,10 +150,10 @@
                                 @endif
                                   
                                 @else
-                                    <a class="login_link" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a>
+                                    {{-- <a class="login_link" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a> --}}
 
                                     @if (Route::has('register'))
-                                        <a class="button" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
+                                        <a class="button_primary get_started" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
                                     @endif
                                 @endauth
 
@@ -161,7 +165,7 @@
                         @switch($request->segment(1))
                             @case('ar')
                                 @foreach (config('app.available_locales') as $locale)
-                                  <a class="button_white lang_btn"
+                                  <a class="button_primary lang_btn"
                                      href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
                                       @if (app()->getLocale() == $locale) style="font-weight: bold;" @endif>{{ trans('lang.language') }}
                                       {{-- {{ ucfirst($locale) }} --}}
@@ -172,7 +176,7 @@
                             @case('en')
                                 @foreach (config('app.available_locales') as $key => $locale)
                                     @if($key == 1)
-                                      <a class="button_white lang_btn"
+                                      <a class="button_primary lang_btn"
                                          href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
                                           @if (app()->getLocale() == $locale) style="font-weight: bold;" @endif>
                                           {{ trans('lang.language') }}
@@ -196,4 +200,3 @@
     </div>
 </div>
 </header>
-    <!-- header-end -->
