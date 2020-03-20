@@ -105,7 +105,7 @@
         <div class="s-100"></div>
     </div> --}}
     <div class="copyright-section text_grey">
-        <p class="text-center">© {{ date('Y') }} Zokhor. All Rights Reserved</p>
+        <p class="text-center">© {{ date('Y') }} Thokor. All Rights Reserved</p>
     </div>
     
 </footer>
