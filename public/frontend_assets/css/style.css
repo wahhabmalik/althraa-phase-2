@@ -4094,6 +4094,8 @@ a.login_link {
 }
 .intro-text{
 	padding: 0 30px;
+}
+.login_link {
     font-family: 'Cairo', sans-serif;
 }
 
