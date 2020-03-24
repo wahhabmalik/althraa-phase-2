@@ -32,8 +32,12 @@
                                 </li>
 
                                 <li>
-                                    <a class="{{ ($request->segment(2) == 'legal') ? 'active' : '' }}" href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
+                                    <a class="{{ ($request->segment(2) == 'disclaimer') ? 'active' : '' }}" href="{{ route('disclaimer', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
                                 </li>
+
+                                {{-- <li>
+                                    <a class="{{ ($request->segment(2) == 'legal') ? 'active' : '' }}" href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
+                                </li> --}}
 
                                 @auth
                                   @if (auth()->user()->two_factor_code)

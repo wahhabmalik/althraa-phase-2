@@ -127,6 +127,11 @@ Route::group([
     })->name('about');
    
    
+    Route::get('/disclaimer',  function () {
+        return view('frontend.pages.disclaimer');
+    })->name('disclaimer');
+   
+   
     // Route::get('/pricing',  function () {
     //     return view('frontend.pages.pricing');
     // })->name('pricing');

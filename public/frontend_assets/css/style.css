@@ -31,7 +31,9 @@ body {
 a {
   font-family: 'Cairo', sans-serif !important;
 }
-
+p{
+    font-family: 'Cairo', sans-serif;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
@@ -4187,7 +4189,7 @@ h3.secondary-heading {
 }
 .form-control {
     display: block;
-    width: 70%;
+    width: 100%;
     padding: .5rem .75rem;
     font-size: 1.5rem;
     line-height: 2.5;
@@ -4200,6 +4202,10 @@ h3.secondary-heading {
 }
 textarea {
   height: 120px !important;
+}
+.contact_input{
+    border-radius: 0.8rem !important;
+    border: none !important;
 }
 
 
@@ -4387,4 +4393,62 @@ a.button_white.lang_btn {
     font-size: 17px;
     font-family: 'Cairo', sans-serif;
     font-weight: 700;
+}
+img.about-cofee {
+    max-width: 180px;
+    position: relative;
+    
+}
+.coffee-box{
+    padding: 10px 70px;
+}
+.about-vision{
+    max-width: 115px;
+    position: relative;
+    z-index: 1;
+}
+.vision-box{
+    padding: 10px 16em;
+}
+.bg-green {
+    background: #00620C;
+}
+.about_name{
+    color: #00620c;
+    font-weight: 700;
+}
+span.p {
+    color: #5A5A5A;
+    font-size: 14px;
+    font-weight: 100;
+}
+.intro-list li{
+    list-style: disc !important;
+    font-size: 15px;
+    font-weight: 100;
+    color: #5A5A5A
+}
+.intro-list{
+    line-height: 2;
+}
+@media only screen and (max-width: 767px) {
+  .about-cofee{
+    left: 0 !important;
+    right: 0 !important;
+    padding: 10px 40px;
+    max-width: 200px !important;
+  }
+  .about-image{
+    max-width: 40%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about-vision{
+    left: 0 !important;
+    right: 0 !important;
+    float: right !important;
+    padding: 10px 40px;
+    max-width: 200px !important;
+
+  }
 }
