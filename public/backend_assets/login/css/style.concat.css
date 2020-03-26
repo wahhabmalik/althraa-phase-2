@@ -54,7 +54,8 @@ body {
   text-transform: capitalize;
   font-size: 1.5rem;
   line-height: 1.8;
-  font-family: "Soin Sans Neue Medium", sans-serif;
+  font-family: 'Cairo', sans-serif;
+  
   transition: background-color 0.3s; }
   .button:hover,
   .button:link:hover,

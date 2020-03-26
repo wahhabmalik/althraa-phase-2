@@ -82,7 +82,7 @@ Route::group([
 |
 */
   Auth::routes();
-
+  Route::post('/authenticate', 'Auth\LoginController@authenticate')->name('authenticate');
 /*
 |--------------------------------------------------------------------------
 | Two Factor Verification Routes

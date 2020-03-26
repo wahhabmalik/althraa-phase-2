@@ -64,9 +64,11 @@ body {
 
 .button__block {
   width: 100% !important;
-  padding: 1.2rem 0;
+  padding: 0.7rem 0;
   border-radius: 0.5rem;
-  font-size: 1.4 rem; }
+  font-size: 1.4 rem;
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px; }
 
 .primary-heading {
   text-align: center;
@@ -148,7 +150,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.8;
   color: #555555;
-  font-family: "Soin Sans Neue", sans-serif;
+  font-family: 'Cairo', sans-serif;
   opacity: 0.8; }
 
 .footer__para:not(:last-child) {
@@ -160,7 +162,7 @@ body {
 .footer__copyright p {
   font-size: 1.8rem;
   line-height: 1.8;
-  font-family: "Soin Sans Neue", sans-serif;
+  font-family: 'Cairo', sans-serif;
   color: #555555;
   letter-spacing: 0.018rem;
   margin-bottom: 0;
@@ -189,7 +191,7 @@ body {
   letter-spacing: 0.01rem;
   text-transform: capitalize;
   transition: color 0.2s;
-  font-family: "Soin Sans Neue Bold", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .main-menu .nav-link:hover {
   color: #01630a; }
@@ -425,7 +427,7 @@ body {
   font-size: 2.8rem;
   line-height: 1.1;
   color: #222222;
-  font-family: "Soin Sans Neue Bold", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .register__form {
   margin: 3rem 0; }
@@ -433,14 +435,14 @@ body {
 .register__form .form-group label {
   line-height: 1.1;
   color: #222222;
-  font-family: "Soin Sans Neue Bold", sans-serif;
+  font-family: 'Cairo', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1rem; }
 
 .register__form .form-control {
   font-size: 1.4rem;
   line-height: 1;
-  font-family: "Soin Sans Neue", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .register__form .button__block {
   margin: 2rem 0; }
@@ -449,7 +451,7 @@ body {
   text-align: center;
   font-size: 2.6rem;
   color: #989898;
-  font-family: "Soin Sans Neue Bold", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .register__login-link {
   text-align: center;
@@ -507,7 +509,7 @@ body {
   font-size: 2.8rem;
   line-height: 1.1;
   color: #222222;
-  font-family: "Soin Sans Neue Bold", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .login__form {
   margin: 3rem 0; }
@@ -515,23 +517,24 @@ body {
 .login__form .form-group label {
   line-height: 1.1;
   color: #222222;
-  font-family: "Soin Sans Neue Bold", sans-serif;
+  font-family: 'Cairo', sans-serif;
   font-size: 1.2rem;
   margin-bottom: 1rem; }
 
 .login__form .form-control {
   font-size: 1.4rem;
   line-height: 1;
-  font-family: "Soin Sans Neue", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .login__form .button__block {
-  margin: 2rem 0; }
+  margin: 1.5rem 0;
+  border-radius: 8px !important; }
 
 .login__or {
   text-align: center;
   font-size: 2.6rem;
   color: #989898;
-  font-family: "Soin Sans Neue Bold", sans-serif; }
+  font-family: 'Cairo', sans-serif; }
 
 .login__login-link {
   text-align: center;

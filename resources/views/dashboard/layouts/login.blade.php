@@ -23,10 +23,7 @@
           <a class="navbar-brand" href="{{ route('/',app()->getLocale()) }}">
             <img
               class="logo__img"
-              srcset="
-                {{ asset('backend_assets/login/images/logo/logotype.png    1x') }},
-                {{ asset('backend_assets/login/images/logo/logotype@2x.png 2x') }}
-              "
+              src="{{ althraa_logo() }}"
               alt="Althraa Logo"
             />
           </a>

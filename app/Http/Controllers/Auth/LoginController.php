@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Illuminate\Http\Request;
 use Socialite;
+use Auth;
  
 class LoginController extends Controller
 {
@@ -40,6 +41,19 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function username()
+    {
+        return 'phone_number';
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|numeric',
+            'password' => 'required|string',
+        ]);
+    }
+
     public function redirectTo()
     {
         return app()->getLocale() . '/home';
@@ -69,23 +83,6 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $user->generateTwoFactorCode();
-
-        // try 
-        // {
-        //     \Nexmo::message()->send([
-        //         'to'   => '966'.$user->phone_number,
-        //         // 'to'   => '966561155526',
-        //         'from' => '923055644665',
-        //         'text' => 'Althraa 2F-Auth Key is: '.$user->two_factor_code
-        //     ]);
-        // } catch (\Exception $e) 
-        // {
-        //     \Auth::logout();
-        //     $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
-        //     \Session::flash($status['toastr'], $status['msg']);
-        //     return redirect('/en/login');
-        // }
-
         
     }
 
@@ -134,5 +131,32 @@ class LoginController extends Controller
             auth()->login($newUser, true);
         }
         return redirect('/en/home');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $validate = \Validator::make($request->all(),
+            [
+                'phone_number' => 'required|numeric',
+            ]
+        );
+
+        $user = User::where('phone_number', $request->input('phone_number'))->first();
+
+        if($user){
+            Auth::login($user);
+            $user->generateTwoFactorCode();
+            return redirect()->route('home', app()->getLocale())->with([
+                'message' => 'user_authenticated'
+            ]);
+            
+        }
+        else {
+            return redirect()->route('login', app()->getLocale())->with([
+                'error' => 'User Not Authenticated.', 
+                'message' => 'auth.failed', 
+            ]);
+        }
+
     }
 }

@@ -15,6 +15,8 @@ class TwoFactor
      */
     public function handle($request, Closure $next)
     {
+
+        // dd($request, $next);
         $user = auth()->user();
 
         if (auth()->check() && $user->two_factor_code) 

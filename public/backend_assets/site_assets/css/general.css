@@ -20,7 +20,7 @@
   background: #9e9e9eb0; 
 }
 .wizard_info_text{
-	font-family: Soin Sans Neue;
+	font-family: 'Cairo', sans-serif;
 	color: #000;
 	text-align:center;
 }
@@ -386,7 +386,7 @@ ul.navbar-nav.ml-auto {
 }
 
 p.setting_text {
-    font-family: Soin Sans Neue;
+    font-family: 'Cairo', sans-serif;
     font-size: 20px;
     color: black;
     text-align: center;
@@ -502,7 +502,7 @@ a.button_primary.lang_btn {
 .income {
     color: #000;
     font-size: 76px;
-    font-family: Soin Sans Neue;
+    font-family: 'Cairo', sans-serif;
     font-weight: bold;
 }
 .income_network{
@@ -519,7 +519,7 @@ a.button_primary.lang_btn {
 .dashboard_text{
 	font-size: 3rem;
 	font-weight: bold;
-	font-family: Soin Sans Neue;
+	font-family: 'Cairo', sans-serif;
 }
 .s-20{
 	height: 20px;
@@ -663,7 +663,7 @@ canvas{
 
 .total_graph span {
     font-size: 20px;
-    font-family: Soin Sans Neue;
+    font-family: 'Cairo', sans-serif;
     color: #989898;
 }
 
@@ -705,7 +705,7 @@ tbody tr:nth-child(1) td {
     font-size: 24px;
     background: #F0F1F3;
     color: #bcbcbc;
-    font-family: Soin Sans Neue;
+    font-family: 'Cairo', sans-serif;
     font-weight: bold;
 }
 .suggested.active {
@@ -714,7 +714,7 @@ tbody tr:nth-child(1) td {
 }
 .congrats_text{
 	font-weight: 100;
-    font-family: Soin Sans Neue;
+    font-family: 'Cairo', sans-serif;
 }
 .cash_clr{
 	background-color: #4F2CFF !important;
@@ -821,7 +821,7 @@ img.user_image {
 
 td.btm_table_td {
     /*text-align: left !important;*/
-    font-family: Soin Sans Neue;
+    font-family: 'Cairo', sans-serif;
     font-weight: 800;
 }
 
