@@ -38,12 +38,14 @@ class QuestionnaireRequest extends FormRequest
                     switch ($previous_url) {
                         case '/step_1':
                             return [
-                                'started_year_for_personal_financial_plan'  => 'required|date_format:Y',
                                 'personal_info' => 'required|array',
+                                // 'started_year_for_personal_financial_plan'  => 'required|date_format:Y',
                                 // personal_info
                                 'personal_info.name' => 'required|string|max:255',
                                 'personal_info.years_old' => 'required|numeric|max:255',
-                                'personal_info.no_of_dependents' => 'required|numeric|max:255',
+                                // 'personal_info.no_of_dependents' => 'required|numeric|max:255',
+                                'personal_info.education_level' => 'required|string|max:255',
+                                'personal_info.retirement_age' => 'required|numeric|max:120',
                             ];
                             break;
 
@@ -53,110 +55,152 @@ class QuestionnaireRequest extends FormRequest
                                 // income
                                 'income.salary' => 'required|numeric',
                                 'income.private_buisness_or_freelancing' => 'required|numeric',
-                                'income.stock_dividents' => 'required|numeric',
-                                'income.pension_income' => 'required|numeric',
-                                'income.real_estate_income_rent' => 'required|numeric',
+                                'income.other' => 'required|numeric',
+                                // 'income.stock_dividents' => 'required|numeric',
+                                // 'income.pension_income' => 'required|numeric',
+                                // 'income.real_estate_income_rent' => 'required|numeric',
                             ];
                             break;
 
                         case '/step_3':
                             return [
-                                // expenses
-                                'expenses' => 'required|array',
-                                // => house
-                                'expenses.house' => 'required|array',
-                                'expenses.house.rent_or_mortgage' => 'required|numeric',
-                                'expenses.house.insurance' => 'required|numeric',
-                                'expenses.house.utilities' => 'required|numeric',
-                                'expenses.house.maintance' => 'required|numeric',
-                                // => car
-                                'expenses.car' => 'required|array',
-                                'expenses.car.gas_and_oil' => 'required|numeric',
-                                'expenses.car.maintance' => 'required|numeric',
-                                'expenses.car.insurance' => 'required|numeric',
-                                'expenses.car.payment' => 'required|numeric',
-                                // => pocket_money
-                                'expenses.pocket_money' => 'required|array',
-                                'expenses.pocket_money.food' => 'required|numeric',
-                                'expenses.pocket_money.clothes' => 'required|numeric',
-                                'expenses.pocket_money.phone_bills' => 'required|numeric',
-                                // => health_and_education
-                                'expenses.health_and_education' => 'required|array',
-                                'expenses.health_and_education.insurance' => 'required|numeric',
-                                'expenses.health_and_education.medical_treatment' => 'required|numeric',
-                                'expenses.health_and_education.medicine' => 'required|numeric',
-                                'expenses.health_and_education.health_accessories' => 'required|numeric',
-                                'expenses.health_and_education.schooling' => 'required|numeric',
-                                'expenses.health_and_education.gym' => 'required|numeric',
-                                // => investments
-                                'expenses.investments' => 'required|array',
-                                'expenses.investments.life_insurance' => 'required|numeric',
-                                'expenses.investments.retirement_plan_(gosi)' => 'required|numeric',
-                                // 'expenses.investments.personal_financial_plan' => 'required|numeric',
-                                'expenses.investments.investment_plan_payment' => 'required|numeric',
-                                'expenses.investments.saving_plan_payment' => 'required|numeric',
-                                'expenses.investments.personal_development_and_education' => 'required|numeric',
-                                // => loan
-                                'expenses.loan' => 'required|array',
-                                'expenses.loan.personal_loan' => 'required|numeric',
-                                'expenses.loan.credit_cards' => 'required|numeric',
-                                // => entertainment
-                                'expenses.entertainment' => 'required|array',
-                                'expenses.entertainment.vacations' => 'required|numeric',
-                                'expenses.entertainment.others' => 'required|numeric',
-                                // => charity_tax
-                                'expenses.charity_tax' => 'required|array',
-                                'expenses.charity_tax.charity' => 'required|numeric',
-                                'expenses.charity_tax.zakat' => 'required|numeric',
-                                'expenses.charity_tax.taxes_and_govt_fees' => 'required|numeric',
+                                'saving_plan' => 'required|array',
+                                'saving_plan.current_saving_balance' => 'required|numeric',
+                                'saving_plan.gosi_or_ppa_monthly_subscription' => 'required|numeric',
+                                'saving_plan.monthly_saving_plan_for_retirement' => 'required|numeric',
+                                'saving_plan.annual_increase_in_saving_plan' => 'required|numeric|max:100',
+                                
                             ];
                             break;
+
+                        // case '/step_3':
+                        //     return [
+                        //         // expenses
+                        //         'expenses' => 'required|array',
+                        //         // => house
+                        //         'expenses.house' => 'required|array',
+                        //         'expenses.house.rent_or_mortgage' => 'required|numeric',
+                        //         'expenses.house.insurance' => 'required|numeric',
+                        //         'expenses.house.utilities' => 'required|numeric',
+                        //         'expenses.house.maintance' => 'required|numeric',
+                        //         // => car
+                        //         'expenses.car' => 'required|array',
+                        //         'expenses.car.gas_and_oil' => 'required|numeric',
+                        //         'expenses.car.maintance' => 'required|numeric',
+                        //         'expenses.car.insurance' => 'required|numeric',
+                        //         'expenses.car.payment' => 'required|numeric',
+                        //         // => pocket_money
+                        //         'expenses.pocket_money' => 'required|array',
+                        //         'expenses.pocket_money.food' => 'required|numeric',
+                        //         'expenses.pocket_money.clothes' => 'required|numeric',
+                        //         'expenses.pocket_money.phone_bills' => 'required|numeric',
+                        //         // => health_and_education
+                        //         'expenses.health_and_education' => 'required|array',
+                        //         'expenses.health_and_education.insurance' => 'required|numeric',
+                        //         'expenses.health_and_education.medical_treatment' => 'required|numeric',
+                        //         'expenses.health_and_education.medicine' => 'required|numeric',
+                        //         'expenses.health_and_education.health_accessories' => 'required|numeric',
+                        //         'expenses.health_and_education.schooling' => 'required|numeric',
+                        //         'expenses.health_and_education.gym' => 'required|numeric',
+                        //         // => investments
+                        //         'expenses.investments' => 'required|array',
+                        //         'expenses.investments.life_insurance' => 'required|numeric',
+                        //         'expenses.investments.retirement_plan_(gosi)' => 'required|numeric',
+                        //         // 'expenses.investments.personal_financial_plan' => 'required|numeric',
+                        //         'expenses.investments.investment_plan_payment' => 'required|numeric',
+                        //         'expenses.investments.saving_plan_payment' => 'required|numeric',
+                        //         'expenses.investments.personal_development_and_education' => 'required|numeric',
+                        //         // => loan
+                        //         'expenses.loan' => 'required|array',
+                        //         'expenses.loan.personal_loan' => 'required|numeric',
+                        //         'expenses.loan.credit_cards' => 'required|numeric',
+                        //         // => entertainment
+                        //         'expenses.entertainment' => 'required|array',
+                        //         'expenses.entertainment.vacations' => 'required|numeric',
+                        //         'expenses.entertainment.others' => 'required|numeric',
+                        //         // => charity_tax
+                        //         'expenses.charity_tax' => 'required|array',
+                        //         'expenses.charity_tax.charity' => 'required|numeric',
+                        //         'expenses.charity_tax.zakat' => 'required|numeric',
+                        //         'expenses.charity_tax.taxes_and_govt_fees' => 'required|numeric',
+                        //     ];
+                        //     break;
 
                         case '/step_4':
                             return [
                                 // net_assets
                                 'net_assets' => 'required|array',
                                 // assets
-                                'net_assets.assets' => 'required|array',
+                                'net_assets.financial_assets' => 'required|array',
                                 // liquid
-                                'net_assets.assets.liquid' => 'required|array',
-                                'net_assets.assets.liquid.cash' => 'required|numeric',
-                                'net_assets.assets.liquid.time_deposits' => 'required|numeric',
-                                'net_assets.assets.liquid.local_equity' => 'required|numeric',
-                                'net_assets.assets.liquid.government_bonds' => 'required|numeric',
-                                'net_assets.assets.liquid.international_equity' => 'required|numeric',
-                                'net_assets.assets.liquid.corporate_bonds' => 'required|numeric',
-                                // unliquid
-                                'net_assets.assets.unliquid' => 'required|array',
-                                // 'net_assets.assets.unliquid.reits' => 'required|numeric',
-                                'net_assets.assets.unliquid.direct_properties' => 'required|numeric',
-                                'net_assets.assets.unliquid.properties_shared_owned' => 'required|numeric',
-                                'net_assets.assets.unliquid.international_properties_shared_owned' => 'required|numeric',
-                                'net_assets.assets.unliquid.international_properties_direct_owned' => 'required|numeric',
-                                'net_assets.assets.unliquid.private_business' => 'required|numeric',
-                                // 'net_assets.assets.unliquid.others' => 'required|numeric',
-                                // personal
-                                'net_assets.assets.personal' => 'required|array',
-                                'net_assets.assets.personal.vehicles' => 'required|numeric',
-                                'net_assets.assets.personal.jeweleries' => 'required|numeric',
-                                'net_assets.assets.personal.private_house' => 'required|numeric',
-                                'net_assets.assets.personal.art_and_boutique' => 'required|numeric',
-                                // liabilities
+                                'net_assets.financial_assets.cash_and_deposit' => 'required|numeric',
+                                'net_assets.financial_assets.equities' => 'required|numeric',
+                                'net_assets.financial_assets.bonds' => 'required|numeric',
+
+
+                                'net_assets.real_assets' => 'required|array',
+                                // liquid
+                                'net_assets.real_assets.real_estate' => 'required|numeric',
+                                'net_assets.real_assets.bonds' => 'required|numeric',
+
+
                                 'net_assets.liabilities' => 'required|array',
+                                // liquid
                                 'net_assets.liabilities.personal_loan' => 'required|numeric',
-                                'net_assets.liabilities.mortgage' => 'required|numeric',
+                                'net_assets.liabilities.real_estate_loan' => 'required|numeric',
                                 'net_assets.liabilities.credit_cards' => 'required|numeric',
-                                'net_assets.liabilities.free_loan' => 'required|numeric',
+                                
+                                
                             ];
                             break;
                         
-                        case '/step_5':
+                        // case '/step_4':
+                        //     return [
+                        //         // net_assets
+                        //         'net_assets' => 'required|array',
+                        //         // assets
+                        //         'net_assets.assets' => 'required|array',
+                        //         // liquid
+                        //         'net_assets.assets.liquid' => 'required|array',
+                        //         'net_assets.assets.liquid.cash' => 'required|numeric',
+                        //         'net_assets.assets.liquid.time_deposits' => 'required|numeric',
+                        //         'net_assets.assets.liquid.local_equity' => 'required|numeric',
+                        //         'net_assets.assets.liquid.government_bonds' => 'required|numeric',
+                        //         'net_assets.assets.liquid.international_equity' => 'required|numeric',
+                        //         'net_assets.assets.liquid.corporate_bonds' => 'required|numeric',
+                        //         // unliquid
+                        //         'net_assets.assets.unliquid' => 'required|array',
+                        //         // 'net_assets.assets.unliquid.reits' => 'required|numeric',
+                        //         'net_assets.assets.unliquid.direct_properties' => 'required|numeric',
+                        //         'net_assets.assets.unliquid.properties_shared_owned' => 'required|numeric',
+                        //         'net_assets.assets.unliquid.international_properties_shared_owned' => 'required|numeric',
+                        //         'net_assets.assets.unliquid.international_properties_direct_owned' => 'required|numeric',
+                        //         'net_assets.assets.unliquid.private_business' => 'required|numeric',
+                        //         // 'net_assets.assets.unliquid.others' => 'required|numeric',
+                        //         // personal
+                        //         'net_assets.assets.personal' => 'required|array',
+                        //         'net_assets.assets.personal.vehicles' => 'required|numeric',
+                        //         'net_assets.assets.personal.jeweleries' => 'required|numeric',
+                        //         'net_assets.assets.personal.private_house' => 'required|numeric',
+                        //         'net_assets.assets.personal.art_and_boutique' => 'required|numeric',
+                        //         // liabilities
+                        //         'net_assets.liabilities' => 'required|array',
+                        //         'net_assets.liabilities.personal_loan' => 'required|numeric',
+                        //         'net_assets.liabilities.mortgage' => 'required|numeric',
+                        //         'net_assets.liabilities.credit_cards' => 'required|numeric',
+                        //         'net_assets.liabilities.free_loan' => 'required|numeric',
+                        //     ];
+                        //     break;
+                        
+                        // case '/step_5':
                             return [
                                 // gosi
                                 'gosi' => 'required|array',
                                 'gosi.strating_year_in_plan' => 'required|date_format:Y',
-                                'gosi.average_of_last_24_months_salary' => 'required|numeric',
-                                'gosi.subscription_months' => 'required|numeric',
+                                // 'gosi.average_of_last_24_months_salary' => 'required|numeric',
+                                // 'gosi.subscription_months' => 'required|numeric',
+                                'gosi.expecting_salary_at_retirement' => 'required|numeric',
+                                'gosi.mothly_life_expenses_after_retirement' => 'required|numeric',
                             ];
                             break;
                         

@@ -9,6 +9,48 @@ class Questionnaire extends Model
 {
     use LogsActivity;
 
+    public function __construct()
+    {
+        $this->cash_and_equivlent = [
+            'value' => 2,
+            'percentage' => 2,
+            'unit' => '%',
+            'tag' => 'of investments',
+        ];
+        $this->equities = [
+            'value' => 10,
+            'percentage' => 10,
+            'unit' => '%',
+            'tag' => 'of investments',
+        ];
+        $this->fix_income = [
+            'value' => 5,
+            'percentage' => 5,
+            'unit' => '%',
+            'tag' => 'of investments',
+        ];
+        $this->alternative_investments = [
+            'value' => 12,
+            'percentage' => 12,
+            'unit' => '%',
+            'tag' => 'of investments',
+        ];
+
+
+        $this->net_return_before_retirement = [
+            'value' => 7.85,
+            'percentage' => 7.85,
+            'unit' => '%',
+            'tag' => 'of investments',
+        ];
+        $this->net_return_before_retirement = [
+            'value' => 4,
+            'percentage' => 4,
+            'unit' => '%',
+            'tag' => 'of investments',
+        ];
+    }
+
     protected $table = 'questionnaires';
 
 	protected $primaryKey = 'questionnaire_id';
@@ -23,7 +65,8 @@ class Questionnaire extends Model
         'started_year_for_personal_financial_plan', 
         'personal_info', 
         'income', 
-        'expenses', 
+        // 'expenses', 
+        'saving_plan', 
         'net_assets', 
         'gosi', 
         'risks', 
@@ -58,7 +101,12 @@ class Questionnaire extends Model
         return (array) json_decode($value, true);
     }
     // ---------------------------------------------------------
-    public function getExpensesAttribute($value)
+    // public function getExpensesAttribute($value)
+    // {
+    //     return (array) json_decode($value, true);
+    // }
+    // ---------------------------------------------------------
+    public function getSavingPlanAttribute($value)
     {
         return (array) json_decode($value, true);
     }
@@ -133,13 +181,24 @@ class Questionnaire extends Model
     }
 
     // update expenses
-    public function update_expenses(array $data)
+    // public function update_expenses(array $data)
+    // {
+    //     return Questionnaire::where('fk_user_id', auth()->user()->id)
+    //             ->orderBy('questionnaire_id', 'DESC')
+    //             ->first()
+    //             ->update([
+    //                 'expenses' => json_encode($data),
+    //             ]);
+    // }
+
+    // update expenses
+    public function update_saving_plan(array $data)
     {
         return Questionnaire::where('fk_user_id', auth()->user()->id)
                 ->orderBy('questionnaire_id', 'DESC')
                 ->first()
                 ->update([
-                    'expenses' => json_encode($data),
+                    'saving_plan' => json_encode($data),
                 ]);
     }
 
@@ -227,9 +286,9 @@ class Questionnaire extends Model
         return $this->getLatestQuestionnaire($user)->income ?? null;
     }
 
-    public function getExpenses(? User $user = null)
+    public function getSavingPlan(? User $user = null)
     {
-        return $this->getLatestQuestionnaire($user)->expenses ?? null;
+        return $this->getLatestQuestionnaire($user)->saving_plan ?? null;
     }
 
     public function getNetAssets(? User $user = null)
@@ -1873,6 +1932,123 @@ class Questionnaire extends Model
                 return $this->getAggressiveA2();
                 break;
         }
+    }
+
+    public function getMonthlyIncomeToday(User $user = null)
+    {
+        $monthlyIncomeToday = array_sum($this->getIncome($user)['income']) ?? 0;
+        // $this->getLatestQuestionnaire($user);
+        return $monthlyIncomeToday;
+    }
+
+    public function getMonthlySavingToday(User $user = null)
+    {
+        $savingPlan = $this->getSavingPlan($user);  
+        return $savingPlan['saving_plan']['gosi_or_ppa_monthly_subscription'] + $savingPlan['saving_plan']['monthly_saving_plan_for_retirement'] ?? 0;
+    }
+
+
+    public function getNetWorthAssetsToday(User $user = null)
+    {
+        $netWorthAssetToday = $this->getNetAssets($user);  
+        return array_sum($netWorthAssetToday['net_assets']['financial_assets']) + array_sum($netWorthAssetToday['net_assets']['real_assets']) ?? 0;
+    }
+
+    public function getNetWorthLiabilitiesToday(User $user = null)
+    {
+        $netWorthAssetToday = $this->getNetAssets($user);  
+        return array_sum($netWorthAssetToday['net_assets']['liabilities']) ?? 0;
+    }
+
+    public function getAnnualSavingToday(User $user = null)
+    {
+        return (($this->getSavingPlan($user)['saving_plan']['monthly_saving_plan_for_retirement']) ?? 0) * 12;
+    }
+
+    public function getNetReturnBeforeRetirement(User $user = null)
+    {
+        return 7.85;
+    }
+
+    public function getNetReturnAfterRetirement(User $user = null)
+    {
+        return 4.00;
+    }
+
+    public function getStartingyearInPlan(User $user = null)
+    {
+        return $this->getGosi($user)['gosi']['strating_year_in_plan'];
+    }
+
+    public function getExpectedSalaryAtRetirement(User $user = null)
+    {
+        return (integer)$this->getGosi($user)['gosi']['expecting_salary_at_retirement'];
+        // return $this->getGosi($user)['gosi']['mothly_life_expenses_after_retirement'];
+    }
+
+    public function getPlannedRetirementAge(User $user = null)
+    {
+        return $this->getPersonalInfo($user)['personal_info']['retirement_age'];
+    }
+
+    public function getSubscriptionMonth(User $user = null)
+    {
+        return ((integer)$this->getPlannedRetirementAge()-$this->getPersonalInfo($user)['personal_info']['years_old'])*12;
+    }
+
+    public function getRetirementGOCIMonthlyIncome(User $user = null)
+    {
+        return ((integer)$this->getExpectedSalaryAtRetirement())*($this->getSubscriptionMonth()/480);
+    }
+
+    public function getCashAndEquivlent(User $user = null)
+    {
+        return (integer)$this->getNetAssets($user)['net_assets']['financial_assets']['cash_and_deposit'];
+    }
+
+    public function getEquities(User $user = null)
+    {
+        return (integer)$this->getNetAssets($user)['net_assets']['financial_assets']['equities'];
+    }
+
+    public function getFixIncome(User $user = null)
+    {
+        return (integer)$this->getNetAssets($user)['net_assets']['financial_assets']['bonds'];
+    }
+
+    public function getAlternativeInvestments(User $user = null)
+    {
+        return array_sum($this->getNetAssets($user)['net_assets']['real_assets']);
+    }
+
+    public function getGOSIorPPAmonthlySubscription(User $user = null)
+    {
+        return (integer)$this->getSavingPlan($user)['saving_plan']['gosi_or_ppa_monthly_subscription'];
+    }
+
+    public function getMonthlySavingPlanForRetirement(User $user = null)
+    {
+        return (integer)$this->getSavingPlan($user)['saving_plan']['monthly_saving_plan_for_retirement'];
+    }
+
+    public function getAccomulativeSavingtoday(User $user = null)
+    {
+        return (integer)$this->getSavingPlan($user)['saving_plan']['current_saving_balance'];
+    }
+
+    public function getCurrentAge(User $user = null)
+    {
+        return (integer)$this->getPersonalInfo($user)['personal_info']['years_old'];
+    }
+
+    public function getAnnualIncreaseInSavingPlan(User $user = null)
+    {
+        return (integer)$this->getSavingPlan($user)['saving_plan']['annual_increase_in_saving_plan'];
+    }
+
+    public function getuserInfo(User $user = null)
+    {
+        return $this->getPersonalInfo($user)['personal_info'];
     }
 
 

@@ -180,6 +180,17 @@ Route::group([
 
       Route::get('/home', 'HomeController@index')->name('home');
 
+      Route::get('/email-verification', 'HomeController@emailVerification')->name('email_verification');
+
+      Route::get('/payment', 'HomeController@payment')->name('payment');
+      Route::post('/payment', 'QuestionnaireController@getReport')->name('payment');
+
+      Route::get('/sample-report',  function () {
+          return view('dashboard.pdf.sample_report');
+      })->name('sample-report');
+
+      // Route::get('/sample-report', 'HomeController@emailVerification')->name('email_verification');
+
       // --------------------------------- Site Management Routes ---------------------------
       Route::get('/site_management', 'SiteManagementController@index')->name('site_management');
       Route::post('/save_site_management/{option}', 'SiteManagementController@store')->name('save_site_management');
@@ -236,7 +247,7 @@ Route::group([
       Route::get('/step_4', 'QuestionnaireController@step_4')->name('step_4');
       Route::get('/step_5', 'QuestionnaireController@step_5')->name('step_5');
       Route::get('/step_6', 'QuestionnaireController@step_6')->name('step_6');
-      Route::get('/step_7', 'QuestionnaireController@step_7')->name('step_7');
+      // Route::get('/step_7', 'QuestionnaireController@step_7')->name('step_7');
       // post
       Route::post('/questionnaire', 'QuestionnaireController@store')->name('questionnaire');
 

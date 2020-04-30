@@ -1,4 +1,9 @@
 /* width */
+
+body{
+  font-family: 'Cairo', sans-serif !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -36,7 +41,7 @@ p.wizard_info_text.date_text {
 	float:right !important
 }
 p{
-	font-family:Soin Sans Neue;
+	font-family: 'Cairo', sans-serif;
 	font-weight:bold;
 	color:#989898;
 	font-size:14px;
@@ -522,17 +527,17 @@ a.button_primary.lang_btn {
 	font-family: 'Cairo', sans-serif;
 }
 .s-20{
-	height: 20px;
+	height: 2rem;
 }
 .s-35{
-	height: 35px;
+	height: 3.5rem;
 }
 .s-50{
-	height: 50px;
+	height: 5rem;
 }
 
 .s-100{
-	height: 100px;
+	height: 10rem;
 }
 
 .btn_full_width{

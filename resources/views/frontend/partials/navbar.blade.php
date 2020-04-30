@@ -32,7 +32,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="{{ ($request->segment(2) == 'disclaimer') ? 'active' : '' }}" href="{{ route('disclaimer', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
+                                    <a class="{{ ($request->segment(2) == 'legal') ? 'active' : '' }}" href="{{ route('legal', app()->getLocale()) }}">{{ trans('lang.site_menu.legal') }}</a>
                                 </li>
 
                                 {{-- <li>
@@ -42,7 +42,7 @@
                                 @auth
                                   @if (auth()->user()->two_factor_code)
                                     <a class="login_link" href="{{ route('verify.index', app()->getLocale()) }}">
-                                        {{ trans('lang.verify.verify') }}
+                                        {{ trans('lang.frontend.verify') }}
                                     </a>
                                   @else
                                     <li class="auth_resp">
@@ -63,9 +63,9 @@
                                     </form>
                                 @endif
                                 @else
-                                  <li class="auth_resp">
-                                      <a class="{{ ($request->segment(2) == 'register') ? 'active' : '' }}" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
-                                  </li>
+                                    {{-- <li class="auth_resp">
+                                        <a class="{{ ($request->segment(2) == 'register') ? 'active' : '' }}" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
+                                    </li> --}}
                                   {{-- <li class="auth_resp">
                                       <a class="{{ ($request->segment(2) == 'login') ? 'active' : '' }}" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a>
                                   </li> --}}
@@ -135,7 +135,7 @@
                                 @auth
                                 @if (auth()->user()->two_factor_code)
                                     <a class="login_link" href="{{ route('verify.index', app()->getLocale()) }}">
-                                        {{ trans('lang.verify.verify') }}
+                                        {{ trans('lang.frontend.verify') }}
                                     </a>
                                 @else
                                     <a class="login_link" href="{{ route('home', app()->getLocale()) }}">{{ trans('lang.dashboard.dashboard') }}</a>
@@ -156,9 +156,9 @@
                                 @else
                                     {{-- <a class="login_link" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a> --}}
 
-                                    @if (Route::has('register'))
+                                    {{-- @if (Route::has('register'))
                                         <a class="button_primary get_started" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
-                                    @endif
+                                    @endif --}}
                                 @endauth
 
                                 

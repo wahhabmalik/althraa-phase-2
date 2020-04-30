@@ -12,8 +12,8 @@
         z-index: 0;
       }
     @endif    
-</style>
   </style>
+
 </head>
 
 <body class="gray-bg" style="{{ ($request->segment(1) == 'ar') ? 'direction:rtl' : '' }}">
@@ -24,14 +24,14 @@
             <img
               class="logo__img"
               srcset="
-                {{ asset('backend_assets/login/images/logo/logotype.png    1x') }},
-                {{ asset('backend_assets/login/images/logo/logotype@2x.png 2x') }}
+                {{ althraa_logo() }},
+                {{ althraa_logo() }}
               "
-              alt="Althraa Logo"
+              alt="Thokhor Logo"
             />
           </a>
         </div>
-        <div class="{{ ($request->segment(1) == 'ar') ? 'float-left text-left' : 'float-right text-right' }} navbar-nav ml-auto">
+        {{-- <div class="{{ ($request->segment(1) == 'ar') ? 'float-left text-left' : 'float-right text-right' }} navbar-nav ml-auto">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" style="font-size: 15px;font-weight: 600;margin-right: 10px;" href="{{ route('home', app()->getLocale()) }}">{{ trans('lang.dashboard.dashboard') }}</a>
@@ -52,7 +52,7 @@
 
 
           </ul>
-        </div>
+        </div> --}}
       </nav>
     </header>
 

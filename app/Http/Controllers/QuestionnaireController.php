@@ -37,89 +37,10 @@ class QuestionnaireController extends Controller
      */
     public function create()
     {
-        // dump('income evaluation (sar)', $this->questionnaire->getTotalIncome(), 
-        //     $this->questionnaire->getTotalExpenses(),
-        //     $this->questionnaire->getNetIncome(),
-        //     $this->questionnaire->getPossibleSavingRate(),
-        //     $this->questionnaire->getPossibleSavingAmount()
-        // );
-        // dd('');
-        // dump('gosi (pension benefits) (SAR)', 
-        //     $this->questionnaire->getExpectedRetirementYear(),
-        //     $this->questionnaire->getGosiStratingYearInPlan(),
-        //     $this->questionnaire->getAverageOfLast24MonthsSalary(),
-        //     $this->questionnaire->getSubscriptionMonths(),
-        //     $this->questionnaire->getNumberOfDependents(),
-        //     $this->questionnaire->getNumberOfDependentsPercentage(),
-        //     $this->questionnaire->getSubscriptionMonthsBefore2001(),
-        //     $this->questionnaire->getSubscriptionMonthsAfter2001(),
-        //     $this->questionnaire->getCompensationRateBefore2001(),
-        //     $this->questionnaire->getCompensationRateAfter2001(),
-        //     $this->questionnaire->getExpectedRetirementSalary(),
-        // );
-
-        // dump('risk tolerance score test', 
-        //     $this->questionnaire->getRiskTotalPoints(),
-        //     $this->questionnaire->getRiskAbilityAndRiskTolerance(),
-        // );
-
-        // dump('investment plan (sar)', 
-        //     $this->questionnaire->getMonthlyTotalReturns(),
-        //     $this->questionnaire->getInitialInvestment(),
-        //     $this->questionnaire->getInvestmentHorizonInYears(),
-        //     $this->questionnaire->getInvestmentHorizonInMonths(),
-        //     $this->questionnaire->getFinalRetirementPortfolioValue(),
-        //     $this->questionnaire->getMonthlySaving(),
-        //     $this->questionnaire->getExpectedRetirementYear(),
-        //     $this->questionnaire->getFutureValueMonthlySaving(),
-        //     $this->questionnaire->getPortfolioValueAtRetirement(),
-        //     $this->questionnaire->getCashReturnsAtRetirement(),
-        //     $this->questionnaire->getMonthlyIncomeAtReturementFromFinancialPlan(),
-        //     $this->questionnaire->getMonthlyIncomeAtReturementFromGosi(),
-        //     $this->questionnaire->getTotalMonthlyIncomeAtReturement(),
-        // );
-
-        // dump('cash flow evaluation (SAR)', 
-        //     $this->questionnaire->getPersonalNetIncome(),
-        //     $this->questionnaire->getCurrentSavingRate(),
-        //     $this->questionnaire->getCurrentSavingAmount(),
-        // );
-
-        // dump('networth evaluation (SAR)', 
-        //     $this->questionnaire->getNetAssetsTotalLiquidInvestment(),
-        //     $this->questionnaire->getNetAssetsTotalUnliquidInvestment(),
-        //     $this->questionnaire->getNetAssetsTotalPersonalInvestment(),
-        //     $this->questionnaire->getNetworthTotalInvestmentOrAssets(),
-        //     $this->questionnaire->getNetworthTotalDebtsOrLiabilities(),
-        //     $this->questionnaire->getTotalNetworth(),
-        // );
-        // dd('');
-
-        // dump('current strategic asset allocation (CAA)', 
-        //     $this->questionnaire->getCashAndDepositsCAA(),
-        //     $this->questionnaire->getLocalEquityCAA(),
-        //     $this->questionnaire->getInternationalEquityCAA(),
-        //     $this->questionnaire->getGovernmentBondsCAA(),
-        //     $this->questionnaire->getCorporateBondsCAA(),
-        //     $this->questionnaire->getReitsCAA(),
-        //     $this->questionnaire->getDirectPropertiesCAA(),
-        //     $this->questionnaire->getTotalCAA(),
-
-        //     $this->questionnaire->getCashAndDepositsCAAPercentage(),
-        //     $this->questionnaire->getLocalEquityCAAPercentage(),
-        //     $this->questionnaire->getInternationalEquityCAAPercentage(),
-        //     $this->questionnaire->getGovernmentBondsCAAPercentage(),
-        //     $this->questionnaire->getCorporateBondsCAAPercentage(),
-        //     $this->questionnaire->getReitsCAAPercentage(),
-        //     $this->questionnaire->getDirectPropertiesCAAPercentage(),
-        //     $this->questionnaire->getTotalCAAPercentage(),
-        // );
-
-        // dd($this->questionnaire->getFinalRetirementPortfolioValue());
         $user_questionnaire = $this->loggedInUser->user_questionnaires()->orderBy('questionnaire_id', 'DESC')->first();
         return view('dashboard.user_panel.questionary.step_1_form')
                 ->with([
-                    'title' => __('lang.questionnaire.step1')
+                    'title' => __('lang.questionnaire.step_1')
                 ])
                 ->with('user_questionnaire', $user_questionnaire);
     }
@@ -165,8 +86,13 @@ class QuestionnaireController extends Controller
                         ?   redirect()->route('step_3', $locale)
                         : redirect()->route('step_2', $locale);
                 break;
+            // case '/step_3':
+            //     return $this->questionnaire->update_expenses($request->except('_token'))
+            //             ?   redirect()->route('step_4', $locale)
+            //             : redirect()->route('step_3', $locale);
+            //     break;
             case '/step_3':
-                return $this->questionnaire->update_expenses($request->except('_token'))
+                return $this->questionnaire->update_saving_plan($request->except('_token'))
                         ?   redirect()->route('step_4', $locale)
                         : redirect()->route('step_3', $locale);
                 break;
@@ -182,14 +108,19 @@ class QuestionnaireController extends Controller
                 break;
             case '/step_6':
                 return $this->questionnaire->update_risks($request->except('_token'))
-                        ?   redirect()->route('step_7', $locale)
+                        ?   redirect()->route('email_verification', $locale)
                         : redirect()->route('step_6', $locale);
                 break;
-            case '/step_7':
-                return $this->questionnaire->update_objectives($request->except('_token'))
-                        ?   redirect()->route('results', $locale)
-                        : redirect()->route('step_7', $locale);
+            case '/email-verification':
+                return auth()->user()->fill($request->all())->update()
+                        ?   redirect()->route('payment', $locale)
+                        : redirect()->route('email_verification', $locale);
                 break;
+            // case '/step_7':
+            //     return $this->questionnaire->update_objectives($request->except('_token'))
+            //             ?   redirect()->route('results', $locale)
+            //             : redirect()->route('step_7', $locale);
+            //     break;
             default:
                 abort(500, 'You have skipped some step');
                 break;
@@ -269,8 +200,8 @@ class QuestionnaireController extends Controller
 
     public function step_3(){
         $user_questionnaire = $this->loggedInUser->user_latest_questionnaire();
-
-        if(($user_questionnaire->income ?? null) == null){          
+        
+        if(($user_questionnaire->saving_plan ?? null) == null){          
             $status = array('msg' => "Previous Step not completed yet.", 'toastr' => "errorToastr");
             Session::flash($status['toastr'], $status['msg']);
             return redirect()->route('step_2', app()->getLocale());
@@ -1987,146 +1918,6 @@ class QuestionnaireController extends Controller
     }
 
 
-
-
-
-    // public function dowload($type,  ? User $user = null)
-    // {
-    //     set_time_limit(3000000);
-    //     $view = '';
-    //     switch ($type) {
-    //         case 'results':
-    //             $view = 'dashboard.user_panel.reports.results';
-    //             break;
-    //         case 'networth_assets':
-    //             $view = 'dashboard.user_panel.reports.networth_assets';
-    //             break;
-    //         case 'networth_liabilities':
-    //             $view = 'dashboard.user_panel.reports.networth_liabilities';
-    //             break;
-    //         case 'plan':
-    //             $view = 'dashboard.user_panel.reports.plan';
-    //             break;
-            
-    //         default:
-    //             return abort(404, 'Invalid Type for PDF');
-    //             break;
-    //     }
-
-    //     $data = [];
-    //     // $route = request()->segment(count(request()->segments()));
-    //     // $view = 'dashboard.user_panel.reports.results';
-    //     // if($route == 'current_state')
-    //     //     $view = 'dashboard.user_panel.user_dashboard_pages.current_state';
-
-    //     $user = $user ?: $this->loggedInUser;
-
-    //     $not_found = false;
-    //     if (!$user->user_latest_questionnaire()) {
-    //         $not_found = "style = opacity:0.3";
-    //     }
-        
-    //     // net personal income
-    //     $netPersonalIncome = $this->questionnaire->getPersonalNetIncome($user);
-    //     // current saving rate in progress bar & bar chart
-    //     $currentSavingRate = $this->questionnaire->getCurrentSavingRate($user);
-    //     // possible saving rate in bar chart
-    //     $possibleSavingRate = $this->questionnaire->getPossibleSavingRate($user);
-    //     // total networth evaluation
-    //     $totalNetworth = $this->questionnaire->getTotalNetworth($user);
-    //     // total Assets
-    //     $networthTotalInvestmentOrAssets = $this->questionnaire->getNetworthTotalInvestmentOrAssets($user);
-    //     // total Assets => Liquid + Unliquid + Personal
-    //     $liquid_assets = $this->questionnaire->getNetAssetsTotalLiquidInvestment($user);
-    //     $unliquid_assets = $this->questionnaire->getNetAssetsTotalUnliquidInvestment($user);
-    //     $personal_assets = $this->questionnaire->getNetAssetsTotalPersonalInvestment($user);
-    //     // total Liabilities
-    //     $networthTotalDebtsOrLiabilities = $this->questionnaire->getNetworthTotalDebtsOrLiabilities($user);
-    //     // CAA table
-    //     $totalCAA = $this->questionnaire->getTotalCAA($user);
-    //     $totalCAAPercentage = $this->questionnaire->getTotalCAAPercentage($user);
-    //     // values
-    //     $cashAndDepositsCAA = $this->questionnaire->getCashAndDepositsCAA($user);
-    //     $localEquityCAA = $this->questionnaire->getLocalEquityCAA($user);
-    //     $internationalEquityCAA = $this->questionnaire->getInternationalEquityCAA($user);
-    //     $governmentBondsCAA = $this->questionnaire->getGovernmentBondsCAA($user);
-    //     $corporateBondsCAA = $this->questionnaire->getCorporateBondsCAA($user);
-    //     $reitsCAA = $this->questionnaire->getReitsCAA($user);
-    //     $directPropertiesCAA = $this->questionnaire->getDirectPropertiesCAA($user);
-    //     // percentages
-    //     $cashAndDepositsCAAPercentage = $this->questionnaire->getCashAndDepositsCAAPercentage($user);
-    //     $localEquityCAAPercentage = $this->questionnaire->getLocalEquityCAAPercentage($user);
-    //     $internationalEquityCAAPercentage = $this->questionnaire->getInternationalEquityCAAPercentage($user);
-    //     $governmentBondsCAAPercentage = $this->questionnaire->getGovernmentBondsCAAPercentage($user);
-    //     $corporateBondsCAAPercentage = $this->questionnaire->getCorporateBondsCAAPercentage($user);
-    //     $reitsCAAPercentage = $this->questionnaire->getReitsCAAPercentage($user);
-    //     $directPropertiesCAAPercentage = $this->questionnaire->getDirectPropertiesCAAPercentage($user);
-    //     $suggestion = $this->questionnaire->getSuggestedAssetAllocationTableName($user);
-    //     // $pdf = \PDF::loadView($view, $data);
-    //     // return $pdf->download($view.'.pdf');
-    //     $pdf = \PDF::loadView('dashboard.pdf.result', [
-    //         'netPersonalIncome' => $netPersonalIncome,
-    //         'currentSavingRate' => $currentSavingRate,
-    //         'possibleSavingRate' => $possibleSavingRate,
-    //         'totalNetworth' => $totalNetworth,
-    //         'networthTotalInvestmentOrAssets' => $networthTotalInvestmentOrAssets,
-    //         'liquid_assets' => $liquid_assets,
-    //         'unliquid_assets' => $unliquid_assets,
-    //         'personal_assets' => $personal_assets,
-    //         'networthTotalDebtsOrLiabilities' => $networthTotalDebtsOrLiabilities,
-    //         'totalCAA' => $totalCAA,
-    //         'totalCAAPercentage' => $totalCAAPercentage,
-    //         'cashAndDepositsCAA' => $cashAndDepositsCAA,
-    //         'localEquityCAA' => $localEquityCAA,
-    //         'internationalEquityCAA' => $internationalEquityCAA,
-    //         'governmentBondsCAA' => $governmentBondsCAA,
-    //         'corporateBondsCAA' => $corporateBondsCAA,
-    //         'reitsCAA' => $reitsCAA,
-    //         'directPropertiesCAA' => $directPropertiesCAA,
-    //         'cashAndDepositsCAAPercentage' => $cashAndDepositsCAAPercentage,
-    //         'localEquityCAAPercentage' => $localEquityCAAPercentage,
-    //         'internationalEquityCAAPercentage' => $internationalEquityCAAPercentage,
-    //         'governmentBondsCAAPercentage' => $governmentBondsCAAPercentage,
-    //         'corporateBondsCAAPercentage' => $corporateBondsCAAPercentage,
-    //         'reitsCAAPercentage' => $reitsCAAPercentage,
-    //         'directPropertiesCAAPercentage' => $directPropertiesCAAPercentage,
-    //         'currentAssetDataDonutChart' => [
-    //             round($cashAndDepositsCAAPercentage['percentage'], 2),
-    //             round($localEquityCAAPercentage['percentage'], 2),
-    //             round($internationalEquityCAAPercentage['percentage'], 2),
-    //             round($governmentBondsCAAPercentage['percentage'], 2),
-    //             round($corporateBondsCAAPercentage['percentage'], 2),
-    //             round($reitsCAAPercentage['percentage'], 2),
-    //             round($directPropertiesCAAPercentage['percentage'], 2),
-    //         ],
-    //         'netWorthDonutChart' => [
-    //             round($networthTotalInvestmentOrAssets, 2),
-    //             round($networthTotalDebtsOrLiabilities, 2),
-    //         ],
-    //         'user' => $user,
-    //         'not_found' => $not_found,
-    //         'suggestion' => $suggestion,
-    //     ]);
-    //     return $pdf->stream('results.pdf');
-    // }
-
-    // public function testDownload()
-    // {
-    //     $data= 'Wahp';
-    //     $pdf = \PDF::loadView('welcome', ['data' => $data]);
-    //     return $pdf->stream('invoice.pdf');
-    //     exit(0);
-
-    //     // $pdf = App::make('dompdf.wrapper');
-    //     // $pdf->loadHTML('<h1>Test</h1>');
-    //     // return $pdf->stream();
-    // }
-
-
-
-
-
-
     public function print_preview($locale = 'en', ? User $user = null)
     {
         $route = request()->segment(count(request()->segments()));
@@ -2386,86 +2177,6 @@ class QuestionnaireController extends Controller
                     ->orWhere('constant_meta_type', 'inflation')
                     ->orWhere('constant_meta_type', 'uncertainty')
                     ->get()->keyBy('constant_attribute')->toArray();
-
-        // ----------------------------- --------------------------------
-        // $current_age = $this->questionnaire->getPersonalInfo($user)["personal_info"]["years_old"] ?? null;
-        // $retirement_age = $this->questionnaire->getRetirementAge($user);
-        // $expected_age = $this->questionnaire->getLifeExpectancyAfterRetirement($user);
-        // $salary = ($this->questionnaire->getPersonalNetIncome($user) ?? null) * 12;
-        // $annual_saving = ($this->questionnaire->getCurrentSavingAmount($user) ?? null) * 12;
-        // $pension_income = ($this->questionnaire->getExpectedRetirementSalary($user) ?? null) * 12;
-        // $retirement_saving_balance = $constants["Retirement Savings Balance ($) ' Starting Amount '"]["constant_value"] ?? null;
-
-        // $before_retirement_investment_return = $constants["Investment Return (before Retirement) (%)"]["constant_value"] ?? null;
-        // $after_retirement_investment_return = $constants["Investment Return (after Retirement) (%)"]["constant_value"] ?? null;
-        // $starting_age = $current_age;
-        // $ending_age = $retirement_age + $expected_age;
-
-        // $savingsAtEndingAge = [];
-
-        // $new_salary = $salary;
-        // $starting_amount = $retirement_saving_balance;
-        // $new_interest = $starting_amount * ($before_retirement_investment_return / 100);
-
-        // $ageForGraph = []; 
-        // $yearEndingBalanceForGraph = []; 
-
-        // for ($i = (int) $current_age; $i <= $ending_age; $i++) { 
-        //     $ageForGraph[] = $i;
-        //     if ($i == $current_age) 
-        //     {
-        //         $savingsAtEndingAge[$i]['salary'] = round($new_salary, 2);
-        //         $savingsAtEndingAge[$i]['balance'] = $starting_amount;
-        //         $savingsAtEndingAge[$i]['interest'] = round($new_interest, 2);
-
-        //         $starting_amount = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'];
-
-        //         $savingsAtEndingAge[$i]['yearly_savings'] = $annual_saving;
-        //         $savingsAtEndingAge[$i]['desired_retirement_income'] = 0;
-        //         $savingsAtEndingAge[$i]['pension_income'] = 0;
-        //         $savingsAtEndingAge[$i]['year_ending_balance'] = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'] + $savingsAtEndingAge[$i]['yearly_savings'];
-
-        //         $yearEndingBalanceForGraph[] = $savingsAtEndingAge[$i]['year_ending_balance'];
-        //     } 
-        //     else if ($i >= $retirement_age) 
-        //     {
-        //         $savingsAtEndingAge[$i]['salary'] = 0;
-        //         $savingsAtEndingAge[$i]['balance'] = round($starting_amount, 2);
-        //         $savingsAtEndingAge[$i]['interest'] = round($starting_amount * ($before_retirement_investment_return / 100), 2);
-
-        //         $starting_amount = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'];
-
-        //         $savingsAtEndingAge[$i]['yearly_savings'] = 0;
-
-        //         $new_salary += $salary * (($constants["( Increase In Income , Saving , Inflation )"]["constant_value"] ?? null) / 100);
-        //         $savingsAtEndingAge[$i]['desired_retirement_income'] = round($new_salary, 2);
-        //         $salary = $new_salary;
-
-        //         $savingsAtEndingAge[$i]['pension_income'] = round($pension_income, 2);
-        //         $savingsAtEndingAge[$i]['year_ending_balance'] = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'] + $savingsAtEndingAge[$i]['yearly_savings'];
-
-        //         $yearEndingBalanceForGraph[] = $savingsAtEndingAge[$i]['year_ending_balance'];
-        //     }
-        //     else 
-        //     {
-        //         $new_salary += $salary * (($constants["( Increase In Income , Saving , Inflation )"]["constant_value"] ?? null) / 100);
-        //         $savingsAtEndingAge[$i]['salary'] = round($new_salary, 2);
-        //         $salary = $new_salary;
-
-        //         $savingsAtEndingAge[$i]['balance'] = round($starting_amount, 2);
-        //         $savingsAtEndingAge[$i]['interest'] = round($starting_amount * ($before_retirement_investment_return / 100), 2);
-
-        //         $starting_amount = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'];
-
-        //         $savingsAtEndingAge[$i]['yearly_savings'] = $annual_saving;
-        //         $savingsAtEndingAge[$i]['desired_retirement_income'] = 0;
-        //         $savingsAtEndingAge[$i]['pension_income'] = 0;
-        //         $savingsAtEndingAge[$i]['year_ending_balance'] = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'] + $savingsAtEndingAge[$i]['yearly_savings'];
-
-        //         $yearEndingBalanceForGraph[] = $savingsAtEndingAge[$i]['year_ending_balance'];
-        //     }
-        // }
-
 
 
 
@@ -2791,10 +2502,6 @@ class QuestionnaireController extends Controller
                 ]);
     }
     
-
-
-
-
 
     /*
     *   ________________ Current Situation _____________________
@@ -3168,6 +2875,175 @@ class QuestionnaireController extends Controller
                 // ------------------------------------------------------------
                 ->with('user', $user);
 
+    }
+
+    public function getReport(Request $request)
+    {
+        $user = loggedInUser();
+
+        // Process
+        //Status today
+        $personalInfo = $this->questionnaire->getuserInfo($user);
+        $monthlyIncomeToday   = $this->questionnaire->getMonthlyIncomeToday($user);
+        $monthlySavingToday   = $this->questionnaire->getMonthlySavingToday($user);
+        $totalAssetsToday     = $this->questionnaire->getNetWorthAssetsToday($user);
+        $totalLiabilitiesToday= $this->questionnaire->getNetWorthLiabilitiesToday($user);
+
+        $annualSavingToday    = $this->questionnaire->getAnnualSavingToday($user);
+
+        $netReturnBeforeRetirement  = $this->questionnaire->getNetReturnBeforeRetirement($user);
+        $netReturnAfterRetirement   = $this->questionnaire->getNetReturnAfterRetirement($user);
+
+        //GOSI or PPA Plan
+        $startingYearInPlan         = $this->questionnaire->getStartingyearInPlan($user);
+        $expectedSalaryAtRetirement = $this->questionnaire->getExpectedSalaryAtRetirement($user);
+        $yourPlannedRetirementAge   = $this->questionnaire->getPlannedRetirementAge($user);
+        $subscriptionMonths         = $this->questionnaire->getSubscriptionMonth($user);
+        $retirementGOCIMonthlyIncome= $this->questionnaire->getRetirementGOCIMonthlyIncome($user);
+
+        //Current Asset Allocation
+        $cashAndEquivlent           = $this->questionnaire->getCashAndEquivlent($user);
+        $equities                   = $this->questionnaire->getEquities($user);
+        $fixIncome                  = $this->questionnaire->getFixIncome($user);
+        $alternativeInvestments     = $this->questionnaire->getAlternativeInvestments($user);
+
+        $totalCurrentAssetAllocation = $cashAndEquivlent + $equities + $fixIncome + $alternativeInvestments ;
+
+        // Output
+        //Status Today
+        $gosi_or_ppa_monthlySubscription = $this->questionnaire->getGOSIorPPAmonthlySubscription($user);
+        $monthlySavingPlanForRetirement  = $this->questionnaire->getMonthlySavingPlanForRetirement($user);
+        $monthlySavingPercentageToday    = ($monthlySavingToday/$monthlyIncomeToday)*100;
+        $assetsToday                = $totalAssetsToday;
+        $liabilitiesToday           = $totalLiabilitiesToday;
+        $netWorthToday              = $assetsToday - $liabilitiesToday;
+        $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
+
+        //  Current Asset Allocation
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / $totalCurrentAssetAllocation)*100;
+        $equitiesPercentage         = ($equities / $totalCurrentAssetAllocation)*100;
+        $fixIncomePercentage        = ($fixIncome / $totalCurrentAssetAllocation)*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $totalCurrentAssetAllocation)*100;
+        $totalCurrentAssetAllocationPercentage  = $cashAndEquivlentPercentage+$equitiesPercentage+$fixIncomePercentage+$alternativeInvestmentsPercentage;
+
+
+        // Plan
+        $yourCurrentAge   = $this->questionnaire->getCurrentAge($user);
+        $valueBegYear     = $accomulativeSavingtoday;
+        $contribution     = $annualSavingToday;
+        $returns = ($valueBegYear + ($contribution)/2)*($netReturnBeforeRetirement / 100);
+        $valueEndYear = $valueBegYear + $contribution + $returns;
+
+        $annualIncreaseInSavingPlan = $this->questionnaire->getAnnualIncreaseInSavingPlan($user);
+
+
+        $current_age = $yourCurrentAge;
+        $retirement_age = $yourPlannedRetirementAge;
+
+        for ($i = (int) $current_age; $i <= $retirement_age; $i++) { 
+            if ($i == $current_age) 
+            {
+                $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
+                $plan[$i]['contribution'] = $annualSavingToday;
+
+                $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
+
+                $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+
+            }
+            else
+            {
+                $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
+
+                $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
+
+                $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
+
+                $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+
+            }
+
+        }
+
+        return view('dashboard.pdf.report')
+                ->with('personalInfo',$personalInfo)
+
+                ->with('monthlyIncomeToday',$monthlyIncomeToday)
+                ->with('gosi_or_ppa_monthlySubscription',$gosi_or_ppa_monthlySubscription)
+                ->with('totalAssetsToday',$totalAssetsToday)
+                ->with('totalLiabilitiesToday',$totalLiabilitiesToday)
+                ->with('monthlySavingPlanForRetirement',$monthlySavingPlanForRetirement)
+                ->with('monthlySavingPercentageToday',$monthlySavingPercentageToday)
+                ->with('netWorthToday',$netWorthToday)
+                ->with('accomulativeSavingtoday',$accomulativeSavingtoday)
+
+                ->with([
+                    'assetAllocationDonutChartValues' => [
+                        $cashAndEquivlent,
+                        $equities,
+                        $fixIncome,
+                        $alternativeInvestments,
+                        
+                    ],
+                ])
+                
+                ->with('cashAndEquivlent',$cashAndEquivlent)
+                ->with('equities',$equities)
+                ->with('fixIncome',$fixIncome)
+                ->with('alternativeInvestments',$alternativeInvestments)
+                ->with('totalCurrentAssetAllocation',$totalCurrentAssetAllocation)
+
+                ->with('cashAndEquivlentPercentage',$cashAndEquivlentPercentage)
+                ->with('equitiesPercentage',$equitiesPercentage)
+                ->with('fixIncomePercentage',$fixIncomePercentage)
+                ->with('alternativeInvestmentsPercentage',$alternativeInvestmentsPercentage)
+                ->with('totalCurrentAssetAllocationPercentage',$totalCurrentAssetAllocationPercentage)
+
+                ->with('credits','Thokhor');
+
+        // dd($plan);
+
+        dd(
+            $monthlyIncomeToday,
+            $monthlySavingToday,
+            $totalAssetsToday,
+            $totalLiabilitiesToday,
+            $annualSavingToday,
+            $netReturnBeforeRetirement,
+            $netReturnAfterRetirement,
+            $startingYearInPlan,
+            $expectedSalaryAtRetirement,
+            $yourPlannedRetirementAge,
+            $subscriptionMonths,
+            $retirementGOCIMonthlyIncome,
+            $cashAndEquivlent,
+            $equities,
+            $fixIncome,
+            $alternativeInvestments,
+            $totalCurrentAssetAllocation,
+
+
+            $gosi_or_ppa_monthlySubscription,
+            $monthlySavingPlanForRetirement,
+            $monthlySavingPercentageToday,
+            $assetsToday,
+            $liabilitiesToday,
+            $netWorthToday,
+            $accomulativeSavingtoday,
+
+            $cashAndEquivlentPercentage,
+            $equitiesPercentage,
+            $fixIncomePercentage,
+            $alternativeInvestmentsPercentage,
+            $totalCurrentAssetAllocationPercentage,
+
+
+            $yourCurrentAge,
+            $valueBegYear,
+            $contribution,
+            $returns,
+            $valueEndYear,
+        );
     }
 
 }

@@ -131,7 +131,6 @@
 										</p>
 										<div class="date_sec">
 											<a href="javascript:void(0)" data-toggle="tooltip" data-placement="right" 
-											{{-- title="Enter Age at the time of Retirement" --}}
 											>
 												<p class="wizard_info_text date_text">
 													<input 

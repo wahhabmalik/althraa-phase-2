@@ -33,23 +33,37 @@ footer {
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
                 <div class="s-35"></div>
+
                 <p class="login_link text-center primary-link">
                     {{ althraa_site_description() }}
                     {{-- {{ trans('lang.frontend.althraa') }} --}}
                 </p>
+
                 <h1 class="text-center page-heading">
                     {{ trans('lang.frontend.slider_heading') }}
                 </h1>
+
+                <p class="text-center">
+                    {{ trans('lang.frontend.slider_text') }}
+                </p>
+
+                <div class="s-50"></div>
+
+                <div class="text-center">
+                    <a class="button_primary get_started" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.frontend.get_started') }}</a>
+                </div>
+
                 <div class="s-20"></div>
                 
                 <img
                   class="img img-responsive"
                   src="
                     {{ asset('frontend_assets/img/banner/home_banner_1.svg') }}"
-                  alt="Althraa Logo"
+                  alt="Banner image"
                 />
 
                 <div class="s-20"></div>
+
                 <p class="text-center intro-text secondary_text_slider mb-5">
                     {{ trans('lang.frontend.secondary_text_slider') }}
                 </p>
@@ -58,15 +72,8 @@ footer {
             </div>
         </div>
     </div>
-    <div class="ribb_home bg-white">
-        <div class="container text-center">
-            <h1>{{ trans('lang.frontend.ribbon_heading') }}</h1>
-            <p class="text-center intro-text" >{{ trans('lang.frontend.ribbon_text') }}</p>
-        </div>
-    </div>
-
-
-
+</div>
+<div class="background_effect_inverse">
     <div class="container">
 
         <div class="s-100"></div>
@@ -74,13 +81,13 @@ footer {
         <p class="login_link text-center primary-link">
             {{ trans('lang.frontend.steps') }}
         </p>
-        <h2 class="text-center">
+        <h1 class="text-center">
             {{ trans('lang.frontend.how_does_it_work') }}
-        </h2>
+        </h1>
 
         <div class="s-35"></div>
 
-        <div class="row text-center">
+        {{-- <div class="row text-center">
             <div class="col-sm-3"></div>
             
             <div class="col-sm-2">
@@ -110,10 +117,41 @@ footer {
                 </p>
             </div>
             
+        </div> --}}
+
+
+        <div class="row text-center">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-2">
+                <span><img src="{{ asset('frontend_assets/img/icons/how_it_works_icons1.svg') }}"><span class="icon-text">
+                    {{ trans('lang.frontend.1') }}
+                </span></span>
+                <p class="icon-p text_black">
+                    {{ trans('lang.frontend.answer_our_questions') }}
+                </p>
+            </div>
+
+            <div class="col-sm-2">
+                <span><img src="{{ asset('frontend_assets/img/icons/how_it_works_icons2.svg') }}"><span class="icon-text">
+                    {{ trans('lang.frontend.2') }}
+                </span></span>
+                <p class="icon-p text_black">
+                    {{ trans('lang.frontend.get_holistic_financial_plan') }}
+                </p>
+            </div>
+            
+            <div class="col-sm-2">
+                <span><img src="{{ asset('frontend_assets/img/icons/money.png') }}"><span class="icon-text">
+                    {{ trans('lang.frontend.3') }}
+                </span></span>
+                <p class="icon-p text_black">
+                    {{ trans('lang.frontend.start_investing_right_away') }}
+                </p>
+            </div>
         </div>
 
         <div class="s-100"></div>
 
     </div>
-</div>
+</div> 
 @endsection

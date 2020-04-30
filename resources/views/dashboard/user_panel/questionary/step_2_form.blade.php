@@ -93,22 +93,12 @@
 									</p>
 									<a>
 										<div class="icon-circle">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.svg') }}">
+											<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}">
 										</div>
 										
 									</a>
 								</li>
-								<li>
-									<p class="progressbar_text">
-										{{ trans('lang.question_headings.objectives') }}
-									</p>
-									<a>
-										<div class="icon-circle">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_7_black.svg') }}">
-										</div>
-										
-									</a>
-								</li>
+								
 	                        </ul>
 						</div>
 
@@ -153,7 +143,7 @@
 						                    	</div>
 											</div>
 
-											<div class="form-group">
+											{{-- <div class="form-group">
 												<div class="form-group">
 						                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
 						                          	{{ trans('lang.question.stock_dividents') }}
@@ -200,6 +190,24 @@
 						                                required 
 						                                placeholder="eg. 3000 SAR"
 						                                value="{{ $user_questionnaire->income["income"]["real_estate_income_rent"] ?? old('income.real_estate_income_rent') }}"
+						                                >
+						                    	</div>
+											</div> --}}
+
+
+											<div class="form-group">
+												<div class="form-group">
+						                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
+						                          	{{ trans('lang.question.other') }}
+						                          </label>
+						                          <input 
+						                                id="other" 
+						                                type="text" 
+						                                class="form-control"
+						                                name="income[other]" 
+						                                required 
+						                                placeholder="eg. 300.00 SAR"
+						                                value="{{ $user_questionnaire->income["income"]["other"] ?? old('income.other') }}"
 						                                >
 						                    	</div>
 											</div>

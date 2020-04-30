@@ -13,7 +13,7 @@
                     {{ trans('lang.frontend_legal.legal') }}
                 </p>
                 <h1 class="text-center page-heading">
-                    {{ trans('lang.frontend_legal.legal_heading_text') }}
+                    {{ trans('lang.frontend_legal.legal') }}
                 </h1>
 
                 <div class="s-20"></div>
@@ -25,118 +25,40 @@
 <div class="s-50"></div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-sm-12 offset-lg-1 {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
+    <div class="row {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
+
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+
+            <h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
+            <p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
+            <div class="s-50"></div>
+
+
+            <h1>{{ trans('lang.frontend_legal.purpose') }}</h1>
+            <p>{{ trans('lang.frontend_legal.purpose_text') }}</p>
+            <div class="s-50"></div>
+
             
-            <h1 class="page-heading">
-                {{ trans('lang.frontend_legal.legal_heading1') }}
-            </h1>
-            <div class="s-35"></div>
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point1') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text1') }}
-            </p>
-            <div class="s-35"></div>
 
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point2') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text2') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point3') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text3') }}
-            </p>
-            <div class="s-35"></div>
-
-
-
-            <h1 class="page-heading">
-                {{ trans('lang.frontend_legal.legal_heading2') }}
-            </h1>
-            <div class="s-35"></div>
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point1') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text1') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point2') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text2') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point3') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text3') }}
-            </p>
-            <div class="s-35"></div>
-
-
-
-        </div>
-        <div class="col-md-5 col-sm-12 {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-            <h1 class="page-heading">
-                {{ trans('lang.frontend_legal.legal_heading3') }}
-            </h1>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point1') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text1') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point2') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text2') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point3') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text3') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point1') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text1') }}
-            </p>
-            <div class="s-35"></div>
-
-            <h3 class="secondary-heading">
-                {{ trans('lang.frontend_legal.legal_heading1__point2') }}
-            </h3>
-            <p>
-                {{ trans('lang.frontend_legal.legal_heading1__text2') }}
-            </p>
-            <div class="s-35"></div>
 
         </div>
     </div>
 </div>
-<div class="s-100"></div>
+
+<div class="background_effect_inverse">
+    <div class="container">
+        <div class="row {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+               
+                <h1>{{ trans('lang.frontend_legal.stake_and_responsabilities') }}</h1>
+                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_1') }}</p>
+                <div class="s-35"></div>
+                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_2') }}</p>
+                <div class="s-50"></div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

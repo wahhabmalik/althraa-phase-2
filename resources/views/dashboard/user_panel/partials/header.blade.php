@@ -16,5 +16,5 @@
 	@isset($title)
 		{{ $title }} {{ ' | ' }}
 	@endif
-	{{ config('app.name', 'Althraa') }}
+	{{ config('app.name', 'Thokhor') }}
 </title>

@@ -4083,7 +4083,10 @@ a.login_link {
     margin-right: 26px;
 }
 .background_effect{
-	background-image: linear-gradient(-145deg, #f4f8f4, #f7fff8)
+    background-image: linear-gradient(180deg, #f4f8f4, #ffffff);
+}
+.background_effect_inverse{
+    background-image: linear-gradient(0deg, #f4f8f4, #ffffff);
 }
 
 
@@ -4128,10 +4131,10 @@ p.icon-p {
 	border-radius: 8px;
 }
 .prsnl_plan{
-	margin-top:130px;
+	margin-top: 8rem;
 }
 .invst_plan{
-	margin-top:90px;
+	margin-top:9rem;
 }
 
 .donut_position{

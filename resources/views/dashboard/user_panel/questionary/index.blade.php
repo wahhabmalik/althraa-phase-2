@@ -2,6 +2,8 @@
 @extends('dashboard.layouts.user_layout.user_questionary')
 
 @section('styles')
+@include('dashboard.user_panel.partials.questions_asset')
+
 <style>
 .welcome_text {
     font-size: 100px;
@@ -14,13 +16,13 @@
 .center_content{
 	text-align: center;
 }
-.button, .button:link{
-	border-radius: unset;
-}
 @media only screen and (max-width: 600px) {
     .welcome_text {
         font-size: 60px;
     }
+}
+.button, .button:link {
+    width: fit-content;
 }
 </style>
 @endsection

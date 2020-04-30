@@ -3,28 +3,51 @@
 @extends('dashboard.layouts.login', ['title' => $title1 ?? '2FA Auth'])
 
 @section('styles')
-<style type="text/css">
+<style type="text/css">   
+.button, .button:link {
+    border: 0px solid #01630a;
+}
     
-    .button, .button:link {
-        border: 0px solid #01630a;
-    }
-    
-    .logo {
-        position: absolute !important;
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
-    }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+.logo {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
 
-    /* Firefox */
-    input[type=number] {
-      -moz-appearance:textfield;
-    }
+#wrapper #dialog #form input {
+    margin: 0 0.6rem;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    border: solid 1px #ccc;
+    box-shadow: 0 0 5px #ccc inset;
+    outline: none;
+    width: 21%;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3px;
+}
+
+#wrapper #dialog #form input:focus {
+    border-color: #016216;
+    box-shadow: 0 0 5px #016216 inset;
+}
+
+#wrapper #dialog #form input::selection {
+    background: transparent;
+}
+.login__form {
+    direction: ltr;
+}
+
 </style>
 @endsection
 
@@ -59,7 +82,7 @@
             </p>
             <br>
 
-            <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
+            {{-- <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
                 @csrf
 
                 <div class="form-group">
@@ -85,7 +108,23 @@
                 <button type="submit" class="button button__block">
                   {{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
                 </button>          
-            </form>
+            </form> --}}
+
+
+            <div id="wrapper">
+                <div id="dialog">
+                    <div id="form">
+                        <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
+                            @csrf
+                            <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
+                            <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}"  />
+
+                            <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <div class="login__or">
                 &mdash; {{ trans('lang.login_form.or') }} &mdash;
@@ -116,6 +155,61 @@
            textbox.setCustomValidity('');
         }
         return true;
+    }
+
+
+    $(function() {
+      'use strict';
+
+      var body = $('body');
+
+      function goToNextInput(e) {
+        var key = e.which,
+          t = $(e.target),
+          sib = t.next('input');
+
+        if (key != 9 && (key < 48 || key > 57)) {
+          e.preventDefault();
+          return false;
+        }
+
+        if (key === 9) {
+          return true;
+        }
+
+        if (!sib || !sib.length) {
+          sib = body.find('input').eq(0);
+        }
+        sib.select().focus();
+      }
+
+      function onKeyDown(e) {
+        var key = e.which;
+
+        if (key === 9 || (key >= 48 && key <= 57)) {
+          return true;
+        }
+
+        e.preventDefault();
+        return false;
+      }
+      
+      function onFocus(e) {
+        $(e.target).select();
+      }
+
+      body.on('keyup', 'input', goToNextInput);
+      body.on('keydown', 'input', onKeyDown);
+      body.on('click', 'input', onFocus);
+
+    })
+
+    function resendSms(){
+      alert('sms resend')
+    }
+
+    function callNumber(){
+      alert('Calling')
     }
 </script>
 @endsection

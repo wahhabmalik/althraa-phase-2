@@ -30,12 +30,12 @@ class TwoFactorController extends Controller
     public function store(Request $request)
     {
     	$request->validate([
-    		'two_factor_code' => 'required|integer',
+    		'two_factor_code' => 'required|array',
     	]);
 
     	$user = auth()->user();
 
-    	if ($request->input('two_factor_code') == $user->two_factor_code) {
+    	if (implode("", $request->two_factor_code) == $user->two_factor_code) {
     		$user->resetTwoFactorCode();
     		return redirect()->route('home', app()->getLocale());
     	}

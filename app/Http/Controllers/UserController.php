@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
 use Spatie\Permission\Models\Role;
 use Session;
 use Illuminate\Support\Facades\Validator;

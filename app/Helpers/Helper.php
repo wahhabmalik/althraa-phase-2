@@ -124,6 +124,17 @@ function loggedInUser()
     return null;
 }
 
+function currency($value)
+{
+    return 'SAR ' . number_format($value, 0);
+}
+
+
+function percentage($value)
+{
+    return round($value, 0) . ' %';
+}
+
 // -----------------------------
 function loggedInUserRole()
 {

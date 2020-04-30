@@ -79,11 +79,19 @@ return [
         // step 1
         'started_year_for_personal_financial_plan' => '   السنة الميلادية للخطة المالية الشخصية      ',
         'name' => '  الاسم    ',
+        'education_level' => 'Select your education level',
         'years_old' => '   العمر     ',
         'no_of_dependents' => '  عدد المعالين    ',
 
-        'continue_to_income' => '   الاستمرار في الدخل      ',
 
+            'education_level_options' => [
+                'highschool' => 'High School & Bleow',
+                'bachlore' => 'Bachlore',
+                'master' => 'Master',
+                'above' => 'Above',
+            ],
+
+        'continue_to_income' => '   الاستمرار في الدخل      ',
 
         // step 2
         'salary' => '  راتب   ',
@@ -91,11 +99,21 @@ return [
         'stock_dividents' => '    توزيعات اسهم     ',
         'pension_income' => '   دخل تقاعدي     ',
         'real_estate_income_rent' => '  اجار عقار      ',
+        'other' => '  آخر ',
 
         'continue_to_expenses' => '  الاستمرار في          المصاريف            ',
 
 
         // step 3
+        'current_saving_balance' => '  راتب   ',
+        'gosi_or_ppa_monthly_subscription' => 'GOSI or PPA monthly subscription',
+        'monthly_saving_plan_for_retirement' => 'Monthly saving plan for retirement',
+        'annual_increase_in_saving_plan' => 'Annual increase in saving plan',
+
+        'continue_to_worth' => 'Continue to worth',
+
+
+        // step 3 -> old 
         'house' => '   المسكن      ',
         // -------------------
         'rent_or_mortgage' => '  ايجار او قرض منزل    ',
@@ -161,6 +179,12 @@ return [
 
         // step 4
         'assets' => '   استثمارات       ',
+            'real_estate' => 'Real Estate',
+
+        'financial_assets' => 'Financial Assets',
+            'cash_and_deposit' => 'Cash and deposit',
+            'equities' => 'Equities',
+            'bonds' => 'Bonds',
 
         'liquid_assets' => '  استثمارات سائلة     ',
 
@@ -189,6 +213,8 @@ return [
         'personal_art_&_boutique' => '   مقتنيات ثمينة وهوايات      ',
 
         'liabilities' => '    قروض          ',
+            'liabilities_real_estate_loan' => ' liabilities real estate loan  ',
+
 
         'liabilities_personal_loan' => '   قرض شخصي     ',
         'liabilities_mortgage' => '  قرض عقاري      ',
@@ -207,6 +233,8 @@ return [
         'gosi_starting_year_in_plan' => '   السنة الملادية  لبدء الاشتراك    ',
         'gosi_average_of_last_24_months_salary' => '   متوسط الراتب اخر 24 شهر       ',
         'gosi_subscriptions_months' => '   مدة الاشتراك بالاشهر      ',
+        'expecting_salary_at_retirement' => 'Expecting salary at retirement',
+        'mothly_life_expenses_after_retirement' => 'Mothly life expenses after retirement',
 
         'continue_to_risk' => '   الاستمرار في المخاطر     ',
 
@@ -304,6 +332,7 @@ return [
 
 
         'continue_to_objectives' => '   الاستمرار في الأهداف      ',
+        'continue_to_payment' => ' Continue To Payment  ',
 
 
         // step 7
@@ -340,6 +369,11 @@ return [
         'step_6' => '      الخطوة     ٦  ',
         'step_7' => '      الخطوة     ٧  ',
     ],
+
+
+
+    'email_verification' => 'Email verification',
+    'your_email' => 'Your email',
 
 
 
@@ -468,6 +502,21 @@ return [
 
 
         'legal_heading3' => '   العنوان     3',
+
+
+
+        'about_our_services' => 'About our services',
+        'about_our_services_text' => 'Dokhor.com or those responsible for does not provide any representations or guarantees (express or implied) regarding the data and information provided, despite the reliability of the sources of information and reasonable care in the data, but it does not acknowledge that the information contained in this site or its documents is complete or free from any error or Not misleading or suitable for any specific purpose.',
+
+
+        'purpose' => 'Purpose',
+        'purpose_text' => 'The document or information on this site only provides general information. It is also the information and any opinion expressed on this site or any document thereof that does not constitute an offer or an invitation to make an offer to buy or sell any securities or other investment products related to those securities or investments. The purpose of this site or its documents is not to provide personal advice in the investment field nor does it take into account the investment objectives, financial situation or the specific needs of any specific person who may receive this document. Investors should seek financial, legal or tax advice from a financial company licensed by the Capital Market Authority or relevant government agencies on the appropriateness of investing in any securities, other investment or any investment strategies discussed or recommended on this site or documents Issued by it, customers should understand that data related to future expectations coming from this site may not be fulfilled , Clients should also note that income from securities of this type or other investments, if any, may be subject to fluctuations and that the price or value of those securities and investments is subject to increase or decrease. Also, fluctuations in the exchange rates of currencies may have negative effects on the value, price, or income of certain investments. Consequently, clients can receive a return that is mainly less than the amount of their invested capital.',
+
+
+        'stake_and_responsabilities' => 'Stake and responsabilities',
+        'stake_and_responsabilities_text_1' => 'The site or its officials, including financial analysts, may have a financial interest in the securities of the entity or the issuers of those securities or related investments, including long or short-term positions in securities or investment funds, or other financial instruments. The site may also, from time to time, perform additional consulting services or seek to secure these services or other business from any of the companies mentioned in the reports or documents issued by it. The site or its officials, including employees of the site, are not responsible for any direct or indirect damages or any other loss or damage that may arise, directly or indirectly, from any use of the information contained in this document from the documents issued from the site , Information issued by the site and any recommendations contained therein are subject to change without prior notice. . The site does not assume any responsibility for updating the information contained in these documents issued by it. ',
+
+        'stake_and_responsabilities_text_2' => 'This document may not be changed, duplicated, transmitted or distributed in whole or in part, in any form or by any means. It should also be noted that these documents are not directed to or intended for distribution or use by any person or entity, whether a citizen or resident in any place, country, country or any other judicial authority, wherever such distribution, publication, availability or use of the issued documents From the site is against the law or requires the site or its operators to make any registration or fulfill any of the licensing conditions within that country or that judicial authority.',
     ],
 
     'frontend_contact' => [
@@ -502,6 +551,24 @@ return [
         'about_coffee_started_it_all' => '    بدأت القهوة كل شيء.        ',
         'about_coffee_text' => '      التقى وليد (MBA، CFA) بعلي (دكتوراه في التكنولوجيا الأمنية) في أحد الأيام لتناول القهوة والتحدث عن الاستثمار. ومن ثم اكتشفا خلال الاجتماع أنهما لم يكونا متحمسين فقط لموضوعات الاستثمار، بل كانا يشكلان المزيج المثالي لبدء التطبيق الذي يمكن أن يساعد أمة كاملة.           ',
 
+        'mission' => 'Mission',
+        'mission_text' => 'Richness and financial independence have an equation that the rich know well but which are easy and kind. Our mission is to be an automated financial advisor for individuals who makes this equation:',
+        'mission_text_report' => 'Our mission is to be an automated financial advisor for individuals who makes this equation:',
+
+        'mission_li_1' => 'Easy without abstinence.',
+        'mission_li_2' => 'Operation and immediate application.',
+        'mission_li_3' => 'Discreet far from randomness.',
+        'mission_li_4' => 'Convenient for personal need.',
+
+
+        'method' => 'Method',
+        'method_text' => 'The investment methodology is the long-term investment methodology that relies on:',
+
+        'method_li_1' => 'Saving first.',
+        'method_li_2' => 'Prudent long-term methodology.',
+        'method_li_3' => 'The magic of cumulative returns.',
+
+
         'althraa_arabic_meaning' => '   الثراء هو الكلمة العربية المعبرة عن الثروة      ',
 
         'about_our_vision' => '   رؤيتنا      ',
@@ -521,6 +588,7 @@ return [
         'waleed_li_5' => 'يعمل حاليا مدير إدارة تطوير الأعمال في هيئة حكومية .',
 
 
+        'bakarman' => 'Bakarman',
         'ali' => ' د. علي بن عبدالرحمن الشهري ',
         'ali_designation' => ' (الشريك التقني) ',
 
@@ -554,6 +622,9 @@ return [
 أو النشر أو توافر أو استخدام الوثائق الصادرة من الموقع مخالفا للقانون أو يتطلب من الموقع او القائمين عليه القيام بأي تسجيل أو استيفاء أي شرط من شروط الترخيص ضمن ذلك البلد أو 
 تلك الجهه القضائية'
     ],
+
+
+    'pdf_disclaimer' => 'عقوم رخد وا نیمئاقلا ىلع لا مدقی ةیأ تارارقإ وأ تانامض ةحیرص( وأ )ةینمض نأشب تانایبلا تامولعملاو ،ةمدقملا مغرلابو نم ةیقوثوم رداصم تامولعملا ةیانعلاو ةلوقعملا يف تانایبلا لاا ھنأ لا رقی نأب تامولعملا يتلا اھنمضتی اذھ عقوملا وا ئاثو ھق يھ تامولعم ةلماك وأ ةیلاخ نم يأ أطخ وأ ریغ ةللضم وأ اھنأ حلصت ىلإ ضرغ ددحم امك نا عقوم رخد و نیمئاقلا ھیلع نولخی مھتیلوؤسم نع يأ عون نم عاونأ تانامضلا ةقلعتملا قیقحتب ةجیتن حبر ،ةنیعم سوا ًء تناك ةحیرص وأ ةینمض . لاف ةقیثو وا تامولعملا يف اذھ عقوملا امنإ مدقت تامولعم ةماع طقف . امك ھنأ تامولعملا يأو ً وأ ةوعد میدقتل ضرع يأر دراو يف اذھ عقوملا وأ يا ةقیثو ھنم لا لكشت عرضا ءارشل وأ عیب يأ قاروأ ةیلام وأ اھریغ نم تاجتنملا ةیرامثتسلاا تاذ ةلصلا كلتب قارولأا ةیلاملا وأ تارامثتسلاا . سیلو ضرغلا نم هذھ عقوملا وأ ھقئاثو میدقت ةروشم ةیصخش يف لاجم رامثتسلإا امك اھنأ لا ذخأت يف رابتعلإا فادھلأا ةیرامثتسلإا وأ عضولا يلاملا وأ تاجایتحلإا ةددحملا يلأ صخش نیعم دق ملتسی هذھ ،ةقیثولا يغبنیو نیرمثتسملل يعسلا لوصحلل ىلع ةروشملا ةیلاملا وأ ةینوناقلا وأ ةیبیرضلا نم ش ةكر ةیلام ةصخرم نم ةئیھ قوسلا ةیلاملا وا تاھجلا ةیموكحلا تاذ ةقلاعلا نأشب ىدم ةمئلام رامثتسلإا يف يأ قاروأ ةیلام ، وأ رامثتسا رخآ وأ ةیأ تایجیتارتسا رامثتسا ترج اھتشقانم وأ ةیصوتلا اھب يف اذھ عقوملا وا قئاثولا ةرداصلا ھنع ، يغبنیو ءلامعلل مھفت نأ تانایبلا ةقلعتملا تاعقوتلاب ةیلبقتسملا دراولا نم اذھ عقوملا دق لا ققحتت . كلذك يغبنی ءلامعلل ةظحلام نأ لخدلا نم قاروأ ةیلام نم اذھ عونلا وأ اھریغ نم تارامثتسلإا ، نإ دجو ، دق ضرعتی تابلقتلل نأبو رعس وأ ةمیق كلت قارولأا ةیلاملا تارامثتسلإاو نوكی ةضرع عافترلإل وأ ضافخنلإا . امك نأ تابلقتلا يف راعسأ فرصلا تلامعلل دق نوكی اھل راثآ ةیبلس ىلع ةمیقلا وأ نمثلا ، وأ لخدلا يتأتملا نم تارامثتسا ةنیعم . ءانبو ھیلع ، نكمی ءلامعلل نأ اولصحی ىلع دئاع وكی ن لقأ نم غلبم مھلامسأر رمثتسملا ابتدا ًء . زوجیو نأ نوكی عقوملل وأ نیلوئسملا ھیف ا امب يف كلذ نیللحملا نییلاملا ةحلصم ةیلام يف قارولأا ةیلاملا ةھجلل وأ تاھجلا ةردصملا كلتل قارولأا ةیلاملا وأ تارامثتسلإا تاذ ةقلاعلا ، امب يف كلذ زكارملا ةلیوط وأ ةریصق لجلأا يف قارولأا ةیلاملا وأ قیدانص رامثتسلاا ، وأ اھریغ نم تاودلأا ةیلاملا . امك زوجی عقوملل نأ موقی نم تقو رخلآ ءادأب تامدخلا ةیراشتسلاا ةیفاضلاا وأ يعسلا نیمأتل هذھ تامدخلا وأ اھریغ نم لامعلأا نم يأ ةكرش نم تاكرشلا ةروكذملا يف ریراقتلا وا قئاثولا ةرداصلا ھنم . عقوملاو وا نولوؤسملا ،ھیف امب يف كلذ نیفظوملا ةیعباتلا ،عقوملل لا نونوكی نیلوؤسم نع يأ رارضأ ةرشابم أو ریغ ةرشابم وأ يأ ةراسخ وأ رارضأ ىرخأ دق ،أشنت ةروصب ةرشابم وأ ریغ ،ةرشابم نم يأ مادختسا تامولعملل ةدراولا يف هذھ ةقیثولا وأ اھریغ نم قئاثولا ةرداصلا نم عقوملا ، عضختو تامولعملا ةرداصلا نم عقوملا ةیأو تایصوت ةدراو اھیف رییغتلل نود راعشإ قبسم . عقومو رخد لا لمحتی يأ ةیلوؤسم نع ثیدحت تامولعملا ةدراولا يف هذھ قئاثولا ةرداصلا ھنم . لاو زوجی رییغت وأ خاسنتسا وأ ً يأب لكش وأ يأب ةلیسو ً وأ جزئیا لاسرإ وأ عیزوت هذھ ةقیثولا نم قئاثو عقوملا كلیا تناك . امك ىعاری نأ هذھ قئاثولا تسیل ةھجوم وأ ةدعم عیزوتلل وأ مادختسلا نم لبق يأ صخش وأ نایك ءاوس ناك انطاوم وأ امیقم يف يأ ناكم وأ ةلود وأ دلب وأ ةیأ ھھج ةیئاضق ىرخأ ، امثیح نوكی لثم اذھ عیزوتلا وأ رشنلا وأ رفاوت وأ مادختسا قئاثولا ةرداصلا نم عقوملا افلاخم نوناقلل وأ بلطتی نم عقوملا وا نیمئاقلا ھیلع مایقلا يأب لیجست وأ ءافیتسا يأ طرش نم طورش صیخرتلا نمض كلذ دلبلا وأ ك',
 
     // admin panel
     'staff' => '  فريق العمل        ',
@@ -803,6 +874,8 @@ return [
         'get_report' => '   احصل على التقرير     ',
         'get_long_term_plans' => '   احصل على خطط طويلة المدى     ',
         'start_the_implementation' => '    ابدأ بالتطبيق    ',
+        'start_investing_right_away' => 'Start investing right away',
+        'get_holistic_financial_plan' => 'Get holistic financial plan ',
         'periodic_evaluation' => '    التقويم الدوري    ',
 
 
@@ -826,4 +899,11 @@ return [
 		'home_icon_text_2' => '    حصل على خطة مالية شاملة    ',
 		'home_icon_text_3' => '    أجب عن الأسئلة    ',
     ],
+
+    'payment_method' => 'Payment method',
+    'get_your_report' => 'Get your report',
+    'card_no' => 'Card number',
+    'card_holder' => 'Cardholder Name',
+    'expire_date' => 'Expire Date',
+    'cvv' => 'CVV',
 ];

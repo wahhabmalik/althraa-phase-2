@@ -212,7 +212,7 @@ ul.nav.nav-tabs {
 
 
 
-  .indicator2{
+.indicator2{
   background-color: #e32d2d !important;
 }
 

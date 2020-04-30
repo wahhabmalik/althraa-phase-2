@@ -94,22 +94,12 @@
 										</p>
 										<a>
 											<div class="icon-circle">
-												<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.svg') }}">
+												<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}">
 											</div>
 											
 										</a>
 									</li>
-									<li class="tab-mob">
-										<p>
-											{{ trans('lang.question_headings.objectives') }}
-										</p>
-										<a>
-											<div class="icon-circle">
-												<img src="{{ asset('backend_assets/questions/assets/img/step_7_black.svg') }}">
-											</div>
-											
-										</a>
-									</li>
+									
 		                        </ul>
 							</div>
 
@@ -120,33 +110,20 @@
 		                            	<div class="row">
 		                            		<div class="col-sm-4"></div>
 		                            		<div class="col-sm-4">
-												<p class="wizard_info_text">
-													{{ trans('lang.question.gosi_starting_year_in_plan') }}
-												</p>
-												<div class="date_sec">
-													<p class="wizard_info_text date_text">
-														<input 
-							                                id="strating_year_in_plan" 
-							                                type="text" 
-							                                class="form-control" 
-							                                name="gosi[strating_year_in_plan]"
-							                                value="{{ $user_questionnaire->gosi["gosi"]["strating_year_in_plan"] ?? old('gosi.strating_year_in_plan') }}"
-							                                >
-													</p>
-												</div>
+												
 												<div class="form-group">
 													<div class="form-group">
 							                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-							                          	{{ trans('lang.question.gosi_average_of_last_24_months_salary') }}
+							                          	{{ trans('lang.question.gosi_starting_year_in_plan') }}
 							                          </label>
 							                          <input 
-							                                id="average_of_last_24_months_salary" 
+							                                id="strating_year_in_plan" 
 							                                type="text" 
 							                                class="form-control" 
-							                                name="gosi[average_of_last_24_months_salary]" 
+							                                name="gosi[strating_year_in_plan]" 
 							                                required 
 							                                placeholder="eg. 4000 SAR" 
-							                                value="{{ $user_questionnaire->gosi["gosi"]["average_of_last_24_months_salary"] ?? old('gosi.average_of_last_24_months_salary') }}"
+							                                value="{{ $user_questionnaire->gosi["gosi"]["strating_year_in_plan"] ?? old('gosi.strating_year_in_plan') }}"
 
 							                                >
 							                    	</div>
@@ -155,16 +132,34 @@
 												<div class="form-group">
 													<div class="form-group">
 							                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-							                          	{{ trans('lang.question.gosi_subscriptions_months') }}
+							                          	{{ trans('lang.question.expecting_salary_at_retirement') }}
 							                          </label>
 							                          <input 
-							                                id="subscription_months" 
+							                                id="expecting_salary_at_retirement" 
+							                                type="text" 
+							                                class="form-control" 
+							                                name="gosi[expecting_salary_at_retirement]" 
+							                                required 
+							                                placeholder="eg. 4000 SAR" 
+							                                value="{{ $user_questionnaire->gosi["gosi"]["expecting_salary_at_retirement"] ?? old('gosi.expecting_salary_at_retirement') }}"
+
+							                                >
+							                    	</div>
+												</div>
+
+												<div class="form-group">
+													<div class="form-group">
+							                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
+							                          	{{ trans('lang.question.mothly_life_expenses_after_retirement') }}
+							                          </label>
+							                          <input 
+							                                id="mothly_life_expenses_after_retirement" 
 							                                type="text" 
 							                                class="form-control"
-							                                name="gosi[subscription_months]" 
+							                                name="gosi[mothly_life_expenses_after_retirement]" 
 							                                required 
 							                                placeholder="eg. 120" 
-							                                value="{{ $user_questionnaire->gosi["gosi"]["subscription_months"] ?? old('gosi.subscription_months') }}"
+							                                value="{{ $user_questionnaire->gosi["gosi"]["mothly_life_expenses_after_retirement"] ?? old('gosi.mothly_life_expenses_after_retirement') }}"
 							                                >
 							                    	</div>
 												</div>
