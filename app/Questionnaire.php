@@ -49,6 +49,8 @@ class Questionnaire extends Model
             'unit' => '%',
             'tag' => 'of investments',
         ];
+
+        $this->questionnaire = null;
     }
 
     protected $table = 'questionnaires';
@@ -265,9 +267,10 @@ class Questionnaire extends Model
     public function getLatestQuestionnaire(? User $user = null)
     {
         $user = $user ?: auth()->user();
-        return Questionnaire::where('fk_user_id', $user->id)
+        return $this->questionnaire ?? $this->questionnaire = Questionnaire::where('fk_user_id', $user->id)
                 ->orderBy('questionnaire_id', 'DESC')
                 ->first();
+
     }
 
     // ---------------------------------------------------------
@@ -2051,6 +2054,115 @@ class Questionnaire extends Model
         return $this->getPersonalInfo($user)['personal_info'];
     }
 
+    public function getAccomulativeSavingRating(User $user = null)
+    {
+        $accumulativeSaving = $this->getAccomulativeSavingtoday();
+        $age = $this->getCurrentAge();
+        $monthlySalary = $this->getIncome($user)['income']['salary'];
+        $savingRating = '';
+
+        if($age < 30)
+        {
+            if($monthlySalary >= $accumulativeSaving)
+                $savingRating = 'Poor';
+            else if(($monthlySalary * 2) >= $accumulativeSaving || ($monthlySalary * 4) <= $accumulativeSaving)
+                $savingRating = 'Fair';
+            else if(($monthlySalary * 5) >= $accumulativeSaving)
+                $savingRating = 'Good';
+        }
+        else if($age > 31 && $age < 40)
+        {
+            if(($monthlySalary * 4) >= $accumulativeSaving)
+                $savingRating = 'Poor';
+            else if(($monthlySalary * 5) >= $accumulativeSaving || ($monthlySalary * 11) <= $accumulativeSaving)
+                $savingRating = 'Fair';
+            else if(($monthlySalary * 12) >= $accumulativeSaving)
+                $savingRating = 'Good';
+        }
+        else if($age > 41 && $age < 50)
+        {
+            if((($monthlySalary * 4) * 3) >= $accumulativeSaving)
+                $savingRating = 'Poor';
+            else if((($monthlySalary * 5) * 3) >= $accumulativeSaving || (($monthlySalary * 11) * 3) <= $accumulativeSaving)
+                $savingRating = 'Fair';
+            else if((($monthlySalary * 12) * 3) >= $accumulativeSaving)
+                $savingRating = 'Good';
+        }
+        else if($age > 51 && $age < 60)
+        {
+            if((($monthlySalary * 4) * 6) >= $accumulativeSaving)
+                $savingRating = 'Poor';
+            else if((($monthlySalary * 5) * 6) >= $accumulativeSaving || (($monthlySalary * 11) * 6) <= $accumulativeSaving)
+                $savingRating = 'Fair';
+            else if((($monthlySalary * 12) * 6) >= $accumulativeSaving)
+                $savingRating = 'Good';
+        }
+        else if($age > 60)
+        {
+            if((($monthlySalary * 4) * 8) >= $accumulativeSaving)
+                $savingRating = 'Poor';
+            else if((($monthlySalary * 5) * 8) >= $accumulativeSaving || (($monthlySalary * 11) * 8) <= $accumulativeSaving)
+                $savingRating = 'Fair';
+            else if((($monthlySalary * 12) * 8) >= $accumulativeSaving)
+                $savingRating = 'Good';
+        }
+        else
+            $savingRating = null;
+
+        return $savingRating;
+            
+    }
+
+    public function getRecomendedAssetAllocation(User $user = null)
+    {
+        if ($this->getRiskTotalPoints($user) < 20) {
+            return [
+                'cash_and_equivlent' => 30,
+                'equities' => 20,
+                'fix_income' => 45,
+                'alternative_investments' => 5,
+                
+            ];
+        } else if ($this->getRiskTotalPoints($user) >= 20 && $this->getRiskTotalPoints($user) < 40){
+            return [
+                'cash_and_equivlent' => 25,
+                'equities' => 25,
+                'fix_income' => 40,
+                'alternative_investments' => 10,
+            ];
+        } else if ($this->getRiskTotalPoints($user) >= 40 && $this->getRiskTotalPoints($user) < 60){
+            return [
+                'cash_and_equivlent' => 15,
+                'equities' => 45,
+                'fix_income' => 25,
+                'alternative_investments' => 15,
+            ];
+        } else if ($this->getRiskTotalPoints($user) >= 60 && $this->getRiskTotalPoints($user) < 80){
+            return [
+                'cash_and_equivlent' => 5,
+                'equities' => 70,
+                'fix_income' => 10,
+                'alternative_investments' => 15,
+            ];
+        } else if ($this->getRiskTotalPoints($user) >= 80 && $this->getRiskTotalPoints($user) <= 100){
+            return [
+                'cash_and_equivlent' => 0,
+                'equities' => 80,
+                'fix_income' => 0,
+                'alternative_investments' => 20,
+            ];
+        } 
+    }
+
+    public function getReturnAssumptions(User $user = null)
+    {
+        return [
+                'cash_and_equivlent' => $this->cash_and_equivlent['value'],
+                'equities' => $this->equities['value'],
+                'fix_income' => $this->fix_income['value'],
+                'alternative_investments' => $this->alternative_investments['value'],
+            ];
+    }
 
 
 

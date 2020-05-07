@@ -427,6 +427,11 @@ table {
     width: 19.2%;
     margin-right: 8px;
 }
+.factor-vs p{
+    display: inline-block;
+    width: 26%;
+    margin-right: 8px;
+}
 .factor span {
     height: 12px;
     width: 15%;
@@ -437,6 +442,13 @@ table {
 .factor-s span {
     height: 12px;
     width: 19.2%;
+    margin-right: 8px;
+    background: #01630a;
+    display: inline-block;
+}
+.factor-vs span {
+    height: 12px;
+    width: 25.75%;
     margin-right: 8px;
     background: #01630a;
     display: inline-block;
@@ -454,7 +466,15 @@ table {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+.factor-vs span:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 .factor-s span:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.factor-vs span:last-child {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -486,6 +506,11 @@ table {
 .factor-s .pointer {
     display: inline-block;
     width: 20.2%;
+    text-align: center;
+}
+.factor-vs .pointer {
+    display: inline-block;
+    width: 26.5%;
     text-align: center;
 }
 

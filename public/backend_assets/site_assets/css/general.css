@@ -112,7 +112,7 @@ body {
   min-height: 100vh; }
 
 @font-face {
-  font-family: "Soin Sans Neue Bold";
+  font-family: 'Cairo', sans-serif;
   src: url("../fonts/Sans-Neue-Font/Stawix - SoinSansNeue-Bold.otf"); }
 
 @font-face {
@@ -295,7 +295,7 @@ h1{
 
 .user__intro {
   font-size: 5rem;
-  font-family: "Soin Sans Neue Bold";
+  font-family: 'Cairo', sans-serif;
   line-height: 1.3; }
 
 .user__info {
@@ -386,7 +386,7 @@ ul.navbar-nav.ml-auto {
 
 .user__intro {
     font-size: 4rem;
-    font-family: "Soin Sans Neue Bold";
+    font-family: 'Cairo', sans-serif;
     line-height: 1.3;
 }
 
@@ -891,4 +891,8 @@ li.nav-item.cp-button a {
 
 .w_plan{
   font-size: 1.2rem;
+}
+
+.button, .button:link, .button:visited{
+  font-family: 'Cairo', sans-serif !important;
 }
