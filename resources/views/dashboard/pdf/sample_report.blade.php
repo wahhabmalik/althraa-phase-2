@@ -13,7 +13,9 @@
 {!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
 
 
-
+.factor .pointer:not(:last-child) {
+    opacity: 0;
+}
 </style>
 @endsection
 @section('content')

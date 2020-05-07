@@ -2881,8 +2881,13 @@ class QuestionnaireController extends Controller
     {
         $user = loggedInUser();
 
+        $constants = Constant::where('constant_meta_type', 'LIKE',  'retirement_planner_' . '%')
+                    ->orWhere('constant_meta_type', 'inflation')
+                    ->orWhere('constant_meta_type', 'uncertainty')
+                    ->get()->keyBy('constant_attribute')->toArray();
+
         // Process
-        //Status today
+        // Status today
         $personalInfo = $this->questionnaire->getuserInfo($user);
         $monthlyIncomeToday   = $this->questionnaire->getMonthlyIncomeToday($user);
         $monthlySavingToday   = $this->questionnaire->getMonthlySavingToday($user);
@@ -2926,44 +2931,86 @@ class QuestionnaireController extends Controller
         $alternativeInvestmentsPercentage       = ($alternativeInvestments / $totalCurrentAssetAllocation)*100;
         $totalCurrentAssetAllocationPercentage  = $cashAndEquivlentPercentage+$equitiesPercentage+$fixIncomePercentage+$alternativeInvestmentsPercentage;
 
-
+        //Investing Diversity
+        $assetClass = 0;
+        if(round($cashAndEquivlentPercentage) > 1)
+            $assetClass += 1;
+        if(round($equitiesPercentage) > 1)
+            $assetClass += 1;
+        if(round($fixIncomePercentage) > 1)
+            $assetClass += 1;
+        if(round($alternativeInvestmentsPercentage) > 1)
+            $assetClass += 1;
+        
         // Plan
         $yourCurrentAge   = $this->questionnaire->getCurrentAge($user);
         $valueBegYear     = $accomulativeSavingtoday;
         $contribution     = $annualSavingToday;
-        $returns = ($valueBegYear + ($contribution)/2)*($netReturnBeforeRetirement / 100);
-        $valueEndYear = $valueBegYear + $contribution + $returns;
+        $returns          = ($valueBegYear + ($contribution)/2)*($netReturnBeforeRetirement / 100);
+        $valueEndYear     = $valueBegYear + $contribution + $returns;
 
         $annualIncreaseInSavingPlan = $this->questionnaire->getAnnualIncreaseInSavingPlan($user);
 
+        $commulitiveSavingRating    = $this->questionnaire->getAccomulativeSavingRating($user);
 
-        $current_age = $yourCurrentAge;
+        $current_age    = $yourCurrentAge;
         $retirement_age = $yourPlannedRetirementAge;
 
-        for ($i = (int) $current_age; $i <= $retirement_age; $i++) { 
+        
+        //Asset allocation and Recomended allocation // page 6
+        $riskTestIndex = $this->questionnaire->getRiskTotalPoints($user);
+        $recommended   = $this->questionnaire->getRecomendedAssetAllocation($user);
+
+
+        // Financial Forecast
+        $valueBegYear = [];
+        $graphContribution = [];
+        $uncertain_top = [];
+        $uncertain_bottom = [];
+        $uncertainty = $constants["( In Returns , Saving )"]["constant_value"] ?? null;
+
+        for ($i = (int) $current_age; $i <= $retirement_age; $i++) {
             if ($i == $current_age) 
             {
+                $graphAge[] = $i;
+
                 $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
-                $plan[$i]['contribution'] = $annualSavingToday;
+                $graphContribution[] = $plan[$i]['contribution'] = $annualSavingToday;
 
                 $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
 
-                $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+                $graphValueBegYear[] = $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+
+                $uncertain_top[] = $plan[$i]['value_end_year'] + ($plan[$i]['value_end_year'] * $uncertainty)/100;
+                $uncertain_bottom[] = $plan[$i]['value_end_year'] - ($plan[$i]['value_end_year'] * $uncertainty)/100;
 
             }
             else
             {
+                $graphAge[] = $i;
+
                 $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
 
-                $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
+                $graphContribution[] = $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
 
                 $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
 
-                $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+                $graphValueBegYear[] =  $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+
+                $uncertain_top[] = $plan[$i]['value_end_year'] + ($plan[$i]['value_end_year'] * $uncertainty)/100;
+                $uncertain_bottom[] = $plan[$i]['value_end_year'] - ($plan[$i]['value_end_year'] * $uncertainty)/100;
 
             }
 
         }
+
+        $monthlySalary = (($netReturnAfterRetirement/100)*$plan[$retirement_age]['value_end_year'])/12;
+
+        $totalMonthlyIncome = $retirementGOCIMonthlyIncome + $monthlySalary;
+
+        $returnAssumptions = $this->questionnaire->getReturnAssumptions($user);
+
+        // dd($plan);
 
         return view('dashboard.pdf.report')
                 ->with('personalInfo',$personalInfo)
@@ -2976,6 +3023,9 @@ class QuestionnaireController extends Controller
                 ->with('monthlySavingPercentageToday',$monthlySavingPercentageToday)
                 ->with('netWorthToday',$netWorthToday)
                 ->with('accomulativeSavingtoday',$accomulativeSavingtoday)
+                ->with('assetClass',$assetClass)
+
+                ->with('commulitiveSavingRating',$commulitiveSavingRating)
 
                 ->with([
                     'assetAllocationDonutChartValues' => [
@@ -2999,6 +3049,26 @@ class QuestionnaireController extends Controller
                 ->with('alternativeInvestmentsPercentage',$alternativeInvestmentsPercentage)
                 ->with('totalCurrentAssetAllocationPercentage',$totalCurrentAssetAllocationPercentage)
 
+                ->with('riskTestIndex',$riskTestIndex)
+                ->with('recommended',$recommended)
+
+                ->with('retirement_age',$retirement_age)
+                ->with('plan',$plan)
+                ->with('monthlySalary',$monthlySalary)
+                ->with('retirementGOCIMonthlyIncome',$retirementGOCIMonthlyIncome)
+                ->with('returnAssumptions',$returnAssumptions)
+                ->with('netReturnBeforeRetirement',$netReturnBeforeRetirement)
+                ->with('netReturnAfterRetirement',$netReturnAfterRetirement)
+
+                ->with('totalMonthlyIncome',$totalMonthlyIncome)
+
+                //graph values
+                ->with('graphAge',$graphAge)
+                ->with('valueBegYear',$graphValueBegYear)
+                ->with('graphContribution',$graphContribution)
+                ->with('uncertain_top',$uncertain_top)
+                ->with('uncertain_bottom',$uncertain_bottom)
+                
                 ->with('credits','Thokhor');
 
         // dd($plan);

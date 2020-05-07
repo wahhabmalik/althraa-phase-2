@@ -1,7 +1,6 @@
 @inject('request', 'Illuminate\Http\Request')
 @extends('dashboard.layouts.user_layout.user_questionary')
 
-
 @section('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.css">
@@ -507,36 +506,27 @@
 			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Current Saving Amount ({{ $personalInfo['years_old'] }})</p>
 				
-				<div class="factor-s">
-					<p>Broke saver</p>	
+				<div class="factor-vs">
 					<p>Poor saver</p>	
 					<p>Fair saver</p>	
 					<p>Good saver</p>	
 				</div>
 
-				<div class="factor-s">
+				<div class="factor-vs">
 					<span class="little"></span>
-					<span class="good"></span>
 					<span class="great"></span>
 					<span class="wealthy"></span>
 				</div>
 
-				<div class="factor-s">
+				<div class="factor-vs">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($commulitiveSavingRating == 'Poor') ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($commulitiveSavingRating == 'Fair') ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($commulitiveSavingRating == 'Good') ? $pointer : '' !!}
 					</div>
 					
 				</div>
@@ -619,20 +609,16 @@
 
 				<div class="factor-s">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($assetClass == 1) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($assetClass == 2) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($assetClass == 3) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($assetClass == 4) ? $pointer : '' !!}
 					</div>
 					
 				</div>
@@ -701,24 +687,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($riskTestIndex < 19) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($riskTestIndex >= 20 && $riskTestIndex < 40) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($riskTestIndex >= 40 && $riskTestIndex < 60) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($riskTestIndex >= 60 && $riskTestIndex < 80) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($riskTestIndex >= 80 && $riskTestIndex <= 100) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -741,10 +722,10 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $totalCAA ?? '20,000' }} 
+						    	{{ $totalCurrentAssetAllocation ?? '0' }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($totalCAAPercentage ?? 60, 2) ?? 0 }} %
+						    	{{ round($totalCAAPercentage ?? 100, 2) ?? 100 }} %
 						    </p>
 						    <br>
 
@@ -765,12 +746,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($recommended['cash_and_equivlent']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} 
+												{{ currency(($totalCurrentAssetAllocation*$recommended['cash_and_equivlent'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -783,12 +764,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($recommended['equities']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} 
+												{{ currency(($totalCurrentAssetAllocation*$recommended['equities'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -801,12 +782,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($recommended['fix_income']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} 
+												{{ currency(($totalCurrentAssetAllocation*$recommended['fix_income'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -819,12 +800,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($recommended['alternative_investments']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} 
+												{{ currency(($totalCurrentAssetAllocation*$recommended['alternative_investments'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -837,12 +818,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												100 %
+												{{ percentage(100) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? '20,000' }} 
+												{{ currency($totalCurrentAssetAllocation) ?? '0' }} 
 											</p>
 										</td>
 									</tr>
@@ -883,8 +864,8 @@
 	            </h2>
 	            <p class="text-secondary mt-5">Financial Forecast</p>
 	            <p class="alertBox__p">
-	              <span>👏Congratulations!</span>&nbsp;At age 80 you will have
-	              savings balance of 1.296.043.
+	              <span>👏Congratulations!</span>&nbsp;At age {{ $retirement_age }} you will have
+	              savings balance of {{ currency($plan[$retirement_age]['value_end_year']) }}.
 	            </p>
 			</div>
 		</div>
@@ -907,23 +888,23 @@
 				<table>
 					<tr>
 						<td>Current age</td>
-						<td>36 years</td>
+						<td>{{ $personalInfo['years_old'] }}</td>
 					</tr>
 					<tr>
 						<td>Planned retirement age</td>
-						<td>60 years</td>
+						<td>{{ $retirement_age }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan</td>
-						<td>5,000 SAR /Month</td>
+						<td>{{ currency($monthlySalary) }} /Month</td>
 					</tr>
 					<tr>
 						<td>Monthly saving today</td>
-						<td>15% of Monthly Income</td>
+						<td>{{ percentage($monthlySavingPercentageToday) }} of Monthly Income</td>
 					</tr>
 					<tr>
 						<td>Accumulative saving today</td>
-						<td>300,000 SAR</td>
+						<td>{{ currency($accomulativeSavingtoday) }}</td>
 					</tr>
 					
 				</table>
@@ -933,27 +914,27 @@
 				<table>
 					<tr>
 						<td>Cash and Quivlent</td>
-						<td>2%</td>
+						<td>{{ percentage($returnAssumptions['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
-						<td>10%</td>
+						<td>{{ percentage($returnAssumptions['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td>5%</td>
+						<td>{{ percentage($returnAssumptions['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
-						<td>12%</td>
+						<td>{{ percentage($returnAssumptions['alternative_investments']) }}</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (Before retirement)</td>
-						<td>10%</td>
+						<td>{{ percentage($netReturnBeforeRetirement) }}</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (After retirement)</td>
-						<td>4%</td>
+						<td>{{ percentage($netReturnAfterRetirement) }}</td>
 					</tr>
 					
 				</table>
@@ -971,20 +952,20 @@
 						<td>Based on assets allocation</td>
 					</tr>
 					<tr>
-						<td>Retirement plan value at 60 years old</td>
-						<td>if retire at 60 years old</td>
+						<td>Retirement plan value at {{ $retirement_age }} years old</td>
+						<td>if retire at {{ $retirement_age }} years old</td>
 					</tr>
 					<tr>
 						<td>Total monthly income</td>
-						<td>A+B</td>
+						<td>{{ currency($totalMonthlyIncome) }}</td>
 					</tr>
 					<tr>
 						<td>Income from retirement plan</td>
-						<td>A</td>
+						<td>{{ currency($monthlySalary) }}</td>
 					</tr>
 					<tr>
 						<td>Income from GOSI or PPA</td>
-						<td>B</td>
+						<td>{{ currency($retirementGOCIMonthlyIncome) }}</td>
 					</tr>
 					
 				</table>
@@ -1033,27 +1014,27 @@
 					</thead>
 					<tr>
 						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
+						<td class="text-right">صندوق الراجحي للمضاربة بالسلع بالريال</td>
+						<td class="text-right">صندوق الاهلي للمتاجرة </td>
+						<td class="text-right">صندوق الفا للمرابحة</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
-						<td>Equities</td>
-						<td>Equities</td>
-						<td>Equities</td>
+						<td>iShares MSCI USA Islamic UCITS ETF</td>
+						<td>iShares MSCI World Islamic UCITS ETF</td>
+						<td>-</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
+						<td class="text-right">صندوق سامبا للصكوك السيادية</td>
+						<td class="text-right">صندوق الراجحي للصكوك</td>
+						<td class="text-right">صندوق الانماء للصكوك المتداولة</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
+						<td>Manual Process</td>
+						<td>Manual Process</td>
+						<td>Manual Process</td>
 					</tr>
 					
 				</table>
@@ -1080,37 +1061,38 @@
 						<td>Cash & Equivlent</td>
 						<td>1 payment</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($recommended['cash_and_equivlent']) }}</td>
+						<td>{{ currency(($netWorthToday/100)*$recommended['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
 						<td>4 payment over one year</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($recommended['equities']) }}</td>
+						<td>{{ currency(($netWorthToday/100)*$recommended['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
 						<td>1 payment</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($recommended['fix_income']) }}</td>
+						<td>{{ currency(($netWorthToday/100)*$recommended['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
 						<td>Manual process</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($recommended['alternative_investments']) }}</td>
+						<td>{{ currency(($netWorthToday/100)*$recommended['alternative_investments']) }}</td>
 					</tr>
 					<tr>
-						<td>Alternative Investments</td>
-						<td>-</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>Total</td>
+						<td></td>
+						<td>6</td>
+						<td>{{ $totalCapitalPercentage = percentage($recommended['cash_and_equivlent']+$recommended['equities']+$recommended['fix_income']+$recommended['alternative_investments']) }}</td>
+						<td>{{ currency(($netWorthToday/100)*(integer)$totalCapitalPercentage) }}</td>
 					</tr>
+					
 					
 					
 				</table>
@@ -1176,23 +1158,9 @@
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-{{-- jsPDF JS --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 
-<script type="text/javascript">
+{{-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> --}}
 
-	var not_found = '{!! $not_found ?? '' !!}';
-	if(not_found){
-		$(document).ready(function () {
-			$('#UserQuestionnaireNotFound').modal('show', {backdrop: 'static', keyboard: false});
-		});
-		$("a").removeAttr("href").css("cursor","not-allowed");
-		$(".navbar-brand").attr("href", "{!! route('/', app()->getLocale()) !!}").css("cursor","pointer");
-		$("#a_back").attr("href", "{!! url()->previous() !!}").css("cursor","pointer").css("color", "white");
-	}
-
-
-</script>
 
 <script>
 // $(document).ready(function(){
@@ -1206,10 +1174,10 @@ $(document).ready(function(){
 	setTimeout(
 		function() {
 			window.print();
-			// $("br").remove();
+			$("br").remove();
 			// $("body").remove();
-			window.close();
-			window.top.close();
+			// window.close();
+			// window.top.close();
 			// $("#parent-report").addClass('container');
 		},
 	2000);
@@ -1228,23 +1196,17 @@ var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: [
-    	'Cash & Equity', 
-    	'Local Equity', 
-    	'US Equity', 
-    	'International Equity',
-    	'Fix Income',
-    	'Properties REIT',
-    	'Direct Properties',
+    	'Cash and Equivalent', 
+    	'Equities', 
+    	'Fix income', 
+    	'Alternative investments',
     ],
     datasets: [{
 		label: [
-			'Cash & Equity', 
-	    	'Local Equity', 
-	    	'US Equity', 
-	    	'International Equity',
-	    	'Fix Income',
-	    	'Properties REIT',
-	    	'Direct Properties',
+			'Cash and Equivalent', 
+			'Equities', 
+			'Fix income', 
+			'Alternative investments',
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
 		data: [{!! implode(", ", $assetAllocationDonutChartValues) !!}],
@@ -1291,26 +1253,22 @@ var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: [
-    	'Cash & Equity', 
-    	'Local Equity', 
-    	'US Equity', 
-    	'International Equity',
-    	'Fix Income',
-    	'Properties REIT',
-    	'Direct Properties',
+    	'Cash and Equivalent', 
+    	'Equities', 
+    	'Fix income', 
+    	'Alternative investments',
+    	
     ],
     datasets: [{
 		label: [
-			'Cash & Equity', 
-	    	'Local Equity', 
-	    	'US Equity', 
-	    	'International Equity',
-	    	'Fix Income',
-	    	'Properties REIT',
-	    	'Direct Properties',
+			'Cash and Equivalent', 
+	    	'Equities', 
+	    	'Fix income', 
+	    	'Alternative investments',
+	    	
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $assetAllocationDonutChartValues ?? ['40','20','25', '15']) !!}],
+		data: [{!! implode(", ", $recommended ?? ['100']) !!}],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1354,7 +1312,7 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69],
+        labels: [{!! implode(", ", $graphAge) !!}],
         datasets: [{
               type: 'line',
               label: 'Before Retirement',
@@ -1382,46 +1340,18 @@ var myChart = new Chart(ctx, {
                "pointHoverBorderWidth": 2,
                "pointRadius": 1,
                "pointHitRadius": 10,
-              data: [1911793.8682699, 2154137.5188068, 2421764.265619, 2716873.6245353, 3041846.378695, 3399259.2391133, 3791900.6828688, 4222788.0632635, 4695186.0938628, 5212626.8164761, 5778931.1719516, 6398232.3021699, 7075000.7218995, 7814071.5102742, 8620673.6836375, 9500461.9244462, 10459550.854903, 11504552.059091, 12642614.073689, 13881465.58495]
+              data: [{!! implode(", ", $valueBegYear) !!}]
             },{
-              type: 'line',
-              label: 'Age Chart',
-              "fill": false,
-               "lineTension": 0.1,
-               "backgroundColor": [
-                "#FF460E"
-                
-               ],
-               "borderColor": [
-                "#FF460E"
-               ],
-               "borderCapStyle": "butt",
-               "borderDash": [],
-               "borderDashOffset": 0,
-               "borderJoinStyle": "miter",
-               "pointBorderColor": [
-                "#FF460E"
-               ],
-               "pointBackgroundColor": "#ffffff00",
-               "pointBorderWidth": 1,
-               "pointHoverRadius": 5,
-               "pointHoverBackgroundColor": "#FF460E",
-               "pointHoverBorderColor": "#FF460E",
-               "pointHoverBorderWidth": 2,
-               "pointRadius": 1,
-               "pointHitRadius": 10,
-              data: [1911793.8682699, 2154137.5188068, 2421764.265619, 2716873.6245353, 3041846.378695, 3399259.2391133, 3791900.6828688, 4222788.0632635, 4695186.0938628, 5212626.8164761, 5778931.1719516, 6398232.3021699, 7075000.7218995, 7814071.5102742, 8620673.6836375, 9500461.9244462, 10459550.854903, 11504552.059091, 12642614.073689, 13881465.58495, 14463100.168489, 15072095.226493, 15709866.259414, 16377906.91389, 17077793.468002, 17811189.57954, 18579851.312873, 19385632.460963, 20230490.180019, 21116490.955359, 22045816.918156, 23020772.533885, 24043791.684577]
-            },{
-            label: 'Saving Withdrawls',
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2439352.25, 2512532.51, 2587902.26, 2665542.42, 2745512.47, 2827872.13, 2912712.76, 3000092.04, 3090092.21, 3182802.68, 3278282.76, 3376632.58, 3477932.32],
+            label: 'Contribution',
+            data: [{!! implode(", ", $graphContribution) !!}],
             backgroundColor: '#2CD9C5',
             borderColor: '#2CD9C5',
             borderWidth: 1
-        }, {
-          type: 'line',
+        	},{
+          	type: 'line',
             backgroundColor: '#ff87a0',
             borderColor: '#ff87a0',
-            data: [2102973.2550969, 2369551.2706875, 2663940.6921809, 2988560.9869889, 3346031.0165645, 3739185.1630247, 4171090.7511557, 4645066.8695899, 5164704.703249, 5733889.4981237, 6356824.2891468, 7038055.5323869, 7782500.7940895, 8595478.6613016, 9482741.0520013, 10450508.116891, 11505505.940393, 12655007.265001, 13906875.481058, 15269612.143445, 15909410.185337, 16579304.749142, 17280852.885355, 18015697.605279, 18785572.814803, 19592308.537494, 20437836.444161, 21324195.70706, 22253539.19802, 23228140.050895, 24250398.609971, 25322849.787273, 26448170.853034],
+            data: [{!! implode(", ", $uncertain_top) !!}],
 
             "lineTension": 0.1,
              "backgroundColor": [
@@ -1452,7 +1382,7 @@ var myChart = new Chart(ctx, {
             type: 'line',
             backgroundColor: '#9966ff',
             borderColor: '#9966ff',
-            data: [1720614.4814429, 1938723.7669262, 2179587.8390571, 2445186.2620818, 2737661.7408255, 3059333.315202, 3412710.6145819, 3800509.2569372, 4225667.4844765, 4691364.1348285, 5201038.0547565, 5758409.0719529, 6367500.6497096, 7032664.3592468, 7758606.3152738, 8550415.7320015, 9413595.7694127, 10354096.853182, 11378352.66632, 12493319.026455, 13016790.15164, 13564885.703843, 14138879.633472, 14740116.222501, 15370014.121202, 16030070.621586, 16721866.181586, 17447069.214867, 18207441.162017, 19004841.859823, 19841235.22634, 20718695.280496, 21639412.516119],
+            data: [{!! implode(", ", $uncertain_bottom) !!}],
             "fill": false,
              "lineTension": 0.1,
              "backgroundColor": [
