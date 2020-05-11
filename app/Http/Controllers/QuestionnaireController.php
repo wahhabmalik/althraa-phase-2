@@ -53,35 +53,35 @@ class QuestionnaireController extends Controller
      */
     public function store(QuestionnaireRequest $request)
     {
-        // dd($request->all());
+        
         $locale = app()->getLocale();
         $current_url = str_replace('{locale}/', '', \Route::current()->uri);
         $previous_url = str_replace(url('/'.app()->getLocale().'/'), '', url()->previous());
 
-        // dd($current_url, $previous_url);
+        
 
         $user_questionnaire = $this->loggedInUser->user_questionnaires()->orderBy('questionnaire_id', 'DESC')->first();
-        // dd($user_questionnaire, $previous_url);
+        // dd($user_questionnaire,$current_url,$previous_url);
         switch ($previous_url) {                
             case '/step_1':
                 if ($user_questionnaire) {
-                    // dd('exists');
+                    
                     return $this->questionnaire->update_personal_info($request->except(['_token', 'started_year_for_personal_financial_plan']))
                         ?   redirect()->route('step_2', $locale)
                         : redirect()->route('step_1', $locale);
-                    // dd('updated');
+                    
                 }
                 else{
-                    // dd('new');
-                    $created_questionnaire = $this->questionnaire->create_questionnaire($this->loggedInUser, $request->input('started_year_for_personal_financial_plan'));
-
+                    $created_questionnaire = $this->questionnaire->create_questionnaire($this->loggedInUser, null);
+                    
                     return $created_questionnaire->update_personal_info($request->except(['_token', 'started_year_for_personal_financial_plan']))
                         ?   redirect()->route('step_2', $locale)
                             : redirect()->route('step_1', $locale);
-                    // dd('created');
+                    
                 }
                 break;
             case '/step_2':
+                // dd($this->questionnaire);
                 return $this->questionnaire->update_income($request->except('_token'))
                         ?   redirect()->route('step_3', $locale)
                         : redirect()->route('step_2', $locale);
@@ -200,8 +200,8 @@ class QuestionnaireController extends Controller
 
     public function step_3(){
         $user_questionnaire = $this->loggedInUser->user_latest_questionnaire();
-        
-        if(($user_questionnaire->saving_plan ?? null) == null){          
+        // dd($user_questionnaire);
+        if(($user_questionnaire->income ?? null) == null){          
             $status = array('msg' => "Previous Step not completed yet.", 'toastr' => "errorToastr");
             Session::flash($status['toastr'], $status['msg']);
             return redirect()->route('step_2', app()->getLocale());
@@ -216,7 +216,7 @@ class QuestionnaireController extends Controller
     public function step_4(){
         $user_questionnaire = $this->loggedInUser->user_latest_questionnaire();
 
-        if(($user_questionnaire->expenses ?? null) == null){          
+        if(($user_questionnaire->saving_plan ?? null) == null){          
             $status = array('msg' => "Previous Step not completed yet.", 'toastr' => "errorToastr");
             Session::flash($status['toastr'], $status['msg']);
             return redirect()->route('step_3', app()->getLocale());
