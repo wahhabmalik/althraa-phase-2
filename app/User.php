@@ -57,8 +57,8 @@ class User extends Authenticatable
     public function generateTwoFactorCode()
     {
         $this->timestamps = false;
-        // $this->two_factor_code = rand(1000, 9999);
-        $this->two_factor_code = 9999;
+        $this->two_factor_code = rand(1000, 9999);
+        // $this->two_factor_code = 9999;
         $this->two_factor_expires_at = now()->addMinutes(10);
         $this->two_factor_expires_at = null;
         $this->save();
@@ -70,6 +70,25 @@ class User extends Authenticatable
         $this->two_factor_code = null;
         $this->two_factor_expires_at = null;
         $this->save();
+    }
+
+    public function twoFactorAndSendText(User $user)
+    {
+        try 
+        {
+            $this->generateTwoFactorCode();
+            \Nexmo::message()->send([
+                'to'   => $user->phone_number,
+                'from' => '923055644665',
+                'text' => 'Your 2F-Auth Key is: '.$user->two_factor_code
+            ]);
+        } catch (\Exception $e) 
+        {
+            \Auth::logout();
+            $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
+            \Session::flash($status['toastr'], $status['msg']);
+            return redirect('/en/login');
+        }
     }
 
 

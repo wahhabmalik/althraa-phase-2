@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Socialite;
+use Illuminate\Auth\Events\Registered;
 use Auth;
+use App\Questionnaire;
  
 class LoginController extends Controller
 {
@@ -83,8 +86,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $user->generateTwoFactorCode();
-        
     }
+
+    
 
 
 
@@ -137,7 +141,7 @@ class LoginController extends Controller
     {
         $validate = \Validator::make($request->all(),
             [
-                'phone_number' => 'required|numeric',
+                'phone_number' => 'required|numeric|unique:users',
             ]
         );
 
@@ -145,18 +149,50 @@ class LoginController extends Controller
 
         if($user){
             Auth::login($user);
-            $user->generateTwoFactorCode();
+            // $user->generateTwoFactorCode();
+            $user->twoFactorAndSendText($user);
             return redirect()->route('home', app()->getLocale())->with([
                 'message' => 'user_authenticated'
             ]);
             
         }
         else {
-            return redirect()->route('login', app()->getLocale())->with([
-                'error' => 'User Not Authenticated.', 
-                'message' => 'auth.failed', 
-            ]);
+            // return redirect()->route('login', app()->getLocale())->with([
+            //     'error' => 'User Not Authenticated.', 
+            //     'message' => 'auth.failed', 
+            // ]);
+
+            event(new Registered($user = $this->create($request->all())));
+
+            Auth::login($user);
+            // $user->generateTwoFactorCode();
+            $user->twoFactorAndSendText($user);
+            return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+            
         }
 
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        
+    }
+
+    protected function create(array $data)
+    {
+        $user = User::create([
+            'name' => 'User',
+            'gender' => 'gender',
+            'email' => 'user@'.$data['phone_number'],
+            'phone_number' => $data['phone_number'],
+            'password' => Hash::make('$data[]'),
+        ]);
+
+        if ($user) {
+            $user->assignRole('user');
+        }
+
+        return $user;
     }
 }

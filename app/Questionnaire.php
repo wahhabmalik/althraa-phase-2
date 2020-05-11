@@ -11,47 +11,49 @@ class Questionnaire extends Model
 
     public function __construct()
     {
-        $this->cash_and_equivlent = [
-            'value' => 2,
-            'percentage' => 2,
-            'unit' => '%',
-            'tag' => 'of investments',
-        ];
-        $this->equities = [
-            'value' => 10,
-            'percentage' => 10,
-            'unit' => '%',
-            'tag' => 'of investments',
-        ];
-        $this->fix_income = [
-            'value' => 5,
-            'percentage' => 5,
-            'unit' => '%',
-            'tag' => 'of investments',
-        ];
-        $this->alternative_investments = [
-            'value' => 12,
-            'percentage' => 12,
-            'unit' => '%',
-            'tag' => 'of investments',
-        ];
+        // $this->cash_and_equivlent = [
+        //     'value' => 2,
+        //     'percentage' => 2,
+        //     'unit' => '%',
+        //     'tag' => 'of investments',
+        // ];
+        // $this->equities = [
+        //     'value' => 10,
+        //     'percentage' => 10,
+        //     'unit' => '%',
+        //     'tag' => 'of investments',
+        // ];
+        // $this->fix_income = [
+        //     'value' => 5,
+        //     'percentage' => 5,
+        //     'unit' => '%',
+        //     'tag' => 'of investments',
+        // ];
+        // $this->alternative_investments = [
+        //     'value' => 12,
+        //     'percentage' => 12,
+        //     'unit' => '%',
+        //     'tag' => 'of investments',
+        // ];
 
 
-        $this->net_return_before_retirement = [
-            'value' => 7.85,
-            'percentage' => 7.85,
-            'unit' => '%',
-            'tag' => 'of investments',
-        ];
-        $this->net_return_before_retirement = [
-            'value' => 4,
-            'percentage' => 4,
-            'unit' => '%',
-            'tag' => 'of investments',
-        ];
+        // $this->net_return_before_retirement = [
+        //     'value' => 7.85,
+        //     'percentage' => 7.85,
+        //     'unit' => '%',
+        //     'tag' => 'of investments',
+        // ];
+        // $this->net_return_before_retirement = [
+        //     'value' => 4,
+        //     'percentage' => 4,
+        //     'unit' => '%',
+        //     'tag' => 'of investments',
+        // ];
 
-        $this->questionnaire = null;
+        // $this->questionnaire = null;
     }
+
+    protected $questionnaire = null;
 
     protected $table = 'questionnaires';
 
@@ -154,15 +156,17 @@ class Questionnaire extends Model
     // create questionnaire of logged in user
     public function create_questionnaire(User $user, $year = '')
     {
-        return Questionnaire::create([
-            'fk_user_id' => $user->id,
-            'started_year_for_personal_financial_plan' => $year ?? date('Y'),
-        ]);
+        $q = new Questionnaire;
+        $q->fk_user_id = $user->id;
+        $q->save();
+        
+        return $q;
     }
 
     // update personal_info
     public function update_personal_info(array $data)
     {
+        // dd(Questionnaire::where('fk_user_id', auth()->user()->id)->get());
         return Questionnaire::where('fk_user_id', auth()->user()->id)
                 ->orderBy('questionnaire_id', 'DESC')
                 ->first()

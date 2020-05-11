@@ -47,7 +47,7 @@ class TwoFactorController extends Controller
     public function resend()
     {
     	$user = auth()->user();
-    	$user->generateTwoFactorCode();
+    	$user->twoFactorAndSendText($user);
 
     	return redirect()->route('verify.index', app()->getLocale())->withMessage('New Code has been sent to you.');
     }
