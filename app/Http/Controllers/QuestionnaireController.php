@@ -2885,6 +2885,13 @@ class QuestionnaireController extends Controller
     {
         $user = loggedInUser();
 
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $user->email = $request->email;
+        $user->save();
+
         $constants = Constant::where('constant_meta_type', 'LIKE',  'retirement_planner_' . '%')
                     ->orWhere('constant_meta_type', 'inflation')
                     ->orWhere('constant_meta_type', 'uncertainty')
