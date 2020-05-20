@@ -1239,8 +1239,8 @@ $(document).ready(function(){
 			window.print();
 			$("br").remove();
 			$("body").remove();
-			window.close();
-			window.top.close();
+			// window.close();
+			// window.top.close();
 			// $("#parent-report").addClass('container');
 		},
 	2000);
