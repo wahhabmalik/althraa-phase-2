@@ -971,6 +971,7 @@
 			</div>
 			
 		</div>
+		<br><br><br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
@@ -983,14 +984,14 @@
 	{{-- Page 8 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	{{-- <div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                
 	            </h2>
 	            <br><br>
 	            <h1 class="heading-main">Investing Plan</h1>
@@ -1106,7 +1107,7 @@
 		
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
+ --}}
 
 
 
