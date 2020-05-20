@@ -35,12 +35,14 @@ class TwoFactorController extends Controller
 
     	$user = auth()->user();
 
-    	if (implode("", $request->two_factor_code) == $user->two_factor_code) {
+        // dd($user->two_factor_expires_at->lt(now()));
+
+    	if (implode("", $request->two_factor_code) == $user->two_factor_code && !$user->two_factor_expires_at->lt(now())) {
     		$user->resetTwoFactorCode();
     		return redirect()->route('home', app()->getLocale());
     	}
 
-    	return redirect()->route('verify.index', app()->getLocale())->withErrors(['two_factor_code' => 'The Code you have entered for Two Factor Authentication does not match.']);
+    	return redirect()->route('verify.index', app()->getLocale())->withMessage('Verification failed please try again or try new code.');
     }
 
 

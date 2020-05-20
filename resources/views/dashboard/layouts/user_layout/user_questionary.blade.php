@@ -17,6 +17,11 @@
 </head>
 
 <body class="gray-bg" style="{{ ($request->segment(1) == 'ar') ? 'direction:rtl' : '' }}">
+    {{-- <div id="overlayer"></div>
+    <span class="loader">
+      <span class="loader-inner"></span>
+    </span> --}}
+
     <header class="container-fluid header  header__login">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="logo">
@@ -56,6 +61,9 @@
       </nav>
     </header>
 
+    
+
+
 
     @yield('content')
     
@@ -73,7 +81,7 @@
           timeOut: 5000
       };
   </script>
-  @if ($errors->count() > 0)
+  {{-- @if ($errors->count() > 0)
         <script type="text/javascript">
             toastr.options = {
                 "closeButton": true,
@@ -99,7 +107,7 @@
             });
 
         </script>
-    @endif
+    @endif --}}
 
     {{-- messages --}}
     @if(session("successToastr"))

@@ -197,9 +197,10 @@ h1{
     margin-left: 0.8rem; }
 
 .primary-link {
-  color: #01630a;
-  transition: all 0.3s;
-  font-size: 1.4rem;
+    color: #01630a;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    font-weight: bold;
   font-family: "Soin Sans Neue Medium", sans-serif; }
   .primary-link:hover {
     color: #222222; }

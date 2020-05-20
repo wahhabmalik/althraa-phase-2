@@ -4,6 +4,25 @@
 
 @section('styles')
 <style type="text/css">
+.page-heading {
+    font-size: 2.5rem !important;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fbfcfb;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fbfcfb;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #fbfcfb;
+}
+.button {
+    padding: 0.6rem 3.3rem !important;
+}
 </style>
 @endsection
 
@@ -11,9 +30,13 @@
 <div class="background_effect">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <h1 class="text-center page-heading mt-5">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="s-35"></div>
+                <p class="login_link text-center primary-link">
+                    {{ trans('lang.frontend_contact.contact') }}
+                </p>
+                <h1 class="text-center page-heading mt-5 text-dark pr-5 pl-5">
                     {{ trans('lang.frontend_contact.contact_heading_text') }}
                 </h1>
 
@@ -42,7 +65,7 @@
                 @endif
                 <form method="post" action="{{ route('contact',app()->getLocale()) }}">
                 @csrf
-                <h1 class="page-heading text-center mt-5" style="font-size: 2.6rem !important;">
+                <h1 class="page-heading mt-5 text-dark">
                     {{ trans('lang.frontend_contact.contact_send_us_a_message') }}
                 </h1>
                 <div class="s-35"></div>
@@ -68,7 +91,7 @@
                     <textarea id="inputMessage" class="form-control contact_input" name="message" value="" required placeholder="{{ trans('lang.frontend_contact.contact_message_placeholder') }}"></textarea>
                 </div>
 
-                <div class="text-center">
+                <div class="mt-5">
                     <button type="submit" class="button">
                         {{ trans('lang.frontend_contact.contact_send') }}
                     </button>
@@ -76,9 +99,11 @@
                 </form>
 
             </div>
-            <div class="s-100"></div>
         </div>
     </div>
+</div>
+<div class="background_effect_inverse">
+    <div class="s-100"></div>
 </div>
 
 @endsection

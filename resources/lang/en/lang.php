@@ -74,12 +74,15 @@ return [
         'go_to_previous_step' => 'Go to Previous Step',
 
         'total' => 'Total',
+        'net_total' => 'Net Total',
 
         // step 1
         'started_year_for_personal_financial_plan' => 'Started Year for Personal Financial Plan',
         'name' => 'Name',
         'education_level' => 'Select your education level',
-        'years_old' => 'Your current age',
+        'years_old' => 'Current age',
+        'education_level' => 'Education level',
+        'retirement_age' => 'Retirement age',
         'no_of_dependents' => 'No of Dependents',
 
         'education_level_options' => [
@@ -95,12 +98,14 @@ return [
         // step 2
         'salary' => 'Salary',
         'private_business_or_freelancing' => 'Private business or freelancing',
+        'other' => 'Other',
         'stock_dividents' => 'Stock dividents',
         'pension_income' => 'Pension income',
         'real_estate_income_rent' => 'Properites income',
         'other' => 'Other',
 
-        'continue_to_expenses' => 'Continue to expenses',
+        // 'continue_to_expenses' => 'Continue to expenses',
+        'continue_to_saving_plan' => 'Continue to saving plan',
 
 
         // step 3
@@ -177,8 +182,10 @@ return [
         // step 4
         'assets' => 'Real Assets',
             'real_estate' => 'Real Estate',
+            'pe' => 'PE',
 
         'financial_assets' => 'Financial Assets',
+
             'cash_and_deposit' => 'Cash and deposit',
             'equities' => 'Equities',
             'bonds' => 'Bonds',
@@ -213,6 +220,7 @@ return [
 
         'liabilities' => 'Liabilities',
             'liabilities_real_estate_loan' => 'Real estate loan  ',
+            'real_estate_loan' => 'Real estate loan  ',
 
         'liabilities_personal_loan' => 'Personal Loan',
         'liabilities_mortgage' => 'Mortgage',
@@ -328,6 +336,7 @@ return [
 
         'continue_to_objectives' => 'Continue To Objectives',
         'continue_to_payment' => 'Continue To Payment',
+        'continue' => 'Continue',
 
 
         // step 7
@@ -372,9 +381,10 @@ return [
 
 
     'question_headings' => [
-        'personal_info' => 'Personal info',
-        'income' => 'Income',
-        'expenses' => 'Expenses',
+        'personal_info' => 'Personal Info',
+        'income' => 'Monthly Income',
+        // 'expenses' => 'Expenses', (old value)
+        'expenses' => 'Saving Plan',
         'net_assets' => 'Net worth',
         'gosi' => 'GOSI',
         'risk' => 'Risk',

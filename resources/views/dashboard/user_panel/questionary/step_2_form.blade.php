@@ -102,7 +102,7 @@
 	                        </ul>
 						</div>
 
-						<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST">
+						<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST" id="form">
 							@csrf
 	                        <div class="tab-content">
 	                        	<div class="tab-pane active" id="income">
@@ -115,14 +115,19 @@
 						                          	{{ trans('lang.question.salary') }}
 						                          </label>
 						                          <input 
-						                                id="salary" 
-						                                type="text" 
-						                                class="form-control" 
-						                                name="income[salary]" 
-						                                required 
-						                                placeholder="eg. 40.000 SAR"
-						                                value="{{ $user_questionnaire->income["income"]["salary"] ?? old('income.salary') }}"
-						                                >
+						                          data-a-sign="" data-a-dec="," data-a-sep="."
+					                                id="salary" 
+					                                type="text" 
+					                                class="form-control @error('income.salary') {!! 'error' !!} @enderror" 
+					                                name="income[salary]" 
+					                                required 
+					                                placeholder="eg. 40.000 SAR"
+					                                value="{{ old('income.salary') ?? $user_questionnaire->income["income"]["salary"] ?? '' }}"
+					                                >
+
+				                                @error('income.salary')
+						                            <label class="error" >{{ $message }}</label>
+						                        @enderror
 						                    	</div>
 											</div>
 
@@ -132,68 +137,23 @@
 						                          	{{ trans('lang.question.private_business_or_freelancing') }}
 						                          </label>
 						                          <input 
+						                          data-a-sign="" data-a-dec="," data-a-sep="."
 						                                id="private_buisness_or_freelancing" 
 						                                type="text" 
-						                                class="form-control"
+						                                class="form-control @error('income.private_buisness_or_freelancing') {!! 'error' !!} @enderror"
 						                                name="income[private_buisness_or_freelancing]" 
 						                                required 
 						                                placeholder="eg. 140.00 SAR"
-						                                value="{{ $user_questionnaire->income["income"]["private_buisness_or_freelancing"] ?? old('income.private_buisness_or_freelancing') }}"
+						                                value="{{ old('income.private_buisness_or_freelancing') ?? $user_questionnaire->income["income"]["private_buisness_or_freelancing"] ?? '' }}"
 						                                >
+
+						                            @error('income.private_buisness_or_freelancing')
+						                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 						                    	</div>
 											</div>
 
-											{{-- <div class="form-group">
-												<div class="form-group">
-						                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-						                          	{{ trans('lang.question.stock_dividents') }}
-						                          </label>
-						                          <input 
-						                                id="stock_dividents" 
-						                                type="text" 
-						                                class="form-control"
-						                                name="income[stock_dividents]" 
-						                                required 
-						                                placeholder="eg. 300.00 SAR"
-						                                value="{{ $user_questionnaire->income["income"]["stock_dividents"] ?? old('income.stock_dividents') }}"
-						                                >
-						                    	</div>
-											</div>
-
-											<div class="form-group">
-												<div class="form-group">
-						                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-						                          	{{ trans('lang.question.pension_income') }}
-						                          </label>
-						                          <input 
-						                                id="pension_income" 
-						                                type="text" 
-						                                class="form-control"
-						                                name="income[pension_income]" 
-						                                required 
-						                                placeholder="eg. 300.00 SAR"
-						                                value="{{ $user_questionnaire->income["income"]["pension_income"] ?? old('income.pension_income') }}"
-						                                >
-						                    	</div>
-											</div>
-
-											<div class="form-group">
-												<div class="form-group">
-						                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-						                          	{{ trans('lang.question.real_estate_income_rent') }}
-						                          </label>
-						                          <input 
-						                                id="real_estate_income_rent" 
-						                                type="text" 
-						                                class="form-control"
-						                                name="income[real_estate_income_rent]" 
-						                                required 
-						                                placeholder="eg. 3000 SAR"
-						                                value="{{ $user_questionnaire->income["income"]["real_estate_income_rent"] ?? old('income.real_estate_income_rent') }}"
-						                                >
-						                    	</div>
-											</div> --}}
-
+											
 
 											<div class="form-group">
 												<div class="form-group">
@@ -201,14 +161,19 @@
 						                          	{{ trans('lang.question.other') }}
 						                          </label>
 						                          <input 
+						                          data-a-sign="" data-a-dec="," data-a-sep="."
 						                                id="other" 
 						                                type="text" 
-						                                class="form-control"
+						                                class="form-control @error('income.other') {!! 'error' !!} @enderror"
 						                                name="income[other]" 
 						                                required 
 						                                placeholder="eg. 300.00 SAR"
-						                                value="{{ $user_questionnaire->income["income"]["other"] ?? old('income.other') }}"
+						                                value="{{ old('income.other') ?? $user_questionnaire->income["income"]["other"] ?? '' }}"
 						                                >
+
+						                            @error('income.other')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 						                    	</div>
 											</div>
 
@@ -216,7 +181,7 @@
 											<br>
 											<div class="center_content">
 												<button type="submit" class="button">
-													{{ trans('lang.question.continue_to_expenses') }}
+													{{ trans('lang.question.continue_to_saving_plan') }}
 													<i class="{{ ($request->segment(1) == 'ar') ? 'fa fa-arrow-left fa-fw' : 'fa fa-arrow-right fa-fw' }}"></i>
 												</button>
 
@@ -226,17 +191,7 @@
 	                            </div>
 	                            
 	                        </div>
-	                        {{-- <div class="wizard-footer">
-	                            <div class="pull-right">
-	                                <input type='submit' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
-	                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' value='Finish' />
-	                            </div>
-
-	                            <div class="pull-left">
-	                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
-	                            </div>
-	                            <div class="clearfix"></div>
-	                        </div> --}}
+	                        
 	                    </form>
 	                </div>
 	            </div> <!-- wizard container -->
@@ -256,7 +211,8 @@
 <script src="{{ asset('backend_assets/questions/assets/js/demo.js') }} " type="text/javascript"></script>
 <script src="{{ asset('backend_assets/questions/assets/js/paper-bootstrap-wizard.js') }} " type="text/javascript"></script>
 
-<!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
-{{-- <script src="{{ asset('backend_assets/questions/assets/js/jquery.validate.min.js') }} " type="text/javascript"></script> --}}
+
+
+
 @include('dashboard.user_panel.partials.validate')
 @endsection

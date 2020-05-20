@@ -61,20 +61,20 @@
                                     <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
                                       @csrf
                                     </form>
-                                @endif
+                                  @endif
                                 @else
                                     {{-- <li class="auth_resp">
                                         <a class="{{ ($request->segment(2) == 'register') ? 'active' : '' }}" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>
                                     </li> --}}
-                                  {{-- <li class="auth_resp">
+                                  <li class="auth_resp">
                                       <a class="{{ ($request->segment(2) == 'login') ? 'active' : '' }}" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a>
-                                  </li> --}}
+                                  </li>
                                 @endauth
 
                                 @switch($request->segment(1))
                                     @case('ar')
                                         @foreach (config('app.available_locales') as $locale)
-                                          <a class="button_primary lang_btn auth_resp"
+                                          <a class="button_primary lang_btn auth_resp text-white"
                                              style="margin-bottom: 10px;" 
                                              href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
                                               @if (app()->getLocale() == $locale) style="font-weight: bold;" @endif>{{ trans('lang.language') }}
@@ -86,7 +86,7 @@
                                     @case('en')
                                         @foreach (config('app.available_locales') as $key => $locale)
                                             @if($key == 1)
-                                              <a class="button_primary lang_btn auth_resp"
+                                              <a class="button_primary lang_btn auth_resp text-white"
                                                  style="margin-bottom: 10px;" 
                                                  href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
                                                   @if (app()->getLocale() == $locale) style="font-weight: bold;" @endif>
@@ -154,7 +154,7 @@
                                 @endif
                                   
                                 @else
-                                    {{-- <a class="login_link" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a> --}}
+                                    <a class="login_link" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.login') }}</a>
 
                                     {{-- @if (Route::has('register'))
                                         <a class="button_primary get_started" href="{{ route('register', app()->getLocale()) }}">{{ trans('lang.get_started') }}</a>

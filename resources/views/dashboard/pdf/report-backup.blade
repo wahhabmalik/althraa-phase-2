@@ -1,26 +1,26 @@
 @inject('request', 'Illuminate\Http\Request')
-
 @extends('dashboard.layouts.user_layout.user_questionary')
-
 
 @section('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/dashboard/css/print.css') }}">
 <style>
- 
 
 {!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
 
-
-.factor .pointer:not(:last-child) {
-    opacity: 0;
-}
 </style>
 @endsection
+
+
 @section('content')
-<div class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
+
+{{-- {{ dd($data) }} --}}
+<div id="printable" class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 	
+	@php 
+	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>You</p>';
+	@endphp
 
 	<div id="parent-report" class="container-fluid mb-5 background_effect " {{ $not_found ?? '' }}>
 		<div class="row">
@@ -34,8 +34,7 @@
 	            </h2>
 	            <br><br><br><br><br>
 	            <h1 class="heading-main">PERSONAL FINANCIAL PLAN</h1>
-	            <h1 class="user-main mt-3">Ali Alsheri</h1>
-
+	            <h1 class="user-main mt-3">{{ $data['personalInfo']['name'] }}</h1>
 			</div>
 		</div>
 
@@ -56,12 +55,12 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br><br><br>
+		<br><br><br><br><br><br>
+		<br><br><br><br><br><br>
+
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 		
 	</div>
-
-
-
 
 
 
@@ -115,12 +114,8 @@
 		<br><br><br><br><br>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
-
 
 
 
@@ -195,15 +190,11 @@
 			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			
 		</div>
-	
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
-
 
 
 
@@ -216,8 +207,6 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -237,22 +226,22 @@
 			
 			<div class="col-sm-3">
 				<p>Name</p>
-				<b>Waleed</b>
+				<b>{{ $data['personalInfo']['name'] }}</b>
 			</div>
 			
 			<div class="col-sm-3">
 				<p>Education</p>
-				<b>Master</b>
+				<b>{{ $data['personalInfo']['education_level'] }}</b>
 			</div>
 			
 			<div class="col-sm-2">
 				<p>Current age</p>
-				<b>36</b>
+				<b>{{ $data['personalInfo']['years_old'] }}</b>
 			</div>
 			
 			<div class="col-sm-2">
 				<p>Planned retirement age</p>
-				<b>60</b>
+				<b>{{ $data['personalInfo']['retirement_age'] }}</b>
 			</div>
 			
 			<br><br><br><br><br>
@@ -273,19 +262,19 @@
 				<table>
 					<tr>
 						<td>Monthly income today</td>
-						<td>SAR 55,000</td>
+						<td>{{ currency($data['monthlyIncomeToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>GOSI/PPA monthly subscription</td>
-						<td>SAR 5,000</td>
+						<td>{{ currency($data['gosi_or_ppa_monthlySubscription'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan for retirement</td>
-						<td>SAR 3,000</td>
+						<td>{{ currency($data['monthlySavingPlanForRetirement'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving % today</td>
-						<td>15%</td>
+						<td>{{ percentage($data['monthlySavingPercentageToday'] ?? 0) }}</td>
 					</tr>
 					
 				</table>
@@ -294,19 +283,19 @@
 				<table>
 					<tr>
 						<td>Total assets today</td>
-						<td>SAR 1,400,000</td>
+						<td>{{ currency($data['totalAssetsToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Total liabilities today</td>
-						<td>SAR 3,000</td>
+						<td>{{ currency($data['totalLiabilitiesToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Net worth</td>
-						<td>SAR 1,390,000</td>
+						<td>{{ currency($data['netWorthToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Accomulative saving today</td>
-						<td>SAR 300,000</td>
+						<td>{{ currency($data['accomulativeSavingtoday'] ?? 0) }}</td>
 					</tr>
 					
 				</table>
@@ -325,10 +314,10 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $totalCAA ?? '20,000' }} SAR
+						    	{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($totalCAAPercentage ?? 60, 2) ?? 0 }} %
+						    	{{ percentage($data['totalCurrentAssetAllocationPercentage'] ?? 0) }}
 						    </p>
 						    <br>
 
@@ -349,12 +338,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['cashAndEquivlentPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency($data['cashAndEquivlent'] ?? 0) }}
 											</p>
 										</td>
 									</tr>
@@ -367,12 +356,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['equitiesPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency($data['equities'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -385,12 +374,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['fixIncomePercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency($data['fixIncome'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -403,12 +392,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['alternativeInvestmentsPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency($data['alternativeInvestments'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -421,12 +410,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												100 %
+												{{ percentage($data['totalCurrentAssetAllocationPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? '20,000' }} SAR
+												{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -438,12 +427,9 @@
 				</div>
 			</div>
 		</div>
-		
+		<br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
-
-
 
 
 
@@ -491,24 +477,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] <= 10) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] >= 11 && $data['monthlySavingPercentageToday'] <= 20) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] >= 21 && $data['monthlySavingPercentageToday'] <= 30) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] >= 31 && $data['monthlySavingPercentageToday'] <= 50) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] >50) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -523,45 +504,31 @@
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Current Saving Amount (your age)</p>
+				<p class="text-secondary mt-5">Current Saving Amount ({{ $data['personalInfo']['years_old'] }})</p>
 				
-				<div class="factor">
-					<p>Little saver</p>	
+				<div class="factor-vs">
+					<p>Poor saver</p>	
+					<p>Fair saver</p>	
 					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
 				</div>
 
-				<div class="factor">
+				<div class="factor-vs">
 					<span class="little"></span>
-					<span class="good"></span>
 					<span class="great"></span>
-					<span class="rich"></span>
 					<span class="wealthy"></span>
 				</div>
 
-				<div class="factor">
+				<div class="factor-vs">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['commulitiveSavingRating'] == 'Poor') ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['commulitiveSavingRating'] == 'Fair') ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['commulitiveSavingRating'] == 'Good') ? $pointer : '' !!}
 					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
+					
 				</div>
 
 			</div>
@@ -578,11 +545,11 @@
 				<p class="text-secondary mt-5">Early Retirement Possibility</p>
 				
 				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+					<p>Poor</p>	
+					<p>Fair</p>	
+					<p>Healthy</p>	
+					<p>Very healthy</p>	
+					<p>Early retire person</p>	
 				</div>
 
 				<div class="factor">
@@ -595,24 +562,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] < 0) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] > 0 && $data['monthlySavingPercentageToday'] <= 10) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] > 10 && $data['monthlySavingPercentageToday'] <= 20) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] > 20 && $data['monthlySavingPercentageToday'] <= 30) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['monthlySavingPercentageToday'] > 30) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -629,43 +591,36 @@
 			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Investing Diversity</p>
 				
-				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+				<div class="factor-s">
+					<p>Poor</p>	
+					<p>Fair</p>	
+					<p>Good</p>	
+					<p>Great</p>
+					
 				</div>
 
-				<div class="factor">
+				<div class="factor-s">
 					<span class="little"></span>
 					<span class="good"></span>
 					<span class="great"></span>
 					<span class="rich"></span>
-					<span class="wealthy"></span>
+					
 				</div>
 
-				<div class="factor">
+				<div class="factor-s">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['assetClass'] == 1) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['assetClass'] == 2) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['assetClass'] == 3) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['assetClass'] == 4) ? $pointer : '' !!}
 					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
+					
 				</div>
 
 			</div>
@@ -677,8 +632,7 @@
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -715,11 +669,11 @@
 				<p class="text-secondary mt-5">Risk Test Index</p>
 				
 				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+					<p>Very Conservative</p>	
+					<p>Conservative</p>	
+					<p>Natural</p>	
+					<p>Agressive</p>	
+					<p>Very Agressive</p>	
 				</div>
 
 				<div class="factor">
@@ -732,24 +686,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['riskTestIndex'] < 19) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['riskTestIndex'] >= 20 && $data['riskTestIndex'] < 40) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['riskTestIndex'] >= 40 && $data['riskTestIndex'] < 60) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['riskTestIndex'] >= 60 && $data['riskTestIndex'] < 80) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						{!! ($data['riskTestIndex'] >= 80 && $data['riskTestIndex'] <= 100) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -772,10 +721,10 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $totalCAA ?? '20,000' }} SAR
+						    	{{ $data['totalCurrentAssetAllocation'] ?? '0' }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($totalCAAPercentage ?? 60, 2) ?? 0 }} %
+						    	{{ round($data['totalCAAPercentage'] ?? 100, 2) ?? 100 }} %
 						    </p>
 						    <br>
 
@@ -796,12 +745,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['recommended']['cash_and_equivlent']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['cash_and_equivlent'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -814,12 +763,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['recommended']['equities']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['equities'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -832,12 +781,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['recommended']['fix_income']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['fix_income'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -850,12 +799,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												{{ percentage($data['recommended']['alternative_investments']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['alternative_investments'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -868,12 +817,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												100 %
+												{{ percentage(100) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? '20,000' }} SAR
+												{{ currency($data['totalCurrentAssetAllocation']) ?? '0' }} 
 											</p>
 										</td>
 									</tr>
@@ -889,7 +838,7 @@
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -914,8 +863,8 @@
 	            </h2>
 	            <p class="text-secondary mt-5">Financial Forecast</p>
 	            <p class="alertBox__p">
-	              <span>👏Congratulations!</span>&nbsp;At age 80 you will have
-	              savings balance of SAR 1.296.043.
+	              <span>👏Congratulations!</span>&nbsp;At age {{ $data['retirement_age'] }} you will have
+	              savings balance of {{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}.
 	            </p>
 			</div>
 		</div>
@@ -938,23 +887,23 @@
 				<table>
 					<tr>
 						<td>Current age</td>
-						<td>36 years</td>
+						<td>{{ $data['personalInfo']['years_old'] }}</td>
 					</tr>
 					<tr>
 						<td>Planned retirement age</td>
-						<td>60 years</td>
+						<td>{{ $data['retirement_age'] }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan</td>
-						<td>5,000 SAR /Month</td>
+						<td>{{ currency($data['monthlySalary']) }} /Month</td>
 					</tr>
 					<tr>
 						<td>Monthly saving today</td>
-						<td>15% of Monthly Income</td>
+						<td>{{ percentage($data['monthlySavingPercentageToday']) }} of Monthly Income</td>
 					</tr>
 					<tr>
 						<td>Accumulative saving today</td>
-						<td>300,000 SAR</td>
+						<td>{{ currency($data['accomulativeSavingtoday']) }}</td>
 					</tr>
 					
 				</table>
@@ -964,27 +913,27 @@
 				<table>
 					<tr>
 						<td>Cash and Quivlent</td>
-						<td>2%</td>
+						<td>{{ percentage($data['returnAssumptions']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
-						<td>10%</td>
+						<td>{{ percentage($data['returnAssumptions']['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td>5%</td>
+						<td>{{ percentage($data['returnAssumptions']['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
-						<td>12%</td>
+						<td>{{ percentage($data['returnAssumptions']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (Before retirement)</td>
-						<td>10%</td>
+						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (After retirement)</td>
-						<td>4%</td>
+						<td>{{ percentage($data['netReturnAfterRetirement']) }}</td>
 					</tr>
 					
 				</table>
@@ -997,32 +946,32 @@
 			<div class="col-sm-10">
 				<p class="text-secondary mt-5">Income and Wealth at Retirement</p>
 				<table>
-					<tr>
+					{{-- <tr>
 						<td>Status at retirement</td>
 						<td>Based on assets allocation</td>
-					</tr>
+					</tr> --}}
 					<tr>
-						<td>Retirement plan value at 60 years old</td>
-						<td>if retire at 60 years old</td>
+						<td>Retirement plan value at {{ $data['retirement_age'] }} years old</td>
+						<td>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</td>
 					</tr>
 					<tr>
 						<td>Total monthly income</td>
-						<td>A+B</td>
+						<td>{{ currency($data['totalMonthlyIncome']) }}</td>
 					</tr>
 					<tr>
 						<td>Income from retirement plan</td>
-						<td>A</td>
+						<td>{{ currency($data['monthlySalary']) }}</td>
 					</tr>
 					<tr>
 						<td>Income from GOSI or PPA</td>
-						<td>B</td>
+						<td>{{ currency($data['retirementGOCIMonthlyIncome']) }}</td>
 					</tr>
 					
 				</table>
 			</div>
 			
 		</div>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -1064,27 +1013,27 @@
 					</thead>
 					<tr>
 						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
+						<td class="text-right">صندوق الراجحي للمضاربة بالسلع بالريال</td>
+						<td class="text-right">صندوق الاهلي للمتاجرة </td>
+						<td class="text-right">صندوق الفا للمرابحة</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
-						<td>Equities</td>
-						<td>Equities</td>
-						<td>Equities</td>
+						<td>iShares MSCI USA Islamic UCITS ETF</td>
+						<td>iShares MSCI World Islamic UCITS ETF</td>
+						<td>-</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
+						<td class="text-right">صندوق سامبا للصكوك السيادية</td>
+						<td class="text-right">صندوق الراجحي للصكوك</td>
+						<td class="text-right">صندوق الانماء للصكوك المتداولة</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
+						<td>Manual Process</td>
+						<td>Manual Process</td>
+						<td>Manual Process</td>
 					</tr>
 					
 				</table>
@@ -1111,37 +1060,38 @@
 						<td>Cash & Equivlent</td>
 						<td>1 payment</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
 						<td>4 payment over one year</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($data['recommended']['equities']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
 						<td>1 payment</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
 						<td>Manual process</td>
 						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
-						<td>Alternative Investments</td>
-						<td>-</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
+						<td>Total</td>
+						<td></td>
+						<td>6</td>
+						<td>{{ $data['totalCapitalPercentage'] = percentage($data['recommended']['cash_and_equivlent']+$data['recommended']['equities']+$data['recommended']['fix_income']+$data['recommended']['alternative_investments']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*(integer)$data['totalCapitalPercentage']) }}</td>
 					</tr>
+					
 					
 					
 				</table>
@@ -1153,11 +1103,8 @@
 		<br><br><br><br><br>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
 		
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -1191,13 +1138,13 @@
 			</div>
 		</div>
 
-		
-		
-
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
-		
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 </div>
@@ -1206,24 +1153,11 @@
 @endsection
 
 @section('scripts')
+{{-- <script src="html2pdf.bundle.min.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-{{-- jsPDF JS --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 
-<script type="text/javascript">
+{{-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> --}}
 
-	var not_found = '{!! $not_found ?? '' !!}';
-	if(not_found){
-		$(document).ready(function () {
-			$('#UserQuestionnaireNotFound').modal('show', {backdrop: 'static', keyboard: false});
-		});
-		$("a").removeAttr("href").css("cursor","not-allowed");
-		$(".navbar-brand").attr("href", "{!! route('/', app()->getLocale()) !!}").css("cursor","pointer");
-		$("#a_back").attr("href", "{!! url()->previous() !!}").css("cursor","pointer").css("color", "white");
-	}
-
-
-</script>
 
 <script>
 // $(document).ready(function(){
@@ -1236,12 +1170,16 @@
 $(document).ready(function(){
 	setTimeout(
 		function() {
-			window.print();
-			$("br").remove();
-			$("body").remove();
-			window.close();
-			window.top.close();
+			// window.print();
+			// $("br").remove();
+			// $("body").remove();
+			// window.close();
+			// window.top.close();
 			// $("#parent-report").addClass('container');
+
+			// var element = document.getElementById('printable');
+			// html2pdf(element);
+
 		},
 	2000);
 });
@@ -1259,26 +1197,20 @@ var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: [
-    	'Cash & Equity', 
-    	'Local Equity', 
-    	'US Equity', 
-    	'International Equity',
-    	'Fix Income',
-    	'Properties REIT',
-    	'Direct Properties',
+    	'Cash and Equivalent', 
+    	'Equities', 
+    	'Fix income', 
+    	'Alternative investments',
     ],
     datasets: [{
 		label: [
-			'Cash & Equity', 
-	    	'Local Equity', 
-	    	'US Equity', 
-	    	'International Equity',
-	    	'Fix Income',
-	    	'Properties REIT',
-	    	'Direct Properties',
+			'Cash and Equivalent', 
+			'Equities', 
+			'Fix income', 
+			'Alternative investments',
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $selectedAssetValueDataDonutChart ?? ['40','20','25', '15']) !!}],
+		data: [{!! implode(", ", $data['assetAllocationDonutChartValues']) !!}],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1322,26 +1254,22 @@ var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: [
-    	'Cash & Equity', 
-    	'Local Equity', 
-    	'US Equity', 
-    	'International Equity',
-    	'Fix Income',
-    	'Properties REIT',
-    	'Direct Properties',
+    	'Cash and Equivalent', 
+    	'Equities', 
+    	'Fix income', 
+    	'Alternative investments',
+    	
     ],
     datasets: [{
 		label: [
-			'Cash & Equity', 
-	    	'Local Equity', 
-	    	'US Equity', 
-	    	'International Equity',
-	    	'Fix Income',
-	    	'Properties REIT',
-	    	'Direct Properties',
+			'Cash and Equivalent', 
+	    	'Equities', 
+	    	'Fix income', 
+	    	'Alternative investments',
+	    	
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $selectedAssetValueDataDonutChart ?? ['40','20','25', '15']) !!}],
+		data: [{!! implode(", ", $data['recommended'] ?? ['100']) !!}],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1385,7 +1313,7 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69],
+        labels: [{!! implode(", ", $data['graphAge']) !!}],
         datasets: [{
               type: 'line',
               label: 'Before Retirement',
@@ -1413,46 +1341,18 @@ var myChart = new Chart(ctx, {
                "pointHoverBorderWidth": 2,
                "pointRadius": 1,
                "pointHitRadius": 10,
-              data: [1911793.8682699, 2154137.5188068, 2421764.265619, 2716873.6245353, 3041846.378695, 3399259.2391133, 3791900.6828688, 4222788.0632635, 4695186.0938628, 5212626.8164761, 5778931.1719516, 6398232.3021699, 7075000.7218995, 7814071.5102742, 8620673.6836375, 9500461.9244462, 10459550.854903, 11504552.059091, 12642614.073689, 13881465.58495]
+              data: [{!! implode(", ", $data['graphValueBegYear']) !!}]
             },{
-              type: 'line',
-              label: 'Age Chart',
-              "fill": false,
-               "lineTension": 0.1,
-               "backgroundColor": [
-                "#FF460E"
-                
-               ],
-               "borderColor": [
-                "#FF460E"
-               ],
-               "borderCapStyle": "butt",
-               "borderDash": [],
-               "borderDashOffset": 0,
-               "borderJoinStyle": "miter",
-               "pointBorderColor": [
-                "#FF460E"
-               ],
-               "pointBackgroundColor": "#ffffff00",
-               "pointBorderWidth": 1,
-               "pointHoverRadius": 5,
-               "pointHoverBackgroundColor": "#FF460E",
-               "pointHoverBorderColor": "#FF460E",
-               "pointHoverBorderWidth": 2,
-               "pointRadius": 1,
-               "pointHitRadius": 10,
-              data: [1911793.8682699, 2154137.5188068, 2421764.265619, 2716873.6245353, 3041846.378695, 3399259.2391133, 3791900.6828688, 4222788.0632635, 4695186.0938628, 5212626.8164761, 5778931.1719516, 6398232.3021699, 7075000.7218995, 7814071.5102742, 8620673.6836375, 9500461.9244462, 10459550.854903, 11504552.059091, 12642614.073689, 13881465.58495, 14463100.168489, 15072095.226493, 15709866.259414, 16377906.91389, 17077793.468002, 17811189.57954, 18579851.312873, 19385632.460963, 20230490.180019, 21116490.955359, 22045816.918156, 23020772.533885, 24043791.684577]
-            },{
-            label: 'Saving Withdrawls',
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2439352.25, 2512532.51, 2587902.26, 2665542.42, 2745512.47, 2827872.13, 2912712.76, 3000092.04, 3090092.21, 3182802.68, 3278282.76, 3376632.58, 3477932.32],
+            label: 'Contribution',
+            data: [{!! implode(", ", $data['graphContribution']) !!}],
             backgroundColor: '#2CD9C5',
             borderColor: '#2CD9C5',
             borderWidth: 1
-        }, {
-          type: 'line',
+        	},{
+          	type: 'line',
             backgroundColor: '#ff87a0',
             borderColor: '#ff87a0',
-            data: [2102973.2550969, 2369551.2706875, 2663940.6921809, 2988560.9869889, 3346031.0165645, 3739185.1630247, 4171090.7511557, 4645066.8695899, 5164704.703249, 5733889.4981237, 6356824.2891468, 7038055.5323869, 7782500.7940895, 8595478.6613016, 9482741.0520013, 10450508.116891, 11505505.940393, 12655007.265001, 13906875.481058, 15269612.143445, 15909410.185337, 16579304.749142, 17280852.885355, 18015697.605279, 18785572.814803, 19592308.537494, 20437836.444161, 21324195.70706, 22253539.19802, 23228140.050895, 24250398.609971, 25322849.787273, 26448170.853034],
+            data: [{!! implode(", ", $data['uncertain_top']) !!}],
 
             "lineTension": 0.1,
              "backgroundColor": [
@@ -1483,7 +1383,7 @@ var myChart = new Chart(ctx, {
             type: 'line',
             backgroundColor: '#9966ff',
             borderColor: '#9966ff',
-            data: [1720614.4814429, 1938723.7669262, 2179587.8390571, 2445186.2620818, 2737661.7408255, 3059333.315202, 3412710.6145819, 3800509.2569372, 4225667.4844765, 4691364.1348285, 5201038.0547565, 5758409.0719529, 6367500.6497096, 7032664.3592468, 7758606.3152738, 8550415.7320015, 9413595.7694127, 10354096.853182, 11378352.66632, 12493319.026455, 13016790.15164, 13564885.703843, 14138879.633472, 14740116.222501, 15370014.121202, 16030070.621586, 16721866.181586, 17447069.214867, 18207441.162017, 19004841.859823, 19841235.22634, 20718695.280496, 21639412.516119],
+            data: [{!! implode(", ", $data['uncertain_bottom']) !!}],
             "fill": false,
              "lineTension": 0.1,
              "backgroundColor": [
@@ -1541,7 +1441,7 @@ var myChart = new Chart(ctx, {
                         return (index % 3) ? "" : 'SAR ' + tick;
                       }
                       else{
-                        return (index % 2) ? "" : 'SAR ' + tick;
+                        return (index % 2) ? "" : 'SAR ' + (Math.round(tick * 100) / 100).toLocaleString();
                       }
                     }
                 },

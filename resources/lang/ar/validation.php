@@ -97,6 +97,7 @@ return [
     'numeric' => 'ال      :attribute     يجب أن يكون رقما.',
     'present' => 'ال      :attribute     يجب أن يكون الحقل حاضرا.',
     'regex' => 'ال      :attribute     التنسيق غير صالح.',
+    'require' => 'ال   التنسيق مطلوب',
     'required' => 'ال      :attribute التنسيق مطلوب',
     'required_if' => 'ال      :attribute     حقل مطلوب عندما  :other يكون   :value.',
     'required_unless' => 'ال      :attribute     الحقل مطلوب ما لم   :other في داخل   :values.',

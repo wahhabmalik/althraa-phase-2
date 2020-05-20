@@ -43,8 +43,10 @@ Route::get('/login_with_another_account', function() {
 //   return "Done! Your Application is in Maintenance Mode now. Go Back and Refresh Page please.";
 // })->name('maintenance-mode');
 
-Route::get('download/{type}/{user?}', 'QuestionnaireController@dowload')->name('download');
-Route::get('testDownload', 'QuestionnaireController@testDownload')->name('testDownload');
+
+Route::get('download-report', 'ReportController@downloadReport')->name('download');
+
+Route::post('validate-phone', 'HomeController@phoneVerification')->name('validate_phone');
 
 /*
 |--------------------------------------------------------------------------
@@ -181,9 +183,11 @@ Route::group([
       Route::get('/home', 'HomeController@index')->name('home');
 
       Route::get('/email-verification', 'HomeController@emailVerification')->name('email_verification');
+      Route::post('/email-verification', 'QuestionnaireController@getReport')->name('email_verification');
 
       Route::get('/payment', 'HomeController@payment')->name('payment');
-      Route::post('/payment', 'QuestionnaireController@getReport')->name('payment');
+      Route::post('/payment', 'HomeController@getPayment')->name('payment');
+      // Route::post('/payment', 'QuestionnaireController@getReport')->name('payment');
 
       Route::get('/sample-report',  function () {
           return view('dashboard.pdf.sample_report');

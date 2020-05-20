@@ -14,7 +14,9 @@
 
 
 @section('content')
-<div class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
+
+{{-- {{ dd($data) }} --}}
+<div id="printable" class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 	
 	@php 
 	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>You</p>';
@@ -32,8 +34,7 @@
 	            </h2>
 	            <br><br><br><br><br>
 	            <h1 class="heading-main">PERSONAL FINANCIAL PLAN</h1>
-	            <h1 class="user-main mt-3">{{ $personalInfo['name'] }}</h1>
-
+	            <h1 class="user-main mt-3">{{ $data['personalInfo']['name'] }}</h1>
 			</div>
 		</div>
 
@@ -54,7 +55,10 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br><br><br>
+		<br><br><br><br><br><br>
+		<br><br><br><br><br><br>
+
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 		
 	</div>
 
@@ -110,8 +114,7 @@
 		<br><br><br><br><br>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -187,11 +190,10 @@
 			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			
 		</div>
-	
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -205,8 +207,6 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -226,22 +226,22 @@
 			
 			<div class="col-sm-3">
 				<p>Name</p>
-				<b>{{ $personalInfo['name'] }}</b>
+				<b>{{ $data['personalInfo']['name'] }}</b>
 			</div>
 			
 			<div class="col-sm-3">
 				<p>Education</p>
-				<b>{{ $personalInfo['education_level'] }}</b>
+				<b>{{ $data['personalInfo']['education_level'] }}</b>
 			</div>
 			
 			<div class="col-sm-2">
 				<p>Current age</p>
-				<b>{{ $personalInfo['years_old'] }}</b>
+				<b>{{ $data['personalInfo']['years_old'] }}</b>
 			</div>
 			
 			<div class="col-sm-2">
 				<p>Planned retirement age</p>
-				<b>{{ $personalInfo['retirement_age'] }}</b>
+				<b>{{ $data['personalInfo']['retirement_age'] }}</b>
 			</div>
 			
 			<br><br><br><br><br>
@@ -262,19 +262,19 @@
 				<table>
 					<tr>
 						<td>Monthly income today</td>
-						<td>{{ currency($monthlyIncomeToday ?? 0) }}</td>
+						<td>{{ currency($data['monthlyIncomeToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>GOSI/PPA monthly subscription</td>
-						<td>{{ currency($gosi_or_ppa_monthlySubscription ?? 0) }}</td>
+						<td>{{ currency($data['gosi_or_ppa_monthlySubscription'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan for retirement</td>
-						<td>{{ currency($monthlySavingPlanForRetirement ?? 0) }}</td>
+						<td>{{ currency($data['monthlySavingPlanForRetirement'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving % today</td>
-						<td>{{ percentage($monthlySavingPercentageToday ?? 0) }}</td>
+						<td>{{ percentage($data['monthlySavingPercentageToday'] ?? 0) }}</td>
 					</tr>
 					
 				</table>
@@ -283,19 +283,19 @@
 				<table>
 					<tr>
 						<td>Total assets today</td>
-						<td>{{ currency($totalAssetsToday ?? 0) }}</td>
+						<td>{{ currency($data['totalAssetsToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Total liabilities today</td>
-						<td>{{ currency($totalLiabilitiesToday ?? 0) }}</td>
+						<td>{{ currency($data['totalLiabilitiesToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Net worth</td>
-						<td>{{ currency($netWorthToday ?? 0) }}</td>
+						<td>{{ currency($data['netWorthToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>Accomulative saving today</td>
-						<td>{{ currency($accomulativeSavingtoday ?? 0) }}</td>
+						<td>{{ currency($data['accomulativeSavingtoday'] ?? 0) }}</td>
 					</tr>
 					
 				</table>
@@ -314,10 +314,10 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ currency($totalCurrentAssetAllocation ?? 0) }} 
+						    	{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ percentage($totalCurrentAssetAllocationPercentage) }}
+						    	{{ percentage($data['totalCurrentAssetAllocationPercentage'] ?? 0) }}
 						    </p>
 						    <br>
 
@@ -338,12 +338,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($cashAndEquivlentPercentage) }}
+												{{ percentage($data['cashAndEquivlentPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($cashAndEquivlent ?? 0) }}
+												{{ currency($data['cashAndEquivlent'] ?? 0) }}
 											</p>
 										</td>
 									</tr>
@@ -356,12 +356,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($equitiesPercentage) }}
+												{{ percentage($data['equitiesPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($equities ?? 0) }} 
+												{{ currency($data['equities'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -374,12 +374,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($fixIncomePercentage) }}
+												{{ percentage($data['fixIncomePercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($fixIncome ?? 0) }} 
+												{{ currency($data['fixIncome'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -392,12 +392,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($alternativeInvestmentsPercentage) }}
+												{{ percentage($data['alternativeInvestmentsPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($alternativeInvestments ?? 0) }} 
+												{{ currency($data['alternativeInvestments'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -410,12 +410,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($totalCurrentAssetAllocationPercentage) }}
+												{{ percentage($data['totalCurrentAssetAllocationPercentage']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($totalCurrentAssetAllocation ?? 0) }} 
+												{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -427,9 +427,9 @@
 				</div>
 			</div>
 		</div>
-		
+		<br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
 
 
 
@@ -477,19 +477,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday <= 10) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] <= 10) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday >= 11 && $monthlySavingPercentageToday <= 20) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] >= 11 && $data['monthlySavingPercentageToday'] <= 20) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday >= 21 && $monthlySavingPercentageToday <= 30) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] >= 21 && $data['monthlySavingPercentageToday'] <= 30) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday >= 31 && $monthlySavingPercentageToday <= 50) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] >= 31 && $data['monthlySavingPercentageToday'] <= 50) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday >50) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] >50) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -504,7 +504,7 @@
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Current Saving Amount ({{ $personalInfo['years_old'] }})</p>
+				<p class="text-secondary mt-5">Current Saving Amount ({{ $data['personalInfo']['years_old'] }})</p>
 				
 				<div class="factor-vs">
 					<p>Poor saver</p>	
@@ -520,13 +520,13 @@
 
 				<div class="factor-vs">
 					<div class="pointer">
-						{!! ($commulitiveSavingRating == 'Poor') ? $pointer : '' !!}
+						{!! ($data['commulitiveSavingRating'] == 'Poor') ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($commulitiveSavingRating == 'Fair') ? $pointer : '' !!}
+						{!! ($data['commulitiveSavingRating'] == 'Fair') ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($commulitiveSavingRating == 'Good') ? $pointer : '' !!}
+						{!! ($data['commulitiveSavingRating'] == 'Good') ? $pointer : '' !!}
 					</div>
 					
 				</div>
@@ -562,19 +562,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday < 0) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] < 0) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday > 0 && $monthlySavingPercentageToday <= 10) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] > 0 && $data['monthlySavingPercentageToday'] <= 10) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday > 10 && $monthlySavingPercentageToday <= 20) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] > 10 && $data['monthlySavingPercentageToday'] <= 20) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday > 20 && $monthlySavingPercentageToday <= 30) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] > 20 && $data['monthlySavingPercentageToday'] <= 30) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($monthlySavingPercentageToday > 30) ? $pointer : '' !!}
+						{!! ($data['monthlySavingPercentageToday'] > 30) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -609,16 +609,16 @@
 
 				<div class="factor-s">
 					<div class="pointer">
-						{!! ($assetClass == 1) ? $pointer : '' !!}
+						{!! ($data['assetClass'] == 1) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($assetClass == 2) ? $pointer : '' !!}
+						{!! ($data['assetClass'] == 2) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($assetClass == 3) ? $pointer : '' !!}
+						{!! ($data['assetClass'] == 3) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($assetClass == 4) ? $pointer : '' !!}
+						{!! ($data['assetClass'] == 4) ? $pointer : '' !!}
 					</div>
 					
 				</div>
@@ -632,8 +632,7 @@
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -670,8 +669,8 @@
 				<p class="text-secondary mt-5">Risk Test Index</p>
 				
 				<div class="factor">
-					<p>Conservative</p>	
 					<p>Very Conservative</p>	
+					<p>Conservative</p>	
 					<p>Natural</p>	
 					<p>Agressive</p>	
 					<p>Very Agressive</p>	
@@ -687,19 +686,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						{!! ($riskTestIndex < 19) ? $pointer : '' !!}
+						{!! ($data['riskTestIndex'] < 19) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($riskTestIndex >= 20 && $riskTestIndex < 40) ? $pointer : '' !!}
+						{!! ($data['riskTestIndex'] >= 20 && $data['riskTestIndex'] < 40) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($riskTestIndex >= 40 && $riskTestIndex < 60) ? $pointer : '' !!}
+						{!! ($data['riskTestIndex'] >= 40 && $data['riskTestIndex'] < 60) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($riskTestIndex >= 60 && $riskTestIndex < 80) ? $pointer : '' !!}
+						{!! ($data['riskTestIndex'] >= 60 && $data['riskTestIndex'] < 80) ? $pointer : '' !!}
 					</div>
 					<div class="pointer">
-						{!! ($riskTestIndex >= 80 && $riskTestIndex <= 100) ? $pointer : '' !!}
+						{!! ($data['riskTestIndex'] >= 80 && $data['riskTestIndex'] <= 100) ? $pointer : '' !!}
 					</div>
 				</div>
 
@@ -722,10 +721,10 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $totalCurrentAssetAllocation ?? '0' }} 
+						    	{{ $data['totalCurrentAssetAllocation'] ?? '0' }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($totalCAAPercentage ?? 100, 2) ?? 100 }} %
+						    	{{ round($data['totalCAAPercentage'] ?? 100, 2) ?? 100 }} %
 						    </p>
 						    <br>
 
@@ -746,12 +745,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($recommended['cash_and_equivlent']) }}
+												{{ percentage($data['recommended']['cash_and_equivlent']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($totalCurrentAssetAllocation*$recommended['cash_and_equivlent'])/100) }}
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['cash_and_equivlent'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -764,12 +763,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($recommended['equities']) }}
+												{{ percentage($data['recommended']['equities']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($totalCurrentAssetAllocation*$recommended['equities'])/100) }} 
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['equities'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -782,12 +781,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($recommended['fix_income']) }}
+												{{ percentage($data['recommended']['fix_income']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($totalCurrentAssetAllocation*$recommended['fix_income'])/100) }}
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['fix_income'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -800,12 +799,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($recommended['alternative_investments']) }}
+												{{ percentage($data['recommended']['alternative_investments']) }}
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($totalCurrentAssetAllocation*$recommended['alternative_investments'])/100) }}
+												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['alternative_investments'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -823,7 +822,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($totalCurrentAssetAllocation) ?? '0' }} 
+												{{ currency($data['totalCurrentAssetAllocation']) ?? '0' }} 
 											</p>
 										</td>
 									</tr>
@@ -839,7 +838,7 @@
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -864,8 +863,8 @@
 	            </h2>
 	            <p class="text-secondary mt-5">Financial Forecast</p>
 	            <p class="alertBox__p">
-	              <span>👏Congratulations!</span>&nbsp;At age {{ $retirement_age }} you will have
-	              savings balance of {{ currency($plan[$retirement_age]['value_end_year']) }}.
+	              <span>👏Congratulations!</span>&nbsp;At age {{ $data['retirement_age'] }} you will have
+	              savings balance of {{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}.
 	            </p>
 			</div>
 		</div>
@@ -888,23 +887,23 @@
 				<table>
 					<tr>
 						<td>Current age</td>
-						<td>{{ $personalInfo['years_old'] }}</td>
+						<td>{{ $data['personalInfo']['years_old'] }}</td>
 					</tr>
 					<tr>
 						<td>Planned retirement age</td>
-						<td>{{ $retirement_age }}</td>
+						<td>{{ $data['retirement_age'] }}</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan</td>
-						<td>{{ currency($monthlySalary) }} /Month</td>
+						<td>{{ currency($data['monthlySalary']) }} /Month</td>
 					</tr>
 					<tr>
 						<td>Monthly saving today</td>
-						<td>{{ percentage($monthlySavingPercentageToday) }} of Monthly Income</td>
+						<td>{{ percentage($data['monthlySavingPercentageToday']) }} of Monthly Income</td>
 					</tr>
 					<tr>
 						<td>Accumulative saving today</td>
-						<td>{{ currency($accomulativeSavingtoday) }}</td>
+						<td>{{ currency($data['accomulativeSavingtoday']) }}</td>
 					</tr>
 					
 				</table>
@@ -914,27 +913,27 @@
 				<table>
 					<tr>
 						<td>Cash and Quivlent</td>
-						<td>{{ percentage($returnAssumptions['cash_and_equivlent']) }}</td>
+						<td>{{ percentage($data['returnAssumptions']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
-						<td>{{ percentage($returnAssumptions['equities']) }}</td>
+						<td>{{ percentage($data['returnAssumptions']['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td>{{ percentage($returnAssumptions['fix_income']) }}</td>
+						<td>{{ percentage($data['returnAssumptions']['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
-						<td>{{ percentage($returnAssumptions['alternative_investments']) }}</td>
+						<td>{{ percentage($data['returnAssumptions']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (Before retirement)</td>
-						<td>{{ percentage($netReturnBeforeRetirement) }}</td>
+						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (After retirement)</td>
-						<td>{{ percentage($netReturnAfterRetirement) }}</td>
+						<td>{{ percentage($data['netReturnAfterRetirement']) }}</td>
 					</tr>
 					
 				</table>
@@ -947,32 +946,32 @@
 			<div class="col-sm-10">
 				<p class="text-secondary mt-5">Income and Wealth at Retirement</p>
 				<table>
-					<tr>
+					{{-- <tr>
 						<td>Status at retirement</td>
 						<td>Based on assets allocation</td>
-					</tr>
+					</tr> --}}
 					<tr>
-						<td>Retirement plan value at {{ $retirement_age }} years old</td>
-						<td>if retire at {{ $retirement_age }} years old</td>
+						<td>Retirement plan value at {{ $data['retirement_age'] }} years old</td>
+						<td>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</td>
 					</tr>
 					<tr>
 						<td>Total monthly income</td>
-						<td>{{ currency($totalMonthlyIncome) }}</td>
+						<td>{{ currency($data['totalMonthlyIncome']) }}</td>
 					</tr>
 					<tr>
 						<td>Income from retirement plan</td>
-						<td>{{ currency($monthlySalary) }}</td>
+						<td>{{ currency($data['monthlySalary']) }}</td>
 					</tr>
 					<tr>
 						<td>Income from GOSI or PPA</td>
-						<td>{{ currency($retirementGOCIMonthlyIncome) }}</td>
+						<td>{{ currency($data['retirementGOCIMonthlyIncome']) }}</td>
 					</tr>
 					
 				</table>
 			</div>
 			
 		</div>
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -1061,36 +1060,36 @@
 						<td>Cash & Equivlent</td>
 						<td>1 payment</td>
 						<td>1</td>
-						<td>{{ percentage($recommended['cash_and_equivlent']) }}</td>
-						<td>{{ currency(($netWorthToday/100)*$recommended['cash_and_equivlent']) }}</td>
+						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
 						<td>4 payment over one year</td>
 						<td>1</td>
-						<td>{{ percentage($recommended['equities']) }}</td>
-						<td>{{ currency(($netWorthToday/100)*$recommended['equities']) }}</td>
+						<td>{{ percentage($data['recommended']['equities']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
 						<td>1 payment</td>
 						<td>1</td>
-						<td>{{ percentage($recommended['fix_income']) }}</td>
-						<td>{{ currency(($netWorthToday/100)*$recommended['fix_income']) }}</td>
+						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
 						<td>Manual process</td>
 						<td>1</td>
-						<td>{{ percentage($recommended['alternative_investments']) }}</td>
-						<td>{{ currency(($netWorthToday/100)*$recommended['alternative_investments']) }}</td>
+						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
 						<td>Total</td>
 						<td></td>
 						<td>6</td>
-						<td>{{ $totalCapitalPercentage = percentage($recommended['cash_and_equivlent']+$recommended['equities']+$recommended['fix_income']+$recommended['alternative_investments']) }}</td>
-						<td>{{ currency(($netWorthToday/100)*(integer)$totalCapitalPercentage) }}</td>
+						<td>{{ $data['totalCapitalPercentage'] = percentage($data['recommended']['cash_and_equivlent']+$data['recommended']['equities']+$data['recommended']['fix_income']+$data['recommended']['alternative_investments']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*(integer)$data['totalCapitalPercentage']) }}</td>
 					</tr>
 					
 					
@@ -1104,11 +1103,8 @@
 		<br><br><br><br><br>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
 		
-		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -1142,8 +1138,13 @@
 			</div>
 		</div>
 
-		
-
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<br><br><br><br><br>
+	<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 </div>
@@ -1152,6 +1153,7 @@
 @endsection
 
 @section('scripts')
+{{-- <script src="html2pdf.bundle.min.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 {{-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> --}}
@@ -1169,11 +1171,15 @@ $(document).ready(function(){
 	setTimeout(
 		function() {
 			window.print();
-			$("br").remove();
-			// $("body").remove();
-			// window.close();
-			// window.top.close();
+			// $("br").remove();
+			$("body").remove();
+			window.close();
+			window.top.close();
 			// $("#parent-report").addClass('container');
+
+			// var element = document.getElementById('printable');
+			// html2pdf(element);
+
 		},
 	2000);
 });
@@ -1204,7 +1210,7 @@ var myChart = new Chart(ctx, {
 			'Alternative investments',
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $assetAllocationDonutChartValues) !!}],
+		data: [{!! implode(", ", $data['assetAllocationDonutChartValues']) !!}],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1263,7 +1269,7 @@ var myChart = new Chart(ctx, {
 	    	
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $recommended ?? ['100']) !!}],
+		data: [{!! implode(", ", $data['recommended'] ?? ['100']) !!}],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1307,7 +1313,7 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [{!! implode(", ", $graphAge) !!}],
+        labels: [{!! implode(", ", $data['graphAge']) !!}],
         datasets: [{
               type: 'line',
               label: 'Before Retirement',
@@ -1335,10 +1341,10 @@ var myChart = new Chart(ctx, {
                "pointHoverBorderWidth": 2,
                "pointRadius": 1,
                "pointHitRadius": 10,
-              data: [{!! implode(", ", $valueBegYear) !!}]
+              data: [{!! implode(", ", $data['graphValueBegYear']) !!}]
             },{
             label: 'Contribution',
-            data: [{!! implode(", ", $graphContribution) !!}],
+            data: [{!! implode(", ", $data['graphContribution']) !!}],
             backgroundColor: '#2CD9C5',
             borderColor: '#2CD9C5',
             borderWidth: 1
@@ -1346,7 +1352,7 @@ var myChart = new Chart(ctx, {
           	type: 'line',
             backgroundColor: '#ff87a0',
             borderColor: '#ff87a0',
-            data: [{!! implode(", ", $uncertain_top) !!}],
+            data: [{!! implode(", ", $data['uncertain_top']) !!}],
 
             "lineTension": 0.1,
              "backgroundColor": [
@@ -1377,7 +1383,7 @@ var myChart = new Chart(ctx, {
             type: 'line',
             backgroundColor: '#9966ff',
             borderColor: '#9966ff',
-            data: [{!! implode(", ", $uncertain_bottom) !!}],
+            data: [{!! implode(", ", $data['uncertain_bottom']) !!}],
             "fill": false,
              "lineTension": 0.1,
              "backgroundColor": [
@@ -1435,7 +1441,7 @@ var myChart = new Chart(ctx, {
                         return (index % 3) ? "" : 'SAR ' + tick;
                       }
                       else{
-                        return (index % 2) ? "" : 'SAR ' + tick;
+                        return (index % 2) ? "" : 'SAR ' + (Math.round(tick * 100) / 100).toLocaleString();
                       }
                     }
                 },
