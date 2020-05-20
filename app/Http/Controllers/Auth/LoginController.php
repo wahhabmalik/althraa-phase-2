@@ -139,11 +139,9 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $validate = \Validator::make($request->all(),
-            [
-                'phone_number' => 'required|numeric|unique:users',
-            ]
-        );
+        $this->validate($request, [
+            'phone_number' => 'required|numeric',
+        ]);
 
         $user = User::where('phone_number', $request->input('phone_number'))->first();
 
@@ -161,6 +159,10 @@ class LoginController extends Controller
             //     'error' => 'User Not Authenticated.', 
             //     'message' => 'auth.failed', 
             // ]);
+
+            $this->validate($request, [
+                'phone_number' => 'required|numeric|unique:users',
+            ]);
 
             event(new Registered($user = $this->create($request->all())));
 

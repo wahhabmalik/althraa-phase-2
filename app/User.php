@@ -59,8 +59,8 @@ class User extends Authenticatable
         $this->timestamps = false;
         $this->two_factor_code = rand(1000, 9999);
         // $this->two_factor_code = 9999;
-        $this->two_factor_expires_at = now()->addMinutes(10);
-        $this->two_factor_expires_at = null;
+        $this->two_factor_expires_at = now()->addMinutes(5);
+        // $this->two_factor_expires_at = null;
         $this->save();
     }
 
@@ -80,7 +80,7 @@ class User extends Authenticatable
             \Nexmo::message()->send([
                 'to'   => '966'.$user->phone_number,
                 'from' => '923055644665',
-                'text' => 'Your 2F-Auth Key is: '.$user->two_factor_code
+                'text' => 'Thokhor verification Key is: '.$user->two_factor_code
             ]);
         } catch (\Exception $e) 
         {

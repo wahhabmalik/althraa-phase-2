@@ -103,7 +103,7 @@
 		                        </ul>
 							</div>
 
-		                    <form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST">
+		                    <form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST" id="form">
 		                    	@csrf	
 		                        <div class="tab-content">
 		                            <div class="tab-pane active" id="gosi">
@@ -117,15 +117,19 @@
 							                          	{{ trans('lang.question.gosi_starting_year_in_plan') }}
 							                          </label>
 							                          <input 
-							                                id="strating_year_in_plan" 
-							                                type="text" 
-							                                class="form-control" 
-							                                name="gosi[strating_year_in_plan]" 
-							                                required 
-							                                placeholder="eg. 4000 SAR" 
-							                                value="{{ $user_questionnaire->gosi["gosi"]["strating_year_in_plan"] ?? old('gosi.strating_year_in_plan') }}"
+						                                id="strating_year_in_plan" 
+						                                type="text" 
+						                                class="form-control text-input @error('gosi.strating_year_in_plan') {!! 'error' !!} @enderror" 
+						                                name="gosi[strating_year_in_plan]" 
+						                                 
+						                                placeholder="eg. 4000 SAR" 
+						                                value="{{ old('gosi.strating_year_in_plan') ?? $user_questionnaire->gosi["gosi"]["strating_year_in_plan"] ?? '' }}"
 
-							                                >
+						                                >
+
+						                                @error('gosi.strating_year_in_plan')
+								                            <label class="error" >{{ $message }}</label>
+								                        @enderror
 							                    	</div>
 												</div>
 
@@ -135,36 +139,42 @@
 							                          	{{ trans('lang.question.expecting_salary_at_retirement') }}
 							                          </label>
 							                          <input 
-							                                id="expecting_salary_at_retirement" 
-							                                type="text" 
-							                                class="form-control" 
-							                                name="gosi[expecting_salary_at_retirement]" 
-							                                required 
-							                                placeholder="eg. 4000 SAR" 
-							                                value="{{ $user_questionnaire->gosi["gosi"]["expecting_salary_at_retirement"] ?? old('gosi.expecting_salary_at_retirement') }}"
+						                                id="expecting_salary_at_retirement" 
+						                                type="text" 
+						                                class="form-control @error('gosi.expecting_salary_at_retirement') {!! 'error' !!} @enderror" 
+						                                name="gosi[expecting_salary_at_retirement]" 
+						                                 
+						                                placeholder="eg. 4000 SAR" 
+						                                value="{{ old('gosi.expecting_salary_at_retirement') ?? $user_questionnaire->gosi["gosi"]["expecting_salary_at_retirement"] ?? '' }}"
 
-							                                >
+						                                >
+
+						                                @error('gosi.expecting_salary_at_retirement')
+								                            <label class="error" >{{ $message }}</label>
+								                        @enderror
 							                    	</div>
 												</div>
 
-												<div class="form-group">
+												{{-- <div class="form-group">
 													<div class="form-group">
 							                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
 							                          	{{ trans('lang.question.mothly_life_expenses_after_retirement') }}
 							                          </label>
 							                          <input 
-							                                id="mothly_life_expenses_after_retirement" 
-							                                type="text" 
-							                                class="form-control"
-							                                name="gosi[mothly_life_expenses_after_retirement]" 
-							                                required 
-							                                placeholder="eg. 120" 
-							                                value="{{ $user_questionnaire->gosi["gosi"]["mothly_life_expenses_after_retirement"] ?? old('gosi.mothly_life_expenses_after_retirement') }}"
-							                                >
-							                    	</div>
-												</div>
+						                                id="mothly_life_expenses_after_retirement"
+						                                type="text" 
+						                                class="form-control @error('gosi.mothly_life_expenses_after_retirement') {!! 'error' !!} @enderror"
+						                                name="gosi[mothly_life_expenses_after_retirement]"
+						                                 
+						                                placeholder="eg. 120" 
+						                                value="{{ old('gosi.mothly_life_expenses_after_retirement') ?? $user_questionnaire->gosi["gosi"]["mothly_life_expenses_after_retirement"] ?? '' }}"
+						                                >
 
-												
+						                                @error('gosi.mothly_life_expenses_after_retirement')
+								                            <label class="error" >{{ $message }}</label>
+								                        @enderror
+							                    	</div>
+												</div> --}}
 
 												<br>
 												<br>
@@ -180,14 +190,7 @@
 		                            </div>
 		                            
 		                        </div>
-		                        {{-- <div class="wizard-footer">
-		                            <div class="pull-right">
-		                                <input type='submit' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
-		                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' value='Finish' />
-		                            </div>
-
-		                            <div class="clearfix"></div>
-		                        </div> --}}
+		                        
 		                    </form>
 		                </div>
 		            </div> <!-- wizard container -->

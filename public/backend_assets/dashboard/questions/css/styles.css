@@ -92,6 +92,14 @@ body{
     font-family: Soin Sans Neue;
 }
 
+.net_total_text {
+    margin-top: 2rem;
+    font-size: 14px;
+    font-weight: 800;
+    color: #222222;
+    font-family: Soin Sans Neue;
+}
+
 .button{
     padding: 1refont-familym 3.3rem;
     width: 100%;
@@ -610,4 +618,15 @@ background: #bbb;
 }
 .total p{
     color: #000000;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
 }

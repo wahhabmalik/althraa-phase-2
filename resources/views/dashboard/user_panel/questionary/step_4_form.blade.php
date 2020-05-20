@@ -60,7 +60,7 @@
 <div class="container">
 	<div class="row mb-0 pt-5" style="position: relative; z-index: 10;">
 		<div class="col-md-12">
-			<a href="{{ route('step_1', app()->getLocale()) }}" style="color: #01630a;" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
+			<a href="{{ route('step_3', app()->getLocale()) }}" style="color: #01630a;" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
     				<i class="{{ ($request->segment(1) == 'en') ? 'fa fa-arrow-left fa-fw' : 'fa fa-arrow-right fa-fw' }}"></i> 
     				{{ trans('lang.question.go_to_previous_step') }}
     		</a>
@@ -150,7 +150,7 @@
                         </ul>
 					</div>
 
-					<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST">
+					<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST" id="form">
 						@csrf
                         <div class="tab-content">
                         	<div class="tab-pane active" id="expenses">
@@ -166,7 +166,7 @@
 												@if($errors->count()>0)
 													@foreach($errors->getMessages() as $key => $error)
 														@php $er = explode('.',$key) @endphp
-														@if($er[1] == 'house' )
+														@if($er[1] == 'financial_assets' )
 															{{ 'text-danger' }}
 														@endif
 													@endforeach
@@ -180,7 +180,7 @@
 												@if($errors->count()>0)
 													@foreach($errors->getMessages() as $key => $error)
 														@php $er = explode('.',$key) @endphp
-														@if($er[1] == 'car')
+														@if($er[1] == 'real_assets')
 															{{ 'text-danger' }}
 														@endif
 													@endforeach
@@ -193,7 +193,7 @@
 												@if($errors->count()>0)
 													@foreach($errors->getMessages() as $key => $error)
 														@php $er = explode('.',$key) @endphp
-														@if($er[1] == 'pocket_money')
+														@if($er[1] == 'liabilities')
 															{{ 'text-danger' }}
 														@endif
 													@endforeach
@@ -201,6 +201,15 @@
 												" id="v-pills-liabilities-tab" data-toggle="pill" href="#v-pills-liabilities" role="tab" aria-controls="v-pills-liabilities" aria-selected="false">
 												{{ trans('lang.question.liabilities') }}
 											</a>
+
+											<div class="net_total_text">
+												<span class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
+													{{ trans('lang.question.net_total') }}
+												</span>
+												<span style="float: right;" class="{{ ($request->segment(1) == 'ar') ? 'float-left' : '' }}">
+												<span id="net_total">0 </span> SAR
+												</span>
+											</div>
 										  
 										</div>
 
@@ -215,11 +224,14 @@
 											  		<input 
 											  			type="text" 
 											  			id="assets_liquid__cash" 
-											  			class="form-control financial_assets required" 
+											  			class="form-control required @error('net_assets.financial_assets.cash_and_deposit') {!! ' error ' !!} @enderror financial_assets " 
 											  			name="net_assets[financial_assets][cash_and_deposit]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["financial_assets"]["cash_and_deposit"] ?? old('net_assets.financial_assets.cash_and_deposit') }}"
+											  			 
+											  			value="{{ old('net_assets.financial_assets.cash_and_deposit') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["cash_and_deposit"] ?? '' }}"
 											  			>
+											  		@error('net_assets.financial_assets.cash_and_deposit')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="form-group">
@@ -229,11 +241,14 @@
 											  		<input 
 											  			type="text" 
 											  			id="assets_liquid__local_equity" 
-											  			class="form-control financial_assets required" 
+											  			class="form-control required @error('net_assets.financial_assets.equities') {!! ' error ' !!} @enderror financial_assets " 
 											  			name="net_assets[financial_assets][equities]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["financial_assets"]["equities"] ?? old('net_assets.financial_assets.equities') }}"
+											  			 
+											  			value="{{ old('net_assets.financial_assets.equities') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["equities"] ?? '' }}"
 											  			>
+											  		@error('net_assets.financial_assets.equities')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="form-group">
@@ -243,11 +258,14 @@
 											  		<input 
 											  			type="text" 
 											  			id="assets_liquid__corporate_bonds" 
-											  			class="form-control financial_assets required" 
+											  			class="form-control required @error('net_assets.financial_assets.bonds') {!! ' error ' !!} @enderror financial_assets " 
 											  			name="net_assets[financial_assets][bonds]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["financial_assets"]["bonds"] ?? old('net_assets.financial_assets.bonds') }}"
+											  			 
+											  			value="{{ old('net_assets.financial_assets.bonds') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["bonds"] ?? '' }}"
 											  			>
+											  		@error('net_assets.financial_assets.bonds')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="total_text">
@@ -279,24 +297,30 @@
 											  		</label>
 											  		<input 
 											  			type="text" 
-											  			class="form-control real_assets required" 
+											  			class="form-control required @error('net_assets.real_assets.real_estate') {!! ' error ' !!} @enderror real_assets " 
 											  			name="net_assets[real_assets][real_estate]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["real_assets"]["real_estate"] ?? old('net_assets.real_assets.real_estate') }}"
+											  			 
+											  			value="{{ old('net_assets.real_assets.real_estate') ?? $user_questionnaire->net_assets["net_assets"]["real_assets"]["real_estate"] ?? '' }}"
 											  			>
+											  		@error('net_assets.real_assets.real_estate')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="form-group">
 											  		<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-											  			{{ trans('lang.question.bonds') }}
+											  			{{ trans('lang.question.pe') }}
 											  		</label>
 											  		<input 
 											  			type="text" 
-											  			class="form-control real_assets required" 
-											  			name="net_assets[real_assets][bonds]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["real_assets"]["bonds"] ?? old('net_assets.real_assets.bonds') }}"
+											  			class="form-control required @error('net_assets.real_assets.pe') {!! ' error ' !!} @enderror real_assets " 
+											  			name="net_assets[real_assets][pe]"
+											  			 
+											  			value="{{ old('net_assets.real_assets.pe') ?? $user_questionnaire->net_assets["net_assets"]["real_assets"]["pe"] ?? '' }}"
 											  			>
+											  		@error('net_assets.real_assets.pe')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 												<div class="total_text">
@@ -327,11 +351,14 @@
 											  		<input 
 											  			type="text" 
 											  			id="liabilities__personal_loan" 
-											  			class="form-control liabilities_inputs" 
+											  			class="form-control required @error('net_assets.liabilities.personal_loan') {!! ' error ' !!} @enderror liabilities_inputs" 
 											  			name="net_assets[liabilities][personal_loan]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["liabilities"]["personal_loan"] ?? old('net_assets.liabilities.personal_loan') }}"
+											  			 
+											  			value="{{ old('net_assets.liabilities.personal_loan') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["personal_loan"] ?? '' }}"
 											  			>
+											  		@error('net_assets.liabilities.personal_loan')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="form-group">
@@ -341,11 +368,14 @@
 											  		<input 
 											  			type="text" 
 											  			id="liabilities__real_estate_loan" 
-											  			class="form-control liabilities_inputs" 
+											  			class="form-control required @error('net_assets.liabilities.real_estate_loan') {!! ' error ' !!} @enderror liabilities_inputs" 
 											  			name="net_assets[liabilities][real_estate_loan]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["liabilities"]["real_estate_loan"] ?? old('net_assets.liabilities.real_estate_loan') }}"
+											  			 
+											  			value="{{ old('net_assets.liabilities.real_estate_loan') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["real_estate_loan"] ?? '' }}"
 											  			>
+											  		@error('net_assets.liabilities.real_estate_loan')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="form-group">
@@ -355,11 +385,14 @@
 											  		<input 
 											  			type="text" 
 											  			id="liabilities__credit_cards" 
-											  			class="form-control liabilities_inputs" 
+											  			class="form-control required @error('net_assets.liabilities.credit_cards') {!! ' error ' !!} @enderror liabilities_inputs" 
 											  			name="net_assets[liabilities][credit_cards]"
-											  			required 
-											  			value="{{ $user_questionnaire->net_assets["net_assets"]["liabilities"]["credit_cards"] ?? old('net_assets.liabilities.credit_cards') }}"
+											  			 
+											  			value="{{ old('net_assets.liabilities.credit_cards') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["credit_cards"] ?? '' }}"
 											  			>
+											  		@error('net_assets.liabilities.credit_cards')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 											  	</div>
 
 											  	<div class="total_text">
@@ -402,77 +435,38 @@
 @section('scripts')
 
 <script type="text/javascript">
-	$(document).ready(function(){
+$(document).ready(function(){
+	
+	findTotal();
 
-		// update_house__total();
-		// update_car__total();
-		// update_pocket_money__total();
-		
-
-		// function update_house__total() {
-		// 	house__rent_or_mortgage = $('#house__rent_or_mortgage').val() ? $('#house__rent_or_mortgage').val() : 0;
-		// 	house__insurance = $('#house__insurance').val() ? $('#house__insurance').val() : 0;
-		// 	house__utilities = $('#house__utilities').val() ? $('#house__utilities').val() : 0;
-		// 	house__maintance = $('#house__maintance').val() ? $('#house__maintance').val() : 0;
-		// 	var total = parseFloat(house__rent_or_mortgage) + parseFloat(house__insurance) + parseFloat(house__utilities) + parseFloat(house__maintance); 
-		// 	$('#house__total').html(total);
-		// }
-
-		// function update_car__total() {
-		// 	car__gas_and_oil = $('#car__gas_and_oil').val() ? $('#car__gas_and_oil').val() : 0;
-		// 	car__maintance = $('#car__maintance').val() ? $('#car__maintance').val() : 0;
-		// 	car__insurance = $('#car__insurance').val() ? $('#car__insurance').val() : 0;
-		// 	car__payment = $('#car__payment').val() ? $('#car__payment').val() : 0;
-		// 	var total = parseFloat(car__gas_and_oil) + parseFloat(car__maintance) + parseFloat(car__insurance) + parseFloat(car__payment); 
-		// 	$('#car__total').html(total);
-		// }
-
-		// function update_pocket_money__total() {
-		// 	pocket_money_food = $('#pocket_money_food').val() ? $('#pocket_money_food').val() : 0;
-		// 	pocket_money_clothes = $('#pocket_money_clothes').val() ? $('#pocket_money_clothes').val() : 0;
-		// 	pocket_money_phone_bills = $('#pocket_money_phone_bills').val() ? $('#pocket_money_phone_bills').val() : 0;
-		// 	var total = parseFloat(pocket_money_food) + parseFloat(pocket_money_clothes) + parseFloat(pocket_money_phone_bills); 
-		// 	$('#pocket_money__total').html(total);
-		// }
-
-		
-
-		
-		
-
-
-		// $('.house_expense_inputs').on('keyup', function(){
-		// 	update_house__total();
-		// });
-
-		// $('.car_expenses_inputs').on('keyup', function(){
-		// 	update_car__total();
-		// });
-
-		// $('.pocket_money_expenses_inputs').on('keyup', function(){
-		// 	update_pocket_money__total();
-		// });
-
-		// $('.health_and_education_expenses_inputs').on('keyup', function(){
-		// 	health_and_education__total();
-		// });
-
-		// $('.investments_expenses_inputs').on('keyup', function(){
-		// 	investments__total();
-		// });
-
-		// $('.loan_expenses_inputs').on('keyup', function(){
-		// 	loan__total();
-		// });
-
-		// $('.entertainment_expenses_inputs').on('keyup', function(){
-		// 	entertainment__total();
-		// });
-
-		// $('.charity_tax_expenses_inputs').on('keyup', function(){
-		// 	charity_tax__total();
-		// });
+	$('.form-control').on('keyup', function(){
+		findTotal();
+        
 	});
+
+	function findTotal() {
+		var financial_assets_total = real_estate_total = pocket_money__total = 0;
+		$('#v-pills-financial-assets .form-group input').each(function(i, obj) {
+			n = ($(this).val().replace(/,/g,''));
+            financial_assets_total += parseInt(($(this).val()) ? n : 0);
+        });
+        $('#financial_assets_total').html(financial_assets_total);
+
+        $('#v-pills-real-assets .form-group input').each(function(i, obj) {
+        	n = ($(this).val().replace(/,/g,''));
+            real_estate_total += parseInt(($(this).val()) ? n : 0);
+        });
+        $('#real_estate_total').html(real_estate_total);
+
+        $('#v-pills-liabilities .form-group input').each(function(i, obj) {
+        	n = ($(this).val().replace(/,/g,''));
+            pocket_money__total += parseInt(($(this).val()) ? n : 0);
+        });
+        $('#pocket_money__total').html(pocket_money__total);
+        
+        $('#net_total').html(financial_assets_total+real_estate_total+pocket_money__total);
+	}
+});
 </script>
 
 <script src="{{ asset('backend_assets/questions/assets/js/jquery-2.2.4.min.js') }} " type="text/javascript"></script>
@@ -483,8 +477,7 @@
 <script src="{{ asset('backend_assets/questions/assets/js/demo.js') }} " type="text/javascript"></script>
 <script src="{{ asset('backend_assets/questions/assets/js/paper-bootstrap-wizard.js') }} " type="text/javascript"></script>
 
-<!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
-{{-- <script src="{{ asset('backend_assets/questions/assets/js/jquery.validate.min.js') }} " type="text/javascript"></script> --}}
+
 @include('dashboard.user_panel.partials.validate')
 
 
@@ -582,7 +575,7 @@ $('.form-wizard-buttons .btn-next').on('click', function() {
 	});
 
 	// fields validation
-	console.log(next_step);
+	// console.log(next_step);
 	if( next_step == true) {
 		if(this.id == 'next_real_assets_tab')
 			navigateToTab1();

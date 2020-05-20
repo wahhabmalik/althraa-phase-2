@@ -2067,43 +2067,43 @@ class Questionnaire extends Model
 
         if($age < 30)
         {
-            if($monthlySalary >= $accumulativeSaving)
+            if($monthlySalary <= $accumulativeSaving)
                 $savingRating = 'Poor';
             else if(($monthlySalary * 2) >= $accumulativeSaving || ($monthlySalary * 4) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if(($monthlySalary * 5) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
-        else if($age > 31 && $age < 40)
+        else if($age >= 30 && $age < 40)
         {
-            if(($monthlySalary * 4) >= $accumulativeSaving)
+            if(($monthlySalary * 4) <= $accumulativeSaving)
                 $savingRating = 'Poor';
             else if(($monthlySalary * 5) >= $accumulativeSaving || ($monthlySalary * 11) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if(($monthlySalary * 12) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
-        else if($age > 41 && $age < 50)
+        else if($age >= 40 && $age < 50)
         {
-            if((($monthlySalary * 4) * 3) >= $accumulativeSaving)
+            if((($monthlySalary * 4) * 3) <= $accumulativeSaving)
                 $savingRating = 'Poor';
             else if((($monthlySalary * 5) * 3) >= $accumulativeSaving || (($monthlySalary * 11) * 3) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if((($monthlySalary * 12) * 3) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
-        else if($age > 51 && $age < 60)
+        else if($age >= 50 && $age < 60)
         {
-            if((($monthlySalary * 4) * 6) >= $accumulativeSaving)
+            if((($monthlySalary * 4) * 6) <= $accumulativeSaving)
                 $savingRating = 'Poor';
             else if((($monthlySalary * 5) * 6) >= $accumulativeSaving || (($monthlySalary * 11) * 6) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if((($monthlySalary * 12) * 6) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
-        else if($age > 60)
+        else if($age >= 60)
         {
-            if((($monthlySalary * 4) * 8) >= $accumulativeSaving)
+            if((($monthlySalary * 4) * 8) <= $accumulativeSaving)
                 $savingRating = 'Poor';
             else if((($monthlySalary * 5) * 8) >= $accumulativeSaving || (($monthlySalary * 11) * 8) <= $accumulativeSaving)
                 $savingRating = 'Fair';
@@ -2161,10 +2161,10 @@ class Questionnaire extends Model
     public function getReturnAssumptions(User $user = null)
     {
         return [
-                'cash_and_equivlent' => $this->cash_and_equivlent['value'],
-                'equities' => $this->equities['value'],
-                'fix_income' => $this->fix_income['value'],
-                'alternative_investments' => $this->alternative_investments['value'],
+                'cash_and_equivlent' => $this->cash_and_equivlent['value'] ?? 2,
+                'equities' => $this->equities['value'] ?? 10,
+                'fix_income' => $this->fix_income['value'] ?? 5,
+                'alternative_investments' => $this->alternative_investments['value'] ?? 12,
             ];
     }
 

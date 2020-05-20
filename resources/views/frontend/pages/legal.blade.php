@@ -12,7 +12,7 @@
                 <p class="login_link text-center primary-link">
                     {{ trans('lang.frontend_legal.legal') }}
                 </p>
-                <h1 class="text-center page-heading">
+                <h1 class="text-center page-heading text-dark">
                     {{ trans('lang.frontend_legal.legal') }}
                 </h1>
 

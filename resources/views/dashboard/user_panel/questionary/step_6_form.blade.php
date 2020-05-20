@@ -143,6 +143,11 @@
 				                          		{{ trans('lang.question.more_than_60') }}
 				                          	</option>
 				                          </select>
+
+				                          @error('risks.age')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+
 				                    	</div>
 									</div>
 
@@ -175,6 +180,9 @@
 				                          	</option>
 				                          	
 				                          </select>
+				                          @error('risks.total_saving_and_investment_amount')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
 				                    	</div>
 									</div>
 
@@ -204,6 +212,10 @@
 				                          	</option>
 				                          	
 				                          </select>
+
+				                          @error('risks.during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
 				                    	</div>
 									</div>
 
@@ -233,6 +245,11 @@
 				                          	</option>
 				                          	
 				                          </select>
+
+				                          @error('risks.regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+
 				                    	</div>
 									</div>
 
@@ -259,6 +276,10 @@
 				                          	</option>
 				                          	
 				                          </select>
+
+				                          @error('risks.based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
 				                    	</div>
 									</div>
 
@@ -285,6 +306,11 @@
 				                          	</option>
 				                          	
 				                          </select>
+
+				                          @error('risks.about_investment_experience')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+
 				                    	</div>
 									</div>
 
@@ -315,6 +341,11 @@
 				                          	
 				                          	
 				                          </select>
+
+				                          @error('risks.expect_to_start_withdrawing_saving')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+
 				                    	</div>
 									</div>
 
@@ -341,6 +372,11 @@
 				                          	</option>
 				                          	
 				                          </select>
+
+				                          @error('risks.in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+
 				                    	</div>
 									</div>
 
@@ -366,8 +402,12 @@
 				                          		{{ trans('lang.question.after_10_years,_the_probability_of_best_investment_value_=_150,000_and_the_worst_=_100,000') }}
 				                          	</option>
 				                          	
-				                          	
 				                          </select>
+
+				                          @error('risks.in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+
 				                    	</div>
 									</div>
 
@@ -393,8 +433,12 @@
 				                          		{{ trans('lang.question.i_prefer_not_buying_a_care_insurance') }}
 				                          	</option>
 				                          	
-				                          	
 				                          </select>
+
+				                          @error('risks.when_i_buy_a_car_insurance_i_prefer')
+					                            <label class="error" >{{ $message }}</label>
+					                      @enderror
+					                      
 				                    	</div>
 									</div>
 

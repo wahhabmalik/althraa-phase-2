@@ -49,26 +49,6 @@ input[type=number] {
 }
 
 
-
-li {
-  display: inline-block;
-  font-size: 1.5em;
-  list-style-type: none;
-  padding: 0.5em;
-  text-transform: uppercase;
-}
-
-li span {
-  display: block;
-  font-size: 3.5rem;
-}
-.card {
-    background: #f4f8f4;
-    border: unset;
-    border-radius: 5px;
-    padding: 15px;
-}
-
 .login {
     height: 90vh;
     padding: 2rem 0;
@@ -81,8 +61,8 @@ li span {
 
 @section('content')
 <section class="login container">
-    <div class="row">
-        
+    
+    {{-- <div class="row">
         @if (session('message'))
             <div class="col-md-4"></div>
             <div class="col-md-4">
@@ -94,73 +74,41 @@ li span {
             </div>
             <div class="col-md-4"></div>
         @endif
-
-
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4 text-center">
-            <div class="card mb-5">
-                <h1>Code will expire in</h1>
-                <ul id="countdown">
-                    {{-- <li><span id="days"></span>days</li> --}}
-                    {{-- <li><span id="hours"></span>Hours</li> --}}
-                    <li><span id="minutes"></span>Minutes</li>
-                    <li><span id="seconds"></span>Seconds</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    </div> --}}
 
 
     <div class="row">
 
         <div class="col-md-4 login__container">
-        
+            <div class="s-100"></div>
+            
+            @if (session('message'))
+                <div class="card-body">
+                        <div class="alert alert-info" role="alert">
+                            {{ session('message') }}
+                        </div>
+                    
+                </div>
+                
+            @endif
+
             <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-                {{ trans('lang.frontend.two_factor_verification') }}
+                {{ 'Mobile Verification' }}
             </h2>
 
             <p class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-                {{ trans('lang.frontend.two_factor_message') }}
-                <a href="{{ route('verify.resend', app()->getLocale()) }}">{{ trans('lang.frontend.two_factor_here') }}</a>.
+                {{ 'Please enter last 4 digits of your mobile number' }}
             </p>
             
 
-            {{-- <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
-                @csrf
-
-                <div class="form-group">
-                    <label for="input_two_factor_code" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.frontend.two_factor_verification_code') }}</label>
-                    <input 
-                        id="input_two_factor_code" 
-                        type="text" 
-                        class="form-control 
-                        @error('two_factor_code') is-invalid @enderror" 
-                        name="two_factor_code" 
-                        required 
-                        oninvalid="InvalidMsg(this);"
-                        placeholder="{{ trans('lang.frontend.enter_two_factor_authentication_code_here') }}"
-                        >
-
-                    @error('two_factor_code')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-
-                <button type="submit" class="button button__block">
-                  {{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
-                </button>          
-            </form> --}}
-
-
+            
             <div id="wrapper">
                 <div id="dialog">
                     <div id="form">
-                        <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
+                        <form method="POST" class="login__form" action="{{ route('validate_phone', app()->getLocale()) }}">
                             @csrf
-                            <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" />
-                            <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa"  />
+                            <input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" />
+                            <input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa"  />
 
                             {{-- <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!} --}}
                             </button>
@@ -272,44 +220,5 @@ li span {
     function callNumber(){
       alert('Calling')
     }
-</script>
-
-
-
-
-<script type="text/javascript">
-
-{{-- {!! date("M d, Y h:m:s", strtotime('May 14, 2020 16:00:00')) !!} --}}
-{{-- {!! auth()->user()->two_factor_expires_at !!} --}}
-
-
-$(document).ready(function() {
-    const second = 1000,
-      minute = second * 60,
-      hour = minute * 60,
-      day = hour * 24;
-
-// let countDown = new Date('Sep 30, 2020 00:00:00').getTime(),
-let countDown = new Date('{!! auth()->user()->two_factor_expires_at !!}').getTime(),
-    x = setInterval(function() {    
-
-      let now = new Date().getTime(),
-          distance = countDown - now;
-
-      // document.getElementById('days').innerText = Math.floor(distance / (day)),
-        // document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
-        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-
-      //do something later when date is reached
-      if (distance < 0) {
-        clearInterval(x);
-        $('#countdown').html('<h2 class="text-danger">Code expired</h2>')
-      }
-
-    }, second)
-});
-
-
 </script>
 @endsection

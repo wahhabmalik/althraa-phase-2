@@ -74,13 +74,16 @@ return [
     'question' => [
         'go_to_previous_step' => '  انتقل إلى الخطوة السابقة      ',
 
-        'total' => '      ',
+        'total' => '   Total   ',
+        'net_total' => '  Net Total    ',
 
         // step 1
         'started_year_for_personal_financial_plan' => '   السنة الميلادية للخطة المالية الشخصية      ',
         'name' => '  الاسم    ',
         'education_level' => 'Select your education level',
         'years_old' => '   العمر     ',
+        'education_level' => 'Education level',
+        'retirement_age' => 'Retirement age',
         'no_of_dependents' => '  عدد المعالين    ',
 
 
@@ -96,12 +99,14 @@ return [
         // step 2
         'salary' => '  راتب   ',
         'private_business_or_freelancing' => '   خارج العمل     ',
+        'other' => ' Other ',
         'stock_dividents' => '    توزيعات اسهم     ',
         'pension_income' => '   دخل تقاعدي     ',
         'real_estate_income_rent' => '  اجار عقار      ',
         'other' => '  آخر ',
 
-        'continue_to_expenses' => '  الاستمرار في          المصاريف            ',
+        // 'continue_to_expenses' => '  الاستمرار في          المصاريف            ',
+        'continue_to_saving_plan' => ' Continue to saving plan      ',
 
 
         // step 3
@@ -180,6 +185,7 @@ return [
         // step 4
         'assets' => '   استثمارات       ',
             'real_estate' => 'Real Estate',
+            'pe' => 'مشاريع واعمال ',
 
         'financial_assets' => 'Financial Assets',
             'cash_and_deposit' => 'Cash and deposit',
@@ -214,6 +220,7 @@ return [
 
         'liabilities' => '    قروض          ',
             'liabilities_real_estate_loan' => ' liabilities real estate loan  ',
+            'real_estate_loan' => ' Real estate loan  ',
 
 
         'liabilities_personal_loan' => '   قرض شخصي     ',
@@ -333,6 +340,7 @@ return [
 
         'continue_to_objectives' => '   الاستمرار في الأهداف      ',
         'continue_to_payment' => ' Continue To Payment  ',
+        'continue' => 'Continue',
 
 
         // step 7
@@ -380,7 +388,8 @@ return [
     'question_headings' => [
         'personal_info' => '  المعلومات الشخصية      ',
         'income' => '   الدخل      ',
-        'expenses' => '   المصاريف     ',
+        // 'expenses' => '   المصاريف     ', old value
+        'expenses' => '   خطة الادخار  ',
         'net_assets' => '   صافي الاصول      ',
         'gosi' => 'GOSI',
         'risk' => '  المخاطر     ',

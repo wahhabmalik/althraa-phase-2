@@ -124,9 +124,14 @@ function loggedInUser()
     return null;
 }
 
-function currency($value)
+function currency($value, $currency = 1)
 {
-    return 'SAR ' . number_format($value, 0);
+    if($value == null)
+        return '';
+    else if($currency == 0)
+        return number_format($value, 0);
+    if($currency == 1)
+        return 'SAR ' . number_format($value, 0);
 }
 
 
@@ -147,5 +152,52 @@ function loggedInUserRole()
             return Spatie\Permission\Models\Role::findByName('moderator') ?? false;
         if (loggedInUser()->hasRole('user'))
             return Spatie\Permission\Models\Role::findByName('user') ?? false;
+    }
+}
+
+
+if ( ! function_exists( 'generatePDF' ) ) {
+    function generatePDF($view, $viewData, $fileName, $file = false )
+    {
+        try {
+            
+            $filePath = storage_path($fileName); // need to save file in storage path
+
+            $pdf = \PDF::loadView($view, $viewData);
+            $pdf->setPaper('a4', 'landscape');
+            $pdf->save($filePath);
+            // return $pdf->download('report.pdf');
+            $content = file_get_contents($filePath); // fetch content and to send to FE
+
+            unlink($filePath); // delete file once saved and content fetched
+
+            return ["data" => ["file_content" => utf8_encode($content), 'file_name' => $fileName]];
+
+        } catch ( \Exception $exception) {
+            return ['message' => $exception->getMessage()];
+        }
+    }
+}
+
+
+// Custom Helpers for unique string
+if (!function_exists('unique_string')) {
+    /**
+     * Generate Unique String with Model
+     *
+     * @param $condition
+     * @param $value
+     * @return null
+     */
+    function unique_string($table,$key, $length)
+    {   
+        $unique_id = \Illuminate\Support\Str::random($length);
+        $d = \DB::table($table)->where($key,$unique_id)->first();
+        if($d){
+            $this->unique_string($table,$key,$length);
+        }else{
+            return $unique_id;
+        }
+
     }
 }

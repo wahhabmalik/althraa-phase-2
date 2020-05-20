@@ -21,7 +21,7 @@ button {
 	<div class="center_content">
 		<h1 class="user__intro text-dark">{{ trans('lang.email_verification') }}</h1>
 
-		<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST">
+		<form action="{{ route('email_verification', app()->getLocale()) }}" method="POST">
 			@csrf
             
                 	<div class="row">
@@ -47,7 +47,7 @@ button {
 
 							<div class="center_content">
 								<button type="submit" class="button">
-									{{ trans('lang.question.continue_to_payment') }} 
+									{{ trans('lang.question.continue') }} 
 									<i class="{{ ($request->segment(1) == 'ar') ? 'fa fa-arrow-left fa-fw' : 'fa fa-arrow-right fa-fw' }}"></i>
 								</button>
 							</div>

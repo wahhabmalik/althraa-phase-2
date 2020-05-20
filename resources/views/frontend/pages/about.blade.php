@@ -28,7 +28,7 @@
                     <p class="login_link text-center primary-link">
                         {{ trans('lang.frontend_about.about_us') }}
                     </p>
-                    <h1 class="text-center page-heading">
+                    <h1 class="text-center page-heading text-dark">
                         {{ trans('lang.frontend_about.about_our_story') }}
                     </h1>
 
@@ -220,45 +220,49 @@
             </div>
         </div>
         
-        <div class="container">
-
-            <div class="s-100"></div>
-
-            <p class="login_link text-center primary-link">
-                {{ trans('lang.frontend_about.team') }}
-            </p>
-            <h1 class="text-center">
-                {{ trans('lang.frontend_about.meat_team') }}
-            </h1>
-
-            <div class="s-35"></div>
-
-            <div class="row text-{{ $direction }}">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3">
-                    <img src="{{ asset('frontend_assets/img/team/bakarman.png') }}" class="img img-fluid">
-                    <p class="icon-p text_black m-3">
-                        {{ trans('lang.frontend_about.bakarman') }}
-                    </p>
-                    <a href=""><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
-                    <a href=""><i class="fa fa-twitter fa-2x ml-3 mr-3 mb-5"></i></a>
-                </div>
-
-                <div class="col-sm-3">
-                    <img src="{{ asset('frontend_assets/img/team/ali.png') }}" class="img img-fluid">
-                    <p class="icon-p text_black m-3">
-                        {{ trans('lang.frontend_about.ali') }}
-                    </p>
-                    <a href=""><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
-                    <a href=""><i class="fa fa-twitter fa-2x ml-3 mr-3 mb-5"></i></a>
-                </div>
-                
-                
-            </div>
-        </div>
-
         <div class="background_effect_inverse">
+            <div class="container">
+
+                <div class="s-100"></div>
+
+                <p class="login_link text-center primary-link">
+                    {{ trans('lang.frontend_about.team') }}
+                </p>
+                <h1 class="text-center">
+                    {{ trans('lang.frontend_about.meat_team') }}
+                </h1>
+
+                <div class="s-35"></div>
+
+                <div class="row text-{{ $direction }}">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                        <img src="{{ asset('frontend_assets/img/team/bakarman.png') }}" class="img img-fluid">
+                        <p class="icon-p text_black m-3">
+                            {{ trans('lang.frontend_about.bakarman') }}
+                        </p>
+                        <a href=""><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
+                        <a href=""><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <img src="{{ asset('frontend_assets/img/team/ali.png') }}" class="img img-fluid">
+                        <p class="icon-p text_black m-3">
+                            {{ trans('lang.frontend_about.ali') }}
+                        </p>
+                        <a href=""><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
+                        <a href=""><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
             <div class="s-100"></div>
         </div>
+
+
+        {{-- <div class="">
+            <div class="s-100"></div>
+        </div> --}}
 
 @endsection

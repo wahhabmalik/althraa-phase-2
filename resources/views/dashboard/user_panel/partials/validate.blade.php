@@ -557,4 +557,90 @@
         return "abort" === e ? (c[f] && c[f].abort(), c[f] = b.apply(this, arguments), c[f]) : b.apply(this, arguments)
     })
 });
+
+$('.form-control').on('keyup', function(){      
+    $('.form-control:focus').each(function(i, obj) {
+        if($(this).val() == ''){
+            // $(this).valid();
+        }
+    });
+});
+
+
+</script>
+
+
+
+
+
+
+<script>
+
+(function($, undefined) {
+
+    "use strict";
+
+    // When ready.
+    $(function() {
+        
+        var $form = $( "#form" );
+        var $input = $form.find( "input:not(.text-input)" );
+
+        $input.on( "keyup", function( event ) {
+            
+            
+            // When user select text in the document, also abort.
+            var selection = window.getSelection().toString();
+            if ( selection !== '' ) {
+                return;
+            }
+            
+            // When the arrow keys are pressed, abort.
+            if ( $.inArray( event.keyCode, [38,40,37,39] ) !== -1 ) {
+                return;
+            }
+            
+            
+            var $this = $( this );
+            
+            // Get the value.
+            var input = $this.val();
+            
+            var input = input.replace(/[\D\s\._\-]+/g, "");
+                    input = input ? parseInt( input, 10 ) : 0;
+
+                    $this.val( function() {
+                        return ( input === 0 ) ? 0 : input.toLocaleString( "en-US" );
+                    } );
+        } );
+        
+        /**
+         * ==================================
+         * When Form Submitted
+         * ==================================
+         */
+        $form.on( "submit", function( event ) {
+            
+            var $this = $( this );
+            var n = '';
+            $('.form-control').each(function(i, obj) {
+                
+                $(this).val($(this).val().replace(/,/g,''));
+                
+            });
+            
+
+        
+            
+        });
+        
+    });
+})(jQuery);
+</script>
+
+<script type="text/javascript">
+// $(window).load(function() {
+//     $(".loader").delay(2000).fadeOut();
+//     $("#overlayer").delay(2000).fadeOut();
+// })
 </script>

@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Permission;
 use App\Mail\SendContactEmail;
 use App\User;
 use App\Constant;
+use App\Report;
 use Session;
 
 class HomeController extends Controller
@@ -21,7 +22,7 @@ class HomeController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('auth')->except(['contactEmail','getStarted']);
+        $this->middleware('auth')->except(['contactEmail','getStarted','phoneVerification']);
     }
 
     /**
@@ -119,136 +120,6 @@ class HomeController extends Controller
             $href = null;
             $disabled = null;
 
-            // if ($user_questionnaire) 
-            // {
-            //     $userdata = $user_questionnaire->getOriginal();
-            //     $userdata = array_splice($userdata, 0, 10);
-                
-            //     $empty = in_array(null, $userdata);
-            //     $null_column = array_search(null, $userdata);
-
-            //     $columns = [
-            //         // 1 => 'started_year_for_personal_financial_plan',
-            //         1 => 'personal_info',
-            //         2 => 'income',
-            //         3 => 'expenses',
-            //         4 => 'net_assets',
-            //         5 => 'gosi',
-            //         6 => 'risks',
-            //         7 => 'objective',
-            //     ];
-
-            //     // dd(((array_search($null_column, $columns) - 1) / 8 ) * 100);
-            //     $questionnaire_completed_percentage = 100;
-            //     if ($null_column) {
-            //         $questionnaire_completed_percentage = (((array_search($null_column, $columns) - 1) / 7 ) * 100);
-            //     }
-
-            //     // dd($empty, $null_column, $columns, $questionnaire_completed_percentage);
-
-                
-            //     if ($user_questionnaire) 
-            //     {
-            //         $empty = in_array(null, $userdata);
-            //         if ($empty) {
-            //             $href = 'javascript:void(0)';
-            //             $disabled = 'disabled';
-            //         }
-            //     }
-
-            //     // ------------------------------ suggested -----------------------------
-            //     $suggestion = $user_questionnaire->getSuggestedAssetAllocationTableName($user);
-            //     // dd($suggestion);
-            //     // net personal income
-            //     $netPersonalIncome = $user_questionnaire->getPersonalNetIncome();
-            //     // total networth evaluation
-            //     $totalNetworth = $user_questionnaire->getTotalNetworth();
-
-            //     $constants = Constant::where('constant_meta_type', 'LIKE',  'retirement_planner_' . '%')
-            //         ->orWhere('constant_meta_type', 'inflation')
-            //         ->orWhere('constant_meta_type', 'uncertainty')
-            //         ->get()->keyBy('constant_attribute')->toArray();
-
-            //     $current_age = $user_questionnaire->getPersonalInfo()["personal_info"]["years_old"] ?? null;
-            //     $retirement_age = $user_questionnaire->getRetirementAge();
-            //     $expected_age = $user_questionnaire->getLifeExpectancyAfterRetirement();
-            //     $salary = ($user_questionnaire->getPersonalNetIncome() ?? null) * 12;
-            //     $annual_saving = ($user_questionnaire->getCurrentSavingAmount() ?? null) * 12;
-            //     $pension_income = ($user_questionnaire->getExpectedRetirementSalary() ?? null) * 12;
-            //     $retirement_saving_balance = $constants["Retirement Savings Balance ($) ' Starting Amount '"]["constant_value"] ?? null;
-
-            //     $before_retirement_investment_return = $constants["Investment Return (before Retirement) (%)"]["constant_value"] ?? null;
-            //     $after_retirement_investment_return = $constants["Investment Return (after Retirement) (%)"]["constant_value"] ?? null;
-            //     $starting_age = $current_age;
-            //     $ending_age = $retirement_age + $expected_age;
-
-            //     $savingsAtEndingAge = [];
-
-            //     $new_salary = $salary;
-            //     $starting_amount = $retirement_saving_balance;
-            //     $new_interest = $starting_amount * ($before_retirement_investment_return / 100);
-
-            //     $ageForGraph = []; 
-            //     $yearEndingBalanceForGraph = []; 
-
-            //     for ($i = (int) $current_age; $i <= $ending_age; $i++) { 
-            //         $ageForGraph[] = $i;
-            //         if ($i == $current_age) 
-            //         {
-            //             $savingsAtEndingAge[$i]['salary'] = round($new_salary, 2);
-            //             $savingsAtEndingAge[$i]['balance'] = $starting_amount;
-            //             $savingsAtEndingAge[$i]['interest'] = round($new_interest, 2);
-
-            //             $starting_amount = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'];
-
-            //             $savingsAtEndingAge[$i]['yearly_savings'] = $annual_saving;
-            //             $savingsAtEndingAge[$i]['desired_retirement_income'] = 0;
-            //             $savingsAtEndingAge[$i]['pension_income'] = 0;
-            //             $savingsAtEndingAge[$i]['year_ending_balance'] = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'] + $savingsAtEndingAge[$i]['yearly_savings'];
-
-            //             $yearEndingBalanceForGraph[] = $savingsAtEndingAge[$i]['year_ending_balance'];
-            //         } 
-            //         else if ($i >= $retirement_age) 
-            //         {
-            //             $savingsAtEndingAge[$i]['salary'] = 0;
-            //             $savingsAtEndingAge[$i]['balance'] = round($starting_amount, 2);
-            //             $savingsAtEndingAge[$i]['interest'] = round($starting_amount * ($before_retirement_investment_return / 100), 2);
-
-            //             $starting_amount = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'];
-
-            //             $savingsAtEndingAge[$i]['yearly_savings'] = 0;
-
-            //             $new_salary += $salary * (($constants["( Increase In Income , Saving , Inflation )"]["constant_value"] ?? null) / 100);
-            //             $savingsAtEndingAge[$i]['desired_retirement_income'] = round($new_salary, 2);
-            //             $salary = $new_salary;
-
-            //             $savingsAtEndingAge[$i]['pension_income'] = round($pension_income, 2);
-            //             $savingsAtEndingAge[$i]['year_ending_balance'] = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'] + $savingsAtEndingAge[$i]['yearly_savings'];
-
-            //             $yearEndingBalanceForGraph[] = $savingsAtEndingAge[$i]['year_ending_balance'];
-            //         }
-            //         else 
-            //         {
-            //             $new_salary += $salary * (($constants["( Increase In Income , Saving , Inflation )"]["constant_value"] ?? null) / 100);
-            //             $savingsAtEndingAge[$i]['salary'] = round($new_salary, 2);
-            //             $salary = $new_salary;
-
-            //             $savingsAtEndingAge[$i]['balance'] = round($starting_amount, 2);
-            //             $savingsAtEndingAge[$i]['interest'] = round($starting_amount * ($before_retirement_investment_return / 100), 2);
-
-            //             $starting_amount = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'];
-
-            //             $savingsAtEndingAge[$i]['yearly_savings'] = $annual_saving;
-            //             $savingsAtEndingAge[$i]['desired_retirement_income'] = 0;
-            //             $savingsAtEndingAge[$i]['pension_income'] = 0;
-            //             $savingsAtEndingAge[$i]['year_ending_balance'] = $savingsAtEndingAge[$i]['balance'] + $savingsAtEndingAge[$i]['interest'] + $savingsAtEndingAge[$i]['yearly_savings'];
-
-            //             $yearEndingBalanceForGraph[] = $savingsAtEndingAge[$i]['year_ending_balance'];
-            //         }
-            //     }
-
-            //     $view = 'dashboard.user_panel.index';
-            // }
             return view($view)
                     ->with([
                         'title' => __('lang.home')
@@ -306,8 +177,30 @@ class HomeController extends Controller
         return view('dashboard.user_panel.payment.form');
     }
 
-    public function getReport(Request $request)
+    public function getPayment(Request $request)
     {
-        return view('dashboard.pdf.report');
+        return redirect()->route('email_verification', app()->getLocale());
+    }
+
+    public function phoneVerification(Request $request)
+    {
+        $request->validate([
+            'mobile' => 'required|array',
+        ]);
+
+        $user = User::find(Session::get('user_id'));
+
+        if (implode("", $request->mobile) == substr($user->phone_number, -4)) {
+            
+            $report = Report::where('public_id', Session::get('public_id'))->where('user_id', Session::get('user_id'))->first();
+
+            if($report)
+                return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
+            else
+                return redirect()->back()->withMessage('Report Not found');
+
+        }
+
+        return redirect()->back()->withMessage('Verification failed please try again or try again.');
     }
 }

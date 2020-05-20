@@ -9,6 +9,10 @@ use App\Http\Requests\QuestionnaireRequest;
 use App\Http\Requests\AdditionalInformationRequest;
 use Session;
 use App\Constant;
+use App\Report;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
+
 
 class QuestionnaireController extends Controller
 {
@@ -108,13 +112,13 @@ class QuestionnaireController extends Controller
                 break;
             case '/step_6':
                 return $this->questionnaire->update_risks($request->except('_token'))
-                        ?   redirect()->route('email_verification', $locale)
+                        ?   redirect()->route('payment', $locale)
                         : redirect()->route('step_6', $locale);
                 break;
-            case '/email-verification':
+            case '/payment':
                 return auth()->user()->fill($request->all())->update()
-                        ?   redirect()->route('payment', $locale)
-                        : redirect()->route('email_verification', $locale);
+                        ?   redirect()->route('email-verification', $locale)
+                        : redirect()->route('payment', $locale);
                 break;
             // case '/step_7':
             //     return $this->questionnaire->update_objectives($request->except('_token'))
@@ -3012,108 +3016,88 @@ class QuestionnaireController extends Controller
 
         // dd($plan);
 
-        return view('dashboard.pdf.report')
-                ->with('personalInfo',$personalInfo)
+        $data = [
+            'personalInfo' => $personalInfo,
 
-                ->with('monthlyIncomeToday',$monthlyIncomeToday)
-                ->with('gosi_or_ppa_monthlySubscription',$gosi_or_ppa_monthlySubscription)
-                ->with('totalAssetsToday',$totalAssetsToday)
-                ->with('totalLiabilitiesToday',$totalLiabilitiesToday)
-                ->with('monthlySavingPlanForRetirement',$monthlySavingPlanForRetirement)
-                ->with('monthlySavingPercentageToday',$monthlySavingPercentageToday)
-                ->with('netWorthToday',$netWorthToday)
-                ->with('accomulativeSavingtoday',$accomulativeSavingtoday)
-                ->with('assetClass',$assetClass)
+            'monthlyIncomeToday' => $monthlyIncomeToday,
+            'gosi_or_ppa_monthlySubscription' => $gosi_or_ppa_monthlySubscription,
+            'totalAssetsToday' => $totalAssetsToday,
+            'totalLiabilitiesToday' => $totalLiabilitiesToday,
+            'monthlySavingPlanForRetirement' => $monthlySavingPlanForRetirement,
+            'monthlySavingPercentageToday' => $monthlySavingPercentageToday,
+            'netWorthToday' => $netWorthToday,
+            'accomulativeSavingtoday' => $accomulativeSavingtoday,
+            'assetClass' => $assetClass,
 
-                ->with('commulitiveSavingRating',$commulitiveSavingRating)
+            'commulitiveSavingRating' => $commulitiveSavingRating,
 
-                ->with([
-                    'assetAllocationDonutChartValues' => [
-                        $cashAndEquivlent,
-                        $equities,
-                        $fixIncome,
-                        $alternativeInvestments,
-                        
-                    ],
-                ])
-                
-                ->with('cashAndEquivlent',$cashAndEquivlent)
-                ->with('equities',$equities)
-                ->with('fixIncome',$fixIncome)
-                ->with('alternativeInvestments',$alternativeInvestments)
-                ->with('totalCurrentAssetAllocation',$totalCurrentAssetAllocation)
+            'assetAllocationDonutChartValues' => [
+                    $cashAndEquivlent,
+                    $equities,
+                    $fixIncome,
+                    $alternativeInvestments,
+                    
+                ],
 
-                ->with('cashAndEquivlentPercentage',$cashAndEquivlentPercentage)
-                ->with('equitiesPercentage',$equitiesPercentage)
-                ->with('fixIncomePercentage',$fixIncomePercentage)
-                ->with('alternativeInvestmentsPercentage',$alternativeInvestmentsPercentage)
-                ->with('totalCurrentAssetAllocationPercentage',$totalCurrentAssetAllocationPercentage)
+            'cashAndEquivlent' => $cashAndEquivlent, 
+            'equities' => $equities, 
+            'fixIncome' => $fixIncome, 
+            'alternativeInvestments' => $alternativeInvestments, 
+            'totalCurrentAssetAllocation' => $totalCurrentAssetAllocation, 
+            'cashAndEquivlentPercentage' => $cashAndEquivlentPercentage, 
+            'equitiesPercentage' => $equitiesPercentage, 
+            'fixIncomePercentage' => $fixIncomePercentage, 
+            'alternativeInvestmentsPercentage' => $alternativeInvestmentsPercentage, 
+            'totalCurrentAssetAllocationPercentage' => $totalCurrentAssetAllocationPercentage, 
 
-                ->with('riskTestIndex',$riskTestIndex)
-                ->with('recommended',$recommended)
+            'riskTestIndex' => $riskTestIndex,
+            'recommended' => $recommended,
 
-                ->with('retirement_age',$retirement_age)
-                ->with('plan',$plan)
-                ->with('monthlySalary',$monthlySalary)
-                ->with('retirementGOCIMonthlyIncome',$retirementGOCIMonthlyIncome)
-                ->with('returnAssumptions',$returnAssumptions)
-                ->with('netReturnBeforeRetirement',$netReturnBeforeRetirement)
-                ->with('netReturnAfterRetirement',$netReturnAfterRetirement)
-
-                ->with('totalMonthlyIncome',$totalMonthlyIncome)
-
-                //graph values
-                ->with('graphAge',$graphAge)
-                ->with('valueBegYear',$graphValueBegYear)
-                ->with('graphContribution',$graphContribution)
-                ->with('uncertain_top',$uncertain_top)
-                ->with('uncertain_bottom',$uncertain_bottom)
-                
-                ->with('credits','Thokhor');
-
-        // dd($plan);
-
-        dd(
-            $monthlyIncomeToday,
-            $monthlySavingToday,
-            $totalAssetsToday,
-            $totalLiabilitiesToday,
-            $annualSavingToday,
-            $netReturnBeforeRetirement,
-            $netReturnAfterRetirement,
-            $startingYearInPlan,
-            $expectedSalaryAtRetirement,
-            $yourPlannedRetirementAge,
-            $subscriptionMonths,
-            $retirementGOCIMonthlyIncome,
-            $cashAndEquivlent,
-            $equities,
-            $fixIncome,
-            $alternativeInvestments,
-            $totalCurrentAssetAllocation,
+            'retirement_age' => $retirement_age,
+            'plan' => $plan,
+            'monthlySalary' => $monthlySalary,
+            'retirementGOCIMonthlyIncome' => $retirementGOCIMonthlyIncome,
+            'returnAssumptions' => $returnAssumptions,
+            'netReturnBeforeRetirement' => $netReturnBeforeRetirement,
+            'netReturnAfterRetirement' => $netReturnAfterRetirement,
+            'totalMonthlyIncome' => $totalMonthlyIncome,
+            'graphAge' => $graphAge,
+            'valueBegYear' => $valueBegYear,
+            'graphValueBegYear' => $graphValueBegYear,
+            'graphContribution' => $graphContribution,
+            'uncertain_top' => $uncertain_top,
+            'uncertain_bottom' => $uncertain_bottom,
+            'credits' => 'Thokhor.com',
+        ];
 
 
-            $gosi_or_ppa_monthlySubscription,
-            $monthlySavingPlanForRetirement,
-            $monthlySavingPercentageToday,
-            $assetsToday,
-            $liabilitiesToday,
-            $netWorthToday,
-            $accomulativeSavingtoday,
+        $report = new Report;
+        $report->user_id = $user->id;
+        $report->report_data = json_encode($data);
+        $report->public_id = unique_string('reports','public_id', $length = 40, $numbers = false);
 
-            $cashAndEquivlentPercentage,
-            $equitiesPercentage,
-            $fixIncomePercentage,
-            $alternativeInvestmentsPercentage,
-            $totalCurrentAssetAllocationPercentage,
+        $report->save();
 
 
-            $yourCurrentAge,
-            $valueBegYear,
-            $contribution,
-            $returns,
-            $valueEndYear,
-        );
+        $data = array(
+                'subject' => 'Thokhor | Financial Report', 
+                'body' => 'Report', 
+                'view' => 'dashboard.email.report', 
+                'public_id' => $report->public_id,
+            );
+
+        try{
+            Mail::to($user->email)->send(new SendMail($data));
+        }catch ( \Exception $exception) {
+            dd($exception->getMessage());
+        }
+        
+
+
+        return view('dashboard.thanks')->with('message', 'Thankyou for submitting. Please check you email to print/download the report');
+        // return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
+
+        
     }
 
 }

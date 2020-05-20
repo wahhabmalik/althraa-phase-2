@@ -12,7 +12,7 @@
 
 		<div class="row mb-0 pt-5" style="position: relative; z-index: 10;">
     		<div class="col-md-12">
-    			<a href="{{ route('step_1', app()->getLocale()) }}" style="color: #01630a;" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
+    			<a href="{{ route('step_2', app()->getLocale()) }}" style="color: #01630a;" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
     				<i class="{{ ($request->segment(1) == 'en') ? 'fa fa-arrow-left fa-fw' : 'fa fa-arrow-right fa-fw' }}"></i> 
     				{{ trans('lang.question.go_to_previous_step') }}
     			</a>
@@ -101,7 +101,7 @@
 	                        </ul>
 						</div>
 
-						<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST">
+						<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST" id="form">
 							@csrf
 	                        <div class="tab-content">
 	                        	<div class="tab-pane active" id="saving_plan">
@@ -116,12 +116,16 @@
 						                          <input 
 						                                id="current_saving_balance" 
 						                                type="text" 
-						                                class="form-control" 
+						                                class="form-control @error('saving_plan.current_saving_balance') {!! 'error' !!} @enderror" 
 						                                name="saving_plan[current_saving_balance]" 
 						                                required 
 						                                placeholder="eg. 40.000 SAR"
-						                                value="{{ $user_questionnaire->saving_plan["saving_plan"]["current_saving_balance"] ?? old('saving_plan.current_saving_balance') }}"
+						                                value="{{ currency(old('saving_plan.current_saving_balance') ?? $user_questionnaire->saving_plan["saving_plan"]["current_saving_balance"] ?? null, 0) }}"
 						                                >
+						                            @error('saving_plan.current_saving_balance')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
+
 						                    	</div>
 											</div>
 
@@ -133,12 +137,16 @@
 						                          <input 
 						                                id="gosi_or_ppa_monthly_subscription" 
 						                                type="text" 
-						                                class="form-control"
+						                                class="form-control @error('saving_plan.gosi_or_ppa_monthly_subscription') {!! 'error' !!} @enderror"
 						                                name="saving_plan[gosi_or_ppa_monthly_subscription]" 
 						                                required 
 						                                placeholder="eg. 140.00 SAR"
-						                                value="{{ $user_questionnaire->saving_plan["saving_plan"]["gosi_or_ppa_monthly_subscription"] ?? old('saving_plan.gosi_or_ppa_monthly_subscription') }}"
+						                                value="{{ currency(old('saving_plan.gosi_or_ppa_monthly_subscription') ?? $user_questionnaire->saving_plan["saving_plan"]["gosi_or_ppa_monthly_subscription"] ?? null , 0) }}"
 						                                >
+						                            @error('saving_plan.gosi_or_ppa_monthly_subscription')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
+
 						                    	</div>
 											</div>
 
@@ -150,12 +158,17 @@
 						                          <input 
 						                                id="monthly_saving_plan_for_retirement" 
 						                                type="text" 
-						                                class="form-control"
+						                                class="form-control @error('saving_plan.monthly_saving_plan_for_retirement') {!! 'error' !!} @enderror"
 						                                name="saving_plan[monthly_saving_plan_for_retirement]" 
 						                                required 
 						                                placeholder="eg. 50.00 SAR"
-						                                value="{{ $user_questionnaire->saving_plan["saving_plan"]["monthly_saving_plan_for_retirement"] ?? old('saving_plan.monthly_saving_plan_for_retirement') }}"
+						                                value="{{ currency(old('saving_plan.monthly_saving_plan_for_retirement') ?? $user_questionnaire->saving_plan["saving_plan"]["monthly_saving_plan_for_retirement"] ?? null , 0) }}"
 						                                >
+
+						                            @error('saving_plan.monthly_saving_plan_for_retirement')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
+
 						                    	</div>
 											</div>
 
@@ -166,13 +179,19 @@
 						                          </label>
 						                          <input 
 						                                id="annual_increase_in_saving_plan" 
-						                                type="text" 
-						                                class="form-control"
+						                                type="number" 
+						                                class="form-control @error('saving_plan.annual_increase_in_saving_plan') {!! 'error' !!} @enderror"
 						                                name="saving_plan[annual_increase_in_saving_plan]" 
 						                                required 
+						                                max="10" 
+						                                min="0" 
 						                                placeholder="eg. 5 %"
-						                                value="{{ $user_questionnaire->saving_plan["saving_plan"]["annual_increase_in_saving_plan"] ?? old('saving_plan.annual_increase_in_saving_plan') }}"
+						                                value="{{ old('saving_plan.annual_increase_in_saving_plan') ?? $user_questionnaire->saving_plan["saving_plan"]["annual_increase_in_saving_plan"] ?? '' }}"
 						                                >
+
+						                            @error('saving_plan.annual_increase_in_saving_plan')
+							                            <label class="error" >{{ $message }}</label>
+							                        @enderror
 						                    	</div>
 											</div>
 
@@ -210,4 +229,9 @@
 <script src="{{ asset('backend_assets/questions/assets/js/paper-bootstrap-wizard.js') }} " type="text/javascript"></script>
 
 @include('dashboard.user_panel.partials.validate')
+
+<script type="text/javascript">
+
+
+</script>
 @endsection

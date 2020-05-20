@@ -95,12 +95,16 @@
 					                          <input 
 					                                id="name" 
 					                                type="text" 
-					                                class="form-control" 
+					                                class="form-control @error('personal_info.name') {!! 'error' !!} @enderror" 
 					                                name="personal_info[name]" 
 					                                required 
 					                                placeholder="eg. Ali"
-					                                value="{{ $user_questionnaire->personal_info["personal_info"]["name"] ?? old('personal_info.name') }}"
+					                                value="{{ old('personal_info.name') ?? $user_questionnaire->personal_info["personal_info"]["name"] ?? '' }}"
 					                                >
+
+					                            @error('personal_info.name')
+						                            <label class="error" >{{ $message }}</label>
+						                        @enderror
 					                    	</div>
 										</div>
 
@@ -111,7 +115,7 @@
 					                          	{{ trans('lang.question.education_level') }}
 					                          </label>
 					                          <select 
-					                          	class="form-control" 
+					                          	class="form-control @error('personal_info.education_level') {!! 'error' !!} @enderror" required 
 					                          	name="personal_info[education_level]"
 					                          	>
 					                          	<option value="">
@@ -131,6 +135,10 @@
 					                          	</option>
 					                          	
 					                          </select>
+
+					                            @error('personal_info.education_level')
+						                            <label class="error" >{{ $message }}</label>
+						                        @enderror
 					                    	</div>
 										</div>
 
@@ -138,15 +146,19 @@
 											<div class="form-group">
 					                          <label for="years_old" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.question.years_old') }}</label>
 					                          <input 
-					                                id="years_old" 
-					                                type="text" 
-					                                class="form-control"
-					                                name="personal_info[years_old]" 
-					                                required 
-					                                placeholder="eg. 30"
-					                                value="{{ ($user_questionnaire->personal_info["personal_info"]["years_old"] ?? old('personal_info.years_old')) ?? Session::get('years_old') }}"
-					                                {{ Session::get('years_old') ? Session::put('years_old', '') : '' }}
-					                                >
+				                                id="years_old" 
+				                                type="text" 
+				                                class="form-control @error('personal_info.years_old') {!! 'error' !!} @enderror"
+				                                name="personal_info[years_old]" 
+				                                required 
+				                                placeholder="eg. 30"
+				                                value="{{ (old('personal_info.years_old')) ?? $user_questionnaire->personal_info["personal_info"]["years_old"] ?? Session::get('years_old') ?? '' }}"
+				                                {{ Session::get('years_old') ? Session::put('years_old', '') : '' }}
+				                                >
+
+				                                @error('personal_info.years_old')
+						                            <label class="error" >{{ $message }}</label>
+						                        @enderror
 					                    	</div>
 										</div>
 
@@ -156,17 +168,21 @@
 					                          <input 
 					                                id="time_horizon" 
 					                                type="text" 
-					                                class="form-control"
+					                                class="form-control @error('personal_info.retirement_age') {!! 'error' !!} @enderror"
 					                                required 
 					                                placeholder="eg. 65"
 					                                name="personal_info[retirement_age]" 
-													value="{{ ($user_questionnaire->personal_info["personal_info"]["retirement_age"] ?? old('personal_info.retirement_age')) ?? Session::get('retirement_age') }}"
+													value="{{ (old('personal_info.retirement_age')) ?? $user_questionnaire->personal_info["personal_info"]["retirement_age"] ?? Session::get('retirement_age') ?? '' }}"
 					                                >
+
+				                                @error('personal_info.retirement_age')
+						                            <label class="error" >{{ $message }}</label>
+						                        @enderror
 					                    	</div>
 										</div>
 
 										<br>
-										<br>
+
 										<div class="center_content">
 											<button type="submit" class="button">
 												{{ trans('lang.question.continue_to_income') }} 
