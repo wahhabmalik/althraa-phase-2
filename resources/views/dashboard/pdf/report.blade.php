@@ -1171,9 +1171,9 @@ $(document).ready(function(){
 		function() {
 			window.print();
 			// $("br").remove();
-			$("body").remove();
-			window.close();
-			window.top.close();
+			// $("body").remove();
+			// window.close();
+			// window.top.close();
 			// $("#parent-report").addClass('container');
 
 			// var element = document.getElementById('printable');
