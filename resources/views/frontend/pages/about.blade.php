@@ -241,16 +241,16 @@
                         <p class="icon-p text_black m-3">
                             {{ trans('lang.frontend_about.bakarman') }}
                         </p>
-                        <a href=""><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
-                        <a href=""><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
+                        <a href="https://www.linkedin.com/in/wbakarman" target="_blank"><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
+                        <a href="https://twitter.com/wbakarman" target="_blank"><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
                     </div>
 
                     <div class="col-sm-3">
-                        <img src="{{ asset('frontend_assets/img/team/ali.png') }}" class="img img-fluid">
+                        <img src="{{ asset('frontend_assets/img/team/alialsheri.png') }}" class="img img-fluid" style="border-radius: 5px;">
                         <p class="icon-p text_black m-3">
                             {{ trans('lang.frontend_about.ali') }}
                         </p>
-                        <a href=""><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
+                        <a href="https://www.linkedin.com/in/alialshehri" target="_blank"><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
                         <a href=""><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
                     </div>
                     

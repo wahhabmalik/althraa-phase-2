@@ -56,6 +56,7 @@
 
 
 @section('content')
+{{-- {{ dd($errors) }} --}}
 {{-- <div class="content__body"> --}}
 <div class="container">
 	<div class="row mb-0 pt-5" style="position: relative; z-index: 10;">
@@ -163,41 +164,41 @@
 											</p>
 
 											<a class="nav-link active 
-												@if($errors->count()>0)
+												{{-- @if($errors->count()>0)
 													@foreach($errors->getMessages() as $key => $error)
 														@php $er = explode('.',$key) @endphp
 														@if($er[1] == 'financial_assets' )
 															{{ 'text-danger' }}
 														@endif
 													@endforeach
-												@endif
+												@endif --}}
 												" 
 												id="v-financial-assets-tab" data-toggle="pill" href="#v-pills-financial-assets" role="tab" aria-controls="v-pills-financial-assets" aria-selected="true">
 												{{ trans('lang.question.financial_assets') }}
 											</a>
 
 											<a class="nav-link
-												@if($errors->count()>0)
+												{{-- @if($errors->count()>0)
 													@foreach($errors->getMessages() as $key => $error)
 														@php $er = explode('.',$key) @endphp
 														@if($er[1] == 'real_assets')
 															{{ 'text-danger' }}
 														@endif
 													@endforeach
-												@endif
+												@endif --}}
 												" id="v-pills-real-assets-tab" data-toggle="pill" href="#v-pills-real-assets" role="tab" aria-controls="v-pills-real-assets" aria-selected="false">
 												{{ trans('lang.question.assets') }}
 											</a>
 
 											<a class="nav-link
-												@if($errors->count()>0)
+												{{-- @if($errors->count()>0)
 													@foreach($errors->getMessages() as $key => $error)
 														@php $er = explode('.',$key) @endphp
 														@if($er[1] == 'liabilities')
 															{{ 'text-danger' }}
 														@endif
 													@endforeach
-												@endif
+												@endif --}}
 												" id="v-pills-liabilities-tab" data-toggle="pill" href="#v-pills-liabilities" role="tab" aria-controls="v-pills-liabilities" aria-selected="false">
 												{{ trans('lang.question.liabilities') }}
 											</a>

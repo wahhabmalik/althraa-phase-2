@@ -112,7 +112,7 @@ return [
         'current_saving_balance' => 'Current saving balance ',
         'gosi_or_ppa_monthly_subscription' => 'GOSI or PPA monthly subscription',
         'monthly_saving_plan_for_retirement' => 'Monthly saving plan for retirement',
-        'annual_increase_in_saving_plan' => 'Annual increase in saving plan',
+        'annual_increase_in_saving_plan' => 'Annual increase in saving plan (%)',
 
         'continue_to_worth' => 'Continue to worth',
         
@@ -359,6 +359,8 @@ return [
     'questionnaire_start' => 'Questionnaire Start',
     'welcome' => 'Welcome' ,
     'are_you_ready_to_start_your_new_future' => 'Are you ready to start your new future?',
+    'order_summary' => 'Order Summary',
+    'download_sample' => 'Download sample',
 
 
 
@@ -812,7 +814,7 @@ return [
         'chart_details' => 'Chart Details',
 
 
-        'working_years_accumulation_phase' => 'Working Years - Accumulation phase',
+        'working_years_accumulation_phase' => 'Before Retirement(Working phase)',
         'retirement_years_distribution_phase' => 'Retirement Years - Distribution phase',
         
         'year' => 'Year',

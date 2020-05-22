@@ -31,7 +31,7 @@ class QuestionnaireController extends Controller
      */
     public function index()
     {
-        //
+        // Questionnaire::getMe()->get();
     }
 
     /**
@@ -2984,6 +2984,7 @@ class QuestionnaireController extends Controller
             if ($i == $current_age) 
             {
                 $graphAge[] = $i;
+                $plan[$i]['age']= $i;
 
                 $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
                 $graphContribution[] = $plan[$i]['contribution'] = $annualSavingToday;
@@ -2999,7 +3000,7 @@ class QuestionnaireController extends Controller
             else
             {
                 $graphAge[] = $i;
-
+                $plan[$i]['age']= $i;
                 $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
 
                 $graphContribution[] = $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));

@@ -39,15 +39,15 @@
 				<a class="button" href="{{ route('step_1', app()->getLocale()) }}">{{ trans('lang.questionnaire_start') }} {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}</a>
 			</div>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-3 {!! ($request->segment(1) == 'ar') ? 'text-right' : '' !!}">
 			<div class="s-100"></div>
-			<p class="summary">Order Summary</p>
+			<p class="summary">{{ trans('lang.order_summary') }}</p>
 			<a href="{{ route('sample-report', app()->getLocale()) }}" target="_blank">
-				<p class="download_link">Download sample <img src="{{ asset('backend_assets/dashboard/images/download.png') }}" class="float-right img img-fluid"></p>
+				<p class="download_link">{{ trans('lang.download_sample') }} <img src="{{ asset('backend_assets/dashboard/images/download.png') }}" class="float-{!! ($request->segment(1) == 'ar') ? 'left' : 'right' !!} img img-fluid"></p>
 				
 			</a>
 			<div class="total">
-				<p>Total: <span class="float-right">SAR 500</span></p>
+				<p>{{ trans('lang.question.total') }}<span class="float-{!! ($request->segment(1) == 'ar') ? 'left' : 'right' !!}">{{ currency(500) }}</span></p>
 			</div>
 		</div>
 	</div>

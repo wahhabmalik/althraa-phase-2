@@ -1974,12 +1974,14 @@ class Questionnaire extends Model
 
     public function getNetReturnBeforeRetirement(User $user = null)
     {
-        return 7.85;
+        $before_retirement = Constant::where('constant_attribute' , 'Net_Return/Year_(Before_Retirement)')->first();
+        return (float)$before_retirement->constant_value ?? 7.85;
     }
 
     public function getNetReturnAfterRetirement(User $user = null)
     {
-        return 4.00;
+        $after_retirement = Constant::where('constant_attribute' , 'Net_Return/Year_(After_Retirement)')->first();
+        return (float)$after_retirement->constant_value ?? 4.00;
     }
 
     public function getStartingyearInPlan(User $user = null)
@@ -2065,9 +2067,10 @@ class Questionnaire extends Model
         $monthlySalary = $this->getIncome($user)['income']['salary'];
         $savingRating = '';
 
+        // dd($monthlySalary, $accumulativeSaving);
         if($age < 30)
         {
-            if($monthlySalary <= $accumulativeSaving)
+            if($monthlySalary >= $accumulativeSaving)
                 $savingRating = 'Poor';
             else if(($monthlySalary * 2) >= $accumulativeSaving || ($monthlySalary * 4) <= $accumulativeSaving)
                 $savingRating = 'Fair';
@@ -2076,36 +2079,36 @@ class Questionnaire extends Model
         }
         else if($age >= 30 && $age < 40)
         {
-            if(($monthlySalary * 4) <= $accumulativeSaving)
+            if(($monthlySalary * 4) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if(($monthlySalary * 5) >= $accumulativeSaving || ($monthlySalary * 11) <= $accumulativeSaving)
+            else if(($monthlySalary * 5) <= $accumulativeSaving || ($monthlySalary * 11) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if(($monthlySalary * 12) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 40 && $age < 50)
         {
-            if((($monthlySalary * 4) * 3) <= $accumulativeSaving)
+            if((($monthlySalary * 4) * 3) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if((($monthlySalary * 5) * 3) >= $accumulativeSaving || (($monthlySalary * 11) * 3) <= $accumulativeSaving)
+            else if((($monthlySalary * 5) * 3) <= $accumulativeSaving || (($monthlySalary * 11) * 3) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if((($monthlySalary * 12) * 3) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 50 && $age < 60)
         {
-            if((($monthlySalary * 4) * 6) <= $accumulativeSaving)
+            if((($monthlySalary * 4) * 6) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if((($monthlySalary * 5) * 6) >= $accumulativeSaving || (($monthlySalary * 11) * 6) <= $accumulativeSaving)
+            else if((($monthlySalary * 5) * 6) <= $accumulativeSaving || (($monthlySalary * 11) * 6) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if((($monthlySalary * 12) * 6) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 60)
         {
-            if((($monthlySalary * 4) * 8) <= $accumulativeSaving)
+            if((($monthlySalary * 4) * 8) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if((($monthlySalary * 5) * 8) >= $accumulativeSaving || (($monthlySalary * 11) * 8) <= $accumulativeSaving)
+            else if((($monthlySalary * 5) * 8) <= $accumulativeSaving || (($monthlySalary * 11) * 8) <= $accumulativeSaving)
                 $savingRating = 'Fair';
             else if((($monthlySalary * 12) * 8) >= $accumulativeSaving)
                 $savingRating = 'Good';
@@ -2160,14 +2163,26 @@ class Questionnaire extends Model
 
     public function getReturnAssumptions(User $user = null)
     {
+        $cash_and_equivlent = Constant::where('constant_attribute' , 'cash_and_equivlent')->first();
+        $equities = Constant::where('constant_attribute' , 'equities')->first();
+        $fix_income = Constant::where('constant_attribute' , 'fix_income')->first();
+        $alternative_investments = Constant::where('constant_attribute' , 'alternative_investments')->first();
+
         return [
-                'cash_and_equivlent' => $this->cash_and_equivlent['value'] ?? 2,
-                'equities' => $this->equities['value'] ?? 10,
-                'fix_income' => $this->fix_income['value'] ?? 5,
-                'alternative_investments' => $this->alternative_investments['value'] ?? 12,
+                'cash_and_equivlent' => (integer)$cash_and_equivlent->constant_value ?? 0,
+                'equities' => (integer)$equities->constant_value ?? 0,
+                'fix_income' => (integer)$fix_income->constant_value ?? 0,
+                'alternative_investments' => (integer)$alternative_investments->constant_value ?? 0,
             ];
+
     }
 
 
+    public function scopeGetMe($query)
+    {
+        return $query->where([
+            'id' => 1,
+        ]);
+    }
 
 }

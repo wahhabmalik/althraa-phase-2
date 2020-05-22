@@ -17,73 +17,13 @@
 <link href="{{ asset('backend_assets/dashboard/questions/css/styles.css') }}" rel="stylesheet">
 
 <style type="text/css">
-/*#overlayer {
-  width:100%;
-  height:100%;  
-  position:absolute;
-  z-index:9999999;
-  background:#4a4a4a;
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+  background:#ffffff;
 }
-.loader {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  z-index:3;
-  border: 4px solid #Fff;
-  top: 50%;
-  animation: loader 2s infinite ease;
-}
-
-.loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #fff;
-  animation: loader-inner 2s infinite ease-in;
-}
-
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  
-  25% {
-    transform: rotate(180deg);
-  }
-  
-  50% {
-    transform: rotate(180deg);
-  }
-  
-  75% {
-    transform: rotate(360deg);
-  }
-  
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes loader-inner {
-  0% {
-    height: 0%;
-  }
-  
-  25% {
-    height: 0%;
-  }
-  
-  50% {
-    height: 100%;
-  }
-  
-  75% {
-    height: 100%;
-  }
-  
-  100% {
-    height: 0%;
-  }
+/*label.error:not(.form-control){
+  {{ ($request->segment(1) == 'ar') ? 'float:right-' : '' }}
+}*/
+/*.form-group {
+    padding-bottom: 1px;
 }*/
 </style>
