@@ -16,6 +16,7 @@
 
 @page {
   margin-right: 0in; // top margin for first page of paper
+  size: landscape;
 }
 
 @media print {
@@ -337,6 +338,14 @@ a{
 .heading-main{
     font-size: 8rem;
 }
+@media only screen and (max-width: 760px) {
+  .heading-main{
+    font-size: 6rem;
+  }
+  .user-main {
+    font-size: 5rem;
+  }
+}
 .heading-secondary{
     font-size: 6rem;
 }
@@ -353,6 +362,15 @@ a{
     font-weight: 100;
     letter-spacing: 0.17rem;
     margin-bottom: 3.8rem;
+}
+
+@media only screen and (max-width: 760px) {
+  .tb-content p, .text-secondary {
+    font-size: 2rem;
+  }
+  .alertBox__p {
+    font-size: 2.5rem;
+  }
 }
 
 .text-primary {
@@ -414,7 +432,14 @@ table {
 
 .donut_inner{
   position: relative;
-  top: -200px;
+  top: -170px
+}
+
+@media only screen and (max-width: 760px) {
+  .donut_inner{
+    position: initial;
+    top: -170px
+  }
 }
 
 .factor p{
@@ -496,6 +521,14 @@ table {
 .factor-icon{
     bottom: 0;
     position: absolute;
+}
+
+@media only screen and (max-width: 760px) {
+  .factor-icon {
+    bottom: 60px;
+    max-width: 80%;
+    position: absolute;
+} 
 }
 
 .factor .pointer {

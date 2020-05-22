@@ -31,7 +31,7 @@ class QuestionnaireController extends Controller
      */
     public function index()
     {
-        //
+        // Questionnaire::getMe()->get();
     }
 
     /**
@@ -2984,6 +2984,7 @@ class QuestionnaireController extends Controller
             if ($i == $current_age) 
             {
                 $graphAge[] = $i;
+                $plan[$i]['age']= $i;
 
                 $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
                 $graphContribution[] = $plan[$i]['contribution'] = $annualSavingToday;
@@ -2999,7 +3000,7 @@ class QuestionnaireController extends Controller
             else
             {
                 $graphAge[] = $i;
-
+                $plan[$i]['age']= $i;
                 $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
 
                 $graphContribution[] = $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
@@ -3022,6 +3023,7 @@ class QuestionnaireController extends Controller
         $returnAssumptions = $this->questionnaire->getReturnAssumptions($user);
 
         // dd($plan);
+        // dd($commulitiveSavingRating);
 
         $data = [
             'personalInfo' => $personalInfo,
@@ -3083,26 +3085,26 @@ class QuestionnaireController extends Controller
         $report->report_data = json_encode($data);
         $report->public_id = unique_string('reports','public_id', $length = 40, $numbers = false);
 
-        $report->save();
+        // $report->save();
 
 
-        $data = array(
-                'subject' => 'Thokhor | Financial Report', 
-                'body' => 'Report', 
-                'view' => 'dashboard.email.report', 
-                'public_id' => $report->public_id,
-            );
+        // $data = array(
+        //         'subject' => 'Thokhor | Financial Report', 
+        //         'body' => 'Report', 
+        //         'view' => 'dashboard.email.report', 
+        //         'public_id' => $report->public_id,
+        //     );
 
-        try{
-            Mail::to($user->email)->send(new SendMail($data));
-        }catch ( \Exception $exception) {
-            dd($exception->getMessage());
-        }
+        // try{
+        //     Mail::to($user->email)->send(new SendMail($data));
+        // }catch ( \Exception $exception) {
+        //     dd($exception->getMessage());
+        // }
         
 
 
-        return view('dashboard.thanks')->with('message', 'Thankyou for submitting. Please check you email to print/download the report');
-        // return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
+        // return view('dashboard.thanks')->with('message', 'Thankyou for submitting. Please check you email to print/download the report');
+        return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
 
         
     }

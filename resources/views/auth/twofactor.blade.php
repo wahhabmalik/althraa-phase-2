@@ -162,7 +162,7 @@ li span {
                             <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" />
                             <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa"  />
 
-                            {{-- <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!} --}}
+                            <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
                             </button>
                         </form>
                     </div>

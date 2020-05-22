@@ -16,18 +16,16 @@
 @section('content')
 
 {{-- {{ dd($data) }} --}}
-<div id="printable" class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
+<div id="printable" class="background_effect{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 	
 	@php 
 	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>You</p>';
 	@endphp
 
-	<div id="parent-report" class="container-fluid mb-5 background_effect " {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 background_effect" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
-				<br><br><br><br><br>
-				<br><br><br><br><br>
+			<div class="col-sm-10">
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -38,10 +36,7 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
+		
 		
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
@@ -54,16 +49,13 @@
                 />
 			</div>
 		</div>
-
-		<br><br><br><br><br><br>
-		<br><br><br><br><br><br>
-
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 		
 	</div>
+</div>
 
 
 
+<div id="printable" class="container{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 
 
 
@@ -73,7 +65,7 @@
 	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-sm-10">
 				<br><br><br><br><br>
 				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
@@ -88,32 +80,23 @@
 		<br><br><br><br><br>
 		
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-9 tb-content">
-				<P>About Thokhor</P>
-				<P>Financial Health Checkup</P>
-				<P>Personal Indicators</P>
-				<P>Asset Allocation</P>
-				<P>Financil Forcast</P>
-				<P>Investing Plan</P>
+			<div class="col-1"></div>
+			<div class="col-10 tb-content">
+				<P>About Thokhor<span class="float-right">01</span></P>
+				<P>Financial Health Checkup<span class="float-right">02</span></P>
+				<P>Personal Indicators<span class="float-right">03</span></P>
+				<P>Asset Allocation<span class="float-right">04</span></P>
+				<P>Financil Forcast<span class="float-right">05</span></P>
+				<P>Investing Plan<span class="float-right">06</span></P>
 			</div>
 
-			<div class="col-sm-1 tb-content">
-				<P>01</P>
-				<P>02</P>
-				<P>03</P>
-				<P>04</P>
-				<P>05</P>
-				<P>06</P>
+			{{-- <div class="col-1 tb-content">
 				
-			</div>
+			</div> --}}
 		</div>
 
 
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
+		
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
@@ -180,20 +163,9 @@
                 </ul>
 			</div>
 
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
+			
 		</div>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		
 	</div>
 
 
@@ -239,7 +211,7 @@
 				<b>{{ $data['personalInfo']['years_old'] }}</b>
 			</div>
 			
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<p>Planned retirement age</p>
 				<b>{{ $data['personalInfo']['retirement_age'] }}</b>
 			</div>
@@ -455,8 +427,8 @@
 
 		
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">Monthly Saving Rate</p>
 				
 				<div class="factor">
@@ -495,16 +467,16 @@
 
 			</div>
 
-			<div class="col-sm-1">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/002-calendar@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Current Saving Amount ({{ $data['personalInfo']['years_old'] }})</p>
+			<div class="col-1"></div>
+			<div class="col-8">
+				<p class="text-secondary mt-5">Current Saving Amount ({{ $data['personalInfo']['years_old']. ' Year' }})</p>
 				
 				<div class="factor-vs">
 					<p>Poor saver</p>	
@@ -533,15 +505,15 @@
 
 			</div>
 
-			<div class="col-sm-1">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/001-safebox@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">Early Retirement Possibility</p>
 				
 				<div class="factor">
@@ -580,15 +552,15 @@
 
 			</div>
 
-			<div class="col-sm-1">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/003-beach@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">Investing Diversity</p>
 				
 				<div class="factor-s">
@@ -625,7 +597,7 @@
 
 			</div>
 
-			<div class="col-sm-1">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/004-profits@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
@@ -873,10 +845,75 @@
 
 		<div class="row">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-sm-10">
 				<canvas id="myChart" width="1600" height="600"></canvas>
 			</div>
 		</div>
+
+
+
+
+
+		<div class="row mb-5 mt-5 pb-5">
+			<div class="col-md-1"></div>
+		    <div class="col-md-10">
+		    	<div class="text-left mb-5">
+	                <h4 class="font-weight-bold mt-5{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
+	                  {{ trans('lang.financial_plan.working_years_accumulation_phase') }}
+	                </h4>
+	            </div>
+
+		      	<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th class="btm_table">{{ trans('lang.financial_plan.year') }} #</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.age') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.value_beginning_year') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.contributions') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.returns') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.value_end_year') }}</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  @isset ($data['plan'])
+						  @php $count = 0; @endphp
+						      @forelse ($data['plan'] as $pl)
+						        <tr>
+						        	{{-- {{ dd($pl) }} --}}
+						          <td class="btm_table_td">
+						            {{ ++$count ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ $pl['age'] ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['value_beginning_of_year']) ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['contribution']) ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['returns']) ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['value_end_year']) ?? '' }}
+						          </td>
+						        </tr>
+						      @empty
+						        <tr>
+						          <td colspan="6" class="btm_table_td">No Data Found</td>
+						        </tr>
+						      @endforelse
+						  @endisset
+						</tbody>
+					</table>
+		      	</div>
+		    </div>
+		</div>
+
+
+
 
 		<br><br><br><br><br>
 
@@ -895,7 +932,7 @@
 					</tr>
 					<tr>
 						<td>Monthly saving plan</td>
-						<td>{{ currency($data['monthlySalary']) }} /Month</td>
+						<td>{{ currency($data['monthlySavingPlanForRetirement']) }} /Month</td>
 					</tr>
 					<tr>
 						<td>Monthly saving today</td>
@@ -1133,8 +1170,8 @@
 		</div>
 
 		<div class="row mt-5">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-7 text-right pt-3">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10 text-right pt-3">
 				<p>{{ trans('lang.pdf_disclaimer') }}</p>
 			</div>
 		</div>
@@ -1169,7 +1206,7 @@
 $(document).ready(function(){
 	setTimeout(
 		function() {
-			window.print();
+			// window.print();
 			// $("br").remove();
 			// $("body").remove();
 			// window.close();
@@ -1315,7 +1352,7 @@ var myChart = new Chart(ctx, {
         labels: [{!! implode(", ", $data['graphAge']) !!}],
         datasets: [{
               type: 'line',
-              label: 'Before Retirement',
+              label: 'Plan Value',
                "fill": false,
                "lineTension": 0.1,
                "backgroundColor": [

@@ -113,7 +113,7 @@ return [
         'current_saving_balance' => '  راتب   ',
         'gosi_or_ppa_monthly_subscription' => 'GOSI or PPA monthly subscription',
         'monthly_saving_plan_for_retirement' => 'Monthly saving plan for retirement',
-        'annual_increase_in_saving_plan' => 'Annual increase in saving plan',
+        'annual_increase_in_saving_plan' => 'Annual increase in saving plan (%)',
 
         'continue_to_worth' => 'Continue to worth',
 
@@ -365,6 +365,8 @@ return [
     'questionnaire_start' => 'استبيان البداية ' ,
     'welcome' => 'أهلا بك ' ,
     'are_you_ready_to_start_your_new_future' => 'هل أنت مستعد لبدء مستقبلك الجديد؟ ',
+    'order_summary' => 'Order Summary',
+    'download_sample' => 'Download sample',
 
 
 
@@ -817,7 +819,7 @@ return [
         'congratulations' => '  تهانينا! في سن الـ   ',
         'chart_details' => '   تفاصيل المخطط     ',
 
-        'working_years_accumulation_phase' => '   سنوات العمل - مرحلة التراكم   ',
+        'working_years_accumulation_phase' => ' Before Retirement(Working phase)',
         'retirement_years_distribution_phase' => '    سنوات التقاعد - مرحلة التوزيع  ',
         
         'year' => '  السنة   ',

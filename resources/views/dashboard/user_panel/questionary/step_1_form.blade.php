@@ -121,16 +121,16 @@
 					                          	<option value="">
 					                          		{{ trans('lang.question.education_level') }}
 					                          	</option>
-					                          	<option >
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.highschool')) ? 'selected' : '' !!}>
 					                          		{{ trans('lang.question.education_level_options.highschool') }}
 					                          	</option>
-					                          	<option >
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.bachlore')) ? 'selected' : '' !!}>
 					                          		{{ trans('lang.question.education_level_options.bachlore') }}
 					                          	</option>
-					                          	<option >
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.master')) ? 'selected' : '' !!}>
 					                          		{{ trans('lang.question.education_level_options.master') }}
 					                          	</option>
-					                          	<option >
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.above')) ? 'selected' : '' !!}>
 					                          		{{ trans('lang.question.education_level_options.above') }}
 					                          	</option>
 					                          	
