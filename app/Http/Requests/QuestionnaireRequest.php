@@ -42,7 +42,7 @@ class QuestionnaireRequest extends FormRequest
                                 'personal_info.name' => 'required|string|max:255',
                                 'personal_info.years_old' => 'required|numeric|max:120|min:5',
                                 'personal_info.education_level' => 'required|string|max:255',
-                                'personal_info.retirement_age' => 'required|numeric|max:120|min:5',
+                                'personal_info.retirement_age' => 'required|numeric|gte:personal_info.years_old|max:120',
                             ];
                             break;
 
@@ -164,7 +164,8 @@ class QuestionnaireRequest extends FormRequest
             'personal_info' => 'Personal Information',
             'started_year_for_personal_financial_plan' => trans('lang.question.started_year_for_personal_financial_plan'),
             'personal_info.name' => trans('lang.question.name'),
-            'personal_info.years_old' => trans('lang.question.years_old'),
+            'personal_info.years_old' => 'Current Age',
+            // 'personal_info.years_old' => trans('lang.question.years_old'),
             'personal_info.education_level' => trans('lang.question.education_level'),
             'personal_info.retirement_age' => trans('lang.question.retirement_age'),
             'personal_info.no_of_dependents' => trans('lang.question.no_of_dependents'),
