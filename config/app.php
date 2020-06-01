@@ -178,6 +178,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -258,7 +259,10 @@ return [
         'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
 
         //DOM PDF
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        // 'PDF' => Barryvdh\DomPDF\Facade::class,
+
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
 
     ],
 

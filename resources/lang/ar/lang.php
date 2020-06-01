@@ -70,21 +70,27 @@ return [
         'site_management' => 'إدارة الموقع',
     ],
 
+    'code_will_expire_in' => 'رمز التحقق سوف ينتهي خلال',
+    'minutes' => 'دقائق',
+    'seconds' => 'ثواني',
+    'code_expired' => 'رمز التحقق منتهي الصلاحية',
+
 
     'question' => [
         'go_to_previous_step' => '  انتقل إلى الخطوة السابقة      ',
 
-        'total' => '   Total   ',
-        'net_total' => '  Net Total    ',
+        'total' => '  الاجمالي  ',
+        'net_total' => '  المجموع الصافي    ',
 
         // step 1
         'started_year_for_personal_financial_plan' => '   السنة الميلادية للخطة المالية الشخصية      ',
         'name' => '  الاسم    ',
-        'education_level' => 'Select your education level',
+        'education_level' => 'اختيار المستوى التعليمي',
         'years_old' => '   العمر     ',
-        'education_level' => 'Education level',
-        'retirement_age' => 'Retirement age',
+        'education_level' => 'المستوى التعليمي',
+        'retirement_age' => 'سن التقاعد',
         'no_of_dependents' => '  عدد المعالين    ',
+        'current_age' => ' العمر حالياً ',
 
 
             'education_level_options' => [
@@ -106,16 +112,16 @@ return [
         'other' => '  آخر ',
 
         // 'continue_to_expenses' => '  الاستمرار في          المصاريف            ',
-        'continue_to_saving_plan' => ' Continue to saving plan      ',
+        'continue_to_saving_plan' => ' الاستمرار الى خطة المدخرات  ',
 
 
         // step 3
-        'current_saving_balance' => '  راتب   ',
-        'gosi_or_ppa_monthly_subscription' => 'GOSI or PPA monthly subscription',
-        'monthly_saving_plan_for_retirement' => 'Monthly saving plan for retirement',
-        'annual_increase_in_saving_plan' => 'Annual increase in saving plan (%)',
+        'current_saving_balance' => ' رصيد مدخراتي حتي اليوم',
+        'gosi_or_ppa_monthly_subscription' => 'الاستقطاع الشهري ( التأمينات الاجتماعية / التقاعد ) ',
+        'monthly_saving_plan_for_retirement' => 'الادخار الشهري للخطة المالية الشخصية ',
+        'annual_increase_in_saving_plan' => ' (%)  معدل الزيادة في الادخار بشكل سنوي',
 
-        'continue_to_worth' => 'Continue to worth',
+        'continue_to_worth' => 'الاستمرار الى الثروة الشخصية',
 
 
         // step 3 -> old 
@@ -184,13 +190,13 @@ return [
 
         // step 4
         'assets' => '   استثمارات       ',
-            'real_estate' => 'Real Estate',
-            'pe' => 'مشاريع واعمال ',
+            'real_estate' => 'عقارات',
+            'pe' => 'مشاريع (ملكيات خاصة)',
 
-        'financial_assets' => 'Financial Assets',
-            'cash_and_deposit' => 'Cash and deposit',
-            'equities' => 'Equities',
-            'bonds' => 'Bonds',
+        'financial_assets' => 'الاصول المالية',
+            'cash_and_deposit' => 'النقد وما يعادله',
+            'equities' => 'أسهم',
+            'bonds' => 'صكوك وسندات ',
 
         'liquid_assets' => '  استثمارات سائلة     ',
 
@@ -220,7 +226,7 @@ return [
 
         'liabilities' => '    قروض          ',
             'liabilities_real_estate_loan' => ' liabilities real estate loan  ',
-            'real_estate_loan' => ' Real estate loan  ',
+            'real_estate_loan' => 'قرض عقاري',
 
 
         'liabilities_personal_loan' => '   قرض شخصي     ',
@@ -240,7 +246,7 @@ return [
         'gosi_starting_year_in_plan' => '   السنة الملادية  لبدء الاشتراك    ',
         'gosi_average_of_last_24_months_salary' => '   متوسط الراتب اخر 24 شهر       ',
         'gosi_subscriptions_months' => '   مدة الاشتراك بالاشهر      ',
-        'expecting_salary_at_retirement' => 'Expecting salary at retirement',
+        'expecting_salary_at_retirement' => 'الراتب المتوقع عند التقاعد',
         'mothly_life_expenses_after_retirement' => 'Mothly life expenses after retirement',
 
         'continue_to_risk' => '   الاستمرار في المخاطر     ',
@@ -339,8 +345,8 @@ return [
 
 
         'continue_to_objectives' => '   الاستمرار في الأهداف      ',
-        'continue_to_payment' => ' Continue To Payment  ',
-        'continue' => 'Continue',
+        'continue_to_payment' => ' تابع الدفع ',
+        'continue' => 'استمر',
 
 
         // step 7
@@ -365,8 +371,8 @@ return [
     'questionnaire_start' => 'استبيان البداية ' ,
     'welcome' => 'أهلا بك ' ,
     'are_you_ready_to_start_your_new_future' => 'هل أنت مستعد لبدء مستقبلك الجديد؟ ',
-    'order_summary' => 'Order Summary',
-    'download_sample' => 'Download sample',
+    'order_summary' => 'معلومات الطلب',
+    'download_sample' => 'اطلع على نموذج للخطة',
 
 
 
@@ -382,8 +388,8 @@ return [
 
 
 
-    'email_verification' => 'Email verification',
-    'your_email' => 'Your email',
+    'email_verification' => 'تحقق من الايميل',
+    'your_email' => 'الايميل',
 
 
 
@@ -562,22 +568,25 @@ return [
         'about_coffee_started_it_all' => '    بدأت القهوة كل شيء.        ',
         'about_coffee_text' => '      التقى وليد (MBA، CFA) بعلي (دكتوراه في التكنولوجيا الأمنية) في أحد الأيام لتناول القهوة والتحدث عن الاستثمار. ومن ثم اكتشفا خلال الاجتماع أنهما لم يكونا متحمسين فقط لموضوعات الاستثمار، بل كانا يشكلان المزيج المثالي لبدء التطبيق الذي يمكن أن يساعد أمة كاملة.           ',
 
-        'mission' => 'Mission',
+        'mission' => 'الرسالة ',
         'mission_text' => 'Richness and financial independence have an equation that the rich know well but which are easy and kind. Our mission is to be an automated financial advisor for individuals who makes this equation:',
-        'mission_text_report' => 'Our mission is to be an automated financial advisor for individuals who makes this equation:',
+        'mission_text_report' => 'مهمتنا ان نكون المخطط المالي الآلي الموثوق للافراد مع تحقيق التوزان في الأركان التالية',
 
-        'mission_li_1' => 'Easy without abstinence.',
-        'mission_li_2' => 'Operation and immediate application.',
-        'mission_li_3' => 'Discreet far from randomness.',
-        'mission_li_4' => 'Convenient for personal need.',
+        'mission_li_1' => 'سهل ممتنع .',
+        'mission_li_2' => 'عملي ويتيح التطبيق الفوري  .',
+        'mission_li_3' => 'حصيف وبعيد عن العشوائية . ',
+        'mission_li_4' => 'مناسب للاحتياجات الشخصية ',
 
 
-        'method' => 'Method',
-        'method_text' => 'The investment methodology is the long-term investment methodology that relies on:',
+        'method' => 'المنهجية',
+        'method_text' => 'نتبنى منهجية الاستثمار طويل الاجل في التخطيط المالي الشخصي والتي تعتمد على : ',
 
-        'method_li_1' => 'Saving first.',
-        'method_li_2' => 'Prudent long-term methodology.',
-        'method_li_3' => 'The magic of cumulative returns.',
+        'method_li_1' => 'الإدخار أولاً .',
+        'method_li_2' => 'تطبيق منهجية الإستثمار الحصيفة طويلة الأجل .',
+        'method_li_3' => 'الاستفادة من سحر العوائد المتراكمة .',
+
+        'team' => 'فريق العمل',
+        'meat_team' => 'Meat our amazing team',
 
 
         'althraa_arabic_meaning' => '   الثراء هو الكلمة العربية المعبرة عن الثروة      ',
@@ -599,7 +608,7 @@ return [
         'waleed_li_5' => 'يعمل حاليا مدير إدارة تطوير الأعمال في هيئة حكومية .',
 
 
-        'bakarman' => 'Bakarman',
+        'bakarman' => 'وليد باكرمان',
         'ali' => ' د. علي بن عبدالرحمن الشهري ',
         'ali_designation' => ' (الشريك التقني) ',
 
@@ -885,8 +894,8 @@ return [
         'get_report' => '   احصل على التقرير     ',
         'get_long_term_plans' => '   احصل على خطط طويلة المدى     ',
         'start_the_implementation' => '    ابدأ بالتطبيق    ',
-        'start_investing_right_away' => 'Start investing right away',
-        'get_holistic_financial_plan' => 'Get holistic financial plan ',
+        'start_investing_right_away' => 'أبدأ بالاستثمار حالا',
+        'get_holistic_financial_plan' => 'أحصل على خطة مالية شاملة',
         'periodic_evaluation' => '    التقويم الدوري    ',
 
 
@@ -911,10 +920,14 @@ return [
 		'home_icon_text_3' => '    أجب عن الأسئلة    ',
     ],
 
-    'payment_method' => 'Payment method',
-    'get_your_report' => 'Get your report',
-    'card_no' => 'Card number',
-    'card_holder' => 'Cardholder Name',
-    'expire_date' => 'Expire Date',
+    'payment_method' => 'طريقة الدفع او السداد',
+    'get_your_report' => 'احصل على التقري',
+    'card_no' => 'رقم البطاقة',
+    'card_holder' => 'إسم صاحب البطاقة',
+    'expire_date' => 'تاريخ انتهاء الصلاحية',
     'cvv' => 'CVV',
+
+
+    'thanks' => 'شكرا لك',
+    'thanks_message' => 'شكرا لك على التقديم. يرجى التحقق من بريدك الإلكتروني لطباعة / تنزيل التقرير',
 ];

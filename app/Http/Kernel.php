@@ -44,6 +44,7 @@ class Kernel extends HttpKernel
             // \App\Http\Middleware\AllowAdminInMaintenanceMode::class,
             // prevent back after logout
             \App\Http\Middleware\PreventBackAfterLogout::class,
+            \App\Http\Middleware\MobileVerification::class,
         ],
 
         'api' => [
@@ -81,6 +82,8 @@ class Kernel extends HttpKernel
         'twofactor' => \App\Http\Middleware\TwoFactor::class,
         // prevent back after logout
         'prevent_back_after_logout' => \App\Http\Middleware\PreventBackAfterLogout::class,
+        // prevent back after logout
+        'mobile_verification' => \App\Http\Middleware\MobileVerification::class,
     ];
 
     /**

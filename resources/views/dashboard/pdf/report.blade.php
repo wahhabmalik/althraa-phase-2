@@ -1,31 +1,34 @@
 @inject('request', 'Illuminate\Http\Request')
-@extends('dashboard.layouts.user_layout.user_questionary')
+
+@extends('dashboard.layouts.user_layout.user_report')
 
 @section('styles')
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/dashboard/css/print.css') }}">
+
 <style>
-
 {!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
-
 </style>
+
+
 @endsection
 
-
 @section('content')
-
 {{-- {{ dd($data) }} --}}
-<div id="printable" class="background_effect{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
+<div id="HTMLtoPDF" class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 	
 	@php 
 	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>You</p>';
 	@endphp
 
-	<div id="parent-report" class="container-fluid mb-5 background_effect" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 background_effect " {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-sm-8">
+				<br><br><br><br><br>
+				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -36,6 +39,8 @@
 			</div>
 		</div>
 
+		<br><br><br><br><br>
+		<br><br><br><br><br>
 		
 		
 		<div class="row mt-5">
@@ -49,13 +54,15 @@
                 />
 			</div>
 		</div>
+
+		<br><br><br><br><br><br>
+		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 		
 	</div>
-</div>
 
 
 
-<div id="printable" class="container{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 
 
 
@@ -65,9 +72,9 @@
 	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-sm-8">
 				<br><br><br><br><br>
-				<br><br><br><br><br>
+				
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -80,22 +87,31 @@
 		<br><br><br><br><br>
 		
 		<div class="row mt-5">
-			<div class="col-1"></div>
-			<div class="col-10 tb-content">
-				<P>About Thokhor<span class="float-right">01</span></P>
-				<P>Financial Health Checkup<span class="float-right">02</span></P>
-				<P>Personal Indicators<span class="float-right">03</span></P>
-				<P>Asset Allocation<span class="float-right">04</span></P>
-				<P>Financil Forcast<span class="float-right">05</span></P>
-				<P>Investing Plan<span class="float-right">06</span></P>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-9 tb-content">
+				<P>About Thokhor</P>
+				<P>Financial Health Checkup</P>
+				<P>Personal Indicators</P>
+				<P>Asset Allocation</P>
+				<P>Financil Forcast</P>
+				<P>Investing Plan</P>
 			</div>
 
-			{{-- <div class="col-1 tb-content">
+			<div class="col-sm-1 tb-content">
+				<P>01</P>
+				<P>02</P>
+				<P>03</P>
+				<P>04</P>
+				<P>05</P>
+				<P>06</P>
 				
-			</div> --}}
+			</div>
 		</div>
 
 
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		
 		
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
@@ -112,19 +128,18 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<br><br><br><br><br>
+				<br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
-	            <br><br><br><br><br>
+	            <br><br>
 	            <h1 class="heading-main">Thank you for <br> being our customer. </h1>
 	            <p class="text-primary">We hope you stick with the plan you got and accomplish your financial goals! </p>
 			</div>
 		</div>
 
-		<br><br><br><br><br>
+		<br><br>
 		
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
@@ -163,9 +178,19 @@
                 </ul>
 			</div>
 
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
 			
 		</div>
-		
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -186,7 +211,7 @@
 	            
 	            <h1 class="heading-secondary">Financial Health Check Up</h1>
 
-	            <p class="text-secondary mt-5">Personal Information</p>
+	            <p class="text-secondary mt-2">Personal Information</p>
 	            
 			</div>
 		</div>
@@ -216,7 +241,7 @@
 				<b>{{ $data['personalInfo']['retirement_age'] }}</b>
 			</div>
 			
-			<br><br><br><br><br>
+			<br><br>
 			
 			
 		</div>
@@ -280,9 +305,9 @@
 				<p class="text-secondary mt-5">Current Asset Allocation</p>
 				<div class="row mb-5">
 					
-						<div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-4"></div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
-							<canvas id="DonutChartSelectedAsset" width="400" height="400"></canvas>
+							<canvas id="DonutChartSelectedAsset" width="100" height="100"></canvas>
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
@@ -399,8 +424,8 @@
 				</div>
 			</div>
 		</div>
-		<br><br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		{{-- <br><br><br> --}}
+		{{-- <p class="text-center mr-5">{{ $data['credits'] }}</p> --}}
 	</div>
 
 
@@ -414,7 +439,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
+				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -426,9 +451,9 @@
 		</div>
 
 		
-		<div class="row mt-5">
-			<div class="col-1"></div>
-			<div class="col-8">
+		<div class="row mt-3">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Monthly Saving Rate</p>
 				
 				<div class="factor">
@@ -467,15 +492,15 @@
 
 			</div>
 
-			<div class="col-2">
+			<div class="col-sm-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/002-calendar@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
-		<div class="row mt-5">
-			<div class="col-1"></div>
-			<div class="col-8">
+		<div class="row mt-3">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Current Saving Amount ({{ $data['personalInfo']['years_old']. ' Year' }})</p>
 				
 				<div class="factor-vs">
@@ -505,15 +530,15 @@
 
 			</div>
 
-			<div class="col-2">
+			<div class="col-sm-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/001-safebox@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
-		<div class="row mt-5">
-			<div class="col-1"></div>
-			<div class="col-8">
+		<div class="row mt-3">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Early Retirement Possibility</p>
 				
 				<div class="factor">
@@ -552,15 +577,15 @@
 
 			</div>
 
-			<div class="col-2">
+			<div class="col-sm-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/003-beach@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
-		<div class="row mt-5">
-			<div class="col-1"></div>
-			<div class="col-8">
+		<div class="row mt-3">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Investing Diversity</p>
 				
 				<div class="factor-s">
@@ -597,17 +622,14 @@
 
 			</div>
 
-			<div class="col-2">
+			<div class="col-sm-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/004-profits@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 		<br><br><br><br><br>
-		<br><br><br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
 
 
 
@@ -622,7 +644,6 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -637,7 +658,7 @@
 		
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-sm-9">
 				<p class="text-secondary mt-5">Risk Test Index</p>
 				
 				<div class="factor">
@@ -808,12 +829,9 @@
 		</div>
 		
 
-		<br><br><br><br><br>
-		<br><br><br><br><br>
+		<br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
 
 
 
@@ -828,7 +846,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
+				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 pt-5 mb-2">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -845,16 +863,12 @@
 
 		<div class="row">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-sm-8">
 				<canvas id="myChart" width="1600" height="600"></canvas>
 			</div>
 		</div>
 
-
-
-
-
-		<div class="row mb-5 mt-5 pb-5">
+		{{-- <div class="row mb-5 mt-5 pb-5">
 			<div class="col-md-1"></div>
 		    <div class="col-md-10">
 		    	<div class="text-left mb-5">
@@ -880,7 +894,6 @@
 						  @php $count = 0; @endphp
 						      @forelse ($data['plan'] as $pl)
 						        <tr>
-						        	{{-- {{ dd($pl) }} --}}
 						          <td class="btm_table_td">
 						            {{ ++$count ?? '' }}
 						          </td>
@@ -910,12 +923,11 @@
 					</table>
 		      	</div>
 		    </div>
-		</div>
+		</div> --}}
 
+		
 
-
-
-		<br><br><br><br><br>
+		{{-- <br><br><br><br><br> --}}
 
 		<div class="row financial-position">
 			<div class="col-sm-1"></div>
@@ -1008,7 +1020,7 @@
 			</div>
 			
 		</div>
-		<br><br><br><br><br>
+		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
@@ -1051,9 +1063,9 @@
 					</thead>
 					<tr>
 						<td>Cash & Equivlent</td>
-						<td class="text-right">صندوق الراجحي للمضاربة بالسلع بالريال</td>
-						<td class="text-right">صندوق الاهلي للمتاجرة </td>
-						<td class="text-right">صندوق الفا للمرابحة</td>
+						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø±Ø§Ø¬Ø­ÙŠ Ù„Ù„Ù…Ø¶Ø§Ø±Ø¨Ø© Ø¨Ø§Ù„Ø³Ù„Ø¹ Ø¨Ø§Ù„Ø±ÙŠØ§Ù„</td>
+						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø§Ù‡Ù„ÙŠ Ù„Ù„Ù…ØªØ§Ø¬Ø±Ø© </td>
+						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„ÙØ§ Ù„Ù„Ù…Ø±Ø§Ø¨Ø­Ø©</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
@@ -1063,9 +1075,9 @@
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td class="text-right">صندوق سامبا للصكوك السيادية</td>
-						<td class="text-right">صندوق الراجحي للصكوك</td>
-						<td class="text-right">صندوق الانماء للصكوك المتداولة</td>
+						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø³Ø§Ù…Ø¨Ø§ Ù„Ù„ØµÙƒÙˆÙƒ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©</td>
+						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø±Ø§Ø¬Ø­ÙŠ Ù„Ù„ØµÙƒÙˆÙƒ</td>
+						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø§Ù†Ù…Ø§Ø¡ Ù„Ù„ØµÙƒÙˆÙƒ Ø§Ù„Ù…ØªØ¯Ø§ÙˆÙ„Ø©</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
@@ -1158,7 +1170,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
+				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -1176,11 +1188,9 @@
 			</div>
 		</div>
 
-	<br><br><br><br><br>
-	<br><br><br><br><br>
-	<br><br><br><br><br>
-	<br><br><br><br><br>
-	<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 </div>
@@ -1265,6 +1275,7 @@ var myChart = new Chart(ctx, {
 		}]
   },
   options: {
+  	aspectRatio: 1,
    	cutoutPercentage: 60,
     responsive: true,
     legend: { 
@@ -1352,7 +1363,7 @@ var myChart = new Chart(ctx, {
         labels: [{!! implode(", ", $data['graphAge']) !!}],
         datasets: [{
               type: 'line',
-              label: 'Plan Value',
+              label: 'Before Retirement',
                "fill": false,
                "lineTension": 0.1,
                "backgroundColor": [
@@ -1526,6 +1537,26 @@ var myChart = new Chart(ctx, {
     //     }
     // }
 });
+</script>
+
+<script type="text/javascript">
+	function addScript(url) {
+    var script = document.createElement('script');
+    script.type = 'application/javascript';
+    script.src = url;
+    document.head.appendChild(script);
+}
+addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
+
+$(document).ready(function(){
+	setTimeout(
+		function() {
+
+			// html2pdf(document.body)
+		},
+	1000);
+});
+
 </script>
 
 @endsection

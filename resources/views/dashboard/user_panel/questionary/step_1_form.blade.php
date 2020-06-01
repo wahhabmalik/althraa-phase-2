@@ -18,7 +18,7 @@
 						     <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 50%;"></div>
 						</div>
 						<ul>
-                            <li class="tab-mob">
+                            <li class="active tab-mob">
                             	<p><span style="color: #01630a;">{{ trans('lang.question_headings.personal_info') }}</span></p>
                             	<a href="#about" data-toggle="tab">
 									<div class="icon-circle checked">
@@ -31,7 +31,7 @@
                             	<p>{{ trans('lang.question_headings.income') }}</p>
                             	<a>
 									<div class="icon-circle ">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_2_black.svg') }}">
+										<a href="{{ route('step_2', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_2_grey.svg') }}"></a>
 									</div>
 									
 								</a>
@@ -40,7 +40,7 @@
                             	<p>{{ trans('lang.question_headings.expenses') }}</p>
                             	<a>
 									<div class="icon-circle">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_3_black.png') }}">
+										<a href="{{ route('step_3', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_3_black.png') }}"></a>
 									</div>
 									
 								</a>
@@ -49,7 +49,7 @@
 								<p>{{ trans('lang.question_headings.net_assets') }}</p>
 								<a>
 									<div class="icon-circle">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_4_black.png') }}">
+										<a href="{{ route('step_4', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_4_black.png') }}"></a>
 									</div>
 									
 								</a>
@@ -58,7 +58,7 @@
 								<p>{{ trans('lang.question_headings.gosi') }}</p>
 								<a>
 									<div class="icon-circle">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_5.png') }}">
+										<a href="{{ route('step_5', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_5.png') }}"></a>
 									</div>
 									
 								</a>
@@ -67,7 +67,7 @@
 								<p>{{ trans('lang.question_headings.risk') }}</p>
 								<a>
 									<div class="icon-circle">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}">
+										<a href="{{ route('step_6', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}"></a>
 									</div>
 									
 								</a>
@@ -76,10 +76,10 @@
                         </ul>
 					</div>
 
-					<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST">
+					<form action="{{ route('questionnaire', app()->getLocale()) }}" method="POST" id="form1">
 						@csrf
                         <div class="tab-content">
-                            <div class="tab-pane" id="about">
+                            <div class="tab-pane active" id="about">
                             	<div class="row">
                             		<div class="col-sm-4"></div>
                             		<div class="col-sm-4">
@@ -95,7 +95,7 @@
 					                          <input 
 					                                id="name" 
 					                                type="text" 
-					                                class="form-control @error('personal_info.name') {!! 'error' !!} @enderror" 
+					                                class="form-control text-input @error('personal_info.name') {!! 'error' !!} @enderror" 
 					                                name="personal_info[name]" 
 					                                required 
 					                                placeholder="eg. Ali"
@@ -121,16 +121,32 @@
 					                          	<option value="">
 					                          		{{ trans('lang.question.education_level') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.highschool')) ? 'selected' : '' !!}>
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.highschool')) ? 'selected' : '' !!}
+
+					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.highschool')) ? 'selected' : '' !!}
+
+					                          		>
 					                          		{{ trans('lang.question.education_level_options.highschool') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.bachlore')) ? 'selected' : '' !!}>
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.bachlore')) ? 'selected' : '' !!}
+
+					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.bachlore')) ? 'selected' : '' !!}
+
+					                          		>
 					                          		{{ trans('lang.question.education_level_options.bachlore') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.master')) ? 'selected' : '' !!}>
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.master')) ? 'selected' : '' !!}
+
+					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.master')) ? 'selected' : '' !!}
+
+					                          		>
 					                          		{{ trans('lang.question.education_level_options.master') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.above')) ? 'selected' : '' !!}>
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.above')) ? 'selected' : '' !!}
+
+					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.above')) ? 'selected' : '' !!}
+
+					                          		>
 					                          		{{ trans('lang.question.education_level_options.above') }}
 					                          	</option>
 					                          	
@@ -152,6 +168,8 @@
 				                                name="personal_info[years_old]" 
 				                                required 
 				                                placeholder="eg. 30"
+				                                max="120"
+				                                min="5" 
 				                                value="{{ (old('personal_info.years_old')) ?? $user_questionnaire->personal_info["personal_info"]["years_old"] ?? Session::get('years_old') ?? '' }}"
 				                                {{ Session::get('years_old') ? Session::put('years_old', '') : '' }}
 				                                >
@@ -171,7 +189,8 @@
 					                                class="form-control @error('personal_info.retirement_age') {!! 'error' !!} @enderror"
 					                                required 
 					                                placeholder="eg. 65"
-					                                name="personal_info[retirement_age]" 
+					                                name="personal_info[retirement_age]"
+					                                max="120" 
 													value="{{ (old('personal_info.retirement_age')) ?? $user_questionnaire->personal_info["personal_info"]["retirement_age"] ?? Session::get('retirement_age') ?? '' }}"
 					                                >
 
@@ -221,5 +240,69 @@
     }
 }
 </style>
+
+<script>
+
+(function($, undefined) {
+
+    "use strict";
+
+    // When ready.
+    $(function() {
+        
+        var $form = $( "#form1" );
+        var $input = $form.find( "input:not(.text-input)" );
+
+        $input.on( "keyup", function( event ) {
+            
+            
+            // When user select text in the document, also abort.
+            var selection = window.getSelection().toString();
+            if ( selection !== '' ) {
+                return;
+            }
+            
+            // When the arrow keys are pressed, abort.
+            if ( $.inArray( event.keyCode, [38,40,37,39] ) !== -1 ) {
+                return;
+            }
+            
+            
+            var $this = $( this );
+            
+            // Get the value.
+            var input = $this.val();
+            
+            var input = input.replace(/[\D\s\._\-]+/g, "");
+                    input = input ? parseInt( input, 10 ) : 0;
+
+                    $this.val( function() {
+                        return ( input === 0 ) ? 0 : input;
+                    } );
+        } );
+        
+        /**
+         * ==================================
+         * When Form Submitted
+         * ==================================
+         */
+        $form.on( "submit", function( event ) {
+            
+            var $this = $( this );
+            var n = '';
+            $('.form-control').each(function(i, obj) {
+                
+                $(this).val($(this).val().replace(/,/g,''));
+                
+            });
+            
+
+        
+            
+        });
+        
+    });
+})(jQuery);
+</script>
 
 @endsection

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Report;
+// use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use PDF;
 use Session;
 
 class ReportController extends Controller
@@ -59,8 +61,11 @@ class ReportController extends Controller
         $report = Report::where('public_id',$request->q)->first();
 
         if(!$report){
-            dd();
+            return redirect()->route('/', 'en');
         }
+
+        if(Session::get('verified'))
+            return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
 
         Session::put('public_id', $request->q);
         Session::put('user_id', $report->user_id);

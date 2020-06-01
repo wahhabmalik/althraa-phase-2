@@ -37,7 +37,7 @@
 	                            	</p>
 	                            	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 										<div class="icon-circle checked">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_1.svg') }}">
+											<a href="{{ route('step_1', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_1.svg') }}"></a>
 										</div>
 										
 									</a>
@@ -48,7 +48,7 @@
 	                            	</p>
 	                            	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 										<div class="icon-circle checked">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_2.svg') }}">
+											<a href="{{ route('step_2', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_2.svg') }}"></a>
 										</div>
 										
 									</a>
@@ -70,7 +70,7 @@
 									</p>
 									<a>
 										<div class="icon-circle">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_4_black.png') }}">
+											<a href="{{ route('step_4', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_4_black.png') }}"></a>
 										</div>
 										
 									</a>
@@ -81,7 +81,7 @@
 									</p>
 									<a>
 										<div class="icon-circle">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_5.png') }}">
+											<a href="{{ route('step_5', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_5.png') }}"></a>
 										</div>
 										
 									</a>
@@ -92,7 +92,7 @@
 									</p>
 									<a>
 										<div class="icon-circle">
-											<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}">
+											<a href="{{ route('step_6', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}"></a>
 										</div>
 										
 									</a>

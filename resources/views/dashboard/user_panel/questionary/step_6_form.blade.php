@@ -47,7 +47,7 @@
                             	</p>
                             	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_1.svg') }}">
+										<a href="{{ route('step_1', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_1.svg') }}"></a>
 									</div>
 									
 								</a>
@@ -58,7 +58,7 @@
                             	</p>
                             	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_2.svg') }}">
+										<a href="{{ route('step_2', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_2.svg') }}"></a>
 									</div>
 									
 								</a>
@@ -69,7 +69,7 @@
                             	</p>
                             	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_3.png') }}">
+										<a href="{{ route('step_3', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_3.png') }}"></a>
 									</div>
 									
 								</a>
@@ -80,7 +80,7 @@
 								</p>
 								<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_4.png') }}">
+										<a href="{{ route('step_4', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_4.png') }}"></a>
 									</div>
 									
 								</a>
@@ -91,7 +91,7 @@
 								</p>
 								<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_5_white.png') }}">
+										<a href="{{ route('step_5', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_5_white.png') }}"></a>
 									</div>
 									
 								</a>

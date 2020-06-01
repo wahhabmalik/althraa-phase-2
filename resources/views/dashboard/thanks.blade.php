@@ -29,8 +29,8 @@
 @section('content')
 <div class="content__body">
 	<div class="center_content">
-		<h2 class="user__intro welcome_text text-dark">{{ 'Thanks' }}</h2>
-		<p class="user__intro welcome_para">{{ $message }}</p>
+		<h2 class="user__intro welcome_text text-dark">{{ trans('lang.thanks') }}</h2>
+		<p class="user__intro welcome_para">{{ trans('lang.thanks_message') }}</p>
 		<br>
 		
 	</div>

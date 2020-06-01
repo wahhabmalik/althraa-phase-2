@@ -86,7 +86,9 @@
                             	</p>
                             	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_1.svg') }}">
+										<a href="{{ route('step_1', app()->getLocale()) }}">
+											<img src="{{ asset('backend_assets/questions/assets/img/step_1.svg') }}">
+										</a>
 									</div>
 									
 								</a>
@@ -97,7 +99,7 @@
                             	</p>
                             	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_2.svg') }}">
+										<a href="{{ route('step_2', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_2.svg') }}"></a>
 									</div>
 									
 								</a>
@@ -108,7 +110,7 @@
                             	</p>
                             	<a @if($request->segment(1) == 'en') href="javascript:void(0)" data-toggle="tab" @endif>
 									<div class="icon-circle checked">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_3.png') }}">
+										<a href="{{ route('step_3', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_3.png') }}"></a>
 									</div>
 									
 								</a>
@@ -130,7 +132,7 @@
 								</p>
 								<a>
 									<div class="icon-circle">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_5.png') }}">
+										<a href="{{ route('step_5', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_5.png') }}"></a>
 									</div>
 									
 								</a>
@@ -141,7 +143,7 @@
 								</p>
 								<a>
 									<div class="icon-circle">
-										<img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}">
+										<a href="{{ route('step_6', app()->getLocale()) }}"><img src="{{ asset('backend_assets/questions/assets/img/step_6_black.png') }}"></a>
 									</div>
 									
 								</a>
@@ -228,7 +230,7 @@
 											  			class="form-control required @error('net_assets.financial_assets.cash_and_deposit') {!! ' error ' !!} @enderror financial_assets " 
 											  			name="net_assets[financial_assets][cash_and_deposit]"
 											  			 
-											  			value="{{ old('net_assets.financial_assets.cash_and_deposit') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["cash_and_deposit"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.financial_assets.cash_and_deposit') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["cash_and_deposit"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.financial_assets.cash_and_deposit')
 							                            <label class="error" >{{ $message }}</label>
@@ -245,7 +247,7 @@
 											  			class="form-control required @error('net_assets.financial_assets.equities') {!! ' error ' !!} @enderror financial_assets " 
 											  			name="net_assets[financial_assets][equities]"
 											  			 
-											  			value="{{ old('net_assets.financial_assets.equities') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["equities"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.financial_assets.equities') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["equities"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.financial_assets.equities')
 							                            <label class="error" >{{ $message }}</label>
@@ -262,7 +264,7 @@
 											  			class="form-control required @error('net_assets.financial_assets.bonds') {!! ' error ' !!} @enderror financial_assets " 
 											  			name="net_assets[financial_assets][bonds]"
 											  			 
-											  			value="{{ old('net_assets.financial_assets.bonds') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["bonds"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.financial_assets.bonds') ?? $user_questionnaire->net_assets["net_assets"]["financial_assets"]["bonds"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.financial_assets.bonds')
 							                            <label class="error" >{{ $message }}</label>
@@ -301,7 +303,7 @@
 											  			class="form-control required @error('net_assets.real_assets.real_estate') {!! ' error ' !!} @enderror real_assets " 
 											  			name="net_assets[real_assets][real_estate]"
 											  			 
-											  			value="{{ old('net_assets.real_assets.real_estate') ?? $user_questionnaire->net_assets["net_assets"]["real_assets"]["real_estate"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.real_assets.real_estate') ?? $user_questionnaire->net_assets["net_assets"]["real_assets"]["real_estate"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.real_assets.real_estate')
 							                            <label class="error" >{{ $message }}</label>
@@ -317,7 +319,7 @@
 											  			class="form-control required @error('net_assets.real_assets.pe') {!! ' error ' !!} @enderror real_assets " 
 											  			name="net_assets[real_assets][pe]"
 											  			 
-											  			value="{{ old('net_assets.real_assets.pe') ?? $user_questionnaire->net_assets["net_assets"]["real_assets"]["pe"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.real_assets.pe') ?? $user_questionnaire->net_assets["net_assets"]["real_assets"]["pe"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.real_assets.pe')
 							                            <label class="error" >{{ $message }}</label>
@@ -355,7 +357,7 @@
 											  			class="form-control required @error('net_assets.liabilities.personal_loan') {!! ' error ' !!} @enderror liabilities_inputs" 
 											  			name="net_assets[liabilities][personal_loan]"
 											  			 
-											  			value="{{ old('net_assets.liabilities.personal_loan') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["personal_loan"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.liabilities.personal_loan') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["personal_loan"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.liabilities.personal_loan')
 							                            <label class="error" >{{ $message }}</label>
@@ -364,7 +366,7 @@
 
 											  	<div class="form-group">
 											  		<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
-											  			{{ trans('lang.question.liabilities_real_estate_loan') }}
+											  			{{ trans('lang.question.real_estate_loan') }}
 											  		</label>
 											  		<input 
 											  			type="text" 
@@ -372,7 +374,7 @@
 											  			class="form-control required @error('net_assets.liabilities.real_estate_loan') {!! ' error ' !!} @enderror liabilities_inputs" 
 											  			name="net_assets[liabilities][real_estate_loan]"
 											  			 
-											  			value="{{ old('net_assets.liabilities.real_estate_loan') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["real_estate_loan"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.liabilities.real_estate_loan') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["real_estate_loan"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.liabilities.real_estate_loan')
 							                            <label class="error" >{{ $message }}</label>
@@ -389,7 +391,7 @@
 											  			class="form-control required @error('net_assets.liabilities.credit_cards') {!! ' error ' !!} @enderror liabilities_inputs" 
 											  			name="net_assets[liabilities][credit_cards]"
 											  			 
-											  			value="{{ old('net_assets.liabilities.credit_cards') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["credit_cards"] ?? '' }}"
+											  			value="{{ currency(old('net_assets.liabilities.credit_cards') ?? $user_questionnaire->net_assets["net_assets"]["liabilities"]["credit_cards"] ?? null , 0) }}"
 											  			>
 											  		@error('net_assets.liabilities.credit_cards')
 							                            <label class="error" >{{ $message }}</label>
@@ -451,22 +453,23 @@ $(document).ready(function(){
 			n = ($(this).val().replace(/,/g,''));
             financial_assets_total += parseInt(($(this).val()) ? n : 0);
         });
-        $('#financial_assets_total').html(financial_assets_total);
+        $('#financial_assets_total').html(Number((financial_assets_total).toFixed(2)).toLocaleString());
 
         $('#v-pills-real-assets .form-group input').each(function(i, obj) {
         	n = ($(this).val().replace(/,/g,''));
             real_estate_total += parseInt(($(this).val()) ? n : 0);
         });
-        $('#real_estate_total').html(real_estate_total);
+        $('#real_estate_total').html(Number((real_estate_total).toFixed(2)).toLocaleString());
 
         $('#v-pills-liabilities .form-group input').each(function(i, obj) {
         	n = ($(this).val().replace(/,/g,''));
             pocket_money__total += parseInt(($(this).val()) ? n : 0);
         });
-        $('#pocket_money__total').html(pocket_money__total);
+        $('#pocket_money__total').html(Number((pocket_money__total).toFixed(2)).toLocaleString());
         
-        $('#net_total').html(financial_assets_total+real_estate_total+pocket_money__total);
+        $('#net_total').html(Number((financial_assets_total+real_estate_total+pocket_money__total).toFixed(2)).toLocaleString());
 	}
+	// Number((someNumber).toFixed(1)).toLocaleString()
 });
 </script>
 

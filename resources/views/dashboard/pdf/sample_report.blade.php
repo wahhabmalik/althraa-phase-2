@@ -1,62 +1,63 @@
 @inject('request', 'Illuminate\Http\Request')
 
-@extends('dashboard.layouts.user_layout.user_questionary')
-
+@extends('dashboard.layouts.user_layout.user_report')
 
 @section('styles')
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/dashboard/css/print.css') }}">
+
 <style>
- 
-
 {!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
-
-
-.factor .pointer:not(:last-child) {
-    opacity: 0;
-}
 </style>
-@endsection
-@section('content')
-<div class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
-	
 
-	<div id="parent-report" class="container-fluid mb-5 background_effect " {{ $not_found ?? '' }}>
+
+@endsection
+
+@section('content')
+{{-- {{ dd($data) }} --}}
+<div id="HTMLtoPDF" class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
+	
+@php 
+	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>You</p>';
+@endphp
+	
+	
+	<div id="parent-report" class="container-fluid mb-5 background_effect " >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
 				<br><br><br><br><br>
 				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            <br><br><br><br><br>
 	            <h1 class="heading-main">PERSONAL FINANCIAL PLAN</h1>
-	            <h1 class="user-main mt-3">Ali Alsheri</h1>
-
+	            <h1 class="user-main mt-3">Abdullah Dawood</h1>
 			</div>
 		</div>
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
+		
 		
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				<img
                   class="img img-responsive image-main"
-                  src="
-                    {{ asset('frontend_assets/img/banner/home_banner_1.svg') }}"
+                  src="{{ asset('frontend_assets/img/banner/home_banner_1.svg') }}"
                   alt="Banner image"
                 />
 			</div>
 		</div>
 
-		<br><br><br><br><br><br><br>
+		<br><br><br><br><br><br>
+		
+		<p class="text-center mr-5">Thokhor.com</p>
 		
 	</div>
 
@@ -65,21 +66,18 @@
 
 
 
+	
 
 
-
-	{{-- Page 2 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
 				<br><br><br><br><br>
-				<br><br><br><br><br>
+				
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            <br><br><br><br><br>
 	            <h1 class="heading-main">TABLE OF CONTENTS</h1>
@@ -113,10 +111,9 @@
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
 		
+		
+		<p class="text-center mr-5">Thokhor.com</p>
 	</div>
 
 
@@ -124,73 +121,63 @@
 
 
 
+	
 
 
-
-	{{-- Page 3 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<br><br><br><br><br>
+				<br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
-	            <br><br><br><br><br>
+	            <br><br>
 	            <h1 class="heading-main">Thank you for <br> being our customer. </h1>
 	            <p class="text-primary">We hope you stick with the plan you got and accomplish your financial goals! </p>
 			</div>
 		</div>
 
-		<br><br><br><br><br>
+		<br><br>
 		
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-5">
-				<img class="img img-fluid img-left" src="{{ asset('frontend_assets/img/banner/undraw_winners.png') }}">
+				<img class="img img-fluid img-left" src="http://127.0.0.1:8000/frontend_assets/img/banner/undraw_winners.png">
 
 				<h1 class="page-heading invst_plan mt-5 pt-3">
-                        {{ trans('lang.frontend_about.mission') }}
+                        Mission
                 </h1>
                 <p class="mt-4 mb-5">
-                    {{ trans('lang.frontend_about.mission_text_report') }}
+                    Our mission is to be an automated financial advisor for individuals who makes this equation:
                 </p>
                 <ul>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.mission_li_1') }}</p></li>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.mission_li_2') }}</p></li>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.mission_li_3') }}</p></li>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.mission_li_4') }}</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspEasy without abstinence.</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspOperation and immediate application.</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspDiscreet far from randomness.</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspConvenient for personal need.</p></li>
                     
                 </ul>
 
 			</div>
 			<div class="col-sm-5">
-				<img class="img img-fluid img-right" src="{{ asset('frontend_assets/img/banner/undraw_business.png') }}">
+				<img class="img img-fluid img-right" src="http://127.0.0.1:8000/frontend_assets/img/banner/undraw_business.png">
 
 				<h1 class="page-heading invst_plan mt-5 pt-3">
-                        {{ trans('lang.frontend_about.method') }}
+                        Method
                 </h1>
                 <p class="mt-4 mb-5">
-                    {{ trans('lang.frontend_about.method_text') }}
+                    The investment methodology is the long-term investment methodology that relies on:
                 </p>
                 <ul>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.method_li_1') }}</p></li>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.method_li_2') }}</p></li>
-                    <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.method_li_3') }}</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspSaving first.</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspPrudent long-term methodology.</p></li>
+                    <li><p><i class="fa fa-check-circle"></i>&nbspThe magic of cumulative returns.</p></li>
                     
                 </ul>
 			</div>
 
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
@@ -199,7 +186,11 @@
 			<br><br><br><br><br>
 			
 		</div>
-	
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br>
+		<p class="text-center mr-5">Thokhor.com</p>
 	</div>
 
 
@@ -207,25 +198,20 @@
 
 
 
+	
 
-
-
-	{{-- page 4 start --}}
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            
 	            <h1 class="heading-secondary">Financial Health Check Up</h1>
 
-	            <p class="text-secondary mt-5">Personal Information</p>
+	            <p class="text-secondary mt-2">Personal Information</p>
 	            
 			</div>
 		</div>
@@ -237,7 +223,7 @@
 			
 			<div class="col-sm-3">
 				<p>Name</p>
-				<b>Waleed</b>
+				<b>Abdullah Dawood</b>
 			</div>
 			
 			<div class="col-sm-3">
@@ -250,12 +236,12 @@
 				<b>36</b>
 			</div>
 			
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<p>Planned retirement age</p>
-				<b>60</b>
+				<b>65</b>
 			</div>
 			
-			<br><br><br><br><br>
+			<br><br>
 			
 			
 		</div>
@@ -273,19 +259,19 @@
 				<table>
 					<tr>
 						<td>Monthly income today</td>
-						<td>SAR 55,000</td>
+						<td>SAR 14,000</td>
 					</tr>
 					<tr>
 						<td>GOSI/PPA monthly subscription</td>
-						<td>SAR 5,000</td>
+						<td>SAR 1,400</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan for retirement</td>
-						<td>SAR 3,000</td>
+						<td>SAR 200</td>
 					</tr>
 					<tr>
 						<td>Monthly saving % today</td>
-						<td>15%</td>
+						<td>11 %</td>
 					</tr>
 					
 				</table>
@@ -294,19 +280,19 @@
 				<table>
 					<tr>
 						<td>Total assets today</td>
-						<td>SAR 1,400,000</td>
+						<td>SAR 2,240,000</td>
 					</tr>
 					<tr>
 						<td>Total liabilities today</td>
-						<td>SAR 3,000</td>
+						<td>SAR 200</td>
 					</tr>
 					<tr>
 						<td>Net worth</td>
-						<td>SAR 1,390,000</td>
+						<td>SAR 2,239,800</td>
 					</tr>
 					<tr>
 						<td>Accomulative saving today</td>
-						<td>SAR 300,000</td>
+						<td>SAR 2,000,000</td>
 					</tr>
 					
 				</table>
@@ -319,20 +305,20 @@
 				<p class="text-secondary mt-5">Current Asset Allocation</p>
 				<div class="row mb-5">
 					
-						<div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-4"></div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
-							<canvas id="DonutChartSelectedAsset" width="400" height="400"></canvas>
+							<canvas id="DonutChartSelectedAsset" width="100" height="100"></canvas>
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $totalCAA ?? '20,000' }} SAR
+						    	SAR 2,240,000 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($totalCAAPercentage ?? 60, 2) ?? 0 }} %
+						    	100 %
 						    </p>
 						    <br>
 
-						    {{-- <div class="s-50"></div> --}}
+						    
 						</div>
 						
 					
@@ -349,12 +335,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												89 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 2,000,000
 											</p>
 										</td>
 									</tr>
@@ -367,12 +353,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												4 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 100,000 
 											</p>
 										</td>
 									</tr>
@@ -385,12 +371,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												4 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 100,000 
 											</p>
 										</td>
 									</tr>
@@ -403,12 +389,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												2 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 40,000 
 											</p>
 										</td>
 									</tr>
@@ -426,7 +412,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? '20,000' }} SAR
+												SAR 2,240,000 
 											</p>
 										</td>
 									</tr>
@@ -439,27 +425,24 @@
 			</div>
 		</div>
 		
+		
 	</div>
 
 
 
 
 
+	
 
 
-
-
-	{{-- Page 5 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
+				
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            <br><br>
 	            <h1 class="heading-main">Personal Indicators</h1>
@@ -468,7 +451,7 @@
 		</div>
 
 		
-		<div class="row mt-5">
+		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Monthly Saving Rate</p>
@@ -491,98 +474,79 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}"><br><p>You</p>
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 				</div>
 
 			</div>
 
-			<div class="col-sm-1">
-				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/002-calendar@2x.png') }}" class="factor-icon">
+			<div class="col-sm-2">
+				<img src="http://127.0.0.1:8000/backend_assets/dashboard/images/pdf_icons/002-calendar@2x.png" class="factor-icon">
 			</div>
 		</div>
 
 
-		<div class="row mt-5">
+		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Current Saving Amount (your age)</p>
+				<p class="text-secondary mt-5">Current Saving Amount (36 Year)</p>
 				
-				<div class="factor">
-					<p>Little saver</p>	
+				<div class="factor-vs">
+					<p>Poor saver</p>	
+					<p>Fair saver</p>	
 					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
 				</div>
 
-				<div class="factor">
+				<div class="factor-vs">
 					<span class="little"></span>
-					<span class="good"></span>
 					<span class="great"></span>
-					<span class="rich"></span>
 					<span class="wealthy"></span>
 				</div>
 
-				<div class="factor">
+				<div class="factor-vs">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}"><br><p>You</p>
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
+					
 				</div>
 
 			</div>
 
-			<div class="col-sm-1">
-				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/001-safebox@2x.png') }}" class="factor-icon">
+			<div class="col-sm-2">
+				<img src="http://127.0.0.1:8000/backend_assets/dashboard/images/pdf_icons/001-safebox@2x.png" class="factor-icon">
 			</div>
 		</div>
 
 
-		<div class="row mt-5">
+		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Early Retirement Possibility</p>
 				
 				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+					<p>Poor</p>	
+					<p>Fair</p>	
+					<p>Healthy</p>	
+					<p>Very healthy</p>	
+					<p>Early retire person</p>	
 				</div>
 
 				<div class="factor">
@@ -595,90 +559,76 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}"><br><p>You</p>
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 				</div>
 
 			</div>
 
-			<div class="col-sm-1">
-				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/003-beach@2x.png') }}" class="factor-icon">
+			<div class="col-sm-2">
+				<img src="http://127.0.0.1:8000/backend_assets/dashboard/images/pdf_icons/003-beach@2x.png" class="factor-icon">
 			</div>
 		</div>
 
 
-		<div class="row mt-5">
+		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
 				<p class="text-secondary mt-5">Investing Diversity</p>
 				
-				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+				<div class="factor-s">
+					<p>Poor</p>	
+					<p>Fair</p>	
+					<p>Good</p>	
+					<p>Great</p>
+					
 				</div>
 
-				<div class="factor">
+				<div class="factor-s">
 					<span class="little"></span>
 					<span class="good"></span>
 					<span class="great"></span>
 					<span class="rich"></span>
-					<span class="wealthy"></span>
+					
 				</div>
 
-				<div class="factor">
+				<div class="factor-s">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}"><br><p>You</p>
 					</div>
-					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
-					</div>
+					
 				</div>
 
 			</div>
 
-			<div class="col-sm-1">
-				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/004-profits@2x.png') }}" class="factor-icon">
+			<div class="col-sm-2">
+				<img src="http://127.0.0.1:8000/backend_assets/dashboard/images/pdf_icons/004-profits@2x.png" class="factor-icon">
 			</div>
 		</div>
 
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
+		<p class="text-center mr-5">Thokhor.com</p>
 	</div>
 
 
@@ -687,19 +637,16 @@
 
 
 
+	
 
 
-	{{-- Page 6 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            <br><br>
 	            <h1 class="heading-main">Asset Allocation</h1>
@@ -711,15 +658,15 @@
 		
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-sm-9">
 				<p class="text-secondary mt-5">Risk Test Index</p>
 				
 				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+					<p>Very Conservative</p>	
+					<p>Conservative</p>	
+					<p>Natural</p>	
+					<p>Agressive</p>	
+					<p>Very Agressive</p>	
 				</div>
 
 				<div class="factor">
@@ -732,24 +679,19 @@
 
 				<div class="factor">
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}"><br><p>You</p>
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 					<div class="pointer">
-						<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') }}">
-						<br><p>You</p>
+						
 					</div>
 				</div>
 
@@ -772,14 +714,14 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $totalCAA ?? '20,000' }} SAR
+						    	2240000 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($totalCAAPercentage ?? 60, 2) ?? 0 }} %
+						    	100 %
 						    </p>
 						    <br>
 
-						    {{-- <div class="s-50"></div> --}}
+						    
 						</div>
 						
 					
@@ -796,12 +738,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												15 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 336,000
 											</p>
 										</td>
 									</tr>
@@ -814,12 +756,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												45 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 1,008,000 
 											</p>
 										</td>
 									</tr>
@@ -832,12 +774,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												25 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 560,000
 											</p>
 										</td>
 									</tr>
@@ -850,12 +792,12 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $selectedAssetAllocationTable["value"]["cash_and_deposits"] ?? 0 }} %
+												15 %
 											</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? 0 }} SAR
+												SAR 336,000
 											</p>
 										</td>
 									</tr>
@@ -873,7 +815,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ $total_cash ?? '20,000' }} SAR
+												SAR 2,240,000 
 											</p>
 										</td>
 									</tr>
@@ -887,9 +829,8 @@
 		</div>
 		
 
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
+		<br><br>
+		<p class="text-center mr-5">Thokhor.com</p>
 	</div>
 
 
@@ -898,24 +839,22 @@
 
 
 
+	
 
 
-	{{-- Page 7 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
+				
 				<h2 class="mt-5 pt-5 mb-2">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            <p class="text-secondary mt-5">Financial Forecast</p>
 	            <p class="alertBox__p">
-	              <span>👏Congratulations!</span>&nbsp;At age 80 you will have
-	              savings balance of SAR 1.296.043.
+	              <span>👏Congratulations!</span>&nbsp;At age 65 you will have
+	              savings balance of SAR 19,769,869.
 	            </p>
 			</div>
 		</div>
@@ -929,7 +868,11 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br>
+		
+
+		
+
+		
 
 		<div class="row financial-position">
 			<div class="col-sm-1"></div>
@@ -938,23 +881,23 @@
 				<table>
 					<tr>
 						<td>Current age</td>
-						<td>36 years</td>
+						<td>36</td>
 					</tr>
 					<tr>
 						<td>Planned retirement age</td>
-						<td>60 years</td>
+						<td>65</td>
 					</tr>
 					<tr>
 						<td>Monthly saving plan</td>
-						<td>5,000 SAR /Month</td>
+						<td>SAR 200 /Month</td>
 					</tr>
 					<tr>
 						<td>Monthly saving today</td>
-						<td>15% of Monthly Income</td>
+						<td>11 % of Monthly Income</td>
 					</tr>
 					<tr>
 						<td>Accumulative saving today</td>
-						<td>300,000 SAR</td>
+						<td>SAR 2,000,000</td>
 					</tr>
 					
 				</table>
@@ -964,27 +907,27 @@
 				<table>
 					<tr>
 						<td>Cash and Quivlent</td>
-						<td>2%</td>
+						<td>2 %</td>
 					</tr>
 					<tr>
 						<td>Equities</td>
-						<td>10%</td>
+						<td>10 %</td>
 					</tr>
 					<tr>
 						<td>Fix Income</td>
-						<td>5%</td>
+						<td>5 %</td>
 					</tr>
 					<tr>
 						<td>Alternative Investments</td>
-						<td>12%</td>
+						<td>12 %</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (Before retirement)</td>
-						<td>10%</td>
+						<td>8 %</td>
 					</tr>
 					<tr>
 						<td>Net Return/Year (After retirement)</td>
-						<td>4%</td>
+						<td>4 %</td>
 					</tr>
 					
 				</table>
@@ -997,32 +940,30 @@
 			<div class="col-sm-10">
 				<p class="text-secondary mt-5">Income and Wealth at Retirement</p>
 				<table>
+					
 					<tr>
-						<td>Status at retirement</td>
-						<td>Based on assets allocation</td>
-					</tr>
-					<tr>
-						<td>Retirement plan value at 60 years old</td>
-						<td>if retire at 60 years old</td>
+						<td>Retirement plan value at 65 years old</td>
+						<td>SAR 19,769,869</td>
 					</tr>
 					<tr>
 						<td>Total monthly income</td>
-						<td>A+B</td>
+						<td>SAR 102,150</td>
 					</tr>
 					<tr>
 						<td>Income from retirement plan</td>
-						<td>A</td>
+						<td>SAR 65,900</td>
 					</tr>
 					<tr>
 						<td>Income from GOSI or PPA</td>
-						<td>B</td>
+						<td>SAR 36,250</td>
 					</tr>
 					
 				</table>
 			</div>
 			
 		</div>
-		
+		<br><br><br>
+		<p class="text-center mr-5">Thokhor.com</p>
 	</div>
 
 
@@ -1031,152 +972,27 @@
 
 
 
-	{{-- Page 8 start --}}
+	
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	
+
+
+
+
+
+
+	
+
+
+	<div id="parent-report" class="container-fluid mb-5" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br><br><br>
+				
 				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
-	            </h2>
-	            <br><br>
-	            <h1 class="heading-main">Investing Plan</h1>
-	            
-			</div>
-		</div>
-
-		<div class="row investing-plan">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Investments Seletion</p>
-				<table>
-					<thead>
-						<tr>
-							<th>ASSET CLASS</th>
-							<th>OOPTION 1</th>
-							<th>OOPTION 2</th>
-							<th>OOPTION 3</th>
-						</tr>
-					</thead>
-					<tr>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-						<td>Cash & Equivlent</td>
-					</tr>
-					<tr>
-						<td>Equities</td>
-						<td>Equities</td>
-						<td>Equities</td>
-						<td>Equities</td>
-					</tr>
-					<tr>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
-						<td>Fix Income</td>
-					</tr>
-					<tr>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-						<td>Alternative Investments</td>
-					</tr>
-					
-				</table>
-			</div>
-			
-		</div>
-
-
-		<div class="row investing-plan">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Capitel Deployment</p>
-				<table>
-					<thead>
-						<tr>
-							<th>ASSET CLASS</th>
-							<th>PAYMENTS</th>
-							<th>NO. OF FUNDS</th>
-							<th>ASSET ALLOCATION</th>
-							<th>INVESABLE AMOUNT</th>
-						</tr>
-					</thead>
-					<tr>
-						<td>Cash & Equivlent</td>
-						<td>1 payment</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
-					</tr>
-					<tr>
-						<td>Equities</td>
-						<td>4 payment over one year</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
-					</tr>
-					<tr>
-						<td>Fix Income</td>
-						<td>1 payment</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
-					</tr>
-					<tr>
-						<td>Alternative Investments</td>
-						<td>Manual process</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
-					</tr>
-					<tr>
-						<td>Alternative Investments</td>
-						<td>-</td>
-						<td>1</td>
-						<td>5%</td>
-						<td>SAR 3,000</td>
-					</tr>
-					
-					
-				</table>
-			</div>
-			
-		</div>
-		
-
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
-		
-	</div>
-
-
-
-
-
-
-
-	{{-- Page 9 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
-		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                {{-- {{ althraa_site_title() }} --}}
+	                thokhor
+	                
 	            </h2>
 	            <br><br>
 	            <h1 class="heading-main text-center">Disclaimer</h1>
@@ -1185,45 +1001,32 @@
 		</div>
 
 		<div class="row mt-5">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-7 text-right pt-3">
-				<p>{{ trans('lang.pdf_disclaimer') }}</p>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10 text-right pt-3">
+				<p>عقوم رخد وا نیمئاقلا ىلع لا مدقی ةیأ تارارقإ وأ تانامض ةحیرص( وأ )ةینمض نأشب تانایبلا تامولعملاو ،ةمدقملا مغرلابو نم ةیقوثوم رداصم تامولعملا ةیانعلاو ةلوقعملا يف تانایبلا لاا ھنأ لا رقی نأب تامولعملا يتلا اھنمضتی اذھ عقوملا وا ئاثو ھق يھ تامولعم ةلماك وأ ةیلاخ نم يأ أطخ وأ ریغ ةللضم وأ اھنأ حلصت ىلإ ضرغ ددحم امك نا عقوم رخد و نیمئاقلا ھیلع نولخی مھتیلوؤسم نع يأ عون نم عاونأ تانامضلا ةقلعتملا قیقحتب ةجیتن حبر ،ةنیعم سوا ًء تناك ةحیرص وأ ةینمض . لاف ةقیثو وا تامولعملا يف اذھ عقوملا امنإ مدقت تامولعم ةماع طقف . امك ھنأ تامولعملا يأو ً وأ ةوعد میدقتل ضرع يأر دراو يف اذھ عقوملا وأ يا ةقیثو ھنم لا لكشت عرضا ءارشل وأ عیب يأ قاروأ ةیلام وأ اھریغ نم تاجتنملا ةیرامثتسلاا تاذ ةلصلا كلتب قارولأا ةیلاملا وأ تارامثتسلاا . سیلو ضرغلا نم هذھ عقوملا وأ ھقئاثو میدقت ةروشم ةیصخش يف لاجم رامثتسلإا امك اھنأ لا ذخأت يف رابتعلإا فادھلأا ةیرامثتسلإا وأ عضولا يلاملا وأ تاجایتحلإا ةددحملا يلأ صخش نیعم دق ملتسی هذھ ،ةقیثولا يغبنیو نیرمثتسملل يعسلا لوصحلل ىلع ةروشملا ةیلاملا وأ ةینوناقلا وأ ةیبیرضلا نم ش ةكر ةیلام ةصخرم نم ةئیھ قوسلا ةیلاملا وا تاھجلا ةیموكحلا تاذ ةقلاعلا نأشب ىدم ةمئلام رامثتسلإا يف يأ قاروأ ةیلام ، وأ رامثتسا رخآ وأ ةیأ تایجیتارتسا رامثتسا ترج اھتشقانم وأ ةیصوتلا اھب يف اذھ عقوملا وا قئاثولا ةرداصلا ھنع ، يغبنیو ءلامعلل مھفت نأ تانایبلا ةقلعتملا تاعقوتلاب ةیلبقتسملا دراولا نم اذھ عقوملا دق لا ققحتت . كلذك يغبنی ءلامعلل ةظحلام نأ لخدلا نم قاروأ ةیلام نم اذھ عونلا وأ اھریغ نم تارامثتسلإا ، نإ دجو ، دق ضرعتی تابلقتلل نأبو رعس وأ ةمیق كلت قارولأا ةیلاملا تارامثتسلإاو نوكی ةضرع عافترلإل وأ ضافخنلإا . امك نأ تابلقتلا يف راعسأ فرصلا تلامعلل دق نوكی اھل راثآ ةیبلس ىلع ةمیقلا وأ نمثلا ، وأ لخدلا يتأتملا نم تارامثتسا ةنیعم . ءانبو ھیلع ، نكمی ءلامعلل نأ اولصحی ىلع دئاع وكی ن لقأ نم غلبم مھلامسأر رمثتسملا ابتدا ًء . زوجیو نأ نوكی عقوملل وأ نیلوئسملا ھیف ا امب يف كلذ نیللحملا نییلاملا ةحلصم ةیلام يف قارولأا ةیلاملا ةھجلل وأ تاھجلا ةردصملا كلتل قارولأا ةیلاملا وأ تارامثتسلإا تاذ ةقلاعلا ، امب يف كلذ زكارملا ةلیوط وأ ةریصق لجلأا يف قارولأا ةیلاملا وأ قیدانص رامثتسلاا ، وأ اھریغ نم تاودلأا ةیلاملا . امك زوجی عقوملل نأ موقی نم تقو رخلآ ءادأب تامدخلا ةیراشتسلاا ةیفاضلاا وأ يعسلا نیمأتل هذھ تامدخلا وأ اھریغ نم لامعلأا نم يأ ةكرش نم تاكرشلا ةروكذملا يف ریراقتلا وا قئاثولا ةرداصلا ھنم . عقوملاو وا نولوؤسملا ،ھیف امب يف كلذ نیفظوملا ةیعباتلا ،عقوملل لا نونوكی نیلوؤسم نع يأ رارضأ ةرشابم أو ریغ ةرشابم وأ يأ ةراسخ وأ رارضأ ىرخأ دق ،أشنت ةروصب ةرشابم وأ ریغ ،ةرشابم نم يأ مادختسا تامولعملل ةدراولا يف هذھ ةقیثولا وأ اھریغ نم قئاثولا ةرداصلا نم عقوملا ، عضختو تامولعملا ةرداصلا نم عقوملا ةیأو تایصوت ةدراو اھیف رییغتلل نود راعشإ قبسم . عقومو رخد لا لمحتی يأ ةیلوؤسم نع ثیدحت تامولعملا ةدراولا يف هذھ قئاثولا ةرداصلا ھنم . لاو زوجی رییغت وأ خاسنتسا وأ ً يأب لكش وأ يأب ةلیسو ً وأ جزئیا لاسرإ وأ عیزوت هذھ ةقیثولا نم قئاثو عقوملا كلیا تناك . امك ىعاری نأ هذھ قئاثولا تسیل ةھجوم وأ ةدعم عیزوتلل وأ مادختسلا نم لبق يأ صخش وأ نایك ءاوس ناك انطاوم وأ امیقم يف يأ ناكم وأ ةلود وأ دلب وأ ةیأ ھھج ةیئاضق ىرخأ ، امثیح نوكی لثم اذھ عیزوتلا وأ رشنلا وأ رفاوت وأ مادختسا قئاثولا ةرداصلا نم عقوملا افلاخم نوناقلل وأ بلطتی نم عقوملا وا نیمئاقلا ھیلع مایقلا يأب لیجست وأ ءافیتسا يأ طرش نم طورش صیخرتلا نمض كلذ دلبلا وأ ك</p>
 			</div>
 		</div>
 
-		
-		
-
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		
-		
+		<p class="text-center mr-5">Thokhor.com</p>
 	</div>
 
 </div>
 
 
-@endsection
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="http://127.0.0.1:8000/backend_assets/login/js/bootstrap.min.js"></script>
+<script src="http://127.0.0.1:8000/backend_assets/login/js/script.js"></script>
 
-@section('scripts')
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-{{-- jsPDF JS --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
-
-<script type="text/javascript">
-
-	var not_found = '{!! $not_found ?? '' !!}';
-	if(not_found){
-		$(document).ready(function () {
-			$('#UserQuestionnaireNotFound').modal('show', {backdrop: 'static', keyboard: false});
-		});
-		$("a").removeAttr("href").css("cursor","not-allowed");
-		$(".navbar-brand").attr("href", "{!! route('/', app()->getLocale()) !!}").css("cursor","pointer");
-		$("#a_back").attr("href", "{!! url()->previous() !!}").css("cursor","pointer").css("color", "white");
-	}
 
 
-</script>
+
 
 <script>
 // $(document).ready(function(){
@@ -1236,14 +1039,18 @@
 $(document).ready(function(){
 	setTimeout(
 		function() {
-			window.print();
+			// window.print();
 			// $("br").remove();
-			$("body").remove();
-			window.close();
-			window.top.close();
+			// $("body").remove();
+			// window.close();
+			// window.top.close();
 			// $("#parent-report").addClass('container');
+
+			// var element = document.getElementById('printable');
+			// html2pdf(element);
+
 		},
-	4000);
+	2000);
 });
 </script>
 
@@ -1259,26 +1066,20 @@ var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: [
-    	'Cash & Equity', 
-    	'Local Equity', 
-    	'US Equity', 
-    	'International Equity',
-    	'Fix Income',
-    	'Properties REIT',
-    	'Direct Properties',
+    	'Cash and Equivalent', 
+    	'Equities', 
+    	'Fix income', 
+    	'Alternative investments',
     ],
     datasets: [{
 		label: [
-			'Cash & Equity', 
-	    	'Local Equity', 
-	    	'US Equity', 
-	    	'International Equity',
-	    	'Fix Income',
-	    	'Properties REIT',
-	    	'Direct Properties',
+			'Cash and Equivalent', 
+			'Equities', 
+			'Fix income', 
+			'Alternative investments',
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $selectedAssetValueDataDonutChart ?? ['40','20','25', '15']) !!}],
+		data: [2000000, 100000, 100000, 40000],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1297,6 +1098,7 @@ var myChart = new Chart(ctx, {
 		}]
   },
   options: {
+  	aspectRatio: 1,
    	cutoutPercentage: 60,
     responsive: true,
     legend: { 
@@ -1322,26 +1124,22 @@ var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
     labels: [
-    	'Cash & Equity', 
-    	'Local Equity', 
-    	'US Equity', 
-    	'International Equity',
-    	'Fix Income',
-    	'Properties REIT',
-    	'Direct Properties',
+    	'Cash and Equivalent', 
+    	'Equities', 
+    	'Fix income', 
+    	'Alternative investments',
+    	
     ],
     datasets: [{
 		label: [
-			'Cash & Equity', 
-	    	'Local Equity', 
-	    	'US Equity', 
-	    	'International Equity',
-	    	'Fix Income',
-	    	'Properties REIT',
-	    	'Direct Properties',
+			'Cash and Equivalent', 
+	    	'Equities', 
+	    	'Fix income', 
+	    	'Alternative investments',
+	    	
 		],
 		// data: [20, 40, 51, 90, 20, 0, 10],
-		data: [{!! implode(", ", $selectedAssetValueDataDonutChart ?? ['40','20','25', '15']) !!}],
+		data: [15, 45, 25, 15],
 		backgroundColor: [
 			'#3B83FF',
 			'#F56565',
@@ -1385,7 +1183,7 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69],
+        labels: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65],
         datasets: [{
               type: 'line',
               label: 'Before Retirement',
@@ -1413,46 +1211,18 @@ var myChart = new Chart(ctx, {
                "pointHoverBorderWidth": 2,
                "pointRadius": 1,
                "pointHitRadius": 10,
-              data: [1911793.8682699, 2154137.5188068, 2421764.265619, 2716873.6245353, 3041846.378695, 3399259.2391133, 3791900.6828688, 4222788.0632635, 4695186.0938628, 5212626.8164761, 5778931.1719516, 6398232.3021699, 7075000.7218995, 7814071.5102742, 8620673.6836375, 9500461.9244462, 10459550.854903, 11504552.059091, 12642614.073689, 13881465.58495]
+              data: [2159494.2, 2331633.4047, 2517416.482469, 2717921.0246178, 2934309.540739, 3167836.1411602, 3419853.7447881, 3691821.8536282, 3985314.9385059, 4302031.4840149, 4643803.7444882, 5012608.2668575, 5410577.2406542, 5840010.7401363, 6303389.9286324, 6803391.3006951, 7342902.043598, 7925036.6061087, 8553154.5693809, 9230879.9222546, 9962121.8512878, 10751097.164507, 11602354.477208, 12520800.298221, 13511727.165911, 14580843.994929, 15734308.807349, 16978764.035485, 18321374.598368, 19769868.969742]
             },{
-              type: 'line',
-              label: 'Age Chart',
-              "fill": false,
-               "lineTension": 0.1,
-               "backgroundColor": [
-                "#FF460E"
-                
-               ],
-               "borderColor": [
-                "#FF460E"
-               ],
-               "borderCapStyle": "butt",
-               "borderDash": [],
-               "borderDashOffset": 0,
-               "borderJoinStyle": "miter",
-               "pointBorderColor": [
-                "#FF460E"
-               ],
-               "pointBackgroundColor": "#ffffff00",
-               "pointBorderWidth": 1,
-               "pointHoverRadius": 5,
-               "pointHoverBackgroundColor": "#FF460E",
-               "pointHoverBorderColor": "#FF460E",
-               "pointHoverBorderWidth": 2,
-               "pointRadius": 1,
-               "pointHitRadius": 10,
-              data: [1911793.8682699, 2154137.5188068, 2421764.265619, 2716873.6245353, 3041846.378695, 3399259.2391133, 3791900.6828688, 4222788.0632635, 4695186.0938628, 5212626.8164761, 5778931.1719516, 6398232.3021699, 7075000.7218995, 7814071.5102742, 8620673.6836375, 9500461.9244462, 10459550.854903, 11504552.059091, 12642614.073689, 13881465.58495, 14463100.168489, 15072095.226493, 15709866.259414, 16377906.91389, 17077793.468002, 17811189.57954, 18579851.312873, 19385632.460963, 20230490.180019, 21116490.955359, 22045816.918156, 23020772.533885, 24043791.684577]
-            },{
-            label: 'Saving Withdrawls',
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2439352.25, 2512532.51, 2587902.26, 2665542.42, 2745512.47, 2827872.13, 2912712.76, 3000092.04, 3090092.21, 3182802.68, 3278282.76, 3376632.58, 3477932.32],
+            label: 'Contribution',
+            data: [2400, 2520, 2646, 2778.3, 2917.215, 3063.07575, 3216.2295375, 3377.041014375, 3545.8930650938, 3723.1877183484, 3909.3471042659, 4104.8144594792, 4310.0551824531, 4525.5579415758, 4751.8358386546, 4989.4276305873, 5238.8990121166, 5500.8439627225, 5775.8861608586, 6064.6804689015, 6367.9144923466, 6686.3102169639, 7020.6257278121, 7371.6570142028, 7740.2398649129, 8127.2518581585, 8533.6144510665, 8960.2951736198, 9408.3099323008, 9878.7254289158],
             backgroundColor: '#2CD9C5',
             borderColor: '#2CD9C5',
             borderWidth: 1
-        }, {
-          type: 'line',
+        	},{
+          	type: 'line',
             backgroundColor: '#ff87a0',
             borderColor: '#ff87a0',
-            data: [2102973.2550969, 2369551.2706875, 2663940.6921809, 2988560.9869889, 3346031.0165645, 3739185.1630247, 4171090.7511557, 4645066.8695899, 5164704.703249, 5733889.4981237, 6356824.2891468, 7038055.5323869, 7782500.7940895, 8595478.6613016, 9482741.0520013, 10450508.116891, 11505505.940393, 12655007.265001, 13906875.481058, 15269612.143445, 15909410.185337, 16579304.749142, 17280852.885355, 18015697.605279, 18785572.814803, 19592308.537494, 20437836.444161, 21324195.70706, 22253539.19802, 23228140.050895, 24250398.609971, 25322849.787273, 26448170.853034],
+            data: [3023291.88, 3264286.76658, 3524383.0754565, 3805089.4344649, 4108033.3570346, 4434970.5976243, 4787795.2427034, 5168550.5950795, 5579440.9139083, 6022844.0776209, 6501325.2422835, 7017651.5736005, 7574808.1369159, 8176015.0361909, 8824745.9000853, 9524747.8209731, 10280062.861037, 11095051.248552, 11974416.397133, 12923231.891156, 13946970.591803, 15051536.03031, 16243296.268092, 17529120.41751, 18916418.032276, 20413181.5929, 22028032.330288, 23770269.649679, 25649924.437715, 27677816.557638],
 
             "lineTension": 0.1,
              "backgroundColor": [
@@ -1483,7 +1253,7 @@ var myChart = new Chart(ctx, {
             type: 'line',
             backgroundColor: '#9966ff',
             borderColor: '#9966ff',
-            data: [1720614.4814429, 1938723.7669262, 2179587.8390571, 2445186.2620818, 2737661.7408255, 3059333.315202, 3412710.6145819, 3800509.2569372, 4225667.4844765, 4691364.1348285, 5201038.0547565, 5758409.0719529, 6367500.6497096, 7032664.3592468, 7758606.3152738, 8550415.7320015, 9413595.7694127, 10354096.853182, 11378352.66632, 12493319.026455, 13016790.15164, 13564885.703843, 14138879.633472, 14740116.222501, 15370014.121202, 16030070.621586, 16721866.181586, 17447069.214867, 18207441.162017, 19004841.859823, 19841235.22634, 20718695.280496, 21639412.516119],
+            data: [1295696.52, 1398980.04282, 1510449.8894814, 1630752.6147707, 1760585.7244434, 1900701.6846961, 2051912.2468729, 2215093.1121769, 2391188.9631035, 2581218.8904089, 2786282.2466929, 3007564.9601145, 3246346.3443925, 3504006.4440818, 3782033.9571794, 4082034.7804171, 4405741.2261588, 4755021.9636652, 5131892.7416285, 5538527.9533528, 5977273.1107727, 6450658.2987041, 6961412.686325, 7512480.1789327, 8107036.2995466, 8748506.3969572, 9440585.2844093, 10187258.421291, 10992824.759021, 11861921.381845],
             "fill": false,
              "lineTension": 0.1,
              "backgroundColor": [
@@ -1541,7 +1311,7 @@ var myChart = new Chart(ctx, {
                         return (index % 3) ? "" : 'SAR ' + tick;
                       }
                       else{
-                        return (index % 2) ? "" : 'SAR ' + tick;
+                        return (index % 2) ? "" : 'SAR ' + (Math.round(tick * 100) / 100).toLocaleString();
                       }
                     }
                 },
@@ -1592,4 +1362,36 @@ var myChart = new Chart(ctx, {
 });
 </script>
 
-@endsection
+<script type="text/javascript">
+	function addScript(url) {
+    var script = document.createElement('script');
+    script.type = 'application/javascript';
+    script.src = url;
+    document.head.appendChild(script);
+}
+addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
+
+$(document).ready(function(){
+	setTimeout(
+		function() {
+			html2pdf(document.body);
+		},
+	1000);
+});
+$(document).ready(function(){
+	setTimeout(
+		function() {
+			$("body").remove();
+			window.close();
+			window.top.close();
+		},
+	12000);
+});
+
+</script>
+  
+    
+    
+
+</body>
+</html>

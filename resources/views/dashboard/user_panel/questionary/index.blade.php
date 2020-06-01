@@ -47,7 +47,7 @@
 				
 			</a>
 			<div class="total">
-				<p>{{ trans('lang.question.total') }}<span class="float-{!! ($request->segment(1) == 'ar') ? 'left' : 'right' !!}">{{ currency(500) }}</span></p>
+				<p>{{ trans('lang.question.total') }}<span class="float-{!! ($request->segment(1) == 'ar') ? 'left' : 'right' !!}">{{ currency($price) }}</span></p>
 			</div>
 		</div>
 	</div>

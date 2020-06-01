@@ -115,8 +115,15 @@ class HomeController extends Controller
         }
         else if($user->hasRole('user')) 
         {
+            $price = Constant::where('constant_meta_type', 'price')
+                        ->where('constant_attribute', 'price')
+                        ->first();
+
+            // dd($price->constant_value);
+
             $user_questionnaire = $user->user_latest_questionnaire();
             $view = 'dashboard.user_panel.questionary.index';
+            $price = (integer)$price->constant_value ?? 0;
             $href = null;
             $disabled = null;
 
@@ -125,6 +132,7 @@ class HomeController extends Controller
                         'title' => __('lang.home')
                     ])
                     ->with('href', $href)
+                    ->with('price', $price)
                     ->with('disabled', $disabled)
                     ->with('user_questionnaire', $user_questionnaire)
                     ->with('netPersonalIncome', $netPersonalIncome ?? 0)
@@ -174,7 +182,11 @@ class HomeController extends Controller
 
     public function payment(Request $request)
     {
-        return view('dashboard.user_panel.payment.form');
+        $price = Constant::where('constant_meta_type', 'price')
+                        ->where('constant_attribute', 'price')
+                        ->first();
+                        
+        return view('dashboard.user_panel.payment.form')->with('price', (integer)$price->constant_value ?? 0);
     }
 
     public function getPayment(Request $request)
@@ -192,10 +204,11 @@ class HomeController extends Controller
 
         if (implode("", $request->mobile) == substr($user->phone_number, -4)) {
             
+            Session::put('verified', 1);
             $report = Report::where('public_id', Session::get('public_id'))->where('user_id', Session::get('user_id'))->first();
 
             if($report)
-                return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
+                return redirect()->route('download', ['q'=> Session::get('public_id')]);
             else
                 return redirect()->back()->withMessage('Report Not found');
 

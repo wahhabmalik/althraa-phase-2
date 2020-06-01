@@ -70,6 +70,11 @@ return [
         'site_management' => 'Site Management',
     ],
 
+    'code_will_expire_in' => 'Code will expire in',
+    'minutes' => 'Minutes',
+    'seconds' => 'Seconds',
+    'code_expired' => 'Code expired',
+
     'question' => [
         'go_to_previous_step' => 'Go to Previous Step',
 
@@ -84,6 +89,7 @@ return [
         'education_level' => 'Education level',
         'retirement_age' => 'Retirement age',
         'no_of_dependents' => 'No of Dependents',
+        'current_age' => 'Current age',
 
         'education_level_options' => [
                 'highschool' => 'High School & Bleow',
@@ -182,13 +188,13 @@ return [
         // step 4
         'assets' => 'Real Assets',
             'real_estate' => 'Real Estate',
-            'pe' => 'PE',
+            'pe' => ' Privare Equity',
 
         'financial_assets' => 'Financial Assets',
 
             'cash_and_deposit' => 'Cash and deposit',
             'equities' => 'Equities',
-            'bonds' => 'Bonds',
+            'bonds' => 'Bonds & Sukuks ',
 
         'liquid_assets' => 'Liquid Assets',
 
@@ -913,5 +919,7 @@ return [
     'cvv' => 'CVV',
 
 
+    'thanks' => 'Thanks',
+    'thanks_message' => 'Thankyou for submitting. Please check you email to print/download the report',
 
 ];

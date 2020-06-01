@@ -20,7 +20,7 @@
     <header class="container-fluid header header__login">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="logo">
-          <a class="navbar-brand" href="{{ route('/',app()->getLocale()) }}">
+          <a class="navbar-brand" href="{{ route('/','en') }}">
             <img
               class="logo__img"
               src="{{ althraa_logo() }}"

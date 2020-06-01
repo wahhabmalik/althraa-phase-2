@@ -181,7 +181,7 @@
                         {{ trans('lang.frontend_about.mission') }}
                     </h1>
                     <p>
-                        {{ trans('lang.frontend_about.mission_text') }}
+                        {{ trans('lang.frontend_about.mission_text_report') }}
                     </p>
                     <ul>
                         <li><p><i class="fa fa-check-circle"></i>&nbsp{{ trans('lang.frontend_about.mission_li_1') }}</p></li>
@@ -228,9 +228,9 @@
                 <p class="login_link text-center primary-link">
                     {{ trans('lang.frontend_about.team') }}
                 </p>
-                <h1 class="text-center">
+                {{-- <h1 class="text-center">
                     {{ trans('lang.frontend_about.meat_team') }}
-                </h1>
+                </h1> --}}
 
                 <div class="s-35"></div>
 

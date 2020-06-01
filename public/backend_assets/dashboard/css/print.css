@@ -27,6 +27,9 @@
     margin-left: 1cm;
   }
 } 
+#parent-report{
+  /*height: 842px !important*/
+}
 
 
 
@@ -60,7 +63,7 @@ canvas{
     top: -190px;
 }
 p.inner_price {
-    font-size: 22px;
+    font-size: 16px;
     color: #222222;
     margin-bottom: 0;
 }
@@ -336,7 +339,7 @@ a{
     background-image: linear-gradient(180deg, #f4f8f4, #ffffff);
 }
 .heading-main{
-    font-size: 8rem;
+    font-size: 5rem;
 }
 @media only screen and (max-width: 760px) {
   .heading-main{
@@ -347,10 +350,10 @@ a{
   }
 }
 .heading-secondary{
-    font-size: 6rem;
+    font-size: 4rem;
 }
 .user-main{
-    font-size: 8rem;
+    font-size: 5rem;
     letter-spacing: 5px;
 }
 .image-main{
@@ -361,12 +364,16 @@ a{
     font-size: 30px;
     font-weight: 100;
     letter-spacing: 0.17rem;
-    margin-bottom: 3.8rem;
+    margin-bottom: 1.9rem;
+}
+
+p.text-secondary.mt-5 {
+    font-size: 2.2rem;
 }
 
 @media only screen and (max-width: 760px) {
   .tb-content p, .text-secondary {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .alertBox__p {
     font-size: 2.5rem;
@@ -387,7 +394,7 @@ a{
 }
 p{
 	font-weight: 100;
-	font-size: 16px;
+	font-size: 14px;
 }
 ul {
     list-style: none;
@@ -396,16 +403,16 @@ ul {
     color: #01630A;
 }
 .personal-info b {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 .financial-position tr td {
-    font-size: 20px;
+    font-size: 1.4rem;
     line-height: 2;
     text-align: right;
     padding-right: 10px;
 }
 .financial-position tr td:first-child {
-    font-size: 20px;
+    font-size: 1.4rem;
     color: #989898;
     line-height: 2;
     text-align: left;
@@ -432,7 +439,25 @@ table {
 
 .donut_inner{
   position: relative;
-  top: -170px
+  top: -120px
+}
+#DonutChartSelectedAssetRecommended, #DonutChartSelectedAsset{
+  width: 180px !important;
+  height: 180px !important;
+      margin-right: auto;
+    margin-left: auto;
+}
+
+#myChart{
+  display: block;
+  width: 700px !important;
+  height: 280px !important;
+}
+
+.alertBox__p {
+    font-size: 2.5rem;
+    font-family: "Soin Sans Neue", sans-serif;
+    color: #989898;
 }
 
 @media only screen and (max-width: 760px) {
@@ -519,8 +544,9 @@ table {
   opacity: 1;
 }
 .factor-icon{
-    bottom: 0;
+    bottom: 10px;
     position: absolute;
+    max-width: 80px;
 }
 
 @media only screen and (max-width: 760px) {

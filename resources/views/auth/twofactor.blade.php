@@ -99,12 +99,12 @@ li span {
         <div class="col-sm-4"></div>
         <div class="col-sm-4 text-center">
             <div class="card mb-5">
-                <h1>Code will expire in</h1>
+                <h1>{{ trans('lang.code_will_expire_in') }}</h1>
                 <ul id="countdown">
                     {{-- <li><span id="days"></span>days</li> --}}
                     {{-- <li><span id="hours"></span>Hours</li> --}}
-                    <li><span id="minutes"></span>Minutes</li>
-                    <li><span id="seconds"></span>Seconds</li>
+                    <li><span id="minutes"></span>{{ trans('lang.minutes') }}</li>
+                    <li><span id="seconds"></span>{{ trans('lang.seconds') }}</li>
                 </ul>
             </div>
         </div>
@@ -304,7 +304,7 @@ let countDown = new Date('{!! auth()->user()->two_factor_expires_at !!}').getTim
       //do something later when date is reached
       if (distance < 0) {
         clearInterval(x);
-        $('#countdown').html('<h2 class="text-danger">Code expired</h2>')
+        $('#countdown').html('<h2 class="text-danger">{{ trans('lang.code_expired') }}</h2>')
       }
 
     }, second)

@@ -10,7 +10,10 @@
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-dompdf": "^0.8.5",
+        "barryvdh/laravel-snappy": "^0.4.7",
+        "dompdf/dompdf": "^0.8.5",
         "fideloper/proxy": "^4.0",
+        "knplabs/knp-snappy": "^1.2",
         "laravel/framework": "^6.0",
         "laravel/socialite": "^4.2",
         "laravel/tinker": "^1.0",
