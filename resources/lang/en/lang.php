@@ -515,7 +515,7 @@ return [
 
 
         'about_our_services' => 'About our services',
-        'about_our_services_text' => 'Dokhor.com or those responsible for does not provide any representations or guarantees (express or implied) regarding the data and information provided, despite the reliability of the sources of information and reasonable care in the data, but it does not acknowledge that the information contained in this site or its documents is complete or free from any error or Not misleading or suitable for any specific purpose.',
+        'about_our_services_text' => 'Thokhor.com or those responsible for does not provide any representations or guarantees (express or implied) regarding the data and information provided, despite the reliability of the sources of information and reasonable care in the data, but it does not acknowledge that the information contained in this site or its documents is complete or free from any error or Not misleading or suitable for any specific purpose.',
 
         'purpose' => 'Purpose',
         'purpose_text' => 'The document or information on this site only provides general information. It is also the information and any opinion expressed on this site or any document thereof that does not constitute an offer or an invitation to make an offer to buy or sell any securities or other investment products related to those securities or investments. The purpose of this site or its documents is not to provide personal advice in the investment field nor does it take into account the investment objectives, financial situation or the specific needs of any specific person who may receive this document. Investors should seek financial, legal or tax advice from a financial company licensed by the Capital Market Authority or relevant government agencies on the appropriateness of investing in any securities, other investment or any investment strategies discussed or recommended on this site or documents Issued by it, customers should understand that data related to future expectations coming from this site may not be fulfilled , Clients should also note that income from securities of this type or other investments, if any, may be subject to fluctuations and that the price or value of those securities and investments is subject to increase or decrease. Also, fluctuations in the exchange rates of currencies may have negative effects on the value, price, or income of certain investments. Consequently, clients can receive a return that is mainly less than the amount of their invested capital.',
@@ -561,7 +561,7 @@ return [
         'about_our_story' => 'Our Story.',
 
         'about_coffee_started_it_all' => 'Coffee started it all.',
-        'about_coffee_text' => 'One day, Waleed (MBA, CFA) met Ali (Ph.D. Fintech Security) for a coffee to talk about investment. During the meeting, they discovered that they were not only passionate about the investment topics but they are just the ideal mix for starting the app that can help a nation.',
+        'about_coffee_text' => 'One day, Waleed Bakarman met Dr.Ali Alshehri for a coffee to talk about investment. During the meeting, they discovered that they were not only passionate about the investment topics but they are just the ideal mix for starting the app that can help a nation.',
 
 
         'mission' => 'Mission',
@@ -870,7 +870,7 @@ return [
         'enter_two_factor_authentication_code_here' => 'enter two factor authentication code here',
         'verify' => 'verify',
 
-        'slider_heading' => 'Your Islamic financial auto advisor that helps you,  step by step to build your wealth.',
+        'slider_heading' => 'Your Islamic financial auto advisor that helps you, step by step to build your wealth.',
         'slider_text' => ' Here at Althraa we like to help to people that want to have control over their financial life. No awkward calls, no shame.',
 
         'steps' => 'STEPS',
@@ -920,11 +920,12 @@ return [
 
 
     'thanks' => 'Thanks',
-    'thanks_message' => 'Thankyou for submitting. Please check you email to print/download the report',
+    'thanks_message' => 'Thank you for submitting. Please check you email to print/download the report',
 
     'report' => [
 
         'thank_you_for' => 'Thank you for <br> being our customer. ',
+        'thank_you_thanks_page' => 'Thank you for being our customer. ',
         'we_hope' => 'We hope you stick with the plan you got and accomplish your financial goals! ',
 
 

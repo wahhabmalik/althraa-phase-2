@@ -12,7 +12,7 @@ return [
     'register' => 'تسجيل',
     'logout' => 'تسجيل خروج',
     'registration' => 'التسجيل ',
-    'get_started' => '   إبدأ الآن   ',
+    'get_started' => '  ابدأ الان! ',
     'control_panel' => '   لوحة التحكم   ',
 
     'select_gender' => 'حدد نوع الجنس',
@@ -73,7 +73,7 @@ return [
     'code_will_expire_in' => 'رمز التحقق سوف ينتهي خلال',
     'minutes' => 'دقائق',
     'seconds' => 'ثواني',
-    'code_expired' => 'رمز التحقق منتهي الصلاحية',
+    'code_expired' => 'تم ارسال رمز تحقق جديد',
 
 
     'question' => [
@@ -562,11 +562,11 @@ return [
 
 
     'frontend_about' => [
-        'about_us' => '   نبذة عنا     ',
-        'about_our_story' => '   قصتنا     ',
+        'about_us' => '   من نحن؟   ',
+        'about_our_story' => '   القصة   ',
 
-        'about_coffee_started_it_all' => '    بدأت القهوة كل شيء.        ',
-        'about_coffee_text' => '      التقى وليد (MBA، CFA) بعلي (دكتوراه في التكنولوجيا الأمنية) في أحد الأيام لتناول القهوة والتحدث عن الاستثمار. ومن ثم اكتشفا خلال الاجتماع أنهما لم يكونا متحمسين فقط لموضوعات الاستثمار، بل كانا يشكلان المزيج المثالي لبدء التطبيق الذي يمكن أن يساعد أمة كاملة.           ',
+        'about_coffee_started_it_all' => '   القهوة بدأت كل شيء   ',
+        'about_coffee_text' => '   في يوم من الأيام تقابل وليد باكرمان مع د.علي الشهري للحديث عن مواضيع الاستثمار في احد مقاهي الرياض الجميلة. كان من الواضح لهما في نهاية تلك الجلسة انهما لم يكونا شغوفين فقط بموضوع الاستثمار بل يشكلان المزيج المثالي لبناء حل لمشكلة سوف تنفع امة.        ',
 
         'mission' => 'الرسالة ',
         'mission_text' => 'Richness and financial independence have an equation that the rich know well but which are easy and kind. Our mission is to be an automated financial advisor for individuals who makes this equation:',
@@ -787,8 +787,8 @@ return [
 
         'investment_evaluation' => '    تقييم الاستثمار ',    
 
-        'at_age' => '    في سن الـ  ',
-        'you_will_have_savings_balance_of' => '   سيكون لديك رصيد مدخر قدره    ',
+        'at_age' => '    عند بلوغك سن التقاعد ',
+        'you_will_have_savings_balance_of' => '  سنة يتوقع ان يكون قيمة محفظتك الاستثمارية للتقاعد مبلغ  ',
 
     ],
 
@@ -825,10 +825,10 @@ return [
         'international_real_estate' => '  العقارات الدولية     ',
 
 
-        'congratulations' => '  تهانينا   ! ',
+        'congratulations' => '  مبروك ',
         'chart_details' => '   تفاصيل المخطط     ',
 
-        'working_years_accumulation_phase' => ' Before Retirement(Working phase)',
+        'working_years_accumulation_phase' => ' قبل مرحلة التقاعد ',
         'retirement_years_distribution_phase' => '    سنوات التقاعد - مرحلة التوزيع  ',
         
         'year' => '  السنة   ',
@@ -875,14 +875,12 @@ return [
         'enter_two_factor_authentication_code_here' => '  أدخل رمز المصادقة عامل اثنين هنا  ',
         'verify' => '  تحقق  ',
 
-        'slider_heading' => '  ذُخر هو مستشارك المالي الآلي الخاص 
-        والذي يساعدك في بناء محفظتك الاستثمارية للتقاعد
-        وفق مبدأ  الاستثمار طويل الأجل وسحر العائد التراكمي .. خطوة خطوة   ',
+        'slider_heading' => ' مستشارك المالي الشخصي الآلي والذي يساعدك خطوة بخطوة لبناء ثروتك  ',
 
         'slider_text' => '   هنا في الثراء؛ نحب مساعدة الناس الذين يرغبون في التحكم في حياتهم المالية. بدون أي مكالمات محرجة وبدون خجل.      ',
 
         'steps' => '   الخطوات    ',
-        'how_does_it_work' => '     كيف يتم العمل؟       ',
+        'how_does_it_work' => '     الخطوات ',
 
         '1' => '١',
         '2' => '٢',
@@ -890,7 +888,7 @@ return [
         '4' => '٤',
         '5' => '٥',
 
-        'answer_our_questions' => '   قم بالإجابة عن أسئلتنا    ',
+        'answer_our_questions' => '   قم بالإجابة عن أسئلتنا   ',
         'get_report' => '   احصل على التقرير     ',
         'get_long_term_plans' => '   احصل على خطط طويلة المدى     ',
         'start_the_implementation' => '    ابدأ بالتطبيق    ',
@@ -902,7 +900,7 @@ return [
         'personal_financial_planning' => '   التخطيط المالي الشخصي   ',
         'personal_financial_planning_text' => '    كل شيء هنا في الثراء يدور حول إعطائك ما تحتاجه. حيث يمنحنا الاستبيان القدرة على وضع خطط مخصصة لكل فرد من عملائنا.      ',
 
-        'get_started' => '   البدء   ',
+        'get_started' => '  ابدأ الان!',
         'get_started_uppercase' => '   البدء   ',
 
         'invest_your_own_money' => '   قم باستثمار أموالك الخاصة    ',
@@ -935,6 +933,7 @@ return [
 
     'report' => [
         'thank_you_for' => 'شكرا  لك ونتشرف <br> بك في عائلة عملاء ذخر ',
+        'thank_you_thanks_page' => 'شكرا  لك ونتشرف  بك في عائلة عملاء ذخر ',
         'we_hope' => 'نتمنى لك الالتزام بالخطة المالية  وتحقيق اهدافك المالية بنجاح  ',
 
 

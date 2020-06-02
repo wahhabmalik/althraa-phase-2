@@ -446,7 +446,8 @@
 									<br>
 									<div class="center_content">
 										<button type="submit" class="button">
-											{{ trans('lang.question.continue_to_payment') }}
+											{{-- {{ trans('lang.question.continue_to_payment') }} --}}
+											{{ trans('lang.get_your_report') }}
 											<i class="{{ ($request->segment(1) == 'ar') ? 'fa fa-arrow-left fa-fw' : 'fa fa-arrow-right fa-fw' }}"></i>
 										</button>
 

@@ -39,13 +39,15 @@ footer {
                     {{-- {{ trans('lang.frontend.althraa') }} --}}
                 </p>
 
+                <div class="s-35"></div>
+
                 <h1 class="text-center mb-3">
                     {{ trans('lang.frontend.slider_heading') }}
                 </h1>
 
-                <p class="text-center">
+                {{-- <p class="text-center">
                     {{ trans('lang.frontend.slider_text') }}
-                </p>
+                </p> --}}
 
                 <div class="s-50"></div>
 
@@ -62,7 +64,7 @@ footer {
                   alt="Banner image"
                 />
 
-                <div class="s-20"></div>
+                <div class="s-50"></div>
 
                 <p class="text-center intro-text secondary_text_slider mb-5">
                     {{ trans('lang.frontend.secondary_text_slider') }}

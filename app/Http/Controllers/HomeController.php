@@ -214,6 +214,6 @@ class HomeController extends Controller
 
         }
 
-        return redirect()->back()->withMessage('Verification failed please try again or try again.');
+        return redirect()->back()->withMessage('Verification failed please try again.');
     }
 }
