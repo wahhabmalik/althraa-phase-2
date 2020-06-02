@@ -65,7 +65,7 @@
 <div id="HTMLtoPDF" class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }} " >
 	
 	@php 
-	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>You</p>';
+	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>'.trans('lang.you').'</p>';
 	@endphp
 
 	<div id="parent-report" class="container-fluid mb-5 background_effect " {{ $not_found ?? '' }}>
@@ -1017,10 +1017,10 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				{{-- <br><br><br><br><br> --}}
-				<h2 class="mt-5 pt-5 mb-4">
+				{{-- <h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	            </h2>
-	            <h1 class="text-secondary mt-3">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1>
+	            <h1 class="text-secondary mt-3">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1> --}}
 	            
 			</div>
 		</div>
