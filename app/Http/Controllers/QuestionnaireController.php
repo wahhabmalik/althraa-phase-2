@@ -111,8 +111,11 @@ class QuestionnaireController extends Controller
                         : redirect()->route('step_5', $locale);
                 break;
             case '/step_6':
-                return $this->questionnaire->update_risks($request->except('_token'))
-                        ?   redirect()->route('payment', $locale)
+                // return $this->questionnaire->update_risks($request->except('_token'))
+                //         ?   redirect()->route('payment', $locale)
+                //         : redirect()->route('step_6', $locale);
+                return auth()->user()->fill($request->all())->update()
+                        ?   redirect()->route('email_verification', $locale)
                         : redirect()->route('step_6', $locale);
                 break;
             case '/payment':

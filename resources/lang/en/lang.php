@@ -922,4 +922,94 @@ return [
     'thanks' => 'Thanks',
     'thanks_message' => 'Thankyou for submitting. Please check you email to print/download the report',
 
+    'report' => [
+
+        'thank_you_for' => 'Thank you for <br> being our customer. ',
+        'we_hope' => 'We hope you stick with the plan you got and accomplish your financial goals! ',
+
+
+        'financial_health_checkup' => 'Financial Health Check Up',
+        'personal_information' => 'Personal Information',
+            'name' => 'Name',
+            'education' => 'Education',
+            'current_age' => 'Current age',
+            'planned_retirement_age' => 'Planned retirement age',
+
+        'financial_position_today' => 'Financial Position Today',
+            'monthly_income_today' => 'Monthly income today',
+            'gosi_ppa_monthly_subscription' => 'GOSI/PPA monthly subscription',
+            'monthly_saving_plan_for_reitirement' => 'Monthly saving plan for retirement',
+            'monthly_saving_percentage_today' => 'Monthly saving % today',
+
+            'total_assets_today' => 'Total assets today',
+            'total_liabilities_today' => 'Total liabilities today',
+            'net_worth' => 'Net worth',
+            'accomulative_saving_today' => 'Accomulative saving today',
+
+        'current_asset_allocation' => 'Current Asset Allocation',
+            'cash_and_equivalent' => 'Cash and Equivalent',
+            'equities' => 'Equities',
+            'fix_income' => 'Bonds & Sukuks ',
+            'alternative_investment' => 'Alternative investments',
+            'total' => 'Total',
+
+
+        'personal_indicators' => 'Personal Indicators',
+        'monthly_saving_rate' => 'Monthly Saving Rate',
+
+            'little_saver' => 'Little saver',
+            'good_saver' => 'Good saver',
+            'great_saver' => 'Excellent saver',
+            'rich_saver' => 'Rich saver',
+            'wealthy_saver' => 'Wealthy',
+            
+        'current_saving_amount' => 'Current Saving Amount',
+            'poor_saver' => 'Poor saver',
+            'fair_saver' => 'Fair saver',
+
+        'early_retirement_possibility' => 'Early Retirement Possibility',
+            'poor' => 'Poor',
+            'fair' => 'Fair',
+            'healthy' => 'Good',
+            'very_healthy' => 'Excellent',
+            'early_retire_person' => 'Early retire person',
+            
+        'investing_diversity' => 'Investing Diversity',
+            'good' => 'Good',
+            'great' => 'Great',
+
+
+        'asset_allocation' => 'Asset Allocation',
+        'risk_test_index' => 'Risk Tolerance Test',
+            'very_conservative' => 'Very Conservative',
+            'conservative' => 'Conservative',
+            'natural' => 'Natural',
+            'agressive' => 'Agressive',
+            'very_agressive' => 'Very Agressive',
+
+        'recommended_assets_allocation' => 'Recommended Assets Allocation',
+
+
+        'financial_forecast' => 'Financial Forecast',
+
+        'assumptions' => 'Assumptions',
+            'monthly_saving_plan' => 'Monthly saving amount',
+                'per_month' => '/Month',
+            'monthly_saving_today' => 'Monthly saving today',
+                'of_monthly_income' => 'of Monthly Income',
+            'accumulative_saving_today' => 'Accumulative saving today',
+        'returns_assumptions' => 'Returns Assumptions',
+            'net_return_before_reitement' => 'Net Return/Year (Before retirement)',
+            'net_return_after_reitement' => 'Net Return/Year (After retirement)',
+
+        'income_and_wealth_at_retirement' => 'Income and Wealth at Retirement',
+            'retirement_plan_value_at' => 'Retirement plan value at',
+                'years_old' => 'years old',
+            'total_monthly_income' => 'Total monthly income',
+            'income_from_retirement_plan' => 'Income from retirement plan',
+            'income_from_GOSI_or_PPA' => 'Income from GOSI or PPA',
+
+
+    ],
+
 ];

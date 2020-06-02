@@ -183,7 +183,7 @@
         <td align="center">
 			   <img src="{{ asset('frontend_assets/img/dokhor.png') }}" style="margin: auto">
 			   <h3 id="banner-txt" style="margin: 20px;color: #000000">{{ trans('lang.frontend.slider_heading') }}</h3>
-			   <a href="{{ route('download', ['q'=> $data['public_id']]) }}" class="white-btn" align="center" style="background: #01630a;color: white;padding: 10px"> Download {{ $data['body'] }} </a>
+			   <a href="{{ route('download', ['q'=> $data['public_id'], app()->getLocale()]) }}" class="white-btn" align="center" style="background: #01630a;color: white;padding: 10px"> Download {{ $data['body'] }} </a>
         </td>
       </tr>
 

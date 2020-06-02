@@ -208,7 +208,7 @@ class HomeController extends Controller
             $report = Report::where('public_id', Session::get('public_id'))->where('user_id', Session::get('user_id'))->first();
 
             if($report)
-                return redirect()->route('download', ['q'=> Session::get('public_id')]);
+                return redirect()->route('download', ['q'=> Session::get('public_id'), app()->getLocale()]);
             else
                 return redirect()->back()->withMessage('Report Not found');
 

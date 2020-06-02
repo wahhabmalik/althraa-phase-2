@@ -825,7 +825,7 @@ return [
         'international_real_estate' => '  العقارات الدولية     ',
 
 
-        'congratulations' => '  تهانينا! في سن الـ   ',
+        'congratulations' => '  تهانينا   ! ',
         'chart_details' => '   تفاصيل المخطط     ',
 
         'working_years_accumulation_phase' => ' Before Retirement(Working phase)',
@@ -930,4 +930,93 @@ return [
 
     'thanks' => 'شكرا لك',
     'thanks_message' => 'شكرا لك على التقديم. يرجى التحقق من بريدك الإلكتروني لطباعة / تنزيل التقرير',
+
+
+
+    'report' => [
+        'thank_you_for' => 'شكرا  لك ونتشرف <br> بك في عائلة عملاء ذخر ',
+        'we_hope' => 'نتمنى لك الالتزام بالخطة المالية  وتحقيق اهدافك المالية بنجاح  ',
+
+
+        'financial_health_checkup' => 'فحص الصحة المالية الشخصية',
+        'personal_information' => 'المعلومات الشخصية',
+            'name' => 'الاسم ',
+            'education' => 'المستوى التعليمي',
+            'current_age' => 'العمر حالياً',
+            'planned_retirement_age' => 'العمر المخطط للتقاعد ',
+
+        'financial_position_today' => 'الملاءه المالية اليوم ',
+            'monthly_income_today' => 'الدخل الشهري اليوم',
+            'gosi_ppa_monthly_subscription' => 'الاستقطاع الشهري ( التأمينات الاجتماعية / التقاعد ) ',
+            'monthly_saving_plan_for_reitirement' => 'الادخار الشهري للخطة المالية الشخصية ',
+            'monthly_saving_percentage_today' => 'معدل الادخار الشهري اليوم %',
+
+            'total_assets_today' => 'اجمالي الاصول الشخصية اليوم ',
+            'total_liabilities_today' => 'اجمالي الديون الشخصية اليوم ',
+            'net_worth' => 'صافي الثروة الشخصية',
+            'accomulative_saving_today' => 'اجمالي المدخرت حتى اليوم ',
+
+        'current_asset_allocation' => 'تخصيص الأصول الحالية',
+            'cash_and_equivalent' => 'النقد وما يعادله',
+            'equities' => 'أسهم  ',
+            'fix_income' => 'صكوك وسندات ',
+            'alternative_investment' => 'إستثمارات بديلة ( عقارات/أراضي/ذهب وغيرها )',
+            'total' => 'الاجمالي',
+
+
+        'personal_indicators' => 'مؤشرات مالية شخصية ',
+        'monthly_saving_rate' => 'معدل الادخار الشهري',
+
+            'little_saver' => 'مدخر صغير',
+            'good_saver' => 'مدخر جيد',
+            'great_saver' => 'مدخر ممتاز',
+            'rich_saver' => 'مدخر غني ',
+            'wealthy_saver' => 'مدخر ثري ',
+            
+        'current_saving_amount' => 'إجمالي المدخرات حتى اليوم ',
+            'poor_saver' => 'مدخر ضعيف ',
+            'fair_saver' => 'مدخر جيد',
+
+        'early_retirement_possibility' => 'احتمالية التقاعد المبكر ',
+            'poor' => 'ضعيفة',
+            'fair' => 'معقولة',
+            'healthy' => 'جيدة ',
+            'very_healthy' => 'ممتازة',
+            'early_retire_person' => 'عالية ',
+            
+        'investing_diversity' => 'التنويع الاستثماري ',
+            'good' => 'جيد ',
+            'great' => 'عظيم ',
+
+
+        'asset_allocation' => 'توزيع الاصول ',
+        'risk_test_index' => 'اختبار تحمل المخاطر',
+            'very_conservative' => 'مستثمر متحفظ جدا',
+            'conservative' => 'مستثمر متحفظ',
+            'natural' => 'مستثمر طبيعي ',
+            'agressive' => 'مستثمر مغامر   ',
+            'very_agressive' => 'مستثمر مغامر جدا',
+
+        'recommended_assets_allocation' => 'توزيع الاصول الموصي به ',
+
+
+        'financial_forecast' => 'التوقعات المالية المستقبلية ',
+
+        'assumptions' => 'الأفتراضات الرئيسية',
+            'monthly_saving_plan' => 'مبلغ الادخار ',
+                'per_month' => '',
+            'monthly_saving_today' => 'معدل الاخار',
+                'of_monthly_income' => 'الشهري حاليا ',
+            'accumulative_saving_today' => 'اجمالي المدخرت حتى اليوم ',
+        'returns_assumptions' => 'إقتراضات العوائد السنوية ',
+            'net_return_before_reitement' => 'صافي العوائد السنوية ( مرحلة ماقبل التقاعد ) ',
+            'net_return_after_reitement' => 'صافي العوائد السنوية ( مرحلة مابعد التقاعد ) ',
+
+        'income_and_wealth_at_retirement' => 'مبلغ الثروة والدخل عند التقاعد ',
+            'retirement_plan_value_at' => 'قيمة خطة التقاعد عند التقاعد',
+                'years_old' => 'بعمر  سنة ',
+            'total_monthly_income' => 'اجمالي الدخل الشهري',
+            'income_from_retirement_plan' => 'الدخل الشهري من المحفظة الاستثمارية ',
+            'income_from_GOSI_or_PPA' => 'الدخل الشهري من التأمينات الاجتماعية / التقاعد ',
+    ],
 ];

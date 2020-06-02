@@ -7,9 +7,52 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/dashboard/css/print.css') }}">
-
+@php 
+	if($request->segment(1) == 'ar'){
+		$direction = 'right';
+		$direction_op = 'left';
+	}
+	else{
+		$direction = 'left';
+		$direction_op = 'right';
+	}
+@endphp
 <style>
 {!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
+.financial-position tr td:first-child {
+    text-align: {{ ($request->segment(1) == 'ar') ? 'right' : 'left' }};
+}
+
+
+.factor span:first-child {
+    border-top-{{ $direction }}-radius: 10px;
+    border-bottom-{{ $direction }}-radius: 10px;
+}
+.factor span:last-child {
+    border-top-{{ $direction_op }}-radius: 10px;
+    border-bottom-{{ $direction_op }}-radius: 10px;
+}
+
+.factor-s span:first-child {
+    border-top-{{ $direction }}-radius: 10px;
+    border-bottom-{{ $direction }}-radius: 10px;
+}
+.factor-vs span:first-child {
+    border-top-{{ $direction }}-radius: 10px;
+    border-bottom-{{ $direction }}-radius: 10px;
+}
+.factor-s span:last-child {
+    border-top-{{ $direction_op }}-radius: 10px;
+    border-bottom-{{ $direction_op }}-radius: 10px;
+}
+.factor-vs span:last-child {
+    border-top-{{ $direction_op }}-radius: 10px;
+    border-bottom-{{ $direction_op }}-radius: 10px;
+}
+.financial-position tr td {
+    text-align: {{ $direction_op }};
+}
+
 </style>
 
 
@@ -111,6 +154,8 @@
 
 		<br><br><br><br><br>
 		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
 		
 		
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
@@ -134,8 +179,8 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <br><br>
-	            <h1 class="heading-main">Thank you for <br> being our customer. </h1>
-	            <p class="text-primary">We hope you stick with the plan you got and accomplish your financial goals! </p>
+	            <h1 class="heading-main">{!! trans('lang.report.thank_you_for') !!}</h1>
+	            <p class="text-primary">{{ trans('lang.report.we_hope') }}</p>
 			</div>
 		</div>
 
@@ -196,8 +241,6 @@
 
 
 
-
-
 	{{-- page 4 start --}}
 
 	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
@@ -209,9 +252,9 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            
-	            <h1 class="heading-secondary">Financial Health Check Up</h1>
+	            <h1 class="heading-secondary">{{ trans('lang.report.financial_health_checkup') }}</h1>
 
-	            <p class="text-secondary mt-2">Personal Information</p>
+	            <p class="text-secondary mt-2">{{ trans('lang.report.personal_information') }}</p>
 	            
 			</div>
 		</div>
@@ -222,22 +265,22 @@
 			<div class="col-sm-1"></div>
 			
 			<div class="col-sm-3">
-				<p>Name</p>
+				<p>{{ trans('lang.report.name') }}</p>
 				<b>{{ $data['personalInfo']['name'] }}</b>
 			</div>
 			
 			<div class="col-sm-3">
-				<p>Education</p>
+				<p>{{ trans('lang.report.education') }}</p>
 				<b>{{ $data['personalInfo']['education_level'] }}</b>
 			</div>
 			
 			<div class="col-sm-2">
-				<p>Current age</p>
+				<p>{{ trans('lang.report.current_age') }}</p>
 				<b>{{ $data['personalInfo']['years_old'] }}</b>
 			</div>
 			
 			<div class="col-sm-3">
-				<p>Planned retirement age</p>
+				<p>{{ trans('lang.report.planned_retirement_age') }}</p>
 				<b>{{ $data['personalInfo']['retirement_age'] }}</b>
 			</div>
 			
@@ -249,7 +292,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Financial Position Today</p>
+				<p class="text-secondary mt-3">{{ trans('lang.report.financial_position_today') }}</p>
 				
 			</div>
 		</div>
@@ -258,19 +301,19 @@
 			<div class="col-sm-5">
 				<table>
 					<tr>
-						<td>Monthly income today</td>
+						<td>{{ trans('lang.report.monthly_income_today') }}</td>
 						<td>{{ currency($data['monthlyIncomeToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>GOSI/PPA monthly subscription</td>
+						<td>{{ trans('lang.report.gosi_ppa_monthly_subscription') }}</td>
 						<td>{{ currency($data['gosi_or_ppa_monthlySubscription'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>Monthly saving plan for retirement</td>
+						<td>{{ trans('lang.report.monthly_saving_plan_for_reitirement') }}</td>
 						<td>{{ currency($data['monthlySavingPlanForRetirement'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>Monthly saving % today</td>
+						<td>{{ trans('lang.report.monthly_saving_percentage_today') }}</td>
 						<td>{{ percentage($data['monthlySavingPercentageToday'] ?? 0) }}</td>
 					</tr>
 					
@@ -279,19 +322,19 @@
 			<div class="col-sm-5">
 				<table>
 					<tr>
-						<td>Total assets today</td>
+						<td>{{ trans('lang.report.total_assets_today') }}</td>
 						<td>{{ currency($data['totalAssetsToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>Total liabilities today</td>
+						<td>{{ trans('lang.report.total_liabilities_today') }}</td>
 						<td>{{ currency($data['totalLiabilitiesToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>Net worth</td>
+						<td>{{ trans('lang.report.net_worth') }}</td>
 						<td>{{ currency($data['netWorthToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>Accomulative saving today</td>
+						<td>{{ trans('lang.report.accomulative_saving_today') }}</td>
 						<td>{{ currency($data['accomulativeSavingtoday'] ?? 0) }}</td>
 					</tr>
 					
@@ -302,7 +345,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Current Asset Allocation</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.current_asset_allocation') }}</p>
 				<div class="row mb-5">
 					
 						<div class="col-lg-4 col-md-4 col-sm-4 col-4"></div>
@@ -316,7 +359,7 @@
 						    <p class="text-center donut_inner">
 						    	{{ percentage($data['totalCurrentAssetAllocationPercentage'] ?? 0) }}
 						    </p>
-						    <br>
+						    
 
 						    {{-- <div class="s-50"></div> --}}
 						</div>
@@ -331,7 +374,7 @@
 											<div class="table_color" style="background-color: #3B83FF;"></div>
 										</td>
 										<td>
-											<p>Cash and Equivalent</p>
+											<p>{{ trans('lang.report.cash_and_equivalent') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -349,7 +392,7 @@
 											<div class="table_color" style="background-color: #F56565;"></div>
 										</td>
 										<td>
-											<p>Equities</p>
+											<p>{{ trans('lang.report.equities') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -367,7 +410,7 @@
 											<div class="table_color" style="background-color: #FFE700;"></div>
 										</td>
 										<td>
-											<p>Fix income</p>
+											<p>{{ trans('lang.report.fix_income') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -385,7 +428,7 @@
 											<div class="table_color" style="background-color: #ED8936;"></div>
 										</td>
 										<td>
-											<p>Alternative investments</p>
+											<p>{{ trans('lang.report.alternative_investment') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -403,7 +446,7 @@
 											<div class="table_color" style="background-color: #ffffff;"></div>
 										</td>
 										<td>
-											<p>Total</p>
+											<p>{{ trans('lang.report.total') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -430,8 +473,6 @@
 
 
 
-
-
 	{{-- Page 5 start --}}
 
 
@@ -445,7 +486,7 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <br><br>
-	            <h1 class="heading-main">Personal Indicators</h1>
+	            <h1 class="heading-main">{{ trans('lang.report.personal_indicators') }}</h1>
 	            
 			</div>
 		</div>
@@ -454,14 +495,14 @@
 		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Monthly Saving Rate</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.monthly_saving_rate') }}</p>
 				
 				<div class="factor">
-					<p>Little saver</p>	
-					<p>Good saver</p>	
-					<p>Great saver</p>	
-					<p>Rich saver</p>	
-					<p>Wealthy</p>	
+					<p>{{ trans('lang.report.little_saver') }}</p>	
+					<p>{{ trans('lang.report.good_saver') }}</p>	
+					<p>{{ trans('lang.report.great_saver') }}</p>	
+					<p>{{ trans('lang.report.rich_saver') }}</p>	
+					<p>{{ trans('lang.report.wealthy_saver') }}</p>	
 				</div>
 
 				<div class="factor">
@@ -501,12 +542,12 @@
 		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Current Saving Amount ({{ $data['personalInfo']['years_old']. ' Year' }})</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} ({{ $data['personalInfo']['years_old']. ' Year' }})</p>
 				
 				<div class="factor-vs">
-					<p>Poor saver</p>	
-					<p>Fair saver</p>	
-					<p>Good saver</p>	
+					<p>{{ trans('lang.report.poor_saver') }}</p>	
+					<p>{{ trans('lang.report.fair_saver') }}</p>	
+					<p>{{ trans('lang.report.good_saver') }}</p>	
 				</div>
 
 				<div class="factor-vs">
@@ -539,14 +580,14 @@
 		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Early Retirement Possibility</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.early_retirement_possibility') }}</p>
 				
 				<div class="factor">
-					<p>Poor</p>	
-					<p>Fair</p>	
-					<p>Healthy</p>	
-					<p>Very healthy</p>	
-					<p>Early retire person</p>	
+					<p>{{ trans('lang.report.poor') }}</p>	
+					<p>{{ trans('lang.report.fair') }}</p>	
+					<p>{{ trans('lang.report.healthy') }}</p>	
+					<p>{{ trans('lang.report.very_healthy') }}</p>	
+					<p>{{ trans('lang.report.early_retire_person') }}</p>	
 				</div>
 
 				<div class="factor">
@@ -586,13 +627,13 @@
 		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">Investing Diversity</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.investing_diversity') }}</p>
 				
 				<div class="factor-s">
-					<p>Poor</p>	
-					<p>Fair</p>	
-					<p>Good</p>	
-					<p>Great</p>
+					<p>{{ trans('lang.report.poor') }}</p>	
+					<p>{{ trans('lang.report.fair') }}</p>	
+					<p>{{ trans('lang.report.good') }}</p>	
+					<p>{{ trans('lang.report.great') }}</p>
 					
 				</div>
 
@@ -627,11 +668,9 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br>
+		<br><br><br><br><br><br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
 
 
 
@@ -649,7 +688,7 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <br><br>
-	            <h1 class="heading-main">Asset Allocation</h1>
+	            <h1 class="heading-main">{{ trans('lang.report.asset_allocation') }}</h1>
 	            
 			</div>
 		</div>
@@ -659,14 +698,14 @@
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-9">
-				<p class="text-secondary mt-5">Risk Test Index</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.risk_test_index') }}</p>
 				
 				<div class="factor">
-					<p>Very Conservative</p>	
-					<p>Conservative</p>	
-					<p>Natural</p>	
-					<p>Agressive</p>	
-					<p>Very Agressive</p>	
+					<p>{{ trans('lang.report.very_conservative') }}</p>	
+					<p>{{ trans('lang.report.conservative') }}</p>	
+					<p>{{ trans('lang.report.natural') }}</p>	
+					<p>{{ trans('lang.report.agressive') }}</p>	
+					<p>{{ trans('lang.report.very_agressive') }}</p>	
 				</div>
 
 				<div class="factor">
@@ -705,7 +744,7 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Recommended Assets Allocation</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.recommended_assets_allocation') }}</p>
 				<div class="row mb-5">
 					
 						<div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
@@ -734,7 +773,7 @@
 											<div class="table_color" style="background-color: #3B83FF;"></div>
 										</td>
 										<td>
-											<p>Cash and Equivalent</p>
+											<p>{{ trans('lang.report.cash_and_equivalent') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -752,7 +791,7 @@
 											<div class="table_color" style="background-color: #F56565;"></div>
 										</td>
 										<td>
-											<p>Equities</p>
+											<p>{{ trans('lang.report.equities') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -770,7 +809,7 @@
 											<div class="table_color" style="background-color: #FFE700;"></div>
 										</td>
 										<td>
-											<p>Fix income</p>
+											<p>{{ trans('lang.report.fix_income') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -788,7 +827,7 @@
 											<div class="table_color" style="background-color: #ED8936;"></div>
 										</td>
 										<td>
-											<p>Alternative investments</p>
+											<p>{{ trans('lang.report.alternative_investment') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -806,7 +845,7 @@
 											<div class="table_color" style="background-color: #ffffff;"></div>
 										</td>
 										<td>
-											<p>Total</p>
+											<p>{{ trans('lang.report.total') }}</p>
 										</td>
 										<td>
 											<p class="text_black text-left">
@@ -837,8 +876,6 @@
 
 
 
-
-
 	{{-- Page 7 start --}}
 
 
@@ -851,10 +888,9 @@
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
-	            <p class="text-secondary mt-5">Financial Forecast</p>
+	            <p class="text-secondary mt-5">{{ trans('lang.report.financial_forecast') }}</p>
 	            <p class="alertBox__p">
-	              <span>👏Congratulations!</span>&nbsp;At age {{ $data['retirement_age'] }} you will have
-	              savings balance of {{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}.
+	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} {{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}.
 	            </p>
 			</div>
 		</div>
@@ -932,56 +968,56 @@
 		<div class="row financial-position">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-5">
-				<p class="text-secondary mt-5">Assumptions</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.assumptions') }}</p>
 				<table>
 					<tr>
-						<td>Current age</td>
+						<td>{{ trans('lang.report.current_age') }}</td>
 						<td>{{ $data['personalInfo']['years_old'] }}</td>
 					</tr>
 					<tr>
-						<td>Planned retirement age</td>
+						<td>{{ trans('lang.report.planned_retirement_age') }}</td>
 						<td>{{ $data['retirement_age'] }}</td>
 					</tr>
 					<tr>
-						<td>Monthly saving plan</td>
-						<td>{{ currency($data['monthlySavingPlanForRetirement']) }} /Month</td>
+						<td>{{ trans('lang.report.monthly_saving_plan') }}</td>
+						<td>{{ currency($data['monthlySavingPlanForRetirement']) }} {{ trans('lang.report.per_month') }}</td>
 					</tr>
 					<tr>
-						<td>Monthly saving today</td>
-						<td>{{ percentage($data['monthlySavingPercentageToday']) }} of Monthly Income</td>
+						<td>{{ trans('lang.report.monthly_saving_today') }}</td>
+						<td>{{ percentage($data['monthlySavingPercentageToday']) }} {{ trans('lang.report.of_monthly_income') }}</td>
 					</tr>
 					<tr>
-						<td>Accumulative saving today</td>
+						<td>{{ trans('lang.report.accumulative_saving_today') }}</td>
 						<td>{{ currency($data['accomulativeSavingtoday']) }}</td>
 					</tr>
 					
 				</table>
 			</div>
 			<div class="col-sm-5">
-				<p class="text-secondary mt-5">Returns Assumptions</p>
+				<p class="text-secondary mt-4">{{ trans('lang.report.returns_assumptions') }}</p>
 				<table>
 					<tr>
-						<td>Cash and Quivlent</td>
+						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
 						<td>{{ percentage($data['returnAssumptions']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
-						<td>Equities</td>
+						<td>{{ trans('lang.report.equities') }}</td>
 						<td>{{ percentage($data['returnAssumptions']['equities']) }}</td>
 					</tr>
 					<tr>
-						<td>Fix Income</td>
+						<td>{{ trans('lang.report.fix_income') }}</td>
 						<td>{{ percentage($data['returnAssumptions']['fix_income']) }}</td>
 					</tr>
 					<tr>
-						<td>Alternative Investments</td>
+						<td>{{ trans('lang.report.alternative_investment') }}</td>
 						<td>{{ percentage($data['returnAssumptions']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
-						<td>Net Return/Year (Before retirement)</td>
+						<td>{{ trans('lang.report.net_return_before_reitement') }}</td>
 						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
 					</tr>
 					<tr>
-						<td>Net Return/Year (After retirement)</td>
+						<td>{{ trans('lang.report.net_return_after_reitement') }}</td>
 						<td>{{ percentage($data['netReturnAfterRetirement']) }}</td>
 					</tr>
 					
@@ -993,26 +1029,26 @@
 		<div class="row financial-position">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Income and Wealth at Retirement</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.income_and_wealth_at_retirement') }}</p>
 				<table>
 					{{-- <tr>
 						<td>Status at retirement</td>
 						<td>Based on assets allocation</td>
 					</tr> --}}
 					<tr>
-						<td>Retirement plan value at {{ $data['retirement_age'] }} years old</td>
+						<td>{{ trans('lang.report.retirement_plan_value_at') }} {{ $data['retirement_age'] }} {{ trans('lang.report.years_old') }}</td>
 						<td>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</td>
 					</tr>
 					<tr>
-						<td>Total monthly income</td>
+						<td>{{ trans('lang.report.total_monthly_income') }}</td>
 						<td>{{ currency($data['totalMonthlyIncome']) }}</td>
 					</tr>
 					<tr>
-						<td>Income from retirement plan</td>
+						<td>{{ trans('lang.report.income_from_retirement_plan') }}</td>
 						<td>{{ currency($data['monthlySalary']) }}</td>
 					</tr>
 					<tr>
-						<td>Income from GOSI or PPA</td>
+						<td>{{ trans('lang.report.income_from_GOSI_or_PPA') }}</td>
 						<td>{{ currency($data['retirementGOCIMonthlyIncome']) }}</td>
 					</tr>
 					
@@ -1021,10 +1057,9 @@
 			
 		</div>
 		<br><br><br>
+		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
-
-
 
 
 
@@ -1157,8 +1192,6 @@
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
  --}}
-
-
 
 
 
@@ -1551,8 +1584,7 @@ addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
 $(document).ready(function(){
 	setTimeout(
 		function() {
-
-			// html2pdf(document.body)
+			html2pdf(document.body)
 		},
 	1000);
 });

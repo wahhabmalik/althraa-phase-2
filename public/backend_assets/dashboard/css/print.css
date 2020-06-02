@@ -1,3 +1,8 @@
+h1, h2, h3, h4, h5, p, span,  {
+    font-family: 'Cairo', sans-serif;
+}
+
+
 @media print {
    body {
    display:table;
@@ -361,9 +366,9 @@ a{
 }
 .tb-content p, .text-secondary {
     color: #000000 !important;
-    font-size: 30px;
+    font-size: 2.2rem;
     font-weight: 100;
-    letter-spacing: 0.17rem;
+    /*letter-spacing: 0.17rem;*/
     margin-bottom: 1.9rem;
 }
 
@@ -408,14 +413,14 @@ ul {
 .financial-position tr td {
     font-size: 1.4rem;
     line-height: 2;
-    text-align: right;
-    padding-right: 10px;
+    /*text-align: right;*/
+    /*padding-right: 10px;*/
 }
 .financial-position tr td:first-child {
     font-size: 1.4rem;
     color: #989898;
     line-height: 2;
-    text-align: left;
+    /*text-align: left;*/
 }
 .investing-plan tr td {
     font-size: 18px;
@@ -503,31 +508,7 @@ table {
     background: #01630a;
     display: inline-block;
 }
-.factor span:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.factor span:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
 
-.factor-s span:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.factor-vs span:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.factor-s span:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.factor-vs span:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
 .little{
   opacity: 0.2;
 }

@@ -44,9 +44,7 @@ Route::get('/login_with_another_account', function() {
 // })->name('maintenance-mode');
 
 
-Route::get('download-report', 'ReportController@downloadReport')->name('download');
 
-Route::post('validate-phone', 'HomeController@phoneVerification')->name('validate_phone');
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +74,11 @@ Route::group([
   'where' => ['locale' => '[a-zA-Z]{2}'],
   'middleware' => 'setlocale',
 ], function() {
+
+
+
+  Route::get('download-report', 'ReportController@downloadReport')->name('download');
+  Route::post('validate-phone', 'HomeController@phoneVerification')->name('validate_phone');
 
 /*
 |--------------------------------------------------------------------------

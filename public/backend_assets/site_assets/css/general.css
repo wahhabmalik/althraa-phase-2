@@ -128,7 +128,7 @@ body {
   src: url("../fonts/archivo-narrow/ArchivoNarrow-Bold.otf"); }
 */
 h1{
-    font-family:'Archivo Narrow Bold', sans-serif;
+    font-family:'Cairo', sans-serif;
 }
 
 .logo__img{
