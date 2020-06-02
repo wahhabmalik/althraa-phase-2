@@ -78,8 +78,8 @@ class User extends Authenticatable
         {
             $this->generateTwoFactorCode();
             \Nexmo::message()->send([
-                // 'to'   => '966'.$user->phone_number,
-                'to'   => $user->phone_number,
+                'to'   => '966'.$user->phone_number,
+                // 'to'   => $user->phone_number,
                 'from' => '923055644665',
                 'text' => 'Thokhor verification Key is: '.$user->two_factor_code
             ]);
