@@ -122,7 +122,7 @@ footer {
         </div> --}}
 
 
-        <div class="row text-center">
+        <div class="row text-center mb-5">
             <div class="col-sm-3"></div>
             <div class="col-sm-2">
                 <span><img src="{{ asset('frontend_assets/img/icons/how_it_works_icons1.svg') }}"><span class="icon-text">
