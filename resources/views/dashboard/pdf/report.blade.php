@@ -1017,15 +1017,15 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				{{-- <br><br><br><br><br> --}}
-				{{-- <h2 class="mt-5 pt-5 mb-4">
+				<h2 class="mt-4 mb-2">
 	                {{ 'thokhor' }}
 	            </h2>
-	            <h1 class="text-secondary mt-3">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1> --}}
+	            {{-- <h1 class="text-secondary mt-3">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1> --}}
 	            
 			</div>
 		</div>
 
-		<div class="row mb-5 mt-3 pb-5" >
+		<div class="row mb-5 mt-3" >
 			<div class="col-md-1"></div>
 		    <div class="col-md-10">
 		    	

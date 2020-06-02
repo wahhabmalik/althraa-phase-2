@@ -39,8 +39,6 @@ footer {
                     {{-- {{ trans('lang.frontend.althraa') }} --}}
                 </p>
 
-                <div class="s-35"></div>
-
                 <h1 class="text-center mb-3">
                     {{ trans('lang.frontend.slider_heading') }}
                 </h1>
@@ -64,11 +62,11 @@ footer {
                   alt="Banner image"
                 />
 
-                <div class="s-50"></div>
+                {{-- <div class="s-20"></div>
 
                 <p class="text-center intro-text secondary_text_slider mb-5">
                     {{ trans('lang.frontend.secondary_text_slider') }}
-                </p>
+                </p> --}}
 
 
             </div>
@@ -122,7 +120,7 @@ footer {
         </div> --}}
 
 
-        <div class="row text-center mb-5">
+        <div class="row text-center">
             <div class="col-sm-3"></div>
             <div class="col-sm-2">
                 <span><img src="{{ asset('frontend_assets/img/icons/how_it_works_icons1.svg') }}"><span class="icon-text">
