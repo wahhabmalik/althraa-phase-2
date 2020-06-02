@@ -820,7 +820,8 @@ return [
         'chart_details' => 'Chart Details',
 
 
-        'working_years_accumulation_phase' => 'Before Retirement(Working phase)',
+        // 'working_years_accumulation_phase' => 'Before Retirement(Working phase)',
+        'working_years_accumulation_phase' => 'Details table',
         'retirement_years_distribution_phase' => 'Retirement Years - Distribution phase',
         
         'year' => 'Year',

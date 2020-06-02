@@ -52,9 +52,15 @@
 .financial-position tr td {
     text-align: {{ $direction_op }};
 }
-#table-break, #disclaimer{
+
+#disclaimer{
 	page-break-before: always;
 }
+#intro, #table_of_contents, #about_us, #personal_information, #personal_indicators, #asset_allocation, #financial_forecast{
+	page-break-after: always;
+}
+
+
 </style>
 
 
@@ -68,7 +74,7 @@
 	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>'.trans('lang.you').'</p>';
 	@endphp
 
-	<div id="parent-report" class="container-fluid mb-5 background_effect " {{ $not_found ?? '' }}>
+	<div id="intro" class="container-fluid mb-5 background_effect " >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
@@ -109,12 +115,10 @@
 
 
 
-
-
 	{{-- Page 2 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="table_of_contents" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
@@ -166,16 +170,13 @@
 
 
 
-
-
 	{{-- Page 3 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="about_us" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -225,18 +226,12 @@
                 </ul>
 			</div>
 
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
-			<br><br><br><br><br>
+			
 			
 		</div>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br>
+		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
@@ -245,11 +240,11 @@
 
 	{{-- page 4 start --}}
 
-	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="personal_information" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<h2 class="mt-5 pt-5 mb-4">
+				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
@@ -342,7 +337,7 @@
 					
 				</table>
 			</div>
-			
+			<div class="col-sm-1"></div>
 		</div>
 		<div class="row">
 			<div class="col-sm-1"></div>
@@ -469,8 +464,8 @@
 				</div>
 			</div>
 		</div>
-		{{-- <br><br><br> --}}
-		{{-- <p class="text-center mr-5">{{ $data['credits'] }}</p> --}}
+		<br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
 
@@ -478,12 +473,12 @@
 	{{-- Page 5 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="personal_indicators" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				{{-- <br><br><br><br><br> --}}
-				<h2 class="mt-5 pt-5 mb-4">
+				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
@@ -670,7 +665,7 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
@@ -681,16 +676,15 @@
 	{{-- Page 6 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="asset_allocation" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<h2 class="mt-5 pt-5 mb-4">
+				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
-	            <br><br>
-	            <h1 class="heading-main">{{ trans('lang.report.asset_allocation') }}</h1>
+	            <h1 class="heading-main mt-2">{{ trans('lang.report.asset_allocation') }}</h1>
 	            
 			</div>
 		</div>
@@ -741,7 +735,7 @@
 			
 		</div>
 
-		<br><br>
+		<br>
 
 		<div class="row">
 			<div class="col-sm-1"></div>
@@ -881,18 +875,17 @@
 	{{-- Page 7 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="financial_forecast" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				{{-- <br><br><br><br><br> --}}
-				<h2 class="mt-5 pt-5 mb-2">
+				<h2 class="mt-5 mb-2">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <p class="text-secondary mt-5">{{ trans('lang.report.financial_forecast') }}</p>
 	            <p class="alertBox__p">
-	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} {{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}.
+	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} <span>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</span>
 	            </p>
 			</div>
 		</div>
@@ -1011,7 +1004,7 @@
 	{{-- Page 7 with table start --}}
 
 
-	<div id="table-break"  class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="table-break"  class="container-fluid mb-5 parent-report" >
 		
 		<div class="row">
 			<div class="col-sm-1"></div>
@@ -1020,7 +1013,7 @@
 				<h2 class="mt-4 mb-2">
 	                {{ 'thokhor' }}
 	            </h2>
-	            {{-- <h1 class="text-secondary mt-3">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1> --}}
+	            <h1 class="text-secondary">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1>
 	            
 			</div>
 		</div>
@@ -1066,6 +1059,9 @@
 						            {{ currency($pl['value_end_year']) ?? '' }}
 						          </td>
 						        </tr>
+						        @if($pl['age'] == 65)
+						        	@break
+						        @endif
 						      @empty
 						        <tr>
 						          <td colspan="6" class="btm_table_td">No Data Found</td>
@@ -1085,7 +1081,7 @@
 
 
 
-	<div id="disclaimer" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+	<div id="disclaimer" class="container-fluid mb-5 parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -1474,7 +1470,7 @@ $(document).ready(function(){
 			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
 			});
 		},
-	1000);
+	3000);
 });
 
 </script>

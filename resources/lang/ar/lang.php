@@ -828,7 +828,7 @@ return [
         'congratulations' => '  مبروك ',
         'chart_details' => '   تفاصيل المخطط     ',
 
-        'working_years_accumulation_phase' => ' قبل مرحلة التقاعد ',
+        'working_years_accumulation_phase' => ' الجدول التفصيلي',
         'retirement_years_distribution_phase' => '    سنوات التقاعد - مرحلة التوزيع  ',
         
         'year' => '  السنة   ',
@@ -946,7 +946,7 @@ return [
 
         'financial_position_today' => 'الملاءه المالية اليوم ',
             'monthly_income_today' => 'الدخل الشهري اليوم',
-            'gosi_ppa_monthly_subscription' => 'الاستقطاع الشهري ( التأمينات الاجتماعية / التقاعد ) ',
+            'gosi_ppa_monthly_subscription' => 'الاستقطاع الشهري ',
             'monthly_saving_plan_for_reitirement' => 'الادخار الشهري للخطة المالية الشخصية ',
             'monthly_saving_percentage_today' => 'معدل الادخار الشهري اليوم %',
 
