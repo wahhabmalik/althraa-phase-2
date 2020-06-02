@@ -52,7 +52,7 @@
 .financial-position tr td {
     text-align: {{ $direction_op }};
 }
-#table-break{
+#table-break, #disclaimer{
 	page-break-before: always;
 }
 </style>
@@ -1078,8 +1078,8 @@
 		    </div>
 		</div>
 
-		<br><br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		{{-- <br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p> --}}
 	</div>
 
 
