@@ -52,7 +52,9 @@
 .financial-position tr td {
     text-align: {{ $direction_op }};
 }
-
+#table-break{
+	page-break-before: always;
+}
 </style>
 
 
@@ -112,7 +114,7 @@
 	{{-- Page 2 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
@@ -169,7 +171,7 @@
 	{{-- Page 3 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -243,7 +245,7 @@
 
 	{{-- page 4 start --}}
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -476,7 +478,7 @@
 	{{-- Page 5 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -679,7 +681,7 @@
 	{{-- Page 6 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -879,7 +881,7 @@
 	{{-- Page 7 start --}}
 
 
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="parent-report" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -904,62 +906,6 @@
 			</div>
 		</div>
 
-		{{-- <div class="row mb-5 mt-5 pb-5">
-			<div class="col-md-1"></div>
-		    <div class="col-md-10">
-		    	<div class="text-left mb-5">
-	                <h4 class="font-weight-bold mt-5{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-	                  {{ trans('lang.financial_plan.working_years_accumulation_phase') }}
-	                </h4>
-	            </div>
-
-		      	<div class="table-responsive">
-					<table class="table table-striped">
-						<thead>
-						  <tr>
-							<th class="btm_table">{{ trans('lang.financial_plan.year') }} #</th>
-							<th class="btm_table">{{ trans('lang.financial_plan.age') }}</th>
-							<th class="btm_table">{{ trans('lang.financial_plan.value_beginning_year') }}</th>
-							<th class="btm_table">{{ trans('lang.financial_plan.contributions') }}</th>
-							<th class="btm_table">{{ trans('lang.financial_plan.returns') }}</th>
-							<th class="btm_table">{{ trans('lang.financial_plan.value_end_year') }}</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  @isset ($data['plan'])
-						  @php $count = 0; @endphp
-						      @forelse ($data['plan'] as $pl)
-						        <tr>
-						          <td class="btm_table_td">
-						            {{ ++$count ?? '' }}
-						          </td>
-						          <td class="btm_table_td">
-						            {{ $pl['age'] ?? '' }}
-						          </td>
-						          <td class="btm_table_td">
-						            {{ currency($pl['value_beginning_of_year']) ?? '' }}
-						          </td>
-						          <td class="btm_table_td">
-						            {{ currency($pl['contribution']) ?? '' }}
-						          </td>
-						          <td class="btm_table_td">
-						            {{ currency($pl['returns']) ?? '' }}
-						          </td>
-						          <td class="btm_table_td">
-						            {{ currency($pl['value_end_year']) ?? '' }}
-						          </td>
-						        </tr>
-						      @empty
-						        <tr>
-						          <td colspan="6" class="btm_table_td">No Data Found</td>
-						        </tr>
-						      @endforelse
-						  @endisset
-						</tbody>
-					</table>
-		      	</div>
-		    </div>
-		</div> --}}
 
 		
 
@@ -1057,6 +1003,81 @@
 			
 		</div>
 		<br><br><br>
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+	</div>
+
+
+
+	{{-- Page 7 with table start --}}
+
+
+	<div id="table-break"  class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
+		
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				{{-- <br><br><br><br><br> --}}
+				<h2 class="mt-5 pt-5 mb-4">
+	                {{ 'thokhor' }}
+	            </h2>
+	            <h1 class="text-secondary mt-3">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1>
+	            
+			</div>
+		</div>
+
+		<div class="row mb-5 mt-3 pb-5" >
+			<div class="col-md-1"></div>
+		    <div class="col-md-10">
+		    	
+
+		      	<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+						  <tr>
+							<th class="btm_table">{{ trans('lang.financial_plan.year') }} #</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.age') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.value_beginning_year') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.contributions') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.returns') }}</th>
+							<th class="btm_table">{{ trans('lang.financial_plan.value_end_year') }}</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  @isset ($data['plan'])
+						  @php $count = 0; @endphp
+						      @forelse ($data['plan'] as $pl)
+						        <tr>
+						          <td class="btm_table_td">
+						            {{ ++$count ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ $pl['age'] ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['value_beginning_of_year']) ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['contribution']) ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['returns']) ?? '' }}
+						          </td>
+						          <td class="btm_table_td">
+						            {{ currency($pl['value_end_year']) ?? '' }}
+						          </td>
+						        </tr>
+						      @empty
+						        <tr>
+						          <td colspan="6" class="btm_table_td">No Data Found</td>
+						        </tr>
+						      @endforelse
+						  @endisset
+						</tbody>
+					</table>
+		      	</div>
+		    </div>
+		</div>
+
 		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
@@ -1064,142 +1085,7 @@
 
 
 
-
-	{{-- Page 8 start --}}
-
-
-	{{-- <div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
-		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<br><br><br><br><br>
-				<h2 class="mt-5 pt-5 mb-4">
-	                {{ 'thokhor' }}
-	                
-	            </h2>
-	            <br><br>
-	            <h1 class="heading-main">Investing Plan</h1>
-	            
-			</div>
-		</div>
-
-		<div class="row investing-plan">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Investments Seletion</p>
-				<table>
-					<thead>
-						<tr>
-							<th>ASSET CLASS</th>
-							<th>OOPTION 1</th>
-							<th>OOPTION 2</th>
-							<th>OOPTION 3</th>
-						</tr>
-					</thead>
-					<tr>
-						<td>Cash & Equivlent</td>
-						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø±Ø§Ø¬Ø­ÙŠ Ù„Ù„Ù…Ø¶Ø§Ø±Ø¨Ø© Ø¨Ø§Ù„Ø³Ù„Ø¹ Ø¨Ø§Ù„Ø±ÙŠØ§Ù„</td>
-						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø§Ù‡Ù„ÙŠ Ù„Ù„Ù…ØªØ§Ø¬Ø±Ø© </td>
-						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„ÙØ§ Ù„Ù„Ù…Ø±Ø§Ø¨Ø­Ø©</td>
-					</tr>
-					<tr>
-						<td>Equities</td>
-						<td>iShares MSCI USA Islamic UCITS ETF</td>
-						<td>iShares MSCI World Islamic UCITS ETF</td>
-						<td>-</td>
-					</tr>
-					<tr>
-						<td>Fix Income</td>
-						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø³Ø§Ù…Ø¨Ø§ Ù„Ù„ØµÙƒÙˆÙƒ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©</td>
-						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø±Ø§Ø¬Ø­ÙŠ Ù„Ù„ØµÙƒÙˆÙƒ</td>
-						<td class="text-right">ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„Ø§Ù†Ù…Ø§Ø¡ Ù„Ù„ØµÙƒÙˆÙƒ Ø§Ù„Ù…ØªØ¯Ø§ÙˆÙ„Ø©</td>
-					</tr>
-					<tr>
-						<td>Alternative Investments</td>
-						<td>Manual Process</td>
-						<td>Manual Process</td>
-						<td>Manual Process</td>
-					</tr>
-					
-				</table>
-			</div>
-			
-		</div>
-
-
-		<div class="row investing-plan">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Capitel Deployment</p>
-				<table>
-					<thead>
-						<tr>
-							<th>ASSET CLASS</th>
-							<th>PAYMENTS</th>
-							<th>NO. OF FUNDS</th>
-							<th>ASSET ALLOCATION</th>
-							<th>INVESABLE AMOUNT</th>
-						</tr>
-					</thead>
-					<tr>
-						<td>Cash & Equivlent</td>
-						<td>1 payment</td>
-						<td>1</td>
-						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
-						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
-					</tr>
-					<tr>
-						<td>Equities</td>
-						<td>4 payment over one year</td>
-						<td>1</td>
-						<td>{{ percentage($data['recommended']['equities']) }}</td>
-						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
-					</tr>
-					<tr>
-						<td>Fix Income</td>
-						<td>1 payment</td>
-						<td>1</td>
-						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
-						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
-					</tr>
-					<tr>
-						<td>Alternative Investments</td>
-						<td>Manual process</td>
-						<td>1</td>
-						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
-						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['alternative_investments']) }}</td>
-					</tr>
-					<tr>
-						<td>Total</td>
-						<td></td>
-						<td>6</td>
-						<td>{{ $data['totalCapitalPercentage'] = percentage($data['recommended']['cash_and_equivlent']+$data['recommended']['equities']+$data['recommended']['fix_income']+$data['recommended']['alternative_investments']) }}</td>
-						<td>{{ currency(($data['netWorthToday']/100)*(integer)$data['totalCapitalPercentage']) }}</td>
-					</tr>
-					
-					
-					
-				</table>
-			</div>
-			
-		</div>
-		
-
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		<br><br><br><br><br>
-		
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
-	</div>
- --}}
-
-
-
-
-	{{-- Page 9 start --}}
-
-
-	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+	<div id="disclaimer" class="container-fluid mb-5 parent-report" {{ $not_found ?? '' }}>
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
@@ -1584,7 +1470,9 @@ addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
 $(document).ready(function(){
 	setTimeout(
 		function() {
-			html2pdf(document.body)
+			html2pdf(document.body).set({
+			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
+			});
 		},
 	1000);
 });
