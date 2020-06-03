@@ -1011,6 +1011,9 @@ return [
             'income_from_retirement_plan' => 'Income from retirement plan',
             'income_from_GOSI_or_PPA' => 'Income from GOSI or PPA',
 
+            'PERSONAL_FINANCIAL_PLAN' =>  'PERSONAL FINANCIAL PLAN',
+            'TABLE_OF_CONTENTS' =>  'TABLE OF CONTENTS',
+
 
     ],
 

@@ -459,10 +459,10 @@ table {
   height: 280px !important;
 }
 
-.btm_table {
+/*.btm_table {
     color: #ffffff !important;
     font-family: 'Cairo', sans-serif  !important;
-}
+}*/
 
 .alertBox__p span {
     color: #000;
@@ -574,7 +574,7 @@ table {
     max-width: 7.333333%;
   }
 }
-table.table.table-striped tr:last-child{
+.highlight{
   background-color: #000000 !important;
     color: #fff !important;
     font-family: 'Cairo', sans-serif;

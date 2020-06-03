@@ -53,13 +53,17 @@
     text-align: {{ $direction_op }};
 }
 
-#disclaimer{
+/*#disclaimer{
 	page-break-before: always;
-}
+}*/
 #intro, #table_of_contents, #about_us, #personal_information, #personal_indicators, #asset_allocation, #financial_forecast{
 	page-break-after: always;
 }
-
+.highlight{
+  background-color: #000000 !important;
+    color: #fff !important;
+    font-family: 'Cairo', sans-serif;
+}
 
 </style>
 
@@ -85,7 +89,7 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <br><br><br><br><br>
-	            <h1 class="heading-main">PERSONAL FINANCIAL PLAN</h1>
+	            <h1 class="heading-main">{{ trans('lang.report.PERSONAL_FINANCIAL_PLAN') }}</h1>
 	            <h1 class="user-main mt-3">{{ $data['personalInfo']['name'] }}</h1>
 			</div>
 		</div>
@@ -129,7 +133,7 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <br><br><br><br><br>
-	            <h1 class="heading-main">TABLE OF CONTENTS</h1>
+	            <h1 class="heading-main">{{ trans('lang.report.TABLE_OF_CONTENTS') }}</h1>
 			</div>
 		</div>
 
@@ -1010,7 +1014,7 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				{{-- <br><br><br><br><br> --}}
-				<h2 class="mt-4 mb-2">
+				<h2 class="mt-1 mb-2">
 	                {{ 'thokhor' }}
 	            </h2>
 	            <h1 class="text-secondary">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1>
@@ -1018,7 +1022,7 @@
 			</div>
 		</div>
 
-		<div class="row mb-5 mt-3" >
+		<div class="row" >
 			<div class="col-md-1"></div>
 		    <div class="col-md-10">
 		    	
@@ -1039,7 +1043,7 @@
 						  @isset ($data['plan'])
 						  @php $count = 0; @endphp
 						      @forelse ($data['plan'] as $pl)
-						        <tr>
+						        <tr {{ ($pl['age'] == $data['retirement_age']) ? 'class=highlight' : '' }}  >
 						          <td class="btm_table_td">
 						            {{ ++$count ?? '' }}
 						          </td>
@@ -1081,30 +1085,44 @@
 
 
 
-	<div id="disclaimer" class="container-fluid mb-5 parent-report" >
+	<div id="disclaimer" class="container-fluid parent-report" >
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				{{-- <br><br><br><br><br> --}}
-				<h2 class="mt-5 pt-5 mb-4">
+				<h2 class="mt-5 mb-2">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
-	            <br><br>
+	            
 	            <h1 class="heading-main text-center">Disclaimer</h1>
 	            
 			</div>
 		</div>
 
-		<div class="row mt-5">
+		<div class="row mt-2">
 			<div class="col-sm-1"></div>
-			<div class="col-sm-10 text-right pt-3">
-				<p>{{ trans('lang.pdf_disclaimer') }}</p>
+			<div class="col-sm-10 ">
+
+				<h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
+            	<p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
+            	<br>
+
+
+	            <h1>{{ trans('lang.frontend_legal.purpose') }}</h1>
+	            <p>{{ trans('lang.frontend_legal.purpose_text') }}</p>
+	            <br>
+
+	            <h1>{{ trans('lang.frontend_legal.stake_and_responsabilities') }}</h1>
+                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_1') }}</p>
+                
+                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_2') }}</p>
+                
+
 			</div>
 		</div>
 
-		<br><br><br><br><br>
-		<br><br><br><br><br>
+		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 

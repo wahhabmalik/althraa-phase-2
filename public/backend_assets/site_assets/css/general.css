@@ -602,7 +602,7 @@ tr td:last-child {
     /*text-align: right;*/
 }
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #e5efe6 !important;
+    /*background-color: #e5efe6 !important;*/
 }
 
 

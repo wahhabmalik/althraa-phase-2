@@ -919,7 +919,7 @@ return [
     ],
 
     'payment_method' => 'طريقة الدفع او السداد',
-    'get_your_report' => 'احصل على التقري',
+    'get_your_report' => 'احصل على التقرير',
     'card_no' => 'رقم البطاقة',
     'card_holder' => 'إسم صاحب البطاقة',
     'expire_date' => 'تاريخ انتهاء الصلاحية',
@@ -1017,6 +1017,9 @@ return [
             'total_monthly_income' => 'اجمالي الدخل الشهري',
             'income_from_retirement_plan' => 'الدخل الشهري من المحفظة الاستثمارية ',
             'income_from_GOSI_or_PPA' => 'الدخل الشهري من التأمينات الاجتماعية / التقاعد ',
+
+            'PERSONAL_FINANCIAL_PLAN' =>  'الخط الماليه الشخصية',
+            'TABLE_OF_CONTENTS' =>  'جدول المحتويات',
     ],
 
     'you' => 'أنت
