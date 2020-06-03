@@ -164,7 +164,7 @@ class HomeController extends Controller
             'message' => $request->message, 
         );
 
-        Mail::to('contact@althraa.com')->send(new SendContactEmail($data));
+        Mail::to('contact@thokhor.com')->send(new SendContactEmail($data));
         return back()->with('success','Thanks for contacting us!');
     }
 

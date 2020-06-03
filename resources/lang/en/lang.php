@@ -1014,6 +1014,13 @@ return [
             'PERSONAL_FINANCIAL_PLAN' =>  'PERSONAL FINANCIAL PLAN',
             'TABLE_OF_CONTENTS' =>  'TABLE OF CONTENTS',
 
+            'about_thokhor' =>  'About Thokhor',
+            // 'financial_health_checkup' =>  'جFinancial Health Checkup',
+            // 'personal_indicators' =>  'جPersonal Indicators',
+            // 'asset_allocation' =>  'جAsset Allocation',
+            'financil_forcast' =>  'Financil Forcast',
+            'investing_plan' =>  'Investing Plan',
+
 
     ],
 

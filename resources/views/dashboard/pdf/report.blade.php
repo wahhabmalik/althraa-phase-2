@@ -142,12 +142,12 @@
 		<div class="row mt-5">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-9 tb-content">
-				<P>About Thokhor</P>
-				<P>Financial Health Checkup</P>
-				<P>Personal Indicators</P>
-				<P>Asset Allocation</P>
-				<P>Financil Forcast</P>
-				<P>Investing Plan</P>
+				<P>{{ trans('lang.report.about_thokhor') }}</P>
+				<P>{{ trans('lang.report.financial_health_checkup') }}</P>
+				<P>{{ trans('lang.report.personal_indicators') }}</P>
+				<P>{{ trans('lang.report.asset_allocation') }}</P>
+				<P>{{ trans('lang.report.financil_forcast') }}</P>
+				<P>{{ trans('lang.report.investing_plan') }}</P>
 			</div>
 
 			<div class="col-sm-1 tb-content">
@@ -543,7 +543,8 @@
 		<div class="row mt-3">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-8">
-				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} ({{ $data['personalInfo']['years_old']. ' Year' }})</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '( '.$data['personalInfo']['years_old']. ' Year )' }}</p>
+				{{-- {!! ($request->segment(1) == 'ar') ? ')' : '(' !!} --}}
 				
 				<div class="factor-vs">
 					<p>{{ trans('lang.report.poor_saver') }}</p>	
@@ -927,7 +928,9 @@
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.monthly_saving_today') }}</td>
-						<td>{{ percentage($data['monthlySavingPercentageToday']) }} {{ trans('lang.report.of_monthly_income') }}</td>
+						<td>
+						{!! ($request->segment(1) == 'ar') ? trans('lang.report.of_monthly_income') . percentage($data['monthlySavingPercentageToday']) : percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') !!}
+					</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.accumulative_saving_today') }}</td>

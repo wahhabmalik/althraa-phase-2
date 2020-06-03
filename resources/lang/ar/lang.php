@@ -1020,6 +1020,16 @@ return [
 
             'PERSONAL_FINANCIAL_PLAN' =>  'الخط الماليه الشخصية',
             'TABLE_OF_CONTENTS' =>  'جدول المحتويات',
+
+            'about_thokhor' =>  'عن ذخر',
+            // 'financial_health_checkup' =>  'جFinancial Health Checkup',
+            // 'personal_indicators' =>  'جPersonal Indicators',
+            // 'asset_allocation' =>  'جAsset Allocation',
+            'financil_forcast' =>  'تصحيح مهم كلمة',
+            'investing_plan' =>  'خطة الاستثمار',
+
+
+
     ],
 
     'you' => 'أنت
