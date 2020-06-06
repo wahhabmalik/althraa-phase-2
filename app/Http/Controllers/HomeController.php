@@ -165,7 +165,7 @@ class HomeController extends Controller
         );
 
         Mail::to('contact@thokhor.com')->send(new SendContactEmail($data));
-        return back()->with('success','Thanks for contacting us!');
+        return back()->with('success',trans('lang.frontend_contact.thanks_message'));
     }
 
     public function getStarted(Request $request)

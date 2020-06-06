@@ -251,7 +251,7 @@
                             {{ trans('lang.frontend_about.ali') }}
                         </p>
                         <a href="https://www.linkedin.com/in/alialshehri" target="_blank"><i class="fa fa-linkedin fa-2x ml-3 mr-3 mb-5"></i></a>
-                        <a href=""><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
+                        <a href="https://twitter.com/CryptoAlshehri" target="_blank"><i class="fa fa-twitter fa-2x mr-3 mb-5"></i></a>
                     </div>
                     
                     

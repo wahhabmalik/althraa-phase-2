@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Session;
 
 class User extends Authenticatable
 {
@@ -77,17 +78,18 @@ class User extends Authenticatable
         try 
         {
             $this->generateTwoFactorCode();
-            \Nexmo::message()->send([
-                'to'   => '966'.$user->phone_number,
-                // 'to'   => $user->phone_number,
-                'from' => '923055644665',
-                'text' => 'Thokhor verification Key is: '.$user->two_factor_code
-            ]);
+            // \Nexmo::message()->send([
+            //     'to'   => '966'.$user->phone_number,
+            //     // 'to'   => $user->phone_number,
+            //     'from' => '923055644665',
+            //     'text' => 'Thokhor verification Key is: '.$user->two_factor_code
+            // ]);
         } catch (\Exception $e) 
         {
             \Auth::logout();
+
             $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
-            \Session::flash($status['toastr'], $status['msg']);
+            Session::put('error', $e->getMessage());
             return redirect('/en/login');
         }
     }

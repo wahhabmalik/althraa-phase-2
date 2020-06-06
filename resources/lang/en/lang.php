@@ -362,7 +362,7 @@ return [
 
     ],
 
-    'questionnaire_start' => 'Questionnaire Start',
+    'questionnaire_start' => 'Start',
     'welcome' => 'Welcome' ,
     'are_you_ready_to_start_your_new_future' => 'Are you ready to start your new future?',
     'order_summary' => 'Order Summary',
@@ -553,6 +553,8 @@ return [
         'contact_other_visit_our_help_page' => 'Visit our Help page:',
         'contact_other_help' => ' Help ',
         'contact_other_timings' => 'We are available everyday from 8AM until 4PM',
+
+        'thanks_message' => 'Thanks for contacting us!'
     ],
 
 
@@ -650,7 +652,8 @@ return [
         'maintenance' => 'Maintenance',
         
         'site_name__google_search_and_browser_tab__' => 'Site Name(google search and browser tab)',
-        'site_description' => 'Site Description',
+        'site_description_en' => 'Site Description (EN)',
+        'site_description_ar' => 'Site Description (AR)',
         'illustration' => 'Illustration',
         'click_here_to_upload_new' => 'Click here to upload new',
         'favicon' => 'Favicon',
@@ -1025,5 +1028,11 @@ return [
     ],
 
     'you' => 'you',
+
+    'Mobile_Verification' => 'Mobile Verification',
+    'Please_enter_last_4_digits_of_your_mobile_number' => 'Please enter last 4 digits of your mobile number',
+
+    'no_users_found' => 'No users found',
+    'users' => 'Users',
 
 ];

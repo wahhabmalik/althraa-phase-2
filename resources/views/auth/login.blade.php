@@ -82,9 +82,8 @@
         padding: unset;
     }
     .alert {
-        border-radius: 0.8rem;
-        font-family: 'Cairo', sans-serif;
         text-align: center;
+        font-size: 13px;
     }
     span.invalid-feedback {
         font-size: 12px;
@@ -98,12 +97,12 @@
 <section class="login container">
     <div class="row">
 
-        @if (session('message'))
+        @if (session('error'))
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="card-body">
-                    <div class="alert alert-danger" role="alert">
-                        {{ trans(session('message')) }}
+                    <div class="alert alert-warning" role="alert">
+                        {{ session('error') }}
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@ class SiteManagement extends Model
     // -----------------------------------------------------------------
     public function general_settings()
     {
-        $general = SiteManagement::whereIn('meta_key', ['title', 'description', 'logo', 'favicon'])
+        $general = SiteManagement::whereIn('meta_key', ['title', 'description', 'description_ar', 'logo', 'favicon'])
                     ->get();
         return $general;
     }
@@ -138,6 +138,18 @@ class SiteManagement extends Model
             ]);
         }
 
+        if ($this->getMaintenanceDescriptionAR()) {
+            $this->getMaintenanceDescriptionAR()
+                ->update([
+                    'meta_value' => $maintenance_settings_data['maintenance_description_ar'],
+                ]);
+        } else {
+            SiteManagement::create([
+                'meta_key' => 'maintenance_description_ar',
+                'meta_value' => $maintenance_settings_data['maintenance_description_ar'],
+            ]);
+        }
+
         if (isset($maintenance_settings_data['maintenance_mode'])) {
             if ($this->getMaintenanceMode()) {
                 $this->getMaintenanceMode()
@@ -173,6 +185,11 @@ class SiteManagement extends Model
     public function getMaintenanceDescription()
     {
         return SiteManagement::where('meta_key', 'maintenance_description')->first();
+    }
+
+    public function getMaintenanceDescriptionAR()
+    {
+        return SiteManagement::where('meta_key', 'maintenance_description_ar')->first();
     }
 
     public function getMaintenanceImage()

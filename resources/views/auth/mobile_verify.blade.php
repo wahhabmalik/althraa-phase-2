@@ -93,11 +93,11 @@ input[type=number] {
             @endif
 
             <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-                {{ 'Mobile Verification' }}
+                {{ trans('lang.Mobile_Verification') }}
             </h2>
 
             <p class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-                {{ 'Please enter last 4 digits of your mobile number' }}
+                {{ trans('lang.Please_enter_last_4_digits_of_your_mobile_number') }}
             </p>
             
 
@@ -110,7 +110,7 @@ input[type=number] {
                             <input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" />
                             <input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="mobile[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa"  />
 
-                            {{-- <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!} --}}
+                            <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
                             </button>
                         </form>
                     </div>

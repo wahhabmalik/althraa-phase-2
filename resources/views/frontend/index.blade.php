@@ -35,7 +35,7 @@ footer {
                 <div class="s-35"></div>
 
                 <p class="login_link text-center primary-link">
-                    {{ althraa_site_description() }}
+                    {{ ($request->segment(1) == 'ar') ? althraa_site_description_ar() : althraa_site_description() }}
                     {{-- {{ trans('lang.frontend.althraa') }} --}}
                 </p>
 

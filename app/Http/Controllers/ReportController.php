@@ -58,18 +58,33 @@ class ReportController extends Controller
             "q" => ['required', 'string', 'max:40', 'min:39'],
         ]);
 
-        $report = Report::where('public_id',$request->q)->first();
+        $report = Report::where('public_id',$request->q)->latest('created_at')->first();
 
         if(!$report){
             return redirect()->route('/', 'en');
         }
 
-        if(Session::get('verified'))
+        // dd(Session::get('public_id'), $report->public_id);
+        if(Session::get('verified') && Session::get('public_id') == $report->public_id)
             return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
 
         Session::put('public_id', $request->q);
         Session::put('user_id', $report->user_id);
         return view('auth.mobile_verify');
+
+    }
+
+    public function getUserReport(Request $request)
+    {
+        $report = Report::where('user_id',$request->user)->latest('created_at')->first();
+
+        if(!$report)
+            return redirect()->back();
+        
+        if(!auth()->user()->hasRole('admin'))
+            abort(404);
+        
+        return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
 
     }
 

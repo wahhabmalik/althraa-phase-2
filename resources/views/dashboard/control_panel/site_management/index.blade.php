@@ -40,8 +40,13 @@
 							</div>
 
 							<div class="form-group">
-								<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.admin.site_description') }}</label>
+								<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.admin.site_description_en') }}</label>
 								<input type="text" name="description" class="form-control" value="{{ $site_managements['description'] ?? old('description') }}">
+							</div>
+
+							<div class="form-group">
+								<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.admin.site_description_ar') }}</label>
+								<input type="text" name="description_ar" class="form-control" value="{{ $site_managements['description_ar'] ?? old('description_ar') }}">
 							</div>
 
 							<div class="form-group">
@@ -103,8 +108,13 @@
 						  	</div>
 
 						  	<div class="form-group">
-						  		<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.admin.site_description') }}</label>
+						  		<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.admin.site_description_en') }}</label>
 						  		<input type="text" name="maintenance_description" class="form-control"  value="{{ $site_managements['maintenance_description'] ?? old('maintenance_description') }}">
+						  	</div>
+
+						  	<div class="form-group">
+						  		<label class="label_forms {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.admin.site_description_ar') }}</label>
+						  		<input type="text" name="maintenance_description_ar" class="form-control"  value="{{ $site_managements['maintenance_description_ar'] ?? old('maintenance_description_ar') }}">
 						  	</div>
 
 						  	<div class="form-group">

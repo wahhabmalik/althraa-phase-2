@@ -94,7 +94,13 @@ function althraa_site_title()
 function althraa_site_description()
 {
     $site_description = \App\SiteManagement::where('meta_key', 'description')->first();
-    return $site_description->meta_value ?? 'Althraa helps you build your wealth';
+    return $site_description->meta_value ?? 'Thokhor helps you build your wealth';
+}
+
+function althraa_site_description_ar()
+{
+    $site_description = \App\SiteManagement::where('meta_key', 'description_ar')->first();
+    return $site_description->meta_value ?? 'Thokhor helps you build your wealth';
 }
 
 // ------------- site logo -----------------
