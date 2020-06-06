@@ -460,7 +460,13 @@ table {
   width: 700px !important;
   height: 280px !important;
 }
-
+@media only screen and (max-width: 600px) {
+  #myChart{
+    display: block;
+    width: 700px ;
+    height: 280px ;
+  }
+}
 /*.btm_table {
     color: #ffffff !important;
     font-family: 'Cairo', sans-serif  !important;
