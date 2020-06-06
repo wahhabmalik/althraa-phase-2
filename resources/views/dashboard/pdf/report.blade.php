@@ -80,8 +80,8 @@
 
 	<div id="intro" class="container-fluid mb-5 background_effect " >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<br><br><br><br><br>
 				<br><br><br><br><br>
 				<h2 class="mt-5 pt-5 mb-4">
@@ -99,8 +99,8 @@
 		
 		
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<img
                   class="img img-responsive image-main"
                   src="
@@ -124,8 +124,8 @@
 
 	<div id="table_of_contents" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<br><br><br><br><br>
 				
 				<h2 class="mt-5 pt-5 mb-4">
@@ -140,8 +140,8 @@
 		<br><br><br><br><br>
 		
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-9 tb-content">
+			<div class="col-1"></div>
+			<div class="col-9 tb-content">
 				<P>{{ trans('lang.report.about_thokhor') }}</P>
 				<P>{{ trans('lang.report.financial_health_checkup') }}</P>
 				<P>{{ trans('lang.report.personal_indicators') }}</P>
@@ -150,7 +150,7 @@
 				<P>{{ trans('lang.report.investing_plan') }}</P>
 			</div>
 
-			<div class="col-sm-1 tb-content">
+			<div class="col-1 tb-content">
 				<P>01</P>
 				<P>02</P>
 				<P>03</P>
@@ -179,8 +179,8 @@
 
 	<div id="about_us" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -194,8 +194,8 @@
 		<br><br>
 		
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-5">
+			<div class="col-1"></div>
+			<div class="col-5">
 				<img class="img img-fluid img-left" src="{{ asset('frontend_assets/img/banner/undraw_winners.png') }}">
 
 				<h1 class="page-heading invst_plan mt-5 pt-3">
@@ -213,7 +213,7 @@
                 </ul>
 
 			</div>
-			<div class="col-sm-5">
+			<div class="col-5">
 				<img class="img img-fluid img-right" src="{{ asset('frontend_assets/img/banner/undraw_business.png') }}">
 
 				<h1 class="page-heading invst_plan mt-5 pt-3">
@@ -246,8 +246,8 @@
 
 	<div id="personal_information" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -263,24 +263,24 @@
 		
 		
 		<div class="row mt-1 personal-info">
-			<div class="col-sm-1"></div>
+			<div class="col-1"></div>
 			
-			<div class="col-sm-3">
+			<div class="col-3">
 				<p>{{ trans('lang.report.name') }}</p>
 				<b>{{ $data['personalInfo']['name'] }}</b>
 			</div>
 			
-			<div class="col-sm-3">
+			<div class="col-3">
 				<p>{{ trans('lang.report.education') }}</p>
 				<b>{{ $data['personalInfo']['education_level'] }}</b>
 			</div>
 			
-			<div class="col-sm-2">
+			<div class="col-2">
 				<p>{{ trans('lang.report.current_age') }}</p>
 				<b>{{ $data['personalInfo']['years_old'] }}</b>
 			</div>
 			
-			<div class="col-sm-3">
+			<div class="col-3">
 				<p>{{ trans('lang.report.planned_retirement_age') }}</p>
 				<b>{{ $data['personalInfo']['retirement_age'] }}</b>
 			</div>
@@ -291,15 +291,15 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<p class="text-secondary mt-3">{{ trans('lang.report.financial_position_today') }}</p>
 				
 			</div>
 		</div>
 		<div class="row financial-position">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-5">
+			<div class="col-1"></div>
+			<div class="col-5">
 				<table>
 					<tr>
 						<td>{{ trans('lang.report.monthly_income_today') }}</td>
@@ -320,7 +320,7 @@
 					
 				</table>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-5">
 				<table>
 					<tr>
 						<td>{{ trans('lang.report.total_assets_today') }}</td>
@@ -341,16 +341,16 @@
 					
 				</table>
 			</div>
-			<div class="col-sm-1"></div>
+			<div class="col-1"></div>
 		</div>
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.current_asset_allocation') }}</p>
 				<div class="row mb-5">
 					
-						<div class="col-lg-4 col-md-4 col-sm-4 col-4"></div>
-						<div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
+						<div class="col-lg-4 col-md-4 col-4 col-4"></div>
+						<div class="col-lg-4 col-md-4 col-4 col-4 text-center">
 							<canvas id="DonutChartSelectedAsset" width="100" height="100"></canvas>
 						    <!--graph inner-->
 						    <br>
@@ -479,8 +479,8 @@
 
 	<div id="personal_indicators" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
@@ -494,8 +494,8 @@
 
 		
 		<div class="row mt-3">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">{{ trans('lang.report.monthly_saving_rate') }}</p>
 				
 				<div class="factor">
@@ -534,15 +534,15 @@
 
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/002-calendar@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
 		<div class="row mt-3">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '( '.$data['personalInfo']['years_old']. ' Year )' }}</p>
 				{{-- {!! ($request->segment(1) == 'ar') ? ')' : '(' !!} --}}
 				
@@ -573,15 +573,15 @@
 
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/001-safebox@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
 		<div class="row mt-3">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">{{ trans('lang.report.early_retirement_possibility') }}</p>
 				
 				<div class="factor">
@@ -620,15 +620,15 @@
 
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/003-beach@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
 
 
 		<div class="row mt-3">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<p class="text-secondary mt-5">{{ trans('lang.report.investing_diversity') }}</p>
 				
 				<div class="factor-s">
@@ -665,7 +665,7 @@
 
 			</div>
 
-			<div class="col-sm-2">
+			<div class="col-2">
 				<img src="{{ asset('backend_assets/dashboard/images/pdf_icons/004-profits@2x.png') }}" class="factor-icon">
 			</div>
 		</div>
@@ -683,8 +683,8 @@
 
 	<div id="asset_allocation" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -697,8 +697,8 @@
 		
 		
 		<div class="row mt-5">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-9">
+			<div class="col-1"></div>
+			<div class="col-9">
 				<p class="text-secondary mt-5">{{ trans('lang.report.risk_test_index') }}</p>
 				
 				<div class="factor">
@@ -743,13 +743,13 @@
 		<br>
 
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.recommended_assets_allocation') }}</p>
 				<div class="row mb-5">
 					
-						<div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
-						<div class="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
+						<div class="col-lg-3 col-md-3 col-3 col-3"></div>
+						<div class="col-lg-4 col-md-4 col-4 col-4 text-center">
 							<canvas id="DonutChartSelectedAssetRecommended" width="400" height="400"></canvas>
 						    <!--graph inner-->
 						    <br>
@@ -882,8 +882,8 @@
 
 	<div id="financial_forecast" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<h2 class="mt-5 mb-2">
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
@@ -898,8 +898,8 @@
 		<br><br>
 
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-8">
+			<div class="col-1"></div>
+			<div class="col-8">
 				<canvas id="myChart" width="1600" height="600"></canvas>
 			</div>
 		</div>
@@ -910,8 +910,8 @@
 		{{-- <br><br><br><br><br> --}}
 
 		<div class="row financial-position">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-5">
+			<div class="col-1"></div>
+			<div class="col-5">
 				<p class="text-secondary mt-5">{{ trans('lang.report.assumptions') }}</p>
 				<table>
 					<tr>
@@ -939,7 +939,7 @@
 					
 				</table>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-5">
 				<p class="text-secondary mt-4">{{ trans('lang.report.returns_assumptions') }}</p>
 				<table>
 					<tr>
@@ -973,8 +973,8 @@
 		</div>
 
 		<div class="row financial-position">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.income_and_wealth_at_retirement') }}</p>
 				<table>
 					{{-- <tr>
@@ -1014,8 +1014,8 @@
 	<div id="table-break"  class="container-fluid mb-5 parent-report" >
 		
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-1 mb-2">
 	                {{ 'thokhor' }}
@@ -1090,8 +1090,8 @@
 
 	<div id="disclaimer" class="container-fluid parent-report" >
 		<div class="row">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
+			<div class="col-1"></div>
+			<div class="col-10">
 				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 mb-2">
 	                {{ 'thokhor' }}
@@ -1104,8 +1104,8 @@
 		</div>
 
 		<div class="row mt-2">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10 ">
+			<div class="col-1"></div>
+			<div class="col-10 ">
 
 				<h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
             	<p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
