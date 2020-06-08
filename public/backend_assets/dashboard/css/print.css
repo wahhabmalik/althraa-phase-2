@@ -462,7 +462,7 @@ table {
 }
 
 .myChart_responsive{
-    width: 60% !important;
+    width: 80% !important;
   }
 @media only screen and (max-width: 760px) {
   #myChart_responsive{
