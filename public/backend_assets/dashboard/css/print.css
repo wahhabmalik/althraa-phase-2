@@ -456,9 +456,9 @@ table {
 }
 
 #myChart{
-  display: block;
-  width: 700px !important;
-  height: 280px !important;
+  /*display: block;*/
+/*  width: 700px !important;
+  height: 280px !important;*/
 }
 @media only screen and (max-width: 760px) {
   #myChart_responsive{
