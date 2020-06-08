@@ -349,8 +349,8 @@
 				<p class="text-secondary mt-5">{{ trans('lang.report.current_asset_allocation') }}</p>
 				<div class="row mb-5">
 					
-						<div class="col-lg-4 col-md-4 col-4 col-4"></div>
-						<div class="col-lg-4 col-md-4 col-4 col-4 text-center">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-12"></div>
+						<div class="col-lg-4 col-md-4 col-4 col-sm-4 col-12 text-center">
 							<canvas id="DonutChartSelectedAsset" width="100" height="100"></canvas>
 						    <!--graph inner-->
 						    <br>

@@ -102,7 +102,7 @@
             <div class="col-md-4">
                 <div class="card-body">
                     <div class="alert alert-warning" role="alert">
-                        {{ session('error') }}
+                        {{ session('error')}} {{ \Session::put('error', '') }}
                     </div>
                 </div>
             </div>

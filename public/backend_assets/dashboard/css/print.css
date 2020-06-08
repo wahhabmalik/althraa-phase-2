@@ -463,7 +463,7 @@ table {
 @media only screen and (max-width: 760px) {
   #myChart{
     display: block;
-    width: 270px !important;
+    width: 36rem !important;
     height: 192px !important;
   }
 }
