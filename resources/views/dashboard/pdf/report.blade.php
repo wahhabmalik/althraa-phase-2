@@ -1501,7 +1501,7 @@ $(document).ready(function(){
 			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
 			});
 		},
-	3000);
+	6000);
 });
 
 </script>

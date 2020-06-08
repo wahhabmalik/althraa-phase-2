@@ -189,7 +189,7 @@
          <br>
          <br>
 
-         <a href="{{ route('download', ['q'=> $data['public_id'], 'ar']) }}" class="white-btn" align="center" style="background: #01630a;color: white;padding: 5px 32px;font-family: 'Cairo', sans-serif;text-decoration: none;"> تقرير التحميل  </a>
+         <a href="{{ route('download', ['q'=> $data['public_id'], 'ar']) }}" class="white-btn" align="center" style="background: #01630a;color: white;padding: 5px 32px;font-family: 'Cairo', sans-serif;text-decoration: none;">   تحميل التقرير   </a>
         </td>
       </tr>
 
