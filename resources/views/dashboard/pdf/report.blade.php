@@ -1506,8 +1506,10 @@ $(document).ready(function(){
 			html2pdf(document.body).set({
 			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
 			});
+
+			$('#myChart').css(myChart_responsive);
 		},
-	6000);
+	3000);
 });
 
 </script>
