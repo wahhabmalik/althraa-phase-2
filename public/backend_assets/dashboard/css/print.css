@@ -455,16 +455,16 @@ table {
     margin-left: auto;
 }
 
-#myChart{
+#myChart_div{
   display: block;
-  /*width: 700px !important;*/
-  /*height: 280px !important;*/
+  width: 700px !important;
+  height: 280px !important;
 }
 @media only screen and (max-width: 760px) {
-  #myChart{
+  #myChart_div{
     display: block;
-    /*width: 36rem !important;*/
-    /*height: 192px !important;*/
+    width: 36rem !important;
+    height: 192px !important;
   }
 }
 /*.btm_table {
