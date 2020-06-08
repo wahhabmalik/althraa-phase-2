@@ -51,7 +51,7 @@ input[type=number] {
 
 .login {
     height: 90vh;
-    padding: 2rem 0;
+    /*padding: 2rem 0;*/
 }
 
 
@@ -79,7 +79,7 @@ input[type=number] {
 
     <div class="row">
 
-        <div class="col-md-4 login__container m-3">
+        <div class="col-md-4 login__container">
             <div class="s-100"></div>
             
             @if (session('message'))
