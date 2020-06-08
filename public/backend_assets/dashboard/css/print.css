@@ -456,18 +456,18 @@ table {
 }
 
 #myChart{
-  display: block;
-  width: 700px !important;
-  height: 280px !important;
+  /*display: block;*/
+  /*width: 700px !important*/
+  /*height: 280px !important;*/
 }
 @media only screen and (max-width: 760px) {
   #myChart_responsive{
-    display: block;
+    /*display: block;*/
     width: 270px !important;
     height: 192px !important;
   } 
   .myChart_responsive{
-    display: block;
+    /*display: block;*/
     width: 100% !important;
     height: 200px !important;
   }
