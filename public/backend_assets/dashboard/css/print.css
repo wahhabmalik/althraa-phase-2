@@ -455,7 +455,7 @@ table {
     margin-left: auto;
 }
 
-#myChart{
+#myChart_responsive{
   display: block;
   width: 700px !important;
   height: 280px !important;
