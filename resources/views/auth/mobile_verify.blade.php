@@ -79,7 +79,7 @@ input[type=number] {
 
     <div class="row">
 
-        <div class="col-md-4 login__container">
+        <div class="col-md-4 login__container m-3">
             <div class="s-100"></div>
             
             @if (session('message'))
