@@ -1397,7 +1397,6 @@ var myChart = new Chart(ctx, {
         ]
     },
     options: {
-        responsive: true,
         maintainAspectRatio: true,
         legend: {
             position: "bottom"
@@ -1470,6 +1469,7 @@ var myChart = new Chart(ctx, {
                 }
             }]
         },
+        responsive: true,
         plugins: {
           filler: {
             propagate: false
