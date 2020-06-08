@@ -899,7 +899,7 @@
 
 		<div class="row">
 			<div class="col-1"></div>
-			<div class="col-xl-10 col-lg-6 col-md-10 col-sm-10 col-10" >
+			<div class="col-lg-6 col-md-10 col-sm-10 col-10" >
 				
 				<canvas id="myChart" ></canvas>
 				
