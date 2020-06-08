@@ -460,6 +460,10 @@ table {
   /*width: 700px !important*/
   /*height: 280px !important;*/
 }
+
+.myChart_responsive{
+    width: 60% !important;
+  }
 @media only screen and (max-width: 760px) {
   #myChart_responsive{
     /*display: block;*/
