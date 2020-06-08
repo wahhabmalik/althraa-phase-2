@@ -468,8 +468,15 @@ table {
   } 
   .myChart_responsive{
     display: block;
-    width: 270px !important;
-    height: 192px !important;
+    width: 100% !important;
+    height: 200px !important;
+  }
+}
+@media print{
+  .myChart_responsive{
+    display: block;
+    width: 100% !important;
+    height: 200px !important;
   }
 }
 /*.btm_table {

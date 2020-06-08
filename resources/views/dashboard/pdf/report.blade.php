@@ -899,8 +899,10 @@
 
 		<div class="row">
 			<div class="col-1"></div>
-			<div class="col-8" id="myChart_responsive">
-				<canvas id="myChart" ></canvas>
+			<div class="col-8" >
+				<div class="myChart_responsive">
+					<canvas id="myChart" ></canvas>
+				</div>
 			</div>
 		</div>
 
@@ -1507,7 +1509,7 @@ $(document).ready(function(){
 			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
 			});
 
-			$('#myChart').css(myChart_responsive);
+			// $('#myChart').addClass('myChart_responsive');
 		},
 	3000);
 });
