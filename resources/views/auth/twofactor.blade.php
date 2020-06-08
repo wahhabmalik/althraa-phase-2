@@ -98,7 +98,7 @@ li span {
 
         <div class="col-sm-4"></div>
         <div class="col-sm-4 text-center">
-            <div class="card mb-5">
+            <div class="card mb-5 m-3">
                 <h1>{{ trans('lang.code_will_expire_in') }}</h1>
                 <ul id="countdown">
                     {{-- <li><span id="days"></span>days</li> --}}
@@ -111,9 +111,9 @@ li span {
     </div>
 
 
-    <div class="row mb-5">
+    <div class="row mb-5 p-3">
 
-        <div class="col-md-4 login__container">
+        <div class="col-md-4 login__container ">
         
             <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
                 {{ trans('lang.frontend.two_factor_verification') }}
