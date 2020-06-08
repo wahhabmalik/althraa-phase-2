@@ -66,7 +66,7 @@
 											
 										</a>
 									</li>
-									<li>
+									<li class="tab-mob">
 										<p>
 											{{ trans('lang.question_headings.net_assets') }}
 										</p>

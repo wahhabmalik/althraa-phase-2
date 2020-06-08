@@ -75,7 +75,7 @@
 										
 									</a>
 								</li>
-								<li>
+								<li class="tab-mob">
 									<p class="progressbar_text">
 										{{ trans('lang.question_headings.gosi') }}
 									</p>
