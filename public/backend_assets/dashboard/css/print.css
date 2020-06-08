@@ -455,15 +455,15 @@ table {
     margin-left: auto;
 }
 
-#myChart_div{
+#myChart{
   display: block;
   width: 700px !important;
   height: 280px !important;
 }
 @media only screen and (max-width: 760px) {
-  #myChart_div{
+  #myChart_responsive{
     display: block;
-    width: 36rem !important;
+    width: 270px !important;
     height: 192px !important;
   }
 }

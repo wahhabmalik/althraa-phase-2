@@ -83,7 +83,7 @@ class User extends Authenticatable
                 'to'   => $user->phone_number,
                 'from' => '923055644665',
                 'text' => 'Thokhor verification Key is: '.$user->two_factor_code,
-                'brand' => 'Thokho'
+                'brand' => 'Thokhor'
             ]);
             // dd($result);
         } catch (\Exception $e) 

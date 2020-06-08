@@ -899,7 +899,7 @@
 
 		<div class="row">
 			<div class="col-1"></div>
-			<div class="col-8" id="myChart_div">
+			<div class="col-8" id="myChart_responsive">
 				<canvas id="myChart" ></canvas>
 			</div>
 		</div>
