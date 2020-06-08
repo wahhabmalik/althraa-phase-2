@@ -1402,6 +1402,16 @@ var myChart = new Chart(ctx, {
         legend: {
             position: "bottom"
         },
+        legend: {
+	        display: false
+	    },
+	    tooltips: {
+	        callbacks: {
+	           label: function(tooltipItem) {
+	                  return tooltipItem.yLabel;
+	           }
+	        }
+	    },
         scales: {
             yAxes: [{
                   display: true,
@@ -1421,7 +1431,7 @@ var myChart = new Chart(ctx, {
                     // },
                     userCallback: function(tick, index, array) {
                       if($(window).width() < 760){
-                        return (index % 3) ? "" : 'SAR ' + tick;
+                        return (index % 3) ? "" : tick;
                       }
                       else{
                         return (index % 2) ? "" : 'SAR ' + (Math.round(tick * 100) / 100).toLocaleString();
