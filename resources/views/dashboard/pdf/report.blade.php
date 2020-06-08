@@ -1408,10 +1408,16 @@ var myChart = new Chart(ctx, {
 	    tooltips: {
 	        callbacks: {
 	           label: function(tooltipItem) {
-	                  return tooltipItem.yLabel;
+	           		if($(window).width() < 760){
+                        return tooltipItem.yLabel;
+                    }
+                    else{
+                    }
+                      
 	           }
 	        }
 	    },
+
         scales: {
             yAxes: [{
                   display: true,
