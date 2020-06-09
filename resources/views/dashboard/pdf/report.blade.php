@@ -1535,7 +1535,8 @@ $(document).ready(function(){
 			function myFunction(x) {
 
 				if (x.matches) { // If media query matches
-				    $('.col-5').toggleClass('col-10');
+				    $('.col-5').toggleClass('col-12');
+				    $('.col-9.factor').toggleClass('col-12');
 				 } 
 				}
 
