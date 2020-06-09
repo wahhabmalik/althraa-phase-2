@@ -53,9 +53,9 @@
     text-align: {{ $direction_op }};
 }
 
-/*#disclaimer{
+#disclaimer{
 	page-break-before: always;
-}*/
+}
 #intro, #table_of_contents, #about_us, #personal_information, #personal_indicators, #asset_allocation, #financial_forecast{
 	page-break-after: always;
 }
@@ -187,6 +187,7 @@
 	            </h2>
 	            <br><br>
 	            <h1 class="heading-main">{!! trans('lang.report.thank_you_for') !!}</h1>
+	            <br>
 	            <p class="text-primary">{{ trans('lang.report.we_hope') }}</p>
 			</div>
 		</div>
@@ -235,7 +236,7 @@
 		</div>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br>
+		<br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
@@ -543,7 +544,7 @@
 		<div class="row mt-3">
 			<div class="col-1"></div>
 			<div class="col-8">
-				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '( '.$data['personalInfo']['years_old']. ' Year )' }}</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '- '.$data['personalInfo']['years_old']. trans('lang.report.year') }}</p>
 				{{-- {!! ($request->segment(1) == 'ar') ? ')' : '(' !!} --}}
 				
 				<div class="factor-vs">
@@ -1047,7 +1048,7 @@
 						<tbody>
 						  @isset ($data['plan'])
 						  @php $count = 0; @endphp
-						      @forelse ($data['plan'] as $pl)
+						      @forelse ($data['plan'] as $key => $pl)
 						        <tr {{ ($pl['age'] == $data['retirement_age']) ? 'class=highlight' : '' }}  >
 						          <td class="btm_table_td">
 						            {{ ++$count ?? '' }}
@@ -1069,6 +1070,9 @@
 						          </td>
 						        </tr>
 						        @if($pl['age'] == 65)
+						        	@break
+						        @endif
+						        @if($count == 30)
 						        	@break
 						        @endif
 						      @empty
@@ -1100,33 +1104,46 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            
-	            <h1 class="heading-main text-center">Disclaimer</h1>
+	            <h1 class="heading-main text-center">{{ trans('lang.disclaimer') }}</h1>
 	            
 			</div>
 		</div>
 
-		<div class="row mt-2">
-			<div class="col-1"></div>
-			<div class="col-10 ">
 
-				<h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
-            	<p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
-            	<br>
+		@if($request->segment(1) == 'en')
+			<div class="row mt-2">
+				<div class="col-1"></div>
+				<div class="col-10 ">
+
+					<h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
+	            	<p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
+	            	<br>
 
 
-	            <h1>{{ trans('lang.frontend_legal.purpose') }}</h1>
-	            <p>{{ trans('lang.frontend_legal.purpose_text') }}</p>
-	            <br>
+		            <h1>{{ trans('lang.frontend_legal.purpose') }}</h1>
+		            <p>{{ trans('lang.frontend_legal.purpose_text') }}</p>
+		            <br>
 
-	            <h1>{{ trans('lang.frontend_legal.stake_and_responsabilities') }}</h1>
-                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_1') }}</p>
-                
-                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_2') }}</p>
-                
+		            <h1>{{ trans('lang.frontend_legal.stake_and_responsabilities') }}</h1>
+	                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_1') }}</p>
+	                
+	                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_2') }}</p>
+	                
 
+				</div>
 			</div>
-		</div>
+		@else
+			<div class="row mt-2">
+					<div class="col-1"></div>
+					<div class="col-10 ">
+						<br><br><br>
+						<br><br><br>
+						<p>{{ trans('lang.pdf_disclaimer') }}</p>
+					</div>
+			</div>
+		@endif
 
+		<br><br><br>
 		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
