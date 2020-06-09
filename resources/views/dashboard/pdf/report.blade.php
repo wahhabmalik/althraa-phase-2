@@ -1535,10 +1535,8 @@ $(document).ready(function(){
 			function myFunction(x) {
 
 				if (x.matches) { // If media query matches
-				    document.body.style.backgroundColor = "yellow";
-				 } else {
-				   document.body.style.backgroundColor = "pink";
-				  }
+				    $('.col-5').toggleClass('col-10');
+				 } 
 				}
 
 				var x = window.matchMedia("(max-width: 700px)")
