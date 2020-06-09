@@ -1143,8 +1143,6 @@
 			</div>
 		@endif
 
-		<br><br><br>
-		<br><br><br>
 		<p class="text-center mr-5">{{ $data['credits'] }}</p>
 	</div>
 
