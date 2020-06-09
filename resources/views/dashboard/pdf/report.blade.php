@@ -1014,7 +1014,7 @@
 	{{-- Page 7 with table start --}}
 
 
-	<div id="table-break"  class="container-fluid mb-5 parent-report" >
+	<div id="table-break"  class="container-fluid parent-report" >
 		
 		<div class="row">
 			<div class="col-1"></div>
