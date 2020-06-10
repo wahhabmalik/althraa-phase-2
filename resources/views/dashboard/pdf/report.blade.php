@@ -930,9 +930,10 @@
 						<td>{{ currency($data['monthlySavingPlanForRetirement']) }} {{ trans('lang.report.per_month') }}</td>
 					</tr>
 					<tr>
-						<td>{{ trans('lang.report.monthly_saving_today') }}</td>
+						<td>{{ trans('lang.report.monthly_saving_today') .trans('lang.report.of_monthly_income') }}</td>
 						<td>
-						{!! ($request->segment(1) == 'ar') ? percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') : percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') !!}
+						{!! percentage($data['monthlySavingPercentageToday']) !!}
+						{{-- {!! ($request->segment(1) == 'ar') ? trans('lang.report.of_monthly_income') . percentage($data['monthlySavingPercentageToday']) : percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') !!} --}}
 					</td>
 					</tr>
 					<tr>
