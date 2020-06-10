@@ -889,7 +889,7 @@
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
-	            <p class="text-secondary mt-5">{{ trans('lang.report.financial_forecast') }}</p>
+	            <p class="heading-secondary mt-5">{{ trans('lang.report.financial_forecast') }}</p>
 	            <p class="alertBox__p">
 	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} <span>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</span>
 	            </p>
@@ -1116,18 +1116,18 @@
 				<div class="col-10 to-12">
 
 					<h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
-	            	<p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
+	            	<p class="text-justify">{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
 	            	<br>
 
 
 		            <h1>{{ trans('lang.frontend_legal.purpose') }}</h1>
-		            <p>{{ trans('lang.frontend_legal.purpose_text') }}</p>
+		            <p class="text-justify">{{ trans('lang.frontend_legal.purpose_text') }}</p>
 		            <br>
 
 		            <h1>{{ trans('lang.frontend_legal.stake_and_responsabilities') }}</h1>
-	                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_1') }}</p>
+	                <p class="text-justify">{{ trans('lang.frontend_legal.stake_and_responsabilities_text_1') }}</p>
 	                
-	                <p>{{ trans('lang.frontend_legal.stake_and_responsabilities_text_2') }}</p>
+	                <p class="text-justify">{{ trans('lang.frontend_legal.stake_and_responsabilities_text_2') }}</p>
 	                
 
 				</div>
@@ -1138,8 +1138,9 @@
 					<div class="col-10 to-12">
 						<br><br><br>
 						<br><br><br>
-						<br><br><br>
 						<p class="text-justify">{{ trans('lang.pdf_disclaimer') }}</p>
+						<br><br><br>
+						<br><br><br>
 					</div>
 			</div>
 		@endif
@@ -1518,22 +1519,17 @@ var myChart = new Chart(ctx, {
 }
 addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
 
-$(document).ready(function(){
-	setTimeout(
-		function() {
-			// html2pdf(document.body).set({
-			//   pagebreak: { mode: 'avoid-all' , before: '#table-break', }
-			// });
 
-			// $('#myChart').addClass('myChart_responsive');
-		},
-	1000);
-});
 
 $(document).ready(function(){
 	setTimeout(
 		function() {
 			function myFunction(x) {
+
+				html2pdf(document.body).set({
+				  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
+				});
+
 
 				if (x.matches) { // If media query matches
 				    // $('.col-1').removeClass('col-1');

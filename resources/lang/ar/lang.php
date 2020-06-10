@@ -1030,7 +1030,7 @@ return [
             // 'financial_health_checkup' =>  'جFinancial Health Checkup',
             // 'personal_indicators' =>  'جPersonal Indicators',
             // 'asset_allocation' =>  'جAsset Allocation',
-            'financil_forcast' =>  'تصحيح مهم كلمة',
+            'financil_forcast' =>  '  التوقعات المالية المستقبلية   ',
             'investing_plan' =>  'خطة الاستثمار',
 
             'year' => 'سنة',
