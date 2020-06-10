@@ -495,10 +495,15 @@ table {
   }
 }
 
-.factor p{
+.factor p:not(.text-secondary){
     display: inline-block;
     width: 15%;
     margin-right: 8px;
+}
+@media only screen and (max-width: 760px) {
+  .factor p:not(.text-secondary) {
+    font-size: 11px;
+  }
 }
 .factor-s p{
     display: inline-block;
@@ -556,7 +561,7 @@ table {
 @media only screen and (max-width: 760px) {
   .factor-icon {
     bottom: 60px;
-    max-width: 80%;
+    max-width: 65%;
     position: absolute;
 } 
 }

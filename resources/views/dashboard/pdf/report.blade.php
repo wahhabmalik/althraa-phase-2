@@ -179,7 +179,7 @@
 
 	<div id="about_us" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				<h2 class="mt-5 pt-5 mb-4">
 	                {{ 'thokhor' }}
@@ -247,7 +247,7 @@
 
 	<div id="personal_information" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
@@ -264,7 +264,7 @@
 		
 		
 		<div class="row mt-1 personal-info">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			
 			<div class="col-3">
 				<p>{{ trans('lang.report.name') }}</p>
@@ -292,7 +292,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				<p class="text-secondary mt-3">{{ trans('lang.report.financial_position_today') }}</p>
 				
@@ -345,8 +345,8 @@
 			<div class="col-1"></div>
 		</div>
 		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-10">
+			<div class="col-1 rem-col"></div>
+			<div class="col-10 to-12">
 				<p class="text-secondary mt-5">{{ trans('lang.report.current_asset_allocation') }}</p>
 				<div class="row mb-5">
 					
@@ -480,7 +480,7 @@
 
 	<div id="personal_indicators" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 mb-4">
@@ -495,8 +495,8 @@
 
 		
 		<div class="row mt-3">
-			<div class="col-1"></div>
-			<div class="col-8">
+			<div class="col-1 rem-col"></div>
+			<div class="col-8 to-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.monthly_saving_rate') }}</p>
 				
 				<div class="factor">
@@ -542,8 +542,8 @@
 
 
 		<div class="row mt-3">
-			<div class="col-1"></div>
-			<div class="col-8">
+			<div class="col-1 rem-col"></div>
+			<div class="col-8 to-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '- '.$data['personalInfo']['years_old']. trans('lang.report.year') }}</p>
 				{{-- {!! ($request->segment(1) == 'ar') ? ')' : '(' !!} --}}
 				
@@ -581,8 +581,8 @@
 
 
 		<div class="row mt-3">
-			<div class="col-1"></div>
-			<div class="col-8">
+			<div class="col-1 rem-col"></div>
+			<div class="col-8 to-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.early_retirement_possibility') }}</p>
 				
 				<div class="factor">
@@ -628,8 +628,8 @@
 
 
 		<div class="row mt-3">
-			<div class="col-1"></div>
-			<div class="col-8">
+			<div class="col-1 rem-col"></div>
+			<div class="col-8 to-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.investing_diversity') }}</p>
 				
 				<div class="factor-s">
@@ -684,7 +684,7 @@
 
 	<div id="asset_allocation" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				<h2 class="mt-5 mb-4">
 	                {{ 'thokhor' }}
@@ -698,8 +698,8 @@
 		
 		
 		<div class="row mt-5">
-			<div class="col-1"></div>
-			<div class="col-9">
+			<div class="col-1 rem-col"></div>
+			<div class="col-9 factor">
 				<p class="text-secondary mt-5">{{ trans('lang.report.risk_test_index') }}</p>
 				
 				<div class="factor">
@@ -744,13 +744,13 @@
 		<br>
 
 		<div class="row">
-			<div class="col-1"></div>
-			<div class="col-10">
+			<div class="col-1 rem-col"></div>
+			<div class="col-10 to-12">
 				<p class="text-secondary mt-5">{{ trans('lang.report.recommended_assets_allocation') }}</p>
 				<div class="row mb-5">
 					
-						<div class="col-lg-3 col-md-3 col-3 col-3"></div>
-						<div class="col-lg-4 col-md-4 col-4 col-4 text-center">
+						<div class="col-lg-3 col-md-3 col-3"></div>
+						<div class="col-lg-4 col-md-4 col-12 text-center">
 							<canvas id="DonutChartSelectedAssetRecommended" width="400" height="400"></canvas>
 						    <!--graph inner-->
 						    <br>
@@ -883,7 +883,7 @@
 
 	<div id="financial_forecast" class="container-fluid mb-5 parent-report" >
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				<h2 class="mt-5 mb-2">
 	                {{ 'thokhor' }}
@@ -899,7 +899,7 @@
 		<br><br>
 
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-lg-6 col-md-10 col-sm-10 col-10" >
 				
 				<canvas id="myChart" ></canvas>
@@ -913,7 +913,7 @@
 		{{-- <br><br><br><br><br> --}}
 
 		<div class="row financial-position">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-5">
 				<p class="text-secondary mt-5">{{ trans('lang.report.assumptions') }}</p>
 				<table>
@@ -976,8 +976,8 @@
 		</div>
 
 		<div class="row financial-position">
-			<div class="col-1"></div>
-			<div class="col-10">
+			<div class="col-1 rem-col"></div>
+			<div class="col-10 to-12">
 				<p class="text-secondary mt-5">{{ trans('lang.report.income_and_wealth_at_retirement') }}</p>
 				<table>
 					{{-- <tr>
@@ -1096,7 +1096,7 @@
 
 	<div id="disclaimer" class="container-fluid parent-report" >
 		<div class="row">
-			<div class="col-1"></div>
+			<div class="col-1 rem-col"></div>
 			<div class="col-10">
 				{{-- <br><br><br><br><br> --}}
 				<h2 class="mt-5 mb-2">
@@ -1112,8 +1112,8 @@
 
 		@if($request->segment(1) == 'en')
 			<div class="row mt-2">
-				<div class="col-1"></div>
-				<div class="col-10 ">
+				<div class="col-1 rem-col"></div>
+				<div class="col-10 to-12">
 
 					<h1>{{ trans('lang.frontend_legal.about_our_services') }}</h1>
 	            	<p>{{ trans('lang.frontend_legal.about_our_services_text') }}</p>
@@ -1134,11 +1134,12 @@
 			</div>
 		@else
 			<div class="row mt-2">
-					<div class="col-1"></div>
-					<div class="col-10 ">
+					<div class="col-1 rem-col"></div>
+					<div class="col-10 to-12">
 						<br><br><br>
 						<br><br><br>
-						<p>{{ trans('lang.pdf_disclaimer') }}</p>
+						<br><br><br>
+						<p class="text-justify">{{ trans('lang.pdf_disclaimer') }}</p>
 					</div>
 			</div>
 		@endif
@@ -1520,13 +1521,13 @@ addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
 $(document).ready(function(){
 	setTimeout(
 		function() {
-			html2pdf(document.body).set({
-			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
-			});
+			// html2pdf(document.body).set({
+			//   pagebreak: { mode: 'avoid-all' , before: '#table-break', }
+			// });
 
 			// $('#myChart').addClass('myChart_responsive');
 		},
-	3000);
+	1000);
 });
 
 $(document).ready(function(){
@@ -1535,8 +1536,14 @@ $(document).ready(function(){
 			function myFunction(x) {
 
 				if (x.matches) { // If media query matches
+				    // $('.col-1').removeClass('col-1');
 				    $('.col-5').toggleClass('col-12');
-				    $('.col-9.factor').toggleClass('col-12');
+				    $('.rem-col').remove();
+				    // $('.col-5').toggleClass('col-10');
+				    $('.col-9.factor').removeClass('col-9').addClass('col-12');
+				    $('.col-10.to-12').removeClass('col-10').addClass('col-12');
+				    $('.col-8.to-10').removeClass('col-8').addClass('col-10');
+				    $('#HTMLtoPDF:not(.background_effect) > div').addClass('container');
 				 } 
 				}
 
@@ -1544,7 +1551,7 @@ $(document).ready(function(){
 				myFunction(x) // Call listener function at run time
 				x.addListener(myFunction) // Attach listener function on state changes
 		},
-	8000);
+	1000);
 });
 
 </script>

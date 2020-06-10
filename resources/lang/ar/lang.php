@@ -62,7 +62,7 @@ return [
 
 
     'dashboard' => [
-        'dashboard' => 'لوحة القيادة',
+        'dashboard' => '  البداية   ',
         'you_are_logged_in' => 'لقد سجلت الدخول !',
     ],
 
@@ -500,7 +500,7 @@ return [
 
     // frontend legal
     'frontend_legal' => [
-        'legal' => '   قانوني    ',
+        'legal' => '   الإفصاح القانوني  ',
         'legal_heading_text' => '   جميع المستندات القانونية التي تحتاج إليها للبدء مع الثراء       ',
 
         'legal_heading1' => '   العنوان   1     ',

@@ -62,7 +62,7 @@ return [
 
 
     'dashboard' => [
-        'dashboard' => 'Dashboard',
+        'dashboard' => 'Start',
         'you_are_logged_in' => 'You are Logged in !',
     ],
 
