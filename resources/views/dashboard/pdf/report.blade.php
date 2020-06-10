@@ -1519,17 +1519,20 @@ var myChart = new Chart(ctx, {
 }
 addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
 
-
+$(document).ready(function(){
+	setTimeout(
+		function() {
+			html2pdf(document.body).set({
+			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
+			});
+		},
+	1000);
+});
 
 $(document).ready(function(){
 	setTimeout(
 		function() {
 			function myFunction(x) {
-
-				html2pdf(document.body).set({
-				  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
-				});
-
 
 				if (x.matches) { // If media query matches
 				    // $('.col-1').removeClass('col-1');
@@ -1547,7 +1550,7 @@ $(document).ready(function(){
 				myFunction(x) // Call listener function at run time
 				x.addListener(myFunction) // Attach listener function on state changes
 		},
-	1000);
+	4000);
 });
 
 </script>
