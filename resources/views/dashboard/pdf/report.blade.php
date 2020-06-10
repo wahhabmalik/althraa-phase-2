@@ -932,7 +932,7 @@
 					<tr>
 						<td>{{ trans('lang.report.monthly_saving_today') }}</td>
 						<td>
-						{!! ($request->segment(1) == 'ar') ? trans('lang.report.of_monthly_income') . percentage($data['monthlySavingPercentageToday']) : percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') !!}
+						{!! ($request->segment(1) == 'ar') ? percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') : percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') !!}
 					</td>
 					</tr>
 					<tr>
