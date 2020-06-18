@@ -1051,5 +1051,8 @@ return [
 
     'no_users_found' => 'No users found',
 
+    'New_Code_has_been_sent_to_you' => 'تم إرسال كود جديد لك',
+
+
 
 ];

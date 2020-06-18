@@ -1041,4 +1041,6 @@ return [
     'no_users_found' => 'No users found',
     'users' => 'Users',
 
+    'New_Code_has_been_sent_to_you' => 'New Code has been sent to you'
+
 ];

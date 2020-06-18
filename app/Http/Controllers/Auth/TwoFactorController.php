@@ -51,6 +51,6 @@ class TwoFactorController extends Controller
     	$user = auth()->user();
     	$user->twoFactorAndSendText($user);
 
-    	return redirect()->route('verify.index', app()->getLocale())->withMessage('New Code has been sent to you.');
+    	return redirect()->route('verify.index', app()->getLocale())->withMessage(trans('lang.New_Code_has_been_sent_to_you'));
     }
 }
