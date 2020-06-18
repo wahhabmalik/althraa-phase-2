@@ -755,7 +755,7 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $data['accomulativeSavingtoday'] ?? '0' }} 
+						    	{{ currency($data['accomulativeSavingtoday'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
 						    	{{ round(100, 2) ?? 100 }} %
