@@ -87,7 +87,7 @@ li span {
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="card-body">
-                    <div class="alert alert-info" role="alert">
+                    <div class="alert alert-success text-center" role="alert">
                         {{ session('message') }}
                     </div>
                 </div>
