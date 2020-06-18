@@ -621,7 +621,7 @@ return [
 
     ],
 
-    'disclaimer' => 'Disclaimer',
+    'disclaimer' => 'Legal Disclaimer',
 
     'frontend_disclaimer' => [
         'text' => 'موقع دخر او القائمين على لا يقدم أية إقرارات أو ضمانات (صريحة أو ضمنية) بشأن البيانات والمعلومات المقدمة وبالرغم من موثوقية مصادر المعلومات والعناية المعقولة في البيانات الا أنه 
@@ -644,7 +644,7 @@ return [
 تلك الجهه القضائية'
     ],
 
-    'pdf_disclaimer' => 'عقوم رخد وا نیمئاقلا ىلع لا مدقی ةیأ تارارقإ وأ تانامض ةحیرص( وأ )ةینمض نأشب تانایبلا تامولعملاو ،ةمدقملا مغرلابو نم ةیقوثوم رداصم تامولعملا ةیانعلاو ةلوقعملا يف تانایبلا لاا ھنأ لا رقی نأب تامولعملا يتلا اھنمضتی اذھ عقوملا وا ئاثو ھق يھ تامولعم ةلماك وأ ةیلاخ نم يأ أطخ وأ ریغ ةللضم وأ اھنأ حلصت ىلإ ضرغ ددحم امك نا عقوم رخد و نیمئاقلا ھیلع نولخی مھتیلوؤسم نع يأ عون نم عاونأ تانامضلا ةقلعتملا قیقحتب ةجیتن حبر ،ةنیعم سوا ًء تناك ةحیرص وأ ةینمض . لاف ةقیثو وا تامولعملا يف اذھ عقوملا امنإ مدقت تامولعم ةماع طقف . امك ھنأ تامولعملا يأو ً وأ ةوعد میدقتل ضرع يأر دراو يف اذھ عقوملا وأ يا ةقیثو ھنم لا لكشت عرضا ءارشل وأ عیب يأ قاروأ ةیلام وأ اھریغ نم تاجتنملا ةیرامثتسلاا تاذ ةلصلا كلتب قارولأا ةیلاملا وأ تارامثتسلاا . سیلو ضرغلا نم هذھ عقوملا وأ ھقئاثو میدقت ةروشم ةیصخش يف لاجم رامثتسلإا امك اھنأ لا ذخأت يف رابتعلإا فادھلأا ةیرامثتسلإا وأ عضولا يلاملا وأ تاجایتحلإا ةددحملا يلأ صخش نیعم دق ملتسی هذھ ،ةقیثولا يغبنیو نیرمثتسملل يعسلا لوصحلل ىلع ةروشملا ةیلاملا وأ ةینوناقلا وأ ةیبیرضلا نم ش ةكر ةیلام ةصخرم نم ةئیھ قوسلا ةیلاملا وا تاھجلا ةیموكحلا تاذ ةقلاعلا نأشب ىدم ةمئلام رامثتسلإا يف يأ قاروأ ةیلام ، وأ رامثتسا رخآ وأ ةیأ تایجیتارتسا رامثتسا ترج اھتشقانم وأ ةیصوتلا اھب يف اذھ عقوملا وا قئاثولا ةرداصلا ھنع ، يغبنیو ءلامعلل مھفت نأ تانایبلا ةقلعتملا تاعقوتلاب ةیلبقتسملا دراولا نم اذھ عقوملا دق لا ققحتت . كلذك يغبنی ءلامعلل ةظحلام نأ لخدلا نم قاروأ ةیلام نم اذھ عونلا وأ اھریغ نم تارامثتسلإا ، نإ دجو ، دق ضرعتی تابلقتلل نأبو رعس وأ ةمیق كلت قارولأا ةیلاملا تارامثتسلإاو نوكی ةضرع عافترلإل وأ ضافخنلإا . امك نأ تابلقتلا يف راعسأ فرصلا تلامعلل دق نوكی اھل راثآ ةیبلس ىلع ةمیقلا وأ نمثلا ، وأ لخدلا يتأتملا نم تارامثتسا ةنیعم . ءانبو ھیلع ، نكمی ءلامعلل نأ اولصحی ىلع دئاع وكی ن لقأ نم غلبم مھلامسأر رمثتسملا ابتدا ًء . زوجیو نأ نوكی عقوملل وأ نیلوئسملا ھیف ا امب يف كلذ نیللحملا نییلاملا ةحلصم ةیلام يف قارولأا ةیلاملا ةھجلل وأ تاھجلا ةردصملا كلتل قارولأا ةیلاملا وأ تارامثتسلإا تاذ ةقلاعلا ، امب يف كلذ زكارملا ةلیوط وأ ةریصق لجلأا يف قارولأا ةیلاملا وأ قیدانص رامثتسلاا ، وأ اھریغ نم تاودلأا ةیلاملا . امك زوجی عقوملل نأ موقی نم تقو رخلآ ءادأب تامدخلا ةیراشتسلاا ةیفاضلاا وأ يعسلا نیمأتل هذھ تامدخلا وأ اھریغ نم لامعلأا نم يأ ةكرش نم تاكرشلا ةروكذملا يف ریراقتلا وا قئاثولا ةرداصلا ھنم . عقوملاو وا نولوؤسملا ،ھیف امب يف كلذ نیفظوملا ةیعباتلا ،عقوملل لا نونوكی نیلوؤسم نع يأ رارضأ ةرشابم أو ریغ ةرشابم وأ يأ ةراسخ وأ رارضأ ىرخأ دق ،أشنت ةروصب ةرشابم وأ ریغ ،ةرشابم نم يأ مادختسا تامولعملل ةدراولا يف هذھ ةقیثولا وأ اھریغ نم قئاثولا ةرداصلا نم عقوملا ، عضختو تامولعملا ةرداصلا نم عقوملا ةیأو تایصوت ةدراو اھیف رییغتلل نود راعشإ قبسم . عقومو رخد لا لمحتی يأ ةیلوؤسم نع ثیدحت تامولعملا ةدراولا يف هذھ قئاثولا ةرداصلا ھنم . لاو زوجی رییغت وأ خاسنتسا وأ ً يأب لكش وأ يأب ةلیسو ً وأ جزئیا لاسرإ وأ عیزوت هذھ ةقیثولا نم قئاثو عقوملا كلیا تناك . امك ىعاری نأ هذھ قئاثولا تسیل ةھجوم وأ ةدعم عیزوتلل وأ مادختسلا نم لبق يأ صخش وأ نایك ءاوس ناك انطاوم وأ امیقم يف يأ ناكم وأ ةلود وأ دلب وأ ةیأ ھھج ةیئاضق ىرخأ ، امثیح نوكی لثم اذھ عیزوتلا وأ رشنلا وأ رفاوت وأ مادختسا قئاثولا ةرداصلا نم عقوملا افلاخم نوناقلل وأ بلطتی نم عقوملا وا نیمئاقلا ھیلع مایقلا يأب لیجست وأ ءافیتسا يأ طرش نم طورش صیخرتلا نمض كلذ دلبلا وأ ك',
+    'pdf_disclaimer' => 'Please be aware that the site of Thokhor or its staff, has taken the necessary care in providing this service free of charge, so it disclaims its responsibilities for any legal effects arising from that. Sources of information and reasonable care in the data, however, it does not acknowledge that the information contained in this website or its documents is complete or free from any error or not misleading or that it is fit for a specific purpose. The document or information on this site only provides general information. Also, the information and any opinion expressed on this site or any document thereof do not provide an offer or an invitation to make an offer to buy or sell any securities or other investment products related to those securities or investments. The purpose of this site or its documents is not to offer personal advice in the investment field nor does it take into account the investment goals, financial situation, or the specific needs of any specific person who may receive this document. Investors should seek financial, legal, or tax advice from a financial company licensed by the Capital Market Authority or relevant government agencies on the appropriateness of investing in any securities, other investment, or any investment strategies discussed or recommended in this site or documents issued by it, and users should understand that data related to future expectations coming from this site may not be realized. Users should also note that income from securities of this type or other investments, if any, may be subject to fluctuations and that the price or value of those securities and investments is subject to increase or decrease. Also, fluctuations in the exchange rates of currencies may have negative effects on the value, price, or income of certain investments. Consequently, users can get a return that is less than the amount of their invested capital. The site or its officials, including the employees of the site, are not responsible for any direct or indirect damages or any other loss or damage that may arise, directly or indirectly, from any use of the information contained in this document from the documents issued from the site. The information issued by the site and any recommendations contained therein are subject to change without prior notice. Thokhor site does not bear any responsibility for updating the information contained in these documents issued by it. This document may not be changed, duplicated, transmitted, or distributed in a whole or in part, in any form or by any means. It should also be noted that these documents are not directed to or intended for distribution or use by any person or entity, whether a citizen or resident in any place, country, country or any other judicial authority, wherever such distribution, publication, availability or use of the issued documents is. The site is against the law or requires the site or its operators to make any registration or fulfill any of the licensing conditions within that country or that judicial authority.',
 
     // admin panel
     'staff' => 'Staff',
@@ -935,7 +935,7 @@ return [
         'we_hope' => 'We hope you stick with the plan you got and accomplish your financial goals! ',
 
 
-        'financial_health_checkup' => 'Financial Health Check Up',
+        'financial_health_checkup' => 'Financial Health Checkup',
         'personal_information' => 'Personal Information',
             'name' => 'Name',
             'education' => 'Education',
@@ -945,7 +945,7 @@ return [
         'financial_position_today' => 'Financial Position Today',
             'monthly_income_today' => 'Monthly income today',
             'gosi_ppa_monthly_subscription' => 'GOSI/PPA monthly subscription',
-            'monthly_saving_plan_for_reitirement' => 'Monthly saving plan for retirement',
+            'monthly_saving_plan_for_reitirement' => 'Monthly saving for retirement',
             'monthly_saving_percentage_today' => 'Monthly saving % today',
 
             'total_assets_today' => 'Total assets today',
@@ -953,7 +953,7 @@ return [
             'net_worth' => 'Net worth',
             'accomulative_saving_today' => 'Accomulative saving today',
 
-        'current_asset_allocation' => 'Current Asset Allocation',
+        'current_asset_allocation' => 'Current Strategic Assets Allocation for Net Worth',
             'cash_and_equivalent' => 'Cash and Equivalent',
             'equities' => 'Equities',
             'fix_income' => 'Bonds & Sukuks ',
@@ -979,14 +979,14 @@ return [
             'fair' => 'Fair',
             'healthy' => 'Good',
             'very_healthy' => 'Excellent',
-            'early_retire_person' => 'Early retire person',
+            'early_retire_person' => 'Exceptional',
             
         'investing_diversity' => 'Investing Diversity',
             'good' => 'Good',
             'great' => 'Great',
 
 
-        'asset_allocation' => 'Asset Allocation',
+        'asset_allocation' => 'Strategic Assets Allocation For Retirement plan',
         'risk_test_index' => 'Risk Tolerance Test',
             'very_conservative' => 'Very Conservative',
             'conservative' => 'Conservative',
@@ -997,7 +997,7 @@ return [
         'recommended_assets_allocation' => 'Recommended Assets Allocation',
 
 
-        'financial_forecast' => 'Financial Forecast',
+        'financial_forecast' => 'Financil Projections',
 
         'assumptions' => 'Assumptions',
             'monthly_saving_plan' => 'Monthly saving amount',
@@ -1016,20 +1016,23 @@ return [
             'income_from_retirement_plan' => 'Income from retirement plan',
             'income_from_GOSI_or_PPA' => 'Income from GOSI or PPA',
 
-            'PERSONAL_FINANCIAL_PLAN' =>  'PERSONAL FINANCIAL PLAN',
+            'PERSONAL_FINANCIAL_PLAN' =>  'PERSONAL FINANCIAL PLAN (For Retirement)',
             'TABLE_OF_CONTENTS' =>  'TABLE OF CONTENTS',
 
             'about_thokhor' =>  'About Thokhor',
             // 'financial_health_checkup' =>  'جFinancial Health Checkup',
             // 'personal_indicators' =>  'جPersonal Indicators',
             // 'asset_allocation' =>  'جAsset Allocation',
-            'financil_forcast' =>  'Financil Forcast',
-            'investing_plan' =>  'Investing Plan',
+            'financil_forcast' =>  'Financil Projections',
+            'investing_plan' =>  'Plan Details',
 
             'year' => 'Year',
 
+
     ],
 
+    'thokhor_dot_com' => 'Thokhor.com',
+    'all_right_reserved' => 'All Rights Reserved.',
     'you' => 'you',
 
     'Mobile_Verification' => 'Mobile Verification',

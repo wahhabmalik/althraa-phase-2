@@ -2895,6 +2895,10 @@ class QuestionnaireController extends Controller
         $user->email = $request->email;
         $user->save();
 
+        // $initialInvestment = $this->questionnaire->getInitialInvestment($user); 
+
+        // dd($initialInvestment);
+
         $constants = Constant::where('constant_meta_type', 'LIKE',  'retirement_planner_' . '%')
                     ->orWhere('constant_meta_type', 'inflation')
                     ->orWhere('constant_meta_type', 'uncertainty')
@@ -3084,7 +3088,7 @@ class QuestionnaireController extends Controller
             'graphContribution' => $graphContribution,
             'uncertain_top' => $uncertain_top,
             'uncertain_bottom' => $uncertain_bottom,
-            'credits' => 'Thokhor.com',
+            'credits' => trans('lang.thokhor_dot_com'),
         ];
 
 

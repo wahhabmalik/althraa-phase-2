@@ -41,9 +41,11 @@
 
                                 @auth
                                   @if (auth()->user()->two_factor_code)
-                                    <a class="login_link" href="{{ route('verify.index', app()->getLocale()) }}">
-                                        {{ trans('lang.frontend.verify') }}
-                                    </a>
+                                    {{-- <li>
+                                        <a class="login_link" href="{{ route('verify.index', app()->getLocale()) }}">
+                                          {{ trans('lang.frontend.verify') }}
+                                      </a>
+                                    </li> --}}
                                   @else
                                     <li class="auth_resp">
                                       <a class="login_link" href="{{ route('home', app()->getLocale()) }}">{{ trans('lang.dashboard.dashboard') }}</a>

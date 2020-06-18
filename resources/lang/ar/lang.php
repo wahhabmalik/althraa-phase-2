@@ -189,14 +189,14 @@ return [
 
 
         // step 4
-        'assets' => '   استثمارات       ',
-            'real_estate' => 'عقارات',
-            'pe' => 'مشاريع (ملكيات خاصة)',
+        'assets' => '  الاستثمارات   ',
+            'real_estate' => 'العقارات والأراضي',
+            'pe' => 'المشاريع التجارية (الملكيات الخاصة)',
 
         'financial_assets' => 'الاصول المالية',
             'cash_and_deposit' => 'النقد وما يعادله',
-            'equities' => 'أسهم',
-            'bonds' => 'صكوك وسندات ',
+            'equities' => '  الأسهم  ',
+            'bonds' => '  الصكوك والسندات   ',
 
         'liquid_assets' => '  استثمارات سائلة     ',
 
@@ -224,14 +224,14 @@ return [
         'personal_private_house' => '  السكن الشخصي     ',
         'personal_art_&_boutique' => '   مقتنيات ثمينة وهوايات      ',
 
-        'liabilities' => '    قروض          ',
+        'liabilities' => '   القروض       ',
             'liabilities_real_estate_loan' => ' liabilities real estate loan  ',
-            'real_estate_loan' => 'قرض عقاري',
+            'real_estate_loan' => 'رصيد القروض العقارية',
 
 
-        'liabilities_personal_loan' => '   قرض شخصي     ',
+        'liabilities_personal_loan' => '  رصيد القروض الشخصية  ',
         'liabilities_mortgage' => '  قرض عقاري      ',
-        'liabilities_credit_cards' => '  البطاقة الائتمانية     ',
+        'liabilities_credit_cards' => '  رصيد البطاقات الائتمانية   ',
         'liabilities_free_loan' => '   سلف     ',
 
         // 
@@ -243,10 +243,10 @@ return [
 
 
         // step 5
-        'gosi_starting_year_in_plan' => '   السنة الملادية  لبدء الاشتراك    ',
+        'gosi_starting_year_in_plan' => '  السنة الميلادية للاشتراك  ',
         'gosi_average_of_last_24_months_salary' => '   متوسط الراتب اخر 24 شهر       ',
         'gosi_subscriptions_months' => '   مدة الاشتراك بالاشهر      ',
-        'expecting_salary_at_retirement' => 'الراتب المتوقع عند التقاعد',
+        'expecting_salary_at_retirement' => '  الراتب الشهري المتوقع قبل سنة من التقاعد   ',
         'mothly_life_expenses_after_retirement' => 'Mothly life expenses after retirement',
 
         'continue_to_risk' => '   الاستمرار في المخاطر     ',
@@ -284,8 +284,7 @@ return [
             ',
 
         // q4
-        'regarding_my_major_expenses_before_retirement_(including_family_expenses_such_as_education_,_buying_a_house_etc)' => '       بالنسبة لمصاريفي الرئيسية المتوقعة قبل سِ ن التقاعد (بما في ذلك مصاريف افراد عائلتي كالتعليم والزاج وشراء منزل، الخ):
-                        ',
+        'regarding_my_major_expenses_before_retirement_(including_family_expenses_such_as_education_,_buying_a_house_etc)' => '  بالنسبة لمصاريفي الرئيسية المتوقعة قبل سِن التقاعد (بما في ذلك مصاريف افراد عائلتي كالتعليم والزاج وشراء منزل، الخ)  ',
 
         'i_will_manage_to_cover_all_expenses_from_my_annual_income' => '      سوف اتمكن من تغطية جميع المصاريف المتوقعة من خلال دخلي السنوي
                  ',
@@ -399,7 +398,7 @@ return [
         // 'expenses' => '   المصاريف     ', old value
         'expenses' => '   خطة الادخار  ',
         'net_assets' => '   صافي الاصول      ',
-        'gosi' => 'GOSI',
+        'gosi' => 'التأمينات الاجتماعية',
         'risk' => '  المخاطر     ',
         'objectives' => '  الاهداف     ',
         
@@ -624,7 +623,7 @@ return [
     ],
 
 
-    'disclaimer' => 'تنصل',
+    'disclaimer' => '  الإفصاح القانوني  ',
 
     'frontend_disclaimer' => [
         'text' => 'موقع دخر او القائمين على لا يقدم أية إقرارات أو ضمانات (صريحة أو ضمنية) بشأن البيانات والمعلومات المقدمة وبالرغم من موثوقية مصادر المعلومات والعناية المعقولة في البيانات الا أنه 
@@ -820,7 +819,7 @@ return [
         'print_save_result' => '  طباعة / حفظ النتائج  ',
         'suggested_risk_tolerance' => '  الخطر المحتمل   ',
 
-        'cash_and_deposit' => '  النقد والودائع   ',
+        'cash_and_deposit' => ' النقد وما يعادله (الودائع والمرابحات)  ',
         'local_equity' => '   الأسهم المحلية  ',
         'us_govt_equity' => '  أسهم (حكومة) الولايات المتحدة   ',
         'international_equity' => '  الأسهم الدولية   ',
@@ -838,9 +837,9 @@ return [
         
         'year' => '  السنة   ',
         'age' => '  العمر  ',
-        'value_beginning_year' => '  القيمة داية السنة      ',
-        'contributions' => '  المساهمات  ',
-        'returns' => 'إلارجاع  ',
+        'value_beginning_year' => '  قيمة المحفظة بداية السنة     ',
+        'contributions' => '  مبلغ الادخار السنوي  ',
+        'returns' => '  العوائد السنوية  ',
         'value_end_year' => '   القيمة نهاية السنة   ',
         'withdrawals' => '  السحب   ',
 
@@ -942,17 +941,18 @@ return [
         'we_hope' => 'نتمنى لك الالتزام بالخطة المالية  وتحقيق اهدافك المالية بنجاح  ',
 
 
-        'financial_health_checkup' => 'فحص الصحة المالية الشخصية',
+        'financial_health_checkup' => 'تقييم الصحة المالية',
         'personal_information' => 'المعلومات الشخصية',
             'name' => 'الاسم ',
             'education' => 'المستوى التعليمي',
             'current_age' => 'العمر حالياً',
             'planned_retirement_age' => 'العمر المخطط للتقاعد ',
 
-        'financial_position_today' => 'الملاءه المالية اليوم ',
-            'monthly_income_today' => 'الدخل الشهري اليوم',
+        'financial_position_today' => 'الملاءة',
+            // 'monthly_income_today' => 'المبلغ الاولي المخصص لخطة التقاعد (دفعة واحدة) ',
+            'monthly_income_today' => 'المبلغ الاولي المخصص لخطة التقاعد  -دفعة واحدة',
             'gosi_ppa_monthly_subscription' => 'الاستقطاع الشهري ',
-            'monthly_saving_plan_for_reitirement' => 'الادخار الشهري للخطة المالية الشخصية ',
+            'monthly_saving_plan_for_reitirement' => 'الادخار الشهري لخطة التقاعد',
             'monthly_saving_percentage_today' => 'معدل الادخار الشهري اليوم %',
 
             'total_assets_today' => 'اجمالي الاصول الشخصية اليوم ',
@@ -960,24 +960,24 @@ return [
             'net_worth' => 'صافي الثروة الشخصية',
             'accomulative_saving_today' => 'اجمالي المدخرت حتى اليوم ',
 
-        'current_asset_allocation' => 'تخصيص الأصول الحالية',
-            'cash_and_equivalent' => 'النقد وما يعادله',
-            'equities' => 'أسهم  ',
-            'fix_income' => 'صكوك وسندات ',
-            'alternative_investment' => 'إستثمارات بديلة  - عقارات/أراضي/ذهب وغيرها ',
+        'current_asset_allocation' => 'التوزيع الاستراتيجي للأصول حاليا لصافي الثروة',
+            'cash_and_equivalent' => 'النقد وما يعادله (الودائع والمرابحات)',
+            'equities' => 'الأسهم',
+            'fix_income' => 'الصكوك والسندات',
+            'alternative_investment' => 'الاستثمارات البديلة (عقارات، ذهب وغيرها)',
             'total' => 'الاجمالي',
 
 
-        'personal_indicators' => 'مؤشرات مالية شخصية ',
+        'personal_indicators' => 'المؤشرات المالية الشخصية',
         'monthly_saving_rate' => 'معدل الادخار الشهري',
 
-            'little_saver' => 'مدخر صغير',
+            'little_saver' => 'مدخر ضعيف',
             'good_saver' => 'مدخر جيد',
             'great_saver' => 'مدخر ممتاز',
             'rich_saver' => 'مدخر غني ',
             'wealthy_saver' => 'مدخر ثري ',
             
-        'current_saving_amount' => 'إجمالي المدخرات حتى اليوم ',
+        'current_saving_amount' => 'مدخر ضعيف، مدخر جيد، مدخر غني',
             'poor_saver' => 'مدخر ضعيف ',
             'fair_saver' => 'مدخر جيد',
 
@@ -988,12 +988,12 @@ return [
             'very_healthy' => 'ممتازة',
             'early_retire_person' => 'عالية ',
             
-        'investing_diversity' => 'التنويع الاستثماري ',
+        'investing_diversity' => 'ضعيف، معقول، جيد، رائع',
             'good' => 'جيد ',
             'great' => 'عظيم ',
 
 
-        'asset_allocation' => 'توزيع الاصول ',
+        'asset_allocation' => 'توزيع الاصول الاستراتيجي لخطة التقاعد ',
         'risk_test_index' => 'اختبار تحمل المخاطر',
             'very_conservative' => 'مستثمر متحفظ جدا',
             'conservative' => 'مستثمر متحفظ',
@@ -1007,7 +1007,7 @@ return [
         'financial_forecast' => 'التوقعات المالية المستقبلية ',
 
         'assumptions' => 'الأفتراضات الرئيسية',
-            'monthly_saving_plan' => 'مبلغ الادخار ',
+            'monthly_saving_plan' => 'الادخار الشهري لخطة التقاعد',
                 'per_month' => '',
             'monthly_saving_today' => 'معدل الاخار',
                 'of_monthly_income' => 'الشهري حاليا ',
@@ -1023,24 +1023,27 @@ return [
             'income_from_retirement_plan' => 'الدخل الشهري من المحفظة الاستثمارية ',
             'income_from_GOSI_or_PPA' => 'الدخل الشهري من التأمينات الاجتماعية / التقاعد ',
 
-            'PERSONAL_FINANCIAL_PLAN' =>  'الخط الماليه الشخصية',
-            'TABLE_OF_CONTENTS' =>  'جدول المحتويات',
+            'PERSONAL_FINANCIAL_PLAN' =>  ' الخطة المالية الشخصية (للتقاعد)',
+            'TABLE_OF_CONTENTS' =>  'اقسام التقرير',
 
             'about_thokhor' =>  'عن ذخر',
             // 'financial_health_checkup' =>  'جFinancial Health Checkup',
             // 'personal_indicators' =>  'جPersonal Indicators',
             // 'asset_allocation' =>  'جAsset Allocation',
-            'financil_forcast' =>  '  التوقعات المالية المستقبلية   ',
-            'investing_plan' =>  'خطة الاستثمار',
+            'financil_forcast' =>  '  التوقعات المالية  ',
+            'investing_plan' =>  '   تفاصيل الخطة   ',
 
             'year' => 'سنة',
 
 
 
+
     ],
 
-    'you' => 'أنت
-',
+    'thokhor_dot_com' => 'ذخر.كوم',
+    'all_right_reserved' => 'كل الحقوق محفوظة',
+
+    'you' => 'أنت',
 
     'Mobile_Verification' => 'التحقق من رقم الجوال',
     'Please_enter_last_4_digits_of_your_mobile_number' => 'ادخل آخر أربع أرقام من رقم الجوال  لفتح الملف المرفق.',

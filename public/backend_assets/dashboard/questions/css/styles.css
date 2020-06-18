@@ -89,7 +89,7 @@ body{
     font-size: 20px;
     font-weight: 800;
     color: #000;
-    font-family: Soin Sans Neue;
+    /*font-family: Soin Sans Neue;*/
 }
 
 .net_total_text {
@@ -97,7 +97,7 @@ body{
     font-size: 14px;
     font-weight: 800;
     color: #222222;
-    font-family: Soin Sans Neue;
+    /*font-family: Soin Sans Neue;*/
 }
 
 .button{
@@ -120,7 +120,7 @@ body{
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #000;
     background-color: #007bff00;
-    font-family: Soin Sans Neue, Bold;
+    /*font-family: Soin Sans Neue, Bold;*/
     font-size: 20px;
     font-weight: bold;
     border-left: 5px solid #01630a !important;
@@ -131,7 +131,7 @@ body{
     border-radius: .25rem;
     color: #989898;
     background-color: #007bff00;
-    font-family: Soin Sans Neue, Bold;
+    /*font-family: Soin Sans Neue, Bold;*/
     font-size: 20px;
     font-weight: bold;
     border-radius: unset;
@@ -139,7 +139,7 @@ body{
 }
 .label_forms {
     font-size: 12px;
-    font-family: Soin Sans Neue;
+    /*font-family: Soin Sans Neue;*/
     font-weight: 700;
     margin-bottom: 0;
     color: #000;

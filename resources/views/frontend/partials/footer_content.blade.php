@@ -105,7 +105,7 @@
         <div class="s-100"></div>
     </div> --}}
     <div class="copyright-section text_grey">
-        <p class="text-center">© {{ date('Y') }} Thokor. All Rights Reserved</p>
+        <p class="text-center">© {{ date('Y') }} {{ trans('lang.thokhor_dot_com') }}  {{ trans('lang.all_right_reserved') }} </p>
     </div>
     
 </footer>

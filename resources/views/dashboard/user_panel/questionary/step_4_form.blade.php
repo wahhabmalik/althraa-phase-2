@@ -467,7 +467,7 @@ $(document).ready(function(){
         });
         $('#pocket_money__total').html(Number((pocket_money__total).toFixed(2)).toLocaleString());
         
-        $('#net_total').html(Number((financial_assets_total+real_estate_total+pocket_money__total).toFixed(2)).toLocaleString());
+        $('#net_total').html(Number((financial_assets_total+real_estate_total-pocket_money__total).toFixed(2)).toLocaleString());
 	}
 	// Number((someNumber).toFixed(1)).toLocaleString()
 });

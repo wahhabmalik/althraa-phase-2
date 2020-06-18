@@ -173,6 +173,15 @@
         width: 60%;
       }
     }
+
+.download-btn{
+  background: #01630a;
+  color: white;
+  padding: 10px 0;
+  font-family: 'Cairo', sans-serif;
+  text-decoration: none;
+  width: 170px;
+}
 </style>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix" style="font-family: Georgia, Times, serif">
 
@@ -183,13 +192,33 @@
         <td align="center">
 			   <img src="{{ asset('frontend_assets/img/dokhor.png') }}" style="margin: auto">
 			   <h3 id="banner-txt" style="margin: 20px;color: #000000">{{ trans('lang.frontend.slider_heading') }}</h3>
-			   <a href="{{ route('download', ['q'=> $data['public_id'], 'en']) }}" class="white-btn" align="center" style="background: #01630a;text-decoration: none;color: white;padding: 10px;font-size: 14px;"> Download Report</a>
-         
-         <br>
-         <br>
-         <br>
+			   
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="{{ route('download', ['q'=> $data['public_id'], 'en']) }}" style="text-decoration: none;" > 
+                      <div class="white-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 170px;text-align: center;height: 20px;line-height: 22px;">
+                        Download report
+                      </div> 
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{ route('download', ['q'=> $data['public_id'], 'ar']) }}" style="color: #ffffff;text-decoration: none;" >
+                      <div class="white-btn download-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 170px;text-align: center;height: 20px;line-height: 22px;" style="">
+                         حمل التقرير  
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-         <a href="{{ route('download', ['q'=> $data['public_id'], 'ar']) }}" class="white-btn" align="center" style="background: #01630a;color: white;padding: 5px 32px;font-family: 'Cairo', sans-serif;text-decoration: none;">   تحميل التقرير   </a>
         </td>
       </tr>
 

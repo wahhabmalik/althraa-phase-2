@@ -1,6 +1,6 @@
 @inject('request', 'Illuminate\Http\Request')
 
-@extends('dashboard.layouts.login', ['title' => $title1 ?? '2FA Auth'])
+@extends('dashboard.layouts.login', ['title' => $title1 ?? 'Mobile Verification'])
 
 @section('styles')
 <style type="text/css">   

@@ -78,7 +78,7 @@
 	$pointer = '<img src="' . asset('backend_assets/dashboard/images/pdf_icons/Polygon1.png') . '"><br><p>'.trans('lang.you').'</p>';
 	@endphp
 
-	<div id="intro" class="container-fluid mb-5 background_effect " >
+	<div id="intro" class="container-fluid mb-1 background_effect " >
 		<div class="row">
 			<div class="col-1"></div>
 			<div class="col-8">
@@ -112,7 +112,7 @@
 
 		<br><br><br><br><br><br>
 		
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 		
 	</div>
 
@@ -122,7 +122,7 @@
 	{{-- Page 2 start --}}
 
 
-	<div id="table_of_contents" class="container-fluid mb-5 parent-report" >
+	<div id="table_of_contents" class="container-fluid mb-1 parent-report" >
 		<div class="row">
 			<div class="col-1"></div>
 			<div class="col-8">
@@ -150,7 +150,7 @@
 				<P>{{ trans('lang.report.investing_plan') }}</P>
 			</div>
 
-			<div class="col-1 tb-content">
+			{{-- <div class="col-1 tb-content">
 				<P>01</P>
 				<P>02</P>
 				<P>03</P>
@@ -158,7 +158,7 @@
 				<P>05</P>
 				<P>06</P>
 				
-			</div>
+			</div> --}}
 		</div>
 
 
@@ -168,7 +168,7 @@
 		<br><br><br><br><br>
 		
 		
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 
@@ -177,7 +177,7 @@
 	{{-- Page 3 start --}}
 
 
-	<div id="about_us" class="container-fluid mb-5 parent-report" >
+	<div id="about_us" class="container-fluid mb-1 parent-report" >
 		<div class="row">
 			<div class="col-1 rem-col"></div>
 			<div class="col-10">
@@ -237,7 +237,7 @@
 		<br><br><br><br><br>
 		<br><br><br><br><br>
 		<br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 
@@ -245,7 +245,7 @@
 
 	{{-- page 4 start --}}
 
-	<div id="personal_information" class="container-fluid mb-5 parent-report" >
+	<div id="personal_information" class="container-fluid mb-1 parent-report" >
 		<div class="row">
 			<div class="col-1 rem-col"></div>
 			<div class="col-10">
@@ -470,7 +470,7 @@
 			</div>
 		</div>
 		<br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 
@@ -478,7 +478,7 @@
 	{{-- Page 5 start --}}
 
 
-	<div id="personal_indicators" class="container-fluid mb-5 parent-report" >
+	<div id="personal_indicators" class="container-fluid mb-1 parent-report" >
 		<div class="row">
 			<div class="col-1 rem-col"></div>
 			<div class="col-10">
@@ -672,7 +672,7 @@
 		</div>
 
 		<br><br><br><br><br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 
@@ -682,7 +682,7 @@
 	{{-- Page 6 start --}}
 
 
-	<div id="asset_allocation" class="container-fluid mb-5 parent-report" >
+	<div id="asset_allocation" class="container-fluid mb-1 parent-report" >
 		<div class="row">
 			<div class="col-1 rem-col"></div>
 			<div class="col-10">
@@ -755,10 +755,10 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ $data['totalCurrentAssetAllocation'] ?? '0' }} 
+						    	{{ $data['accomulativeSavingtoday'] ?? '0' }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ round($data['totalCAAPercentage'] ?? 100, 2) ?? 100 }} %
+						    	{{ round(100, 2) ?? 100 }} %
 						    </p>
 						    <br>
 
@@ -784,7 +784,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['cash_and_equivlent'])/100) }}
+												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['cash_and_equivlent'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -802,7 +802,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['equities'])/100) }} 
+												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['equities'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -820,7 +820,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['fix_income'])/100) }}
+												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['fix_income'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -838,7 +838,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['totalCurrentAssetAllocation']*$data['recommended']['alternative_investments'])/100) }}
+												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['alternative_investments'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -870,8 +870,8 @@
 		</div>
 		
 
-		<br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<br>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 
@@ -881,7 +881,7 @@
 	{{-- Page 7 start --}}
 
 
-	<div id="financial_forecast" class="container-fluid mb-5 parent-report" >
+	<div id="financial_forecast" class="container-fluid mb-1 parent-report" >
 		<div class="row">
 			<div class="col-1 rem-col"></div>
 			<div class="col-10">
@@ -930,7 +930,10 @@
 						<td>{{ currency($data['monthlySavingPlanForRetirement']) }} {{ trans('lang.report.per_month') }}</td>
 					</tr>
 					<tr>
-						<td>{{ trans('lang.report.monthly_saving_today') .trans('lang.report.of_monthly_income') }}</td>
+						<td>
+							{{ trans('lang.report.monthly_saving_today') }}
+							{{-- {{ trans('lang.report.monthly_saving_today') .trans('lang.report.of_monthly_income') }} --}}
+						</td>
 						<td>
 						{!! percentage($data['monthlySavingPercentageToday']) !!}
 						{{-- {!! ($request->segment(1) == 'ar') ? trans('lang.report.of_monthly_income') . percentage($data['monthlySavingPercentageToday']) : percentage($data['monthlySavingPercentageToday']) . trans('lang.report.of_monthly_income') !!} --}}
@@ -1007,7 +1010,7 @@
 			
 		</div>
 		<br><br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 
@@ -1024,7 +1027,7 @@
 				<h2 class="mt-1 mb-2">
 	                {{ 'thokhor' }}
 	            </h2>
-	            <h1 class="text-secondary">{{ trans('lang.financial_plan.working_years_accumulation_phase') }}</h1>
+	            <h1 class="text-secondary">{{ trans('lang.report.investing_plan') }}</h1>
 	            
 			</div>
 		</div>
@@ -1089,7 +1092,7 @@
 		</div>
 
 		{{-- <br><br><br>
-		<p class="text-center mr-5">{{ $data['credits'] }}</p> --}}
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p> --}}
 	</div>
 
 
@@ -1111,7 +1114,7 @@
 		</div>
 
 
-		@if($request->segment(1) == 'en')
+		{{-- @if($request->segment(1) == 'en')
 			<div class="row mt-2">
 				<div class="col-1 rem-col"></div>
 				<div class="col-10 to-12">
@@ -1133,7 +1136,7 @@
 
 				</div>
 			</div>
-		@else
+		@else --}}
 			<div class="row mt-2">
 					<div class="col-1 rem-col"></div>
 					<div class="col-10 to-12">
@@ -1144,9 +1147,9 @@
 						<br><br><br>
 					</div>
 			</div>
-		@endif
+		{{-- @endif --}}
 
-		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>
 	</div>
 
 </div>
@@ -1512,23 +1515,23 @@ var myChart = new Chart(ctx, {
 </script>
 
 <script type="text/javascript">
-	function addScript(url) {
-    var script = document.createElement('script');
-    script.type = 'application/javascript';
-    script.src = url;
-    document.head.appendChild(script);
-}
-addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
+// function addScript(url) {
+    // var script = document.createElement('script');
+    // script.type = 'application/javascript';
+    // script.src = url;
+    // document.head.appendChild(script);
+// }
+// addScript('{{ asset('backend_assets/dashboard/js/print.js') }}');
 
-$(document).ready(function(){
-	setTimeout(
-		function() {
-			html2pdf(document.body).set({
-			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
-			});
-		},
-	1000);
-});
+// $(document).ready(function(){
+// 	setTimeout(
+// 		function() {
+// 			html2pdf(document.body).set({
+// 			  pagebreak: { mode: 'avoid-all' , before: '#table-break', }
+// 			});
+// 		},
+// 	1000);
+// });
 
 $(document).ready(function(){
 	setTimeout(
@@ -1551,7 +1554,7 @@ $(document).ready(function(){
 				myFunction(x) // Call listener function at run time
 				x.addListener(myFunction) // Attach listener function on state changes
 		},
-	4000);
+	1000);
 });
 
 </script>
