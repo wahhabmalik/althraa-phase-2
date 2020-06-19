@@ -159,8 +159,8 @@ li span {
                     <div id="form">
                         <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
                             @csrf
-                            <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" />
-                            <input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa" /><input type="text" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" class="two-fa"  />
+                            <input type="number" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9"  class="two-fa" />
+                            <input type="number" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9"  class="two-fa" /><input type="number" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9"  class="two-fa" /><input type="number" name="two_factor_code[]" maxLength="1" size="1" min="0" max="9"  class="two-fa"  />
 
                             <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
                             </button>
@@ -266,11 +266,11 @@ li span {
     })
 
     function resendSms(){
-      alert('sms resend')
+      // alert('sms resend')
     }
 
     function callNumber(){
-      alert('Calling')
+      // alert('Calling')
     }
 </script>
 
