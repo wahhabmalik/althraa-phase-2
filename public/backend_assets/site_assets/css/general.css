@@ -465,8 +465,8 @@ p.setting_text {
 }
 
 .get_started{
-  padding: 0.8rem 4rem;
-  margin-right: 10px;
+  padding: 0.8rem 3rem;
+  /*margin-right: 10px;*/
 }
 
 a.button_primary.lang_btn {

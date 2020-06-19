@@ -872,7 +872,7 @@ return [
     'frontend' => [
         'althraa' => '  الثراء     ',
 
-        'free_of_charge' => 'شحن مجاني',
+        'free_of_charge' => 'بدون مقابل',
 
         'two_factor_verification' => '   التحقق من عاملين   ',
         'two_factor_message' => 'قد أرسلنا لك رمز المصادقة لعاملين. إذا لم تستلمها ، فانقر فوق  ',

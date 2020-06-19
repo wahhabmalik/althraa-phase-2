@@ -869,7 +869,7 @@ return [
     'frontend' => [
         'althraa' => 'ALTHRAA',
 
-        'free_of_charge' => 'Free of charge',
+        'free_of_charge' => 'Free of charges',
 
         'two_factor_verification' => 'Two Factor Verification',
         'two_factor_message' => 'We have sent you Two Factor Authentication Code. If you have not received it, click ',

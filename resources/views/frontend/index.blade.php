@@ -23,6 +23,9 @@
 footer {
     position: relative;
 }
+.button_primary span {
+    font-size: 10px;
+}
 </style>
 @endsection
 
@@ -50,7 +53,7 @@ footer {
                 <div class="s-50"></div>
 
                 <div class="text-center">
-                    <a class="button_primary get_started" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.frontend.free_of_charge') }}</a>
+                    <a class="button_primary get_started" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.get_started') }}<span>&nbsp&nbsp( {{ trans('lang.frontend.free_of_charge') }} )</span></a>
                 </div>
 
                 <div class="s-20"></div>
