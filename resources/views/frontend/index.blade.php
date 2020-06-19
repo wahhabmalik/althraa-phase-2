@@ -50,7 +50,7 @@ footer {
                 <div class="s-50"></div>
 
                 <div class="text-center">
-                    <a class="button_primary get_started" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.frontend.get_started') }}</a>
+                    <a class="button_primary get_started" href="{{ route('login', app()->getLocale()) }}">{{ trans('lang.frontend.free_of_charge') }}</a>
                 </div>
 
                 <div class="s-20"></div>

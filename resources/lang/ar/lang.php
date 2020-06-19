@@ -103,20 +103,20 @@ return [
         'continue_to_income' => '   الاستمرار في الدخل      ',
 
         // step 2
-        'salary' => '  راتب   ',
+        'salary' => ' الدخل الشهري ',
         'private_business_or_freelancing' => '   خارج العمل     ',
         'other' => ' Other ',
         'stock_dividents' => '    توزيعات اسهم     ',
         'pension_income' => '   دخل تقاعدي     ',
         'real_estate_income_rent' => '  اجار عقار      ',
-        'other' => '  آخر ',
+        'other' => ' اخرى ',
 
         // 'continue_to_expenses' => '  الاستمرار في          المصاريف            ',
         'continue_to_saving_plan' => ' الاستمرار الى خطة المدخرات  ',
 
 
         // step 3
-        'current_saving_balance' => ' رصيد مدخراتي حتي اليوم',
+        'current_saving_balance' => '  المبلغ الاولي المخصص لخطة التقاعد (دفعة واحدة)  ',
         'gosi_or_ppa_monthly_subscription' => 'الاستقطاع الشهري ( التأمينات الاجتماعية / التقاعد ) ',
         'monthly_saving_plan_for_retirement' => 'الادخار الشهري للخطة المالية الشخصية ',
         'annual_increase_in_saving_plan' => ' (%)  معدل الزيادة في الادخار بشكل سنوي',
@@ -194,7 +194,7 @@ return [
             'pe' => 'المشاريع التجارية (الملكيات الخاصة)',
 
         'financial_assets' => 'الاصول المالية',
-            'cash_and_deposit' => 'النقد وما يعادله',
+            'cash_and_deposit' => 'النقد وما يعادله (الودائع والمرابحات)',
             'equities' => '  الأسهم  ',
             'bonds' => '  الصكوك والسندات   ',
 
@@ -393,10 +393,10 @@ return [
 
 
     'question_headings' => [
-        'personal_info' => '  المعلومات الشخصية      ',
+        'personal_info' => ' الدكتوراه   ',
         'income' => '   الدخل      ',
         // 'expenses' => '   المصاريف     ', old value
-        'expenses' => '   خطة الادخار  ',
+        'expenses' => '  خطة التقاعد ',
         'net_assets' => '   صافي الاصول      ',
         'gosi' => 'التأمينات الاجتماعية',
         'risk' => '  المخاطر     ',
@@ -474,7 +474,7 @@ return [
         'what_are_you_waiting_for' => '    ما الذي تنتظره؟      ',
         'lets_get_started_right_now' => '    لنبدأ على الفور.    ',
 
-
+        
         'hi_my_name_is' => '    مرحبًا! اسمي هو     ',
         'and_i_am' => '    وعمري      ',
         'years_old' => '   سنوات   ',
@@ -623,7 +623,7 @@ return [
     ],
 
 
-    'disclaimer' => '  الإفصاح القانوني  ',
+    'disclaimer' => '  االإفصاح القانوني  ',
 
     'frontend_disclaimer' => [
         'text' => 'موقع دخر او القائمين على لا يقدم أية إقرارات أو ضمانات (صريحة أو ضمنية) بشأن البيانات والمعلومات المقدمة وبالرغم من موثوقية مصادر المعلومات والعناية المعقولة في البيانات الا أنه 
@@ -872,6 +872,8 @@ return [
     'frontend' => [
         'althraa' => '  الثراء     ',
 
+        'free_of_charge' => 'شحن مجاني',
+
         'two_factor_verification' => '   التحقق من عاملين   ',
         'two_factor_message' => 'قد أرسلنا لك رمز المصادقة لعاملين. إذا لم تستلمها ، فانقر فوق  ',
         'two_factor_here' => '  هنا   ',
@@ -946,7 +948,7 @@ return [
             'name' => 'الاسم ',
             'education' => 'المستوى التعليمي',
             'current_age' => 'العمر حالياً',
-            'planned_retirement_age' => 'العمر المخطط للتقاعد ',
+            'planned_retirement_age' => 'سن التقاعد المخطط ',
 
         'financial_position_today' => 'الملاءة',
             // 'monthly_income_today' => 'المبلغ الاولي المخصص لخطة التقاعد (دفعة واحدة) ',
@@ -978,19 +980,20 @@ return [
             'wealthy_saver' => 'مدخر ثري ',
             
         'current_saving_amount' => 'مدخر ضعيف، مدخر جيد، مدخر غني',
-            'poor_saver' => 'مدخر ضعيف ',
+            'poor_saver' => 'مدخر ضعيف',
             'fair_saver' => 'مدخر جيد',
+            'ghani_saver' => 'مدخر غني',
 
         'early_retirement_possibility' => 'احتمالية التقاعد المبكر ',
-            'poor' => 'ضعيفة',
-            'fair' => 'معقولة',
+            'poor' => 'ضعيف',
+            'fair' => 'معقول',
             'healthy' => 'جيدة ',
             'very_healthy' => 'ممتازة',
             'early_retire_person' => 'عالية ',
             
-        'investing_diversity' => 'ضعيف، معقول، جيد، رائع',
-            'good' => 'جيد ',
-            'great' => 'عظيم ',
+        'investing_diversity' => 'التنويع الاستثماري ',
+            'good' => 'جيد',
+            'great' => 'رائع',
 
 
         'asset_allocation' => 'توزيع الاصول الاستراتيجي لخطة التقاعد ',

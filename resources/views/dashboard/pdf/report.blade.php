@@ -550,7 +550,7 @@
 				<div class="factor-vs">
 					<p>{{ trans('lang.report.poor_saver') }}</p>	
 					<p>{{ trans('lang.report.fair_saver') }}</p>	
-					<p>{{ trans('lang.report.good_saver') }}</p>	
+					<p>{{ trans('lang.report.ghani_saver') }}</p>	
 				</div>
 
 				<div class="factor-vs">
@@ -889,7 +889,7 @@
 	                {{ 'thokhor' }}
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
-	            <p class="heading-secondary mt-5">{{ trans('lang.report.financial_forecast') }}</p>
+	            <p class="heading-secondary mt-5">{{ trans('lang.report.financil_forcast') }}</p>
 	            <p class="alertBox__p">
 	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} <span>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</span>
 	            </p>

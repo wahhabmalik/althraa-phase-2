@@ -24,7 +24,7 @@
 
 <div class="s-50"></div>
 
-@if($request->segment(1) == 'en')
+{{-- @if($request->segment(1) == 'en')
     <div class="container">
         <div class="row {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
 
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-@else
+@else --}}
     
     <div class="container">
         <div class="row {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
@@ -72,6 +72,6 @@
             </div>
         </div>
     </div>
-@endif
+{{-- @endif --}}
 
 @endsection

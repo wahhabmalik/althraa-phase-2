@@ -869,6 +869,8 @@ return [
     'frontend' => [
         'althraa' => 'ALTHRAA',
 
+        'free_of_charge' => 'Free of charge',
+
         'two_factor_verification' => 'Two Factor Verification',
         'two_factor_message' => 'We have sent you Two Factor Authentication Code. If you have not received it, click ',
         'two_factor_here' => 'here',
@@ -973,6 +975,7 @@ return [
         'current_saving_amount' => 'Current Saving Amount',
             'poor_saver' => 'Poor saver',
             'fair_saver' => 'Fair saver',
+            'ghani_saver' => 'Rich saver',
 
         'early_retirement_possibility' => 'Early Retirement Possibility',
             'poor' => 'Poor',
