@@ -97,8 +97,10 @@ return [
                 'highschool' => 'ثانوي',
                 'bachlore' => 'بكالوريوس',
                 'master' => 'ماجستير',
-                'above' => 'أعلى من ذلك',
+                'above' => 'الدكتوراه',
             ],
+
+        'planned_retirement_age' => '  سن التقاعد المخطط مثلا ٦٠ سنة    ',
 
         'continue_to_income' => '   الاستمرار في الدخل      ',
 
@@ -393,7 +395,7 @@ return [
 
 
     'question_headings' => [
-        'personal_info' => ' الدكتوراه   ',
+        'personal_info' => ' المعلومات الشخصية ',
         'income' => '   الدخل      ',
         // 'expenses' => '   المصاريف     ', old value
         'expenses' => '  خطة التقاعد ',
@@ -979,7 +981,7 @@ return [
             'rich_saver' => 'مدخر غني ',
             'wealthy_saver' => 'مدخر ثري ',
             
-        'current_saving_amount' => 'مدخر ضعيف، مدخر جيد، مدخر غني',
+        'current_saving_amount' => 'إجمالي المدخرات حتى اليوم ',
             'poor_saver' => 'مدخر ضعيف',
             'fair_saver' => 'مدخر جيد',
             'ghani_saver' => 'مدخر غني',
@@ -1053,6 +1055,8 @@ return [
 
 
     'no_users_found' => 'No users found',
+    
+    'beta_version' => 'نسخة تجريبية',
 
     'New_Code_has_been_sent_to_you' => 'تم إرسال كود جديد لك',
 

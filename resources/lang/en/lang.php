@@ -98,6 +98,7 @@ return [
                 'above' => 'Above',
             ],
 
+        'planned_retirement_age' => 'Your planned retirement age',
         'continue_to_income' => 'Continue To Income',
 
 
@@ -1043,6 +1044,8 @@ return [
 
     'no_users_found' => 'No users found',
     'users' => 'Users',
+
+    'beta_version' => 'beta version',
 
     'New_Code_has_been_sent_to_you' => 'New Code has been sent to you'
 

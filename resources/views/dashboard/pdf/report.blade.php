@@ -148,6 +148,7 @@
 				<P>{{ trans('lang.report.asset_allocation') }}</P>
 				<P>{{ trans('lang.report.financil_forcast') }}</P>
 				<P>{{ trans('lang.report.investing_plan') }}</P>
+				<P>{{ trans('lang.disclaimer') }}</P>
 			</div>
 
 			{{-- <div class="col-1 tb-content">
@@ -165,7 +166,7 @@
 		<br><br><br><br><br>
 		<br><br><br><br><br>
 		<br><br><br><br><br>
-		<br><br><br><br><br>
+		<br><br>
 		
 		
 		<p class="text-center mr-5">{{ trans('lang.thokhor_dot_com') }}</p>

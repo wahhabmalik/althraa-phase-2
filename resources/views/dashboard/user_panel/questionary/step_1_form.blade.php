@@ -182,7 +182,7 @@
 
 										<div class="form-group">
 											<div class="form-group">
-					                          <label for="time_horizon" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.question.time_horizon') }}</label>
+					                          <label for="time_horizon" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.question.planned_retirement_age') }}</label>
 					                          <input 
 					                                id="time_horizon" 
 					                                type="text" 

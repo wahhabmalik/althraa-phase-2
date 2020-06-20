@@ -11,7 +11,24 @@
       .wizard-card .wizard-navigation .progress-with-circle{
         z-index: 0;
       }
-    @endif    
+    @endif
+    body:after {
+            content: "{{ trans('lang.beta_version') }}";
+            position: fixed;
+            width: 138px;
+            height: 22px;
+            background: linear-gradient(180deg, #bf1e1c, #ad1b16);
+            top: 22px;
+            left: -27px;
+            text-align: center;
+            font-size: 11px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+            line-height: 23px;
+            transform: rotate(-37deg);
+        }    
   </style>
 
 </head>

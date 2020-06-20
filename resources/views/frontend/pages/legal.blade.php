@@ -13,7 +13,7 @@
                     {{ trans('lang.frontend_legal.legal') }}
                 </p> --}}
                 <h1 class="text-center page-heading text-dark">
-                    {{ trans('lang.frontend_legal.legal') }}
+                    {{ trans('lang.disclaimer') }}
                 </h1>
 
                 <div class="s-20"></div>
