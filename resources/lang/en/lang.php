@@ -193,7 +193,7 @@ return [
 
         'financial_assets' => 'Financial Assets',
 
-            'cash_and_deposit' => 'Cash and deposit',
+            'cash_and_deposit' => 'Cash and equivalents (deposits and Murabaha)',
             'equities' => 'Equities',
             'bonds' => 'Bonds & Sukuks ',
 
