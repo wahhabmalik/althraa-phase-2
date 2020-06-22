@@ -879,7 +879,7 @@ return [
         'enter_two_factor_authentication_code_here' => 'enter two factor authentication code here',
         'verify' => 'verify',
 
-        'slider_heading' => 'Your Islamic financial auto advisor that helps you, step by step to build your wealth.',
+        'slider_heading' => 'Your financial auto advisor that helps you, step by step to build your wealth.',
         'slider_text' => ' Here at Althraa we like to help to people that want to have control over their financial life. No awkward calls, no shame.',
 
         'steps' => 'STEPS',
