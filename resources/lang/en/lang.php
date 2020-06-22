@@ -121,7 +121,7 @@ return [
         'monthly_saving_plan_for_retirement' => 'Monthly saving plan for retirement',
         'annual_increase_in_saving_plan' => 'Annual increase in saving plan (%)',
 
-        'continue_to_worth' => 'Continue to worth',
+        'continue_to_worth' => 'Continue to net worth',
         
 
 
