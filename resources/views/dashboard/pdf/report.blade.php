@@ -56,6 +56,8 @@
 #disclaimer{
 	page-break-before: always;
 }
+
+
 #intro, #table_of_contents, #about_us, #personal_information, #personal_indicators, #asset_allocation, #financial_forecast{
 	page-break-after: always;
 }
@@ -274,7 +276,7 @@
 			
 			<div class="col-3">
 				<p>{{ trans('lang.report.education') }}</p>
-				<b>{{ $data['personalInfo']['education_level'] }}</b>
+				<b>{{ trans($data['personalInfo']['education_level']) }}</b>
 			</div>
 			
 			<div class="col-2">
@@ -308,11 +310,11 @@
 						<td>{{ currency($data['monthlyIncomeToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>{{ trans('lang.report.gosi_ppa_monthly_subscription') }}</td>
+						<td>{{ trans('lang.question.gosi_or_ppa_monthly_subscription') }}</td>
 						<td>{{ currency($data['gosi_or_ppa_monthlySubscription'] ?? 0) }}</td>
 					</tr>
 					<tr>
-						<td>{{ trans('lang.report.monthly_saving_plan_for_reitirement') }}</td>
+						<td>{{ trans('lang.question.monthly_saving_plan_for_retirement') }}</td>
 						<td>{{ currency($data['monthlySavingPlanForRetirement'] ?? 0) }}</td>
 					</tr>
 					<tr>
@@ -1144,6 +1146,14 @@
 						<br><br><br>
 						<br><br><br>
 						<p class="text-justify">{{ trans('lang.pdf_disclaimer') }}</p>
+						<p class="text-justify">{{ trans('lang.pdf_disclaimer_para_2') }}</p>
+						<ol class="disclaimer">
+							<li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_1') }}</p></li>
+							<li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_2') }}</p></li>
+							<li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_3') }}</p></li>
+							<li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_4') }}</p></li>
+						</ol>
+						<p class="text-justify">{{ trans('lang.pdf_disclaimer_para_3') }}</p>
 						<br><br><br>
 						<br><br><br>
 					</div>

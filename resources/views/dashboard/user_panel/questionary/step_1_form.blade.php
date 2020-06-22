@@ -121,30 +121,39 @@
 					                          	<option value="">
 					                          		{{ trans('lang.question.education_level') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.highschool')) ? 'selected' : '' !!}
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == 'lang.question.education_level_options.highschool') ? 'selected' : '' !!}
 
-					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.highschool')) ? 'selected' : '' !!}
+					                          		{!! (old('personal_info.education_level') == 'lang.question.education_level_options.highschool') ? 'selected' : '' !!}
+
+
+													value="lang.question.education_level_options.highschool" 
 
 					                          		>
 					                          		{{ trans('lang.question.education_level_options.highschool') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.bachlore')) ? 'selected' : '' !!}
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == 'lang.question.education_level_options.bachlore') ? 'selected' : '' !!}
 
-					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.bachlore')) ? 'selected' : '' !!}
+					                          		{!! (old('personal_info.education_level') == 'lang.question.education_level_options.bachlore') ? 'selected' : '' !!}
+
+					                          		value="lang.question.education_level_options.bachlore" 
 
 					                          		>
 					                          		{{ trans('lang.question.education_level_options.bachlore') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.master')) ? 'selected' : '' !!}
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == 'lang.question.education_level_options.master') ? 'selected' : '' !!}
 
-					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.master')) ? 'selected' : '' !!}
+					                          		{!! (old('personal_info.education_level') == 'lang.question.education_level_options.master') ? 'selected' : '' !!}
+
+					                          		value="lang.question.education_level_options.master" 
 
 					                          		>
 					                          		{{ trans('lang.question.education_level_options.master') }}
 					                          	</option>
-					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == trans('lang.question.education_level_options.above')) ? 'selected' : '' !!}
+					                          	<option {!! (isset($user_questionnaire->personal_info["personal_info"]["education_level"]) && $user_questionnaire->personal_info["personal_info"]["education_level"] == 'lang.question.education_level_options.above') ? 'selected' : '' !!}
 
-					                          		{!! (old('personal_info.education_level') == trans('lang.question.education_level_options.above')) ? 'selected' : '' !!}
+					                          		{!! (old('personal_info.education_level') == 'lang.question.education_level_options.above') ? 'selected' : '' !!}
+
+					                          		value="lang.question.education_level_options.above" 
 
 					                          		>
 					                          		{{ trans('lang.question.education_level_options.above') }}

@@ -901,3 +901,9 @@ li.nav-item.cp-button a {
 body:after {
     font-family: 'Cairo', sans-serif !important;
 }
+.disclaimer li{
+  list-style: decimal;
+    font-size: 14px;
+    margin: 0 1em 0 1em;
+    color: #9b9d9b;
+}

@@ -65,10 +65,10 @@ class ReportController extends Controller
         }
 
         // dd(Session::get('public_id'), $report->public_id);
-        if(Session::get('verified') && Session::get('public_id') == $report->public_id){
-            Session::put('verified', 0);
+        // if(Session::get('verified') && Session::get('public_id') == $report->public_id){
+            // Session::put('verified', 0);
             return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
-        }
+        // }
 
         Session::put('public_id', $request->q);
         Session::put('user_id', $report->user_id);

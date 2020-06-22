@@ -203,14 +203,14 @@
                 <tr>
                   <td>
                     <a href="{{ route('download', ['q'=> $data['public_id'], 'en']) }}" style="text-decoration: none;" > 
-                      <div class="white-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 170px;text-align: center;height: 20px;line-height: 22px;">
+                      <div class="white-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 190px;text-align: center;height: 20px;line-height: 22px;">
                         Download report in English
                       </div> 
                     </a>
                   </td>
                   <td>
                     <a href="{{ route('download', ['q'=> $data['public_id'], 'ar']) }}" style="color: #ffffff;text-decoration: none;" >
-                      <div class="white-btn download-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 170px;text-align: center;height: 20px;line-height: 22px;" style="">
+                      <div class="white-btn download-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 190px;text-align: center;height: 20px;line-height: 22px;" style="">
                          حمل التقرير بالعربي
                       </div>
                     </a>

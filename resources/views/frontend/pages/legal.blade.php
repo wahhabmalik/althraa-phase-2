@@ -66,9 +66,17 @@
     
     <div class="container">
         <div class="row {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
                 <p class="text-justify">{{ trans('lang.pdf_disclaimer') }}</p>
+                <p class="text-justify">{{ trans('lang.pdf_disclaimer_para_2') }}</p>
+                <ol class="disclaimer">
+                    <li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_1') }}</p></li>
+                    <li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_2') }}</p></li>
+                    <li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_3') }}</p></li>
+                    <li><p class="text-justify" >{{ trans('lang.pdf_disclaimer_li_4') }}</p></li>
+                </ol>
+                <p class="text-justify">{{ trans('lang.pdf_disclaimer_para_3') }}</p>
             </div>
         </div>
     </div>
