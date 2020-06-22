@@ -251,7 +251,7 @@ return [
         'expecting_salary_at_retirement' => '  الراتب الشهري المتوقع قبل سنة من التقاعد   ',
         'mothly_life_expenses_after_retirement' => 'Mothly life expenses after retirement',
 
-        'continue_to_risk' => '   الاستمرار في المخاطر     ',
+        'continue_to_risk' => '  الاستمرار الى المخاطر   ',
 
 
         // step 6
