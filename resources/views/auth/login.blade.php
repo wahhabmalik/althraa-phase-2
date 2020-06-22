@@ -4,93 +4,7 @@
 
 @section('styles')
 
-<style type="text/css">
-    .button, .button:link {
-        border: 0px solid #01630a;
-    }
-
-    .logo {
-        position: absolute !important;
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
-    }
-    .button, .button:link {
-        border: 0px solid #01630a;
-    }
-    span.checkmark.error-check {
-        border: 1px solid red;
-    }
-    .input-group {
-        position: relative;
-        display: table;
-        border-collapse: separate;
-    }
-    .input-group-addon {
-        background-color: #F7F6F6;
-        border: unset;
-        border-radius: 1px;
-        color: inherit;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1;
-        padding: 6px 12px;
-        text-align: center;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-    }
-    .input-group-addon{
-        width: 3%;
-        white-space: nowrap;
-        vertical-align: middle;
-    }
-    .input-group .form-control {
-        display: table-cell;
-    }
-
-
-    .input-group-addon{
-        display: table-cell;
-        font-family: 'Cairo', sans-serif;
-    }
-
-    .input-group .form-control {
-        position: relative;
-        z-index: 2;
-        float: left;
-        width: 100%;
-        margin-bottom: 0;
-        background-color: #F7F6F6 !important;
-        border-top-right-radius: 8px !important;
-        border-bottom-right-radius: 8px !important;
-        border: unset;
-    }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-      -moz-appearance:textfield;
-    }
-    .form-control:focus{
-        box-shadow: unset;
-    }
-    .card-body{
-        padding: unset;
-    }
-    .alert {
-        text-align: center;
-        font-size: 13px;
-    }
-    span.invalid-feedback {
-        font-size: 12px;
-        font-weight: 100;
-    }
-</style>
-
+<link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/login/css/login.css') }}">
 @endsection
 
 @section('content')
@@ -119,18 +33,19 @@
                     <label for="phone_number" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.phone_number') }}</label>
 
                     <div class="input-group m-b" style="direction: ltr;">
-                        <span class="input-group-addon">966</span> 
+                        {{-- <span class="input-group-addon">966</span>  --}}
                         <input 
-                        type="number" 
                         class="form-control 
                         @error('phone_number') is-invalid @enderror" 
                         style="height: 40px;" 
-                        id="phone_number" 
+                        id="phone" 
+                        type="tel" 
                         name="phone_number" 
                         value="{{ old('phone_number') }}" 
                         required 
                         oninvalid="InvalidMsg(this);"
                         autocomplete="phone_number">
+                        
                     </div>
 
                     @error('phone_number')
@@ -140,7 +55,7 @@
                     @enderror
 
 
-                    @if(count($errors)>0)
+                    {{-- @if(count($errors)>0)
                         <div class="alert alert-danger">
                             <button type="button" class="close" data-dismiss="alert">x</button>
                             <ul>
@@ -149,7 +64,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
                     
                 </div>
 
@@ -177,5 +92,69 @@
         }
         return true;
     }
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+<script type="text/javascript">
+    
+var telInput = $("#phone");
+  // errorMsg = $("#error-msg"),
+  // validMsg = $("#valid-msg");
+
+// initialise plugin
+telInput.intlTelInput({
+
+  allowExtensions: true,
+  formatOnDisplay: true,
+  autoFormat: true,
+  autoHideDialCode: true,
+  autoPlaceholder: true,
+  defaultCountry: "auto",
+  ipinfoToken: "yolo",
+
+  nationalMode: false,
+  numberType: "MOBILE",
+  //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+  preferredCountries: ['sa'],
+  preventInvalidNumbers: true,
+  separateDialCode: false,
+  initialCountry: "SA",
+  geoIpLookup: function(callback) {
+  $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+    var countryCode = (resp && resp.country) ? resp.country : "";
+    callback(countryCode);
+  });
+},
+   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
+});
+
+var reset = function() {
+  telInput.removeClass("error");
+  // errorMsg.addClass("hide");
+  // validMsg.addClass("hide");
+};
+
+// on blur: validate
+telInput.blur(function() {
+  reset();
+  if ($.trim(telInput.val())) {
+    if (telInput.intlTelInput("isValidNumber")) {
+      // validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      // errorMsg.removeClass("hide");
+    }
+    console.log($('.selected-dial-code').text());
+  }
+});
+
+// on keyup / change flag: reset
+telInput.on("keyup change", reset);
+
+
+
 </script>
 @endsection

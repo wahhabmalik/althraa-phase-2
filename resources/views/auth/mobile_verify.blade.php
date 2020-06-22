@@ -182,7 +182,7 @@ input[type=number] {
         var count = 0;
         $('.two-fa').each(function(i, obj) {
             
-            if($(this).val() > 0)
+            if($(this).val() > -1)
                 count++;
             else
                 count--;

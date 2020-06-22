@@ -139,6 +139,11 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
+
+        $request->merge([
+            'phone_number' => str_replace('+', '', $request->phone_number),
+        ]);
+
         $this->validate($request, [
             'phone_number' => 'required|numeric',
         ]);
