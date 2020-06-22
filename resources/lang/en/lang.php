@@ -116,7 +116,7 @@ return [
 
 
         // step 3
-        'current_saving_balance' => 'Current saving balance ',
+        'current_saving_balance' => 'The initial amount',
         'gosi_or_ppa_monthly_subscription' => 'GOSI or PPA monthly subscription',
         'monthly_saving_plan_for_retirement' => 'Monthly saving plan for retirement',
         'annual_increase_in_saving_plan' => 'Annual increase in saving plan (%)',
