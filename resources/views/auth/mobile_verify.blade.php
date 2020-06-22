@@ -214,11 +214,11 @@ input[type=number] {
     })
 
     function resendSms(){
-      alert('sms resend')
+      // alert('sms resend')
     }
 
     function callNumber(){
-      alert('Calling')
+      // alert('Calling')
     }
 </script>
 @endsection
