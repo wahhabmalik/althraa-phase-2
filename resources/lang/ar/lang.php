@@ -241,7 +241,7 @@ return [
         'previous' => '  سابق      ',
         'go_to' => '  انتقل إلى    ',
 
-        'continue_to_gosi' => '  الاستمرار في     GOSI      ',
+        'continue_to_gosi' => '  الاستمرار الى التأمينات    ',
 
 
         // step 5
