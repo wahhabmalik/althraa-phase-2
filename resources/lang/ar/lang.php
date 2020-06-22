@@ -114,7 +114,7 @@ return [
         'other' => ' اخرى ',
 
         // 'continue_to_expenses' => '  الاستمرار في          المصاريف            ',
-        'continue_to_saving_plan' => ' الاستمرار الى خطة المدخرات  ',
+        'continue_to_saving_plan' => 'الاستمرار الى خطة التقاعد',
 
 
         // step 3
