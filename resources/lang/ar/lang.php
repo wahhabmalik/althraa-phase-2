@@ -105,7 +105,7 @@ return [
         'continue_to_income' => '   الاستمرار في الدخل      ',
 
         // step 2
-        'salary' => ' الدخل الشهري ',
+        'salary' => 'الراتب',
         'private_business_or_freelancing' => '   خارج العمل     ',
         'other' => ' Other ',
         'stock_dividents' => '    توزيعات اسهم     ',
@@ -396,7 +396,7 @@ return [
 
     'question_headings' => [
         'personal_info' => ' المعلومات الشخصية ',
-        'income' => '   الدخل      ',
+        'income' => '   الدخل الشهري     ',
         // 'expenses' => '   المصاريف     ', old value
         'expenses' => '  خطة التقاعد ',
         'net_assets' => '   صافي الاصول      ',
