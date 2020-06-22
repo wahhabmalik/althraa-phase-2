@@ -857,7 +857,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['totalCurrentAssetAllocation']) ?? '0' }} 
+												{{ currency($data['accomulativeSavingtoday']) ?? '0' }} 
 											</p>
 										</td>
 									</tr>

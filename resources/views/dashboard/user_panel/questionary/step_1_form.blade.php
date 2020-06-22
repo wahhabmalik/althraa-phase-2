@@ -83,9 +83,9 @@
                             	<div class="row">
                             		<div class="col-sm-4"></div>
                             		<div class="col-sm-4">
-										<p class="wizard_info_text">
+										{{-- <p class="wizard_info_text">
 											{{ trans('lang.question.started_year_for_personal_financial_plan') }}
-										</p>
+										</p> --}}
 										
 										<div class="form-group">
 											<div class="form-group">

@@ -95,7 +95,7 @@ return [
                 'highschool' => 'High School & Bleow',
                 'bachlore' => 'Bachlore',
                 'master' => 'Master',
-                'above' => 'Above',
+                'above' => 'PhD',
             ],
 
         'planned_retirement_age' => 'Your planned retirement age',
