@@ -123,7 +123,7 @@ return [
         'monthly_saving_plan_for_retirement' => 'الادخار الشهري لخطة التقاعد',
         'annual_increase_in_saving_plan' => 'معدل الزيادة في الادخار بشكل سنوي (%)',
 
-        'continue_to_worth' => 'الاستمرار الى الثروة الشخصية',
+        'continue_to_worth' => 'الاستمرار الى صافي الاصول',
 
 
         // step 3 -> old 
