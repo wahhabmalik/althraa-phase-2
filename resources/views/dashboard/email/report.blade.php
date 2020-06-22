@@ -204,7 +204,7 @@
                   <td>
                     <a href="{{ route('download', ['q'=> $data['public_id'], 'en']) }}" style="text-decoration: none;" > 
                       <div class="white-btn" style="background: #01630a;text-decoration: none;color: white;padding: 10px 0;font-size: 14px;width: 170px;text-align: center;height: 20px;line-height: 22px;">
-                        Download report
+                        Download report in English
                       </div> 
                     </a>
                   </td>
