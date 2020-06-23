@@ -191,7 +191,8 @@ input[type=number] {
                 count--;
 
             if(count == 4 && i == 3)
-                $('.login__form').submit();
+                alert('hu');
+                // $('.login__form').submit();
         });
       }
 
@@ -218,12 +219,6 @@ input[type=number] {
 
     })
 
-    function resendSms(){
-      // alert('sms resend')
-    }
-
-    function callNumber(){
-      // alert('Calling')
-    }
+    
 </script>
 @endsection
