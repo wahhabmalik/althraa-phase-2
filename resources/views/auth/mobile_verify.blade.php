@@ -160,6 +160,9 @@ input[type=number] {
       var body = $('body');
 
       function goToNextInput(e) {
+
+        e.preventDefault();
+        
         var key = e.which,
           t = $(e.target),
           sib = t.next('input');
