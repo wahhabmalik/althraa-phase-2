@@ -5,6 +5,14 @@
 @section('styles')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/login/css/login.css') }}">
+<style type="text/css">   
+@media (max-width: 660px) {
+  .intl-tel-input .country-list{
+    right:{!! ($request->segment(1) == 'ar') ?'-28px;' : '28px;' !!} !important;
+  }
+}
+
+</style>
 @endsection
 
 @section('content')

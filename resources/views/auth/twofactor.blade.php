@@ -4,10 +4,79 @@
 
 @section('styles')
 <style type="text/css">   
+.button, .button:link {
+    border: 0px solid #01630a;
+}
+    
+.logo {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+#wrapper #dialog #form input {
+    margin: 0 0.6rem;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    border: solid 1px #ccc;
+    /*box-shadow: 0 0 5px #ccc inset;*/
+    outline: none;
+    width: 21%;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3px;
+}
+
+#wrapper #dialog #form input:focus {
+    border-color: #016216;
+    box-shadow: 0 0 5px #016216 inset;
+}
+
+#wrapper #dialog #form input::selection {
+    background: transparent;
+}
+.login__form {
+    direction: ltr;
+}
+
+
+
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 0.5em;
+  text-transform: uppercase;
+}
+
+li span {
+  display: block;
+  font-size: 3.5rem;
+}
+.card {
+    background: #f4f8f4;
+    border: unset;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.login {
+    height: 90vh;
+    padding: 2rem 0;
+}
+
 
 
 </style>
-<link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/login/css/login.css') }}">
 @endsection
 
 @section('content')
