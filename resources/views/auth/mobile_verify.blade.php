@@ -117,7 +117,7 @@ input[type=number] {
                 </div>
             </div>
 
-            <div class="login__or">
+            {{-- <div class="login__or">
                 &mdash; {{ trans('lang.login_form.or') }} &mdash;
             </div>
             <div class="regsiter__google">
@@ -126,7 +126,7 @@ input[type=number] {
                         {{ trans('lang.login_form.login_with_another_account') }}
                     </button>
                 </a>
-            </div>
+            </div> --}}
 
         </div>
     </div>
