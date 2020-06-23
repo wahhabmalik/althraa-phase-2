@@ -159,10 +159,15 @@ li span {
                     <div id="form">
                         <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
                             @csrf
-                            <input type="number" name="two_factor_code[]" maxLength="1" pattern="\d*" size="1" min="0" max="9"  class="two-fa" />
-                            <input type="number" name="two_factor_code[]" maxLength="1" pattern="\d*" size="1" min="0" max="9"  class="two-fa" /><input type="number" name="two_factor_code[]" maxLength="1" pattern="\d*" size="1" min="0" max="9"  class="two-fa" /><input type="number" name="two_factor_code[]" maxLength="1" pattern="\d*" size="1" min="0" max="9"  class="two-fa"  />
+                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
+                            
+                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
 
-                            <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
+                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
+
+                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa"  />
+
+                            <button type="submit" class="button button__block">{!! ($request->segment(1) == 'ar') ? '&larr;&nbsp; ' . trans('lang.frontend.verify') : trans('lang.frontend.verify') . '&nbsp; &rarr;' !!}
                             </button>
                         </form>
                     </div>
@@ -232,15 +237,16 @@ li span {
 
         // two-fa
         var count = 0;
-        $('.two-fa').each(function(i, obj) {
+        $('input[type=tel]').each(function(){
             
-            if($(this).val() > -1)
+            if(parseInt($(this).val()) >= 0)
                 count++;
             else
                 count--;
 
-            if(count == 4 && i == 3)
-                $('.login__form').submit();
+            if(count == 4){
+              $('.login__form').submit();
+            }
         });
       }
 

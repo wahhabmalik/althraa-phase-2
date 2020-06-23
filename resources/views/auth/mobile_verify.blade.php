@@ -116,8 +116,8 @@ input[type=number] {
 
                             <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa" pattern="[0-9]{1}" />
 
-                            {{-- <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!} --}}
-                            {{-- </button> --}}
+                            <button type="submit" class="button button__block">{!! ($request->segment(1) == 'ar') ? '&larr;&nbsp; ' . trans('lang.frontend.verify') : trans('lang.frontend.verify') . '&nbsp; &rarr;' !!}
+                            </button>
                         </form>
                     </div>
                 </div>
