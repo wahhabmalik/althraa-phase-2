@@ -80,7 +80,7 @@ li span {
 @endsection
 
 @section('content')
-<section class="login container">
+<section class="login container" style="overflow-x: hidden;">
     <div class="row">
         
         @if (session('message'))
