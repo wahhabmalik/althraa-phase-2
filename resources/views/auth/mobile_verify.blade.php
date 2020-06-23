@@ -186,7 +186,7 @@ input[type=number] {
 
         // two-fa
         var count = 0;
-        $('.two-fa').each(function(i, obj) {
+        $('input[type=tel]').each(function(i, obj) {
             
             if($(this).val() > -1)
                 count++;
@@ -194,7 +194,7 @@ input[type=number] {
                 count--;
 
             if(count == 4 && i == 3){
-                alert($(this).val());
+                alert($(this).val(), i);
                 // $('.login__form').submit();
             }
         });
