@@ -108,13 +108,13 @@ input[type=number] {
                         <form method="POST" class="login__form" action="{{ route('validate_phone', app()->getLocale()) }}">
                             @csrf
                             
-                            <input type="tel" name="mobile[]" maxlength="1" size="1" min="0" max="9" class="two-fa" />
+                            <input type="tel" name="mobile[]" maxlength="1" size="1" min="0" max="9" class="two-fa" pattern="[0-9]{1}"/>
                             
-                            <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa" />
+                            <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa" pattern="[0-9]{1}"/>
 
-                            <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa" />
+                            <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa" pattern="[0-9]{1}"/>
 
-                            <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa"  />
+                            <input type="tel" name="mobile[]" maxLength="1" size="1" min="0" max="9" class="two-fa" pattern="[0-9]{1}" />
 
                             {{-- <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!} --}}
                             {{-- </button> --}}
