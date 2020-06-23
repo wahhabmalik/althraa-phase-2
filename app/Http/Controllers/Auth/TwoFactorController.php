@@ -42,7 +42,7 @@ class TwoFactorController extends Controller
     		return redirect()->route('home', app()->getLocale());
     	}
 
-    	return redirect()->route('verify.index', app()->getLocale())->withMessage('Verification failed please try again or try new code.');
+    	return redirect()->route('verify.index', app()->getLocale())->withMessage('Verification_failed_please_try_again_or_try_new_code');
     }
 
 

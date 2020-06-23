@@ -1062,4 +1062,8 @@ return [
 
     'New_Code_has_been_sent_to_you' => 'New Code has been sent to you'
 
+    'Verification_failed_please_try_again_or_try_new_code' => 'Verification failed please try again or try new code',
+
+    'Verification_failed_please_try_again' => 'Verification failed please try again',
+
 ];

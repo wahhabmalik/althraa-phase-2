@@ -1063,6 +1063,10 @@ return [
 
     'New_Code_has_been_sent_to_you' => 'تم إرسال كود جديد لك',
 
+    'Verification_failed_please_try_again_or_try_new_code' => 'رمز التحقق خاطئ ، اعد المحاولة برمز آخر',
+
+    'Verification_failed_please_try_again' => 'رمز التحقق خاطئ اعد المحاولة مرة أخرى',
+
 
 
 ];

@@ -194,9 +194,6 @@ input[type=number] {
                 count--;
 
             if(count == 4){
-
-                // console.log(typeof($(this).val()));
-                // alert($(this).val());
                 $('.login__form').submit();
             }
         });
