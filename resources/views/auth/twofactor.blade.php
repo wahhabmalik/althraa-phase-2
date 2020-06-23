@@ -74,13 +74,17 @@ li span {
     padding: 2rem 0;
 }
 
-
+@media (max-width: 660px) {
+  section.login.container{
+    overflow-x: hidden;
+  }
+}
 
 </style>
 @endsection
 
 @section('content')
-<section class="login container" style="overflow-x: hidden;">
+<section class="login container" >
     <div class="row">
         
         @if (session('message'))
