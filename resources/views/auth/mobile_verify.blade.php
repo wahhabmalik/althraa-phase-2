@@ -188,15 +188,17 @@ input[type=number] {
         var count = 0;
         $('input[type=tel]').each(function(){
             
-            if($(this).val() > -1)
+            if(parseInt($(this).val()) >= 0)
                 count++;
             else
                 count--;
 
-            // if(count == 4){
-                alert($(this).val());
-                // $('.login__form').submit();
-            // }
+            if(count == 4){
+
+                // console.log(typeof($(this).val()));
+                // alert($(this).val());
+                $('.login__form').submit();
+            }
         });
       }
 
