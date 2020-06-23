@@ -186,17 +186,17 @@ input[type=number] {
 
         // two-fa
         var count = 0;
-        $('input[type=tel]').each(function(i, obj) {
+        $('input[type=tel]').each(function(){
             
             if($(this).val() > -1)
                 count++;
             else
                 count--;
 
-            if(count == 4 && i == 3){
-                alert($(this).val(), i);
+            // if(count == 4){
+                alert($(this).val());
                 // $('.login__form').submit();
-            }
+            // }
         });
       }
 
