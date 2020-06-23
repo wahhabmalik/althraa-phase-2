@@ -162,7 +162,7 @@ input[type=number] {
       function goToNextInput(e) {
 
         e.preventDefault();
-        
+
         var key = e.which,
           t = $(e.target),
           sib = t.next('input');
@@ -196,6 +196,7 @@ input[type=number] {
       }
 
       function onKeyDown(e) {
+        e.preventDefault();
         var key = e.which;
 
         if (key === 9 || (key >= 48 && key <= 57)) {
@@ -207,6 +208,7 @@ input[type=number] {
       }
       
       function onFocus(e) {
+        e.preventDefault();
         $(e.target).select();
       }
 
