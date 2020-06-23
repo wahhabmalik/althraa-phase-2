@@ -84,7 +84,7 @@ input[type=number] {
             
             @if (session('message'))
                 <div class="card-body">
-                        <div class="alert alert-info" role="alert">
+                        <div class="alert alert-info text-center" role="alert">
                             {{ session('message') }}
                         </div>
                     
