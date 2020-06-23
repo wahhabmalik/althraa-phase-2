@@ -188,7 +188,7 @@ input[type=number] {
                 count--;
 
             if(count == 4 && i == 3){
-                alert(count);
+                alert($(this).val());
                 // $('.login__form').submit();
             }
         });
