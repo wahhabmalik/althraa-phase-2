@@ -107,8 +107,8 @@ input[type=number] {
                     <div id="form">
                         <form method="POST" class="login__form" action="{{ route('validate_phone', app()->getLocale()) }}">
                             @csrf
-                            <input type="text" name="mobile[]" maxlength="1" pattern="\d*" size="1" min="0" max="9" class="two-fa" />
-                            <input type="text" name="mobile[]" maxLength="1" pattern="\d*" size="1" min="0" max="9" class="two-fa" /><input type="text" name="mobile[]" maxLength="1" pattern="\d*" size="1" min="0" max="9" class="two-fa" /><input type="text" name="mobile[]" maxLength="1" pattern="\d*" size="1" min="0" max="9" class="two-fa"  />
+                            <input type="tel" name="mobile[]" maxlength="1" pattern="^\d{2}-\d{3}$" size="1" min="0" max="9" class="two-fa" />
+                            <input type="tel" name="mobile[]" maxLength="1" pattern="^\d{2}-\d{3}$" size="1" min="0" max="9" class="two-fa" /><input type="tel" name="mobile[]" maxLength="1" pattern="^\d{2}-\d{3}$" size="1" min="0" max="9" class="two-fa" /><input type="tel" name="mobile[]" maxLength="1" pattern="^\d{2}-\d{3}$" size="1" min="0" max="9" class="two-fa"  />
 
                             <button type="submit" class="button button__block">{{ trans('lang.frontend.verify') }} &nbsp; {!! ($request->segment(1) == 'ar') ? '&larr;' : '&rarr;' !!}
                             </button>
