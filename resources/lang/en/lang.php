@@ -393,7 +393,7 @@ return [
         'personal_info' => 'Personal Info',
         'income' => 'Monthly Income',
         // 'expenses' => 'Expenses', (old value)
-        'expenses' => 'Saving Plan',
+        'expenses' => 'Retirement plan',
         'net_assets' => 'Net worth',
         'gosi' => 'GOSI',
         'risk' => 'Risk',
@@ -943,6 +943,7 @@ return [
 
     'thanks' => 'Thanks',
     'thanks_message' => 'Thank you for submitting. Please check you email to print/download the report',
+    'It_can_take_a_few_minutes' => 'It can take a few minutes',
 
     'report' => [
 

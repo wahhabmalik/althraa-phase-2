@@ -102,7 +102,7 @@ return [
 
         'planned_retirement_age' => '  سن التقاعد المخطط مثلا ٦٠ سنة    ',
 
-        'continue_to_income' => '   الاستمرار في الدخل      ',
+        'continue_to_income' => '  الاستمرار الى الدخل    ',
 
         // step 2
         'salary' => 'الراتب',
@@ -314,9 +314,9 @@ return [
         // q7
         'i_expect_to_start_withdrawing_my_saving' => '       اتوقع البدء بسحب اموال من مدخراتي:          ',
 
-        'less_than_5_years' => '     خلال فترة أقل من 5 سنوات                ',
-        '5_10_years' => '     سنوات 10 – 5                 ',
-        '10_15_years' => '     سنة 15 – 10                 ',
+        'less_than_5_years' => '    خلال فترة أقل من 5 سنوات         ',
+        '5_10_years' => '     خلال فترة بين 5 إلى 10 سنوات         ',
+        '10_15_years' => '     خلال فترة بين 10 إلى 15 سنة           ',
         'more_than_15_years' => '    اكثر من 15 سنة                 ',
         'i_have_no_saving_or_i_have_already_withdrawing_from_it' => '    ليس لدي مدخرات او اقوم حاليا بالسحب منه            ',
 
@@ -332,7 +332,7 @@ return [
         'in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years' => '        لو عرض عليك اربع فرص استثمارية (d, c, b, a )لإستثمار  100,000مدة 10 سنوات، اي من الفرص التالية تفضل:            ',
 
         'after_10_years,_the_probability_of_best_investment_value_=_500,000_and_the_worst_=_50,000' => '       احتمال افضل قيمة للإستثمار بعد 10 سنوات = 500,000 ريال ، واسوء قيمة = 50,000 ريال                ',
-        'after_10_years,_the_probability_of_best_investment_value_=_850,000_and_the_worst_=_20,000' => '     حتمال افضل قيمة للإستثمار بعد 10 سنوات = 850,000 ريال ، واسوء قيمة = 20,000 ريال                ',
+        'after_10_years,_the_probability_of_best_investment_value_=_850,000_and_the_worst_=_20,000' => '   احتمال أفضل قيمة للإستثمار بعد عشر سنوات =850,000 ريال ، واسوء قيمة =65,000 ريال         ',
         'after_10_years,_the_probability_of_best_investment_value_=_300,000_and_the_worst_=_65,000' => '       احتمال افضل قيمة للإستثمار بعد 10 سنوات = 300,000 ريال ، واسوء قيمة = 65,000 ريال                ',
         'after_10_years,_the_probability_of_best_investment_value_=_150,000_and_the_worst_=_100,000' => '       احتمال افضل قيمة للإستثمار بعد 10 سنوات = 150,000 ريال ، واسوء قيمة = 100,000 ريال                 ',
 
@@ -340,7 +340,7 @@ return [
         'when_i_buy_a_car_insurance_i_prefer' => '      عند شرائي وثيقة تأمين مركبة، افضل:             ',
 
         'insurance_with_the_highest_cover_even_if_it_was_expensive' => '     شراء وثيقة تأمين "شامل لأعلى تغطية" حتى لو كان سعر الوثيقة عالي               ',
-        'insurance_with_a_limited_cover_even_if_it_was_expensive' => '       .شراء وثيقة تأمين "شامل التغطية الى حد معين" حتى ً لو كان سعر الوثيقة عالي نسبي                    ',
+        'insurance_with_a_limited_cover_even_if_it_was_expensive' => '       شراء وثيقة تأمين "شامل التغطية الى حد معين" حتى ً لو كان سعر الوثيقة عالي نسبي                    ',
         'pay_a_lower_price_for_a_third_party_one' => '        دفع أقل ثمن وشراء وثيقة تأمين "ضد الغير"              ',
         'i_prefer_not_buying_a_care_insurance' => '      افضل عدم شراء وثيقة تأمين              ',
 
@@ -560,7 +560,7 @@ return [
         'contact_other_help' => '     المساعدة      ',
         'contact_other_timings' => '    نحن متاحين يوميا من الساعة 8 صباحا وحتى 4 مساءا           ',
 
-        'thanks_message' => 'شكرا لتواصلك معنا !'
+        'thanks_message' => 'شكرا لتواصلك معنا !',
     ],
 
 
@@ -939,6 +939,7 @@ return [
 
     'thanks' => 'شكرا لك',
     'thanks_message' => 'شكرا لك على التقديم. يرجى التحقق من بريدك الإلكتروني لطباعة / تنزيل التقرير',
+    'It_can_take_a_few_minutes' => 'من الممكن أن يستغرق بضع دقائق',
 
 
 
@@ -957,7 +958,7 @@ return [
 
         'financial_position_today' => 'الملاءة',
             // 'monthly_income_today' => 'المبلغ الاولي المخصص لخطة التقاعد (دفعة واحدة) ',
-            'monthly_income_today' => 'المبلغ الاولي المخصص لخطة التقاعد  -دفعة واحدة',
+            'monthly_income_today' => 'الدخل الشهري اليوم',
             'gosi_ppa_monthly_subscription' => 'الاستقطاع الشهري ',
             'monthly_saving_plan_for_reitirement' => 'الادخار الشهري لخطة التقاعد',
             'monthly_saving_percentage_today' => 'معدل الادخار الشهري اليوم %',

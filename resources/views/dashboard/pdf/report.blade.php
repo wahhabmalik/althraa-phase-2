@@ -336,7 +336,7 @@
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.net_worth') }}</td>
-						<td>{{ currency($data['netWorthToday'] ?? 0) }}</td>
+						<td>{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.accomulative_saving_today') }}</td>
@@ -984,7 +984,7 @@
 
 		<div class="row financial-position">
 			<div class="col-1 rem-col"></div>
-			<div class="col-10 to-12">
+			<div class="col-5">
 				<p class="text-secondary mt-5">{{ trans('lang.report.income_and_wealth_at_retirement') }}</p>
 				<table>
 					{{-- <tr>

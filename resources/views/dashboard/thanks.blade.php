@@ -30,7 +30,8 @@
 <div class="content__body">
 	<div class="center_content">
 		<h2 class="user__intro welcome_text text-dark">{{ trans('lang.thanks') }}</h2>
-		<p class="user__intro welcome_para">{{ trans('lang.thanks_message') }}</p>
+		<p class="user__intro welcome_para">{{ trans('lang.thanks_message') }} "{{ trans('lang.It_can_take_a_few_minutes') }}"</p>
+        {{-- <p class="user__intro welcome_para"></p> --}}
 		<br>
 		
 	</div>

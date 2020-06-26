@@ -122,7 +122,7 @@
 						                                class="form-control text-input @error('gosi.strating_year_in_plan') {!! 'error' !!} @enderror" 
 						                                name="gosi[strating_year_in_plan]" 
 						                                 
-						                                placeholder="eg. 4000 SAR" 
+						                                placeholder="eg. 2012" 
 						                                value="{{ old('gosi.strating_year_in_plan') ?? $user_questionnaire->gosi["gosi"]["strating_year_in_plan"] ?? '' }}"
 
 						                                >
