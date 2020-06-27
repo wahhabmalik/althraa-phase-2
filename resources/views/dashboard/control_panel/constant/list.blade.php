@@ -104,40 +104,39 @@ th {
                             @isset ($constants)
                                 @php $count = 0; @endphp
                                 @forelse ($constants as $key => $constant)
-                                    @if($key < 11 )
-                                        <tr>
-                                            <td scope="row">
-                                                <span class="text_black">
-                                                    {{ ++$count }}
-                                                </span>
-                                            </td>
-                                            <td scope="row">
-                                                <span class="text_black">
-                                                    {{ $constant->constant_meta_type }}
-                                                </span>
-                                            </td>
-                                            <td scope="row">
-                                                <span class="text_black">
-                                                    {{ $constant->constant_attribute }}
-                                                </span>
-                                            </td>
-                                            <td scope="row">
-                                                <span class="text_black">
-                                                    {{ $constant->constant_value }} {{ $constant->constant_symbol }}
-                                                </span>
+                                    <tr>
+                                        <td scope="row">
+                                            <span class="text_black">
+                                                {{ ++$count }}
+                                            </span>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="text_black">
+                                                {{ $constant->constant_meta_type }}
+                                            </span>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="text_black">
+                                                {{ $constant->constant_attribute }}
+                                            </span>
+                                        </td>
+                                        <td scope="row">
+                                            <span class="text_black">
+                                                {{ $constant->constant_value }} {{ $constant->constant_symbol }}
+                                            </span>
 
-                                                
-                                                {{-- <button title="Edit" class="btn btn-success form-constant-edit" style="float: right;" data-constant="{{ $constant->constant_value }}" data-constant_value="{{ $constant }}" data-constant_attribute="{{ $constant->constant_attribute }}">
-                                                    <i class="fa fa-edit" aria-hidden="true"></i>
-                                                </button> --}}
-                                            </td>
-                                            <td scope="row">
-                                                <a href="{{ route('edit_constant', [app()->getLocale(), $constant]) }}" class="btn btn-althraa btn-sm" style="float: right;" title="Edit">
-                                                    <i class="fa fa-edit" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endif
+                                            
+                                            {{-- <button title="Edit" class="btn btn-success form-constant-edit" style="float: right;" data-constant="{{ $constant->constant_value }}" data-constant_value="{{ $constant }}" data-constant_attribute="{{ $constant->constant_attribute }}">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </button> --}}
+                                        </td>
+                                        <td scope="row">
+                                            <a href="{{ route('edit_constant', [app()->getLocale(), $constant]) }}" class="btn btn-althraa btn-sm" style="float: right;" title="Edit">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                   
                                 @empty
                                     <tr>
                                         <td scope="col" colspan="4" class="text-center">

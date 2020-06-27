@@ -336,7 +336,7 @@
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.net_worth') }}</td>
-						<td>{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }}</td>
+						<td>{{ currency($data['netWorthToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.accomulative_saving_today') }}</td>

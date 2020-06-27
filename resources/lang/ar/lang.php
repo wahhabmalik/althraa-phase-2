@@ -286,7 +286,7 @@ return [
             ',
 
         // q4
-        'regarding_my_major_expenses_before_retirement_(including_family_expenses_such_as_education_,_buying_a_house_etc)' => '  بالنسبة لمصاريفي الرئيسية المتوقعة قبل سِن التقاعد (بما في ذلك مصاريف افراد عائلتي كالتعليم والزاج وشراء منزل، الخ)  ',
+        'regarding_my_major_expenses_before_retirement_(including_family_expenses_such_as_education_,_buying_a_house_etc)' => ' بالنسبة لمصاريفي الرئيسية المتوقعة قبل سِنٌّ التقاعد (بما في ذلك مصاريف عائلتي والتعليم والزواج ، وشراء منزل الخ ) ',
 
         'i_will_manage_to_cover_all_expenses_from_my_annual_income' => '      سوف اتمكن من تغطية جميع المصاريف المتوقعة من خلال دخلي السنوي
                  ',

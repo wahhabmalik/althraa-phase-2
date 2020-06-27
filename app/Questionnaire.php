@@ -2122,43 +2122,31 @@ class Questionnaire extends Model
 
     public function getRecomendedAssetAllocation(User $user = null)
     {
+
         if ($this->getRiskTotalPoints($user) < 20) {
-            return [
-                'cash_and_equivlent' => 30,
-                'equities' => 20,
-                'fix_income' => 45,
-                'alternative_investments' => 5,
+
+            $points = Constant::where('constant_meta_type', 'Very_Conservative_Investor')->get();
+        } else if ($this->getRiskTotalPoints($user) >= 20 && $this->getRiskTotalPoints($user) < 40){
+
+            $points = Constant::where('constant_meta_type', 'Conservative_Investor')->get();
+        } else if ($this->getRiskTotalPoints($user) >= 40 && $this->getRiskTotalPoints($user) < 60){
+
+            $points = Constant::where('constant_meta_type', 'Natrual_Investor')->get();
+        } else if ($this->getRiskTotalPoints($user) >= 60 && $this->getRiskTotalPoints($user) < 80){
+
+            $points = Constant::where('constant_meta_type', 'Aggressive_Investor')->get();
+        } else if ($this->getRiskTotalPoints($user) >= 80 && $this->getRiskTotalPoints($user) <= 100){
+
+            $points = Constant::where('constant_meta_type', 'Very_Aggressive_Investor')->get();
+        } 
+
+        return [
+                'cash_and_equivlent' => (integer)$points[0]->constant_value ?? 0,
+                'equities' => (integer)$points[1]->constant_value ?? 0,
+                'fix_income' => (integer)$points[2]->constant_value ?? 0,
+                'alternative_investments' => (integer)$points[3]->constant_value ?? 0,
                 
             ];
-        } else if ($this->getRiskTotalPoints($user) >= 20 && $this->getRiskTotalPoints($user) < 40){
-            return [
-                'cash_and_equivlent' => 25,
-                'equities' => 25,
-                'fix_income' => 40,
-                'alternative_investments' => 10,
-            ];
-        } else if ($this->getRiskTotalPoints($user) >= 40 && $this->getRiskTotalPoints($user) < 60){
-            return [
-                'cash_and_equivlent' => 15,
-                'equities' => 45,
-                'fix_income' => 25,
-                'alternative_investments' => 15,
-            ];
-        } else if ($this->getRiskTotalPoints($user) >= 60 && $this->getRiskTotalPoints($user) < 80){
-            return [
-                'cash_and_equivlent' => 5,
-                'equities' => 70,
-                'fix_income' => 10,
-                'alternative_investments' => 15,
-            ];
-        } else if ($this->getRiskTotalPoints($user) >= 80 && $this->getRiskTotalPoints($user) <= 100){
-            return [
-                'cash_and_equivlent' => 0,
-                'equities' => 80,
-                'fix_income' => 0,
-                'alternative_investments' => 20,
-            ];
-        } 
     }
 
     public function getReturnAssumptions(User $user = null)
