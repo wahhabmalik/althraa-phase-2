@@ -658,7 +658,7 @@ return [
     'staff' => '  فريق العمل        ',
     'admin' => [
         'site_settings' => '  إعدادات الموقع      ',
-        'settings' => '  اإلعدادات      ',
+        'settings' => ' الإعدادات   ',
         'maintenance' => '   الصيانة     ',
 
         'site_name__google_search_and_browser_tab__' => '   اسم الموقع (بحث Google وعالمة تبويب المتصفح)     ',

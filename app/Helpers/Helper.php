@@ -146,8 +146,10 @@ function currency($value, $currency = 1)
 }
 
 
-function percentage($value)
+function percentage($value, $no_sign = 0)
 {
+    if($no_sign)   
+        return round($value, 0);
     return round($value, 0) . ' %';
 }
 

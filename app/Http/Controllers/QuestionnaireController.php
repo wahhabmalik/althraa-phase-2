@@ -2943,11 +2943,13 @@ class QuestionnaireController extends Controller
         $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
 
         //  Current Asset Allocation
-        $cashAndEquivlentPercentage = ($cashAndEquivlent / $totalCurrentAssetAllocation)*100;
-        $equitiesPercentage         = ($equities / $totalCurrentAssetAllocation)*100;
-        $fixIncomePercentage        = ($fixIncome / $totalCurrentAssetAllocation)*100;
-        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $totalCurrentAssetAllocation)*100;
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / $netWorthToday)*100;
+        $equitiesPercentage         = ($equities / $netWorthToday)*100;
+        $fixIncomePercentage        = ($fixIncome / $netWorthToday)*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $netWorthToday)*100;
         $totalCurrentAssetAllocationPercentage  = $cashAndEquivlentPercentage+$equitiesPercentage+$fixIncomePercentage+$alternativeInvestmentsPercentage;
+
+        // dd($netWorthToday, $cashAndEquivlent , $equities , $fixIncome , $alternativeInvestments);
 
         //Investing Diversity
         $assetClass = 0;

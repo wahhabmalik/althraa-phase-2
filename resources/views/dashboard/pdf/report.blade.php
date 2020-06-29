@@ -359,7 +359,7 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }} 
+						    	{{ currency($data['netWorthToday'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
 						    	{{ percentage($data['totalCurrentAssetAllocationPercentage'] ?? 0) }}
@@ -388,7 +388,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['cashAndEquivlent'] ?? 0) }}
+												{{ currency((percentage($data['cashAndEquivlentPercentage'],1) * $data['netWorthToday']) / 100 ) }}
 											</p>
 										</td>
 									</tr>
@@ -406,7 +406,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['equities'] ?? 0) }} 
+												{{ currency((percentage($data['equitiesPercentage'], 1) * $data['netWorthToday'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -424,7 +424,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['fixIncome'] ?? 0) }} 
+												{{ currency((percentage($data['fixIncomePercentage'], 1) * $data['netWorthToday']) / 100) }} 
 											</p>
 										</td>
 									</tr>
@@ -442,7 +442,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['alternativeInvestments'] ?? 0) }} 
+												{{ currency((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['netWorthToday']) / 100) }} 
 											</p>
 										</td>
 									</tr>
@@ -460,7 +460,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['totalCurrentAssetAllocation'] ?? 0) }} 
+												{{ currency($data['netWorthToday'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
