@@ -423,9 +423,9 @@ return [
         'list_of_constants_used_in_calculation_formulae' => 'قائمة الثوابت المستخدمة في صيغ الحساب',
         'sr_no' => 'مسلسل  #',
         'belongs_to_types' => 'ينتمي إلى نوع',
-        'attribute' => 'ينسب',
+        'attribute' => 'المتغير',
         'value' => 'القيمة',
-        'action' => 'عمل',
+        'action' => 'تعديل',
 
     ],
 
@@ -658,7 +658,7 @@ return [
     'staff' => '  فريق العمل        ',
     'admin' => [
         'site_settings' => '  إعدادات الموقع      ',
-        'settings' => ' الإعدادات   ',
+        'settings' => ' الاعدادات ',
         'maintenance' => '   الصيانة     ',
 
         'site_name__google_search_and_browser_tab__' => '   اسم الموقع (بحث Google وعالمة تبويب المتصفح)     ',
