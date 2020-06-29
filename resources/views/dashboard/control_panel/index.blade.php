@@ -107,7 +107,7 @@ p.setting_text:hover {
 			</div>			
 		</div>
 		<hr>
-		<div class="row mt-5 {{ ($request->segment(1) == 'ar') ? 'text-right' : 'text-left' }}">
+		{{-- <div class="row mt-5 {{ ($request->segment(1) == 'ar') ? 'text-right' : 'text-left' }}">
 			<div class="col-lg-4 col-sm-12">
 				<div class="table_box">
 					<table class="table">
@@ -279,7 +279,7 @@ p.setting_text:hover {
 				<br>
 				<br>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="s-100"></div>
 	</div>
