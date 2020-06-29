@@ -129,13 +129,13 @@ a.button {
                     <thead>
                         <tr>
                             <th></th>
-                            <th><p>{{ trans('lang.user.name') }}</p></th>
+                            {{-- <th><p>{{ trans('lang.user.name') }}</p></th> --}}
                             {{-- <th><p>{{ trans('lang.user.membership') }}</p></th> --}}
                             <th><p>{{ trans('lang.user.data_reg') }}</p></th>
                             {{-- <th><p>{{ trans('lang.user.renewal_date') }}</p></th> --}}
                             <th><p>{{ trans('lang.user.email_address') }}</p></th>
-                            <th><p>{{ trans('lang.user.password') }}</p></th>
-                            <th><p>{{ trans('lang.user.gender') }}</p></th>
+                            {{-- <th><p>{{ trans('lang.user.password') }}</p></th> --}}
+                            {{-- <th><p>{{ trans('lang.user.gender') }}</p></th> --}}
                             {{-- <th><p>{{ trans('lang.user.country') }}Country</p></th> --}}
                             <th><p>{{ trans('lang.user.phone') }}</p></th>
                             <th><p>{{ trans('lang.user.report') }}</p></th>
@@ -149,9 +149,9 @@ a.button {
                                         <img class="user_image rounded-circle" style="max-width: 75px;" src="{{ ($user->profile_image) ? asset($user->profile_image) : 'https://j8k2d7q6.stackpathcdn.com/wp-content/uploads/2019/03/user-dummy-pic.png' }}">
                                         </td>
                                     
-                                    <td class="align-middle"><p class="text_black">
+                                    {{-- <td class="align-middle"><p class="text_black">
                                         {{ $user->name }}
-                                    </p></td>
+                                    </p></td> --}}
                                     {{-- <td class="align-middle"><p class="text_black">
                                         
                                     </p></td> --}}
@@ -164,12 +164,12 @@ a.button {
                                     <td class="align-middle"><p class="text_black">
                                         {{  $user->email }}
                                     </p></td>
-                                    <td class="align-middle"><p class="text_black">
+                                    {{-- <td class="align-middle"><p class="text_black">
                                         ********
                                     </p></td>
                                     <td class="align-middle"><p class="text_black">
                                         {{ $user->gender }}
-                                    </p></td>
+                                    </p></td> --}}
                                     {{-- <td class="align-middle"><p class="text_black">
                                         
                                     </p></td> --}}

@@ -44,7 +44,7 @@
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-sm-12">
 			<div class="form-group">
-				<p class="{{ ($request->segment(1) == 'ar') ? 'text-right' : 'text-left' }}">{{ trans('lang.admin.email') }}</p>
+				<p class="{{ ($request->segment(1) == 'ar') ? 'text-right' : 'text-left' }}">{{ trans('lang.admin.number') }}</p>
               	<select 
               		class="form-control" 
               		id="user_id" 
@@ -52,7 +52,7 @@
               		>
                   	<option></option>
                   	@foreach ($users as $user)
-                  		<option value="{{ $user->id }}">{{ $user->email }}</option>
+                  		<option value="{{ $user->id }}">{{ $user->number }}</option>
                   	@endforeach
               </select>
         	</div>
