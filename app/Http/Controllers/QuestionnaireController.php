@@ -2947,9 +2947,13 @@ class QuestionnaireController extends Controller
         $equitiesPercentage         = ($equities / $netWorthToday)*100;
         $fixIncomePercentage        = ($fixIncome / $netWorthToday)*100;
         $alternativeInvestmentsPercentage       = ($alternativeInvestments / $netWorthToday)*100;
+
+
         $totalCurrentAssetAllocationPercentage  = $cashAndEquivlentPercentage+$equitiesPercentage+$fixIncomePercentage+$alternativeInvestmentsPercentage;
 
-        // dd($netWorthToday, $cashAndEquivlent , $equities , $fixIncome , $alternativeInvestments);
+        
+
+        dd($totalCurrentAssetAllocationPercentage, $cashAndEquivlentPercentage , $equitiesPercentage , $fixIncomePercentage , $alternativeInvestmentsPercentage);
 
         //Investing Diversity
         $assetClass = 0;
