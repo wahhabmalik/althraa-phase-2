@@ -68,7 +68,7 @@ a.button {
     <div class="s-20"></div>
     <form action="{{ route('search_user',app()->getLocale()) }}" method="GET">
         <div class="row">
-            <div class="col-md-2 col-sm-6 mt-sm-3">
+            <div class="col-md-3 col-sm-6 mt-sm-3">
                 <input 
                     type="text" 
                     class="form-control" 
@@ -91,7 +91,7 @@ a.button {
                 </select>
                 <br>
             </div> --}}
-            <div class="col-md-2 col-sm-6 mt-sm-3">
+            <div class="col-md-3 col-sm-6 mt-sm-3">
                 <input 
                     type="number" 
                     class="form-control" 
@@ -103,7 +103,7 @@ a.button {
                     >
                 <br>
             </div>
-            <div class="col-md-2 col-sm-6 mt-sm-3">
+            <div class="col-md-3 col-sm-6 mt-sm-3">
                 <input 
                     type="number" 
                     class="form-control" 
@@ -115,7 +115,7 @@ a.button {
                     >
                 <br>
             </div>
-            <div class="col-md-4 col-sm-12 mt-sm-3">
+            <div class="col-md-3 col-sm-12 mt-sm-3">
                 <button type="submit" class="button btn-block">{{ trans('lang.search') }}</button>
             </div>
         </div>
