@@ -79,7 +79,7 @@ a.button {
                     >
                 <br>
             </div>
-            <div class="col-md-2 col-sm-6 mt-sm-3">
+           {{--  <div class="col-md-2 col-sm-6 mt-sm-3">
                 <select 
                     class="form-control" 
                     name="gender" 
@@ -90,7 +90,7 @@ a.button {
                     <option {{ isset($searched_gender) && $searched_gender == 'Others' ? 'selected' : ''}}>{{ trans('lang.other') }}</option>
                 </select>
                 <br>
-            </div>
+            </div> --}}
             <div class="col-md-2 col-sm-6 mt-sm-3">
                 <input 
                     type="number" 

@@ -2953,7 +2953,7 @@ class QuestionnaireController extends Controller
 
 
 
-        dd($totalCurrentAssetAllocationPercentage, $cashAndEquivlentPercentage , $equitiesPercentage , $fixIncomePercentage , $alternativeInvestmentsPercentage);
+        // dd($totalCurrentAssetAllocationPercentage, $cashAndEquivlentPercentage , $equitiesPercentage , $fixIncomePercentage , $alternativeInvestmentsPercentage);
 
         //Investing Diversity
         $assetClass = 0;

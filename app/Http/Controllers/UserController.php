@@ -52,6 +52,8 @@ class UserController extends Controller
             
             case 'staff':
                 $users = User::role(['moderator', 'admin'])->where('id', '<>', $this->loggedInUser->id)->get();
+
+                dd($users);
                 return view('dashboard.control_panel.staff.index')
                         ->with([
                             'title' => __('lang.staff')
