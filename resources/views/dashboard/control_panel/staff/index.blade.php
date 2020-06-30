@@ -202,6 +202,7 @@
 				var x = this.value;
 				$('.col-sm-3').show();
 				$('.col-sm-3:not(#div_'+x+')').hide();
+				console.log(x);
 				if(this.value == ''){
 					$('.col-sm-3').show();
 				}
