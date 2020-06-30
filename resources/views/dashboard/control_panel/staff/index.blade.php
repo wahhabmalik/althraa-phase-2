@@ -200,11 +200,11 @@
 			// filter on basis of user
 			$('#user_id').on('change', function() {
 				var x = this.value;
-				$('.col-sm-3').hide();
-				$('.col-sm-3:not(#div_'+x+')').show();
+				$('.col-lg-3').hide();
+				$('.col-lg-3:not(#div_'+x+')').show();
 				console.log(x);
 				if(this.value == ''){
-					$('.col-sm-3').show();
+					$('.col-lg-3').show();
 				}
 			});
 
