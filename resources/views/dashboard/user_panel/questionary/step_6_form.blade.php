@@ -1,5 +1,5 @@
 @inject('request', 'Illuminate\Http\Request')
-{{ dd($user_questionnaire) }}
+{{-- {{ dd($user_questionnaire) }} --}}
 @extends('dashboard.layouts.user_layout.user_questionary')
 
 @section('styles')
