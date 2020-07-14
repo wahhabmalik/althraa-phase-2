@@ -990,6 +990,8 @@ return [
             'fair_saver' => 'مدخر جيد',
             'ghani_saver' => 'مدخر غني',
 
+        'Current_Networth_amount' => 'صافي الثروة حتى اليوم',
+
         'early_retirement_possibility' => 'احتمالية التقاعد المبكر ',
             'poor' => 'ضعيف',
             'fair' => 'معقول',

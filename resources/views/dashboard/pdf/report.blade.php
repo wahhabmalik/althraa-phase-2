@@ -548,8 +548,10 @@
 		<div class="row mt-3">
 			<div class="col-1 rem-col"></div>
 			<div class="col-8 to-10">
-				<p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '- '.$data['personalInfo']['years_old']. trans('lang.report.year') }}</p>
-				{{-- {!! ($request->segment(1) == 'ar') ? ')' : '(' !!} --}}
+				{{-- <p class="text-secondary mt-5">{{ trans('lang.report.current_saving_amount') }} {{ '- '.$data['personalInfo']['years_old']. trans('lang.report.year') }}</p> --}}
+				<p class="text-secondary mt-5">
+					{{ trans('lang.report.Current_Networth_amount') }} 
+				</p>
 				
 				<div class="factor-vs">
 					<p>{{ trans('lang.report.poor_saver') }}</p>	
