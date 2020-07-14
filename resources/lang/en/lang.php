@@ -992,7 +992,7 @@ return [
             'fair_saver' => 'Fair saver',
             'ghani_saver' => 'Rich saver',
 
-        'Current_Networth_amount' => 'Current Networth amount'
+        'Current_Networth_amount' => 'Current Networth amount',
 
         'early_retirement_possibility' => 'Early Retirement Possibility',
             'poor' => 'Poor',
