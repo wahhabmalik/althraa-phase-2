@@ -1,5 +1,5 @@
 @inject('request', 'Illuminate\Http\Request')
-{{-- {{ dd($user_questionnaire) }} --}}
+{{ dd($user_questionnaire) }}
 @extends('dashboard.layouts.user_layout.user_questionary')
 
 @section('styles')
@@ -128,31 +128,31 @@
 				                          	name="risks[age]"
 				                          	>
 				                          	<option
-				                          		{!! ('Less than 31' == $user_questionnaire->risks['risks']['age'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ($user_questionnaire->risks && 'Less than 31' == $user_questionnaire->risks['risks']['age']) ? 'selected' : '' !!}
 
 				                          		 value="Less than 31">
 				                          		{{ trans('lang.question.less_than_31') }}
 				                          	</option>
 				                          	<option
-				                          		{!! ('31 – 40' == $user_questionnaire->risks['risks']['age'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ($user_questionnaire->risks && '31 – 40' == $user_questionnaire->risks['risks']['age']) ? 'selected' : '' !!}
 
 				                          		 value="31 – 40">
 				                          		{{ trans('lang.question.31_40') }}
 				                          	</option>
 				                          	<option
-				                          		{!! ('41 – 50' == $user_questionnaire->risks['risks']['age'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ($user_questionnaire->risks && '41 – 50' == $user_questionnaire->risks['risks']['age']) ? 'selected' : '' !!}
 
 				                          		 value="41 – 50">
 				                          		{{ trans('lang.question.41_50') }}
 				                          	</option>
 				                          	<option
-				                          		{!! ('51 – 60' == $user_questionnaire->risks['risks']['age'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ($user_questionnaire->risks && '51 – 60' == $user_questionnaire->risks['risks']['age']) ? 'selected' : '' !!}
 
 				                          		 value="51 – 60">
 				                          		{{ trans('lang.question.51_60') }}
 				                          	</option>
 				                          	<option
-				                          		{!! ('More than 60' == $user_questionnaire->risks['risks']['age'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ($user_questionnaire->risks && 'More than 60' == $user_questionnaire->risks['risks']['age']) ? 'selected' : '' !!}
 
 				                          		 value="More than 60">
 				                          		{{ trans('lang.question.more_than_60') }}
@@ -178,42 +178,42 @@
 				                          	>
 				                          	<option
 				                          		
-				                          		{!! ('Less than 50% of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Less than 50% of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount']) ? 'selected' : '' !!}
 
 				                          		value="Less than 50% of my annual income">
 				                          		{{ trans('lang.question.less_than_50%_of_my_annual_income') }}
 				                          	</option>
 				                          	<option
 				                          		
-				                          		{!! ('Almost 50% of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Almost 50% of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount']) ? 'selected' : '' !!}
 
 				                          		value="Almost 50% of my annual income">
 				                          		{{ trans('lang.question.almost_50%_of_my_annual_income') }}
 				                          	</option>
 				                          	<option
 				                          		
-				                          		{!! ('Equal to my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Equal to my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount']) ? 'selected' : '' !!}
 
 				                          		value="Equal to my annual income">
 				                          		{{ trans('lang.question.equal_to_my_annual_income') }}
 				                          	</option>
 				                          	<option
 				                          		
-				                          		{!! ('Almost double (2x) of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Almost double (2x) of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount']) ? 'selected' : '' !!}
 
 				                          		value="Almost double (2x) of my annual income">
 				                          		{{ trans('lang.question.almost_double_(2x)_of_my_annual_income') }}
 				                          	</option>
 				                          	<option
 				                          		
-				                          		{!! ('Almost triple (3x) of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Almost triple (3x) of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount']) ? 'selected' : '' !!}
 
 				                          		value="Almost triple (3x) of my annual income">
 				                          		{{ trans('lang.question.almost_triple_(3x)_of_my_annual_income') }}
 				                          	</option>
 				                          	<option
 				                          		
-				                          		{!! ('Almost five time (5x) of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Almost five time (5x) of my annual income' == $user_questionnaire->risks['risks']['total_saving_and_investment_amount']) ? 'selected' : '' !!}
 
 				                          		value="Almost five time (5x) of my annual income">
 				                          		{{ trans('lang.question.almost_five_time_(5x)_of_my_annual_income') }}
@@ -237,27 +237,27 @@
 				                          	name="risks[during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be]"
 				                          	>
 				                          	<option 
-				                          		{!! ('Slightly decrease' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Slightly decrease' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be']) ? 'selected' : '' !!}
 				                          		value="Slightly decrease">
 				                          		{{ trans('lang.question.slightly_decrease') }}
 				                          	</option>
 				                          	<option 
-				                          		{!! ('No change' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('No change' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be']) ? 'selected' : '' !!}
 				                          		value="No change">
 				                          		{{ trans('lang.question.no_change') }}
 				                          	</option>
 				                          	<option 
-				                          		{!! ('Slightly increase than the annual inflation' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Slightly increase than the annual inflation' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be']) ? 'selected' : '' !!}
 				                          		value="Slightly increase than the annual inflation">
 				                          		{{ trans('lang.question.slightly_increase_than_the_annual_inflation') }}
 				                          	</option>
 				                          	<option 
-				                          		{!! ('Remarkable increase than the annual inflation' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Remarkable increase than the annual inflation' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be']) ? 'selected' : '' !!}
 				                          		value="Remarkable increase than the annual inflation">
 				                          		{{ trans('lang.question.remarkable_increase_than_the_annual_inflation') }}
 				                          	</option>
 				                          	<option 
-				                          		{!! ('Unstable (from my investment)' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Unstable (from my investment)' == $user_questionnaire->risks['risks']['during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be']) ? 'selected' : '' !!}
 				                          		value="Unstable (from my investment)">
 				                          		{{ trans('lang.question.unstable_(from_my_investment)') }}
 				                          	</option>
@@ -282,35 +282,35 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('I will manage to cover all expenses from my annual income' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I will manage to cover all expenses from my annual income' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)']) ? 'selected' : '' !!}
 
 				                          		value="I will manage to cover all expenses from my annual income">
 				                          		{{ trans('lang.question.i_will_manage_to_cover_all_expenses_from_my_annual_income') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I might need to withdraw some of my saving to cover expenses' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I might need to withdraw some of my saving to cover expenses' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)']) ? 'selected' : '' !!}
 
 				                          		value="I might need to withdraw some of my saving to cover expenses">
 				                          		{{ trans('lang.question.i_might_need_to_withdraw_some_of_my_saving_to_cover_expenses') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I might need to withdraw more than half of my saving to cover expenses' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I might need to withdraw more than half of my saving to cover expenses' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)']) ? 'selected' : '' !!}
 
 				                          		value="I might need to withdraw more than half of my saving to cover expenses">
 				                          		{{ trans('lang.question.i_might_need_to_withdraw_more_than_half_of_my_saving_to_cover_expenses') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I might need to withdraw all my saving to cover expenses before retirement' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I might need to withdraw all my saving to cover expenses before retirement' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)']) ? 'selected' : '' !!}
 
 				                          		value="I might need to withdraw all my saving to cover expenses before retirement">
 				                          		{{ trans('lang.question.i_might_need_to_withdraw_all_my_saving_to_cover_expenses_before_retirement') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I don’t have expected expenses' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I don’t have expected expenses' == $user_questionnaire->risks['risks']['regarding_major_expenses_before_retirement_(including_family_expenses_such_as_education,_buying_a_house_etc)']) ? 'selected' : '' !!}
 
 				                          		value="I don’t have expected expenses">
 				                          		{{ trans('lang.question.i_dont_have_expected_expenses') }}
@@ -337,28 +337,28 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('Above the average' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Above the average' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years']) ? 'selected' : '' !!}
 
 				                          		value="Above the average">
 				                          		{{ trans('lang.question.above_the_average') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('Average' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Average' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years']) ? 'selected' : '' !!}
 
 				                          		value="Average">
 				                          		{{ trans('lang.question.average') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('Unlikely' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Unlikely' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years']) ? 'selected' : '' !!}
 
 				                          		value="Unlikely">
 				                          		{{ trans('lang.question.unlikely') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('Almost no' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Almost no' == $user_questionnaire->risks['risks']['based_on_current_lifestyle_and_health_state,_the_likelihood_of_having_health_issue_during_the_next_10_years']) ? 'selected' : '' !!}
 
 				                          		value="Almost no">
 				                          		{{ trans('lang.question.almost_no') }}
@@ -384,28 +384,28 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('I have no previous experience in public equity Markets nor mutual funds' == $user_questionnaire->risks['risks']['about_investment_experience'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I have no previous experience in public equity Markets nor mutual funds' == $user_questionnaire->risks['risks']['about_investment_experience']) ? 'selected' : '' !!}
 
 				                          		value="I have no previous experience in public equity Markets nor mutual funds">
 				                          		{{ trans('lang.question.i_have_no_previous_experience_in_public_equity_markets_nor_mutual_funds') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I have a little knowledge. I have invested a little amount in the public equity Markets nor mutual funds' == $user_questionnaire->risks['risks']['about_investment_experience'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I have a little knowledge. I have invested a little amount in the public equity Markets nor mutual funds' == $user_questionnaire->risks['risks']['about_investment_experience']) ? 'selected' : '' !!}
 
 				                          		value="I have a little knowledge. I have invested a little amount in the public equity Markets nor mutual funds">
 				                          		{{ trans('lang.question.i_have_a_little_knowledge_i_have_invested_a_little_amount_in_the_public_equity_markets_nor_mutual_funds') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I have knowledge. I have invested a big amount in the public equity Markets nor mutual funds' == $user_questionnaire->risks['risks']['about_investment_experience'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I have knowledge. I have invested a big amount in the public equity Markets nor mutual funds' == $user_questionnaire->risks['risks']['about_investment_experience']) ? 'selected' : '' !!}
 
 				                          		value="I have knowledge. I have invested a big amount in the public equity Markets nor mutual funds">
 				                          		{{ trans('lang.question.i_have_knowledge_i_have_invested_a_big_amount_in_the_public_equity_markets_nor_mutual_funds') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I have a good knowledge. I have invested in international public equity markets and in other investment tools and financial derivatives' == $user_questionnaire->risks['risks']['about_investment_experience'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I have a good knowledge. I have invested in international public equity markets and in other investment tools and financial derivatives' == $user_questionnaire->risks['risks']['about_investment_experience']) ? 'selected' : '' !!}
 
 				                          		value="I have a good knowledge. I have invested in international public equity markets and in other investment tools and financial derivatives">
 				                          		{{ trans('lang.question.i_have_a_good_knowledge_i_have_invested_in_international_public_equity_markets_and_in_other_investment_tools_and_financial_derivatives') }}
@@ -432,35 +432,35 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('Less than 5 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Less than 5 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving']) ? 'selected' : '' !!}
 
 				                          		value="Less than 5 years">
 				                          		{{ trans('lang.question.less_than_5_years') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('5 – 10 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('5 – 10 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving']) ? 'selected' : '' !!}
 
 				                          		value="5 – 10 years">
 				                          		{{ trans('lang.question.5_10_years') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('10 – 15 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('10 – 15 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving']) ? 'selected' : '' !!}
 
 				                          		value="10 – 15 years">
 				                          		{{ trans('lang.question.10_15_years') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('More than 15 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('More than 15 years' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving']) ? 'selected' : '' !!}
 
 				                          		value="More than 15 years">
 				                          		{{ trans('lang.question.more_than_15_years') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I have no saving or I have already withdrawing from it' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I have no saving or I have already withdrawing from it' == $user_questionnaire->risks['risks']['expect_to_start_withdrawing_saving']) ? 'selected' : '' !!}
 
 				                          		value="I have no saving or I have already withdrawing from it">
 				                          		{{ trans('lang.question.i_have_no_saving_or_i_have_already_withdrawing_from_it') }}
@@ -488,28 +488,28 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('I would sell all of my investments to save what have left' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I would sell all of my investments to save what have left' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)']) ? 'selected' : '' !!}
 
 				                          		value="I would sell all of my investments to save what have left">
 				                          		{{ trans('lang.question.i_would_sell_all_of_my_investments_to_save_what_have_left') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I will sell part of my investments so that I can invest in other lower risk tools' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I will sell part of my investments so that I can invest in other lower risk tools' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)']) ? 'selected' : '' !!}
 
 				                          		value="I will sell part of my investments so that I can invest in other lower risk tools">
 				                          		{{ trans('lang.question.i_will_sell_part_of_my_investments_so_that_i_can_invest_in_other_lower_risk_tools') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I would not sell and wait to recover to its original value' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I would not sell and wait to recover to its original value' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)']) ? 'selected' : '' !!}
 
 				                          		value="I would not sell and wait to recover to its original value">
 				                          		{{ trans('lang.question.i_would_not_sell_and_wait_to_recover_to_its_original_value') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('Investing more money to reduce the cost of investments' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Investing more money to reduce the cost of investments' == $user_questionnaire->risks['risks']['in_case_of_a_15%_declined_in_my_investments_market_value_in_a_short_time_(less_than_a_year)']) ? 'selected' : '' !!}
 
 				                          		value="Investing more money to reduce the cost of investments">
 				                          		{{ trans('lang.question.investing_more_money_to_reduce_the_cost_of_investments') }}
@@ -536,28 +536,28 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('After 10 years, The probability of best investment value = 500,000 and the worst = 50,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('After 10 years, The probability of best investment value = 500,000 and the worst = 50,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years']) ? 'selected' : '' !!}
 
 				                          		value="After 10 years, The probability of best investment value = 500,000 and the worst = 50,000">
 				                          		{{ trans('lang.question.after_10_years,_the_probability_of_best_investment_value_=_500,000_and_the_worst_=_50,000') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('After 10 years, The probability of best investment value = 850,000 and the worst = 20,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('After 10 years, The probability of best investment value = 850,000 and the worst = 20,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years']) ? 'selected' : '' !!}
 
 				                          		value="After 10 years, The probability of best investment value = 850,000 and the worst = 20,000">
 				                          		{{ trans('lang.question.after_10_years,_the_probability_of_best_investment_value_=_850,000_and_the_worst_=_20,000') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('After 10 years, The probability of best investment value = 300,000 and the worst = 65,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('After 10 years, The probability of best investment value = 300,000 and the worst = 65,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years']) ? 'selected' : '' !!}
 
 				                          		value="After 10 years, The probability of best investment value = 300,000 and the worst = 65,000">
 				                          		{{ trans('lang.question.after_10_years,_the_probability_of_best_investment_value_=_300,000_and_the_worst_=_65,000') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('After 10 years, The probability of best investment value = 150,000 and the worst = 100,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('After 10 years, The probability of best investment value = 150,000 and the worst = 100,000' == $user_questionnaire->risks['risks']['in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years']) ? 'selected' : '' !!}
 
 				                          		value="After 10 years, The probability of best investment value = 150,000 and the worst = 100,000">
 				                          		{{ trans('lang.question.after_10_years,_the_probability_of_best_investment_value_=_150,000_and_the_worst_=_100,000') }}
@@ -584,28 +584,28 @@
 				                          	>
 				                          	<option 
 
-				                          		{!! ('Insurance with the highest cover even if it was expensive' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Insurance with the highest cover even if it was expensive' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer']) ? 'selected' : '' !!}
 
 				                          		value="Insurance with the highest cover even if it was expensive">
 				                          		{{ trans('lang.question.insurance_with_the_highest_cover_even_if_it_was_expensive') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('Insurance with a limited cover even if it was expensive' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Insurance with a limited cover even if it was expensive' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer']) ? 'selected' : '' !!}
 
 				                          		value="Insurance with a limited cover even if it was expensive">
 				                          		{{ trans('lang.question.insurance_with_a_limited_cover_even_if_it_was_expensive') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('Pay a lower price for a third party one' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('Pay a lower price for a third party one' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer']) ? 'selected' : '' !!}
 
 				                          		value="Pay a lower price for a third party one">
 				                          		{{ trans('lang.question.pay_a_lower_price_for_a_third_party_one') }}
 				                          	</option>
 				                          	<option 
 
-				                          		{!! ('I prefer not buying a care insurance' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer'] ?? '') ? 'selected' : '' !!}
+				                          		{!! ('I prefer not buying a care insurance' == $user_questionnaire->risks['risks']['when_i_buy_a_car_insurance_i_prefer']) ? 'selected' : '' !!}
 
 				                          		value="I prefer not buying a care insurance">
 				                          		{{ trans('lang.question.i_prefer_not_buying_a_care_insurance') }}
