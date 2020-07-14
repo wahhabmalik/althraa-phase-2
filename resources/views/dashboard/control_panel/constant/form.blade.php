@@ -79,7 +79,7 @@ th {
                             <div class="form-group @error('constant_value') has-error is-invalid @enderror">
                                 <label class="control-label"></label>
                                 <input 
-                                    type="number" 
+                                    type="text" 
                                     name="constant_value" 
                                     id="constant_value" 
                                     class="form-control @error('constant_value') has-error is-invalid @enderror" 

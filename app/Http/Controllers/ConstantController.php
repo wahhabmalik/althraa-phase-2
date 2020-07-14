@@ -88,7 +88,7 @@ class ConstantController extends Controller
     public function update(Request $request, $locale = 'en', Constant $constant)
     {
         $request->validate([
-            'constant_value' => 'required|integer',
+            'constant_value' => 'required',
         ]);
 
         $constant->constant_value = $request->constant_value;
