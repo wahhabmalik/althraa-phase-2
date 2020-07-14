@@ -42,6 +42,7 @@ class QuestionnaireController extends Controller
     public function create()
     {
         $user_questionnaire = $this->loggedInUser->user_questionnaires()->orderBy('questionnaire_id', 'DESC')->first();
+        // dd($user_questionnaire);
         return view('dashboard.user_panel.questionary.step_1_form')
                 ->with([
                     'title' => __('lang.questionnaire.step_1')
@@ -114,7 +115,7 @@ class QuestionnaireController extends Controller
                 // return $this->questionnaire->update_risks($request->except('_token'))
                 //         ?   redirect()->route('payment', $locale)
                 //         : redirect()->route('step_6', $locale);
-                return auth()->user()->fill($request->all())->update()
+                return $this->questionnaire->update_risks($request->except('_token'))
                         ?   redirect()->route('email_verification', $locale)
                         : redirect()->route('step_6', $locale);
                 break;
@@ -2984,6 +2985,8 @@ class QuestionnaireController extends Controller
         //Asset allocation and Recomended allocation // page 6
         $riskTestIndex = $this->questionnaire->getRiskTotalPoints($user);
         $recommended   = $this->questionnaire->getRecomendedAssetAllocation($user);
+
+        // dd($riskTestIndex);
 
 
         // Financial Forecast

@@ -140,15 +140,17 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
 
-        $request->merge([
-            'phone_number' => str_replace('+', '', $request->phone_number),
-        ]);
+        // $request->merge([
+        //     'phone_number' => str_replace('+', '', $request->phone_number),
+        // ]);
 
         $this->validate($request, [
-            'phone_number' => 'required|numeric',
+            // 'phone_number' => 'required|numeric',
+            'email' => 'required|email',
         ]);
 
-        $user = User::where('phone_number', $request->input('phone_number'))->first();
+        // $user = User::where('phone_number', $request->input('phone_number'))->first();
+        $user = User::where('email', $request->input('email'))->first();
 
         if($user){
             Auth::login($user);
@@ -160,13 +162,13 @@ class LoginController extends Controller
             
         }
         else {
-            // return redirect()->route('login', app()->getLocale())->with([
-            //     'error' => 'User Not Authenticated.', 
-            //     'message' => 'auth.failed', 
+
+            // $this->validate($request, [
+            //     'phone_number' => 'required|numeric|unique:users',
             // ]);
 
             $this->validate($request, [
-                'phone_number' => 'required|numeric|unique:users',
+                'email' => 'required|email|unique:users',
             ]);
 
             event(new Registered($user = $this->create($request->all())));

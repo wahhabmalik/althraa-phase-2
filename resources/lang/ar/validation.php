@@ -42,7 +42,7 @@ return [
 .',
     'email' => 'ال      :attribute     يجب أن يكون عنوان بريد إلكتروني صالح.',
     'ends_with' => 'ال      :attribute     يجب أن ينتهي بواحد مما يلي: :values',
-    'exists' => 'ال      selected :    السمة غير صالحة.',
+    'exists' => 'ال      selected:    السمة غير صالحة.',
     'file' => 'ال      :attribute     يجب أن يكون ملف.',
     'filled' => 'ال      :attribute     يجب أن يكون الحقل قيمة
 .',

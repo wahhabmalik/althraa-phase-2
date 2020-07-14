@@ -53,8 +53,8 @@
         float: left;
         width: 100%;
         margin-bottom: 0;
-        background-color: #F7F6F6 !important;
-        border-radius: 8px !important;
+        background-color: #ffffff !important;
+        border-radius: 0px !important;
         
     }
     input::-webkit-outer-spin-button,

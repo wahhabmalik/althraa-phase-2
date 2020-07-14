@@ -38,10 +38,32 @@
                 @csrf
                 {{-- {{ dd(trans('auth.failed')) }} --}}
                 <div class="form-group" >
-                    <label for="phone_number" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.phone_number') }}</label>
+                    <label for="email" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.email_address') }}</label>
 
                     <div class="input-group m-b" style="direction: ltr;">
-                        {{-- <span class="input-group-addon">966</span>  --}}
+                        <input 
+                        class="form-control 
+                        @error('email') is-invalid @enderror" 
+                        style="height: 40px;" 
+                        type="email" 
+                        name="email" 
+                        value="{{ old('email') }}" 
+                        required 
+                        oninvalid="InvalidMsg(this);"
+                        autocomplete="email">
+                        
+                    </div>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert" style="display: block;">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+
+                    {{-- <label for="phone_number" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.phone_number') }}</label>
+
+                    <div class="input-group m-b" style="direction: ltr;">
                         <input 
                         class="form-control 
                         @error('phone_number') is-invalid @enderror" 
@@ -60,7 +82,7 @@
                         <span class="invalid-feedback" role="alert" style="display: block;">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
+                    @enderror --}}
 
 
                     {{-- @if(count($errors)>0)
@@ -141,11 +163,9 @@ telInput.intlTelInput({
 
 var reset = function() {
   telInput.removeClass("error");
-  // errorMsg.addClass("hide");
-  // validMsg.addClass("hide");
 };
 
-// on blur: validate
+
 telInput.blur(function() {
   reset();
   if ($.trim(telInput.val())) {

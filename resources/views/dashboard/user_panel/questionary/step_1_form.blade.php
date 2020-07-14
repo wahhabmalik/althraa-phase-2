@@ -3,8 +3,13 @@
 @extends('dashboard.layouts.user_layout.user_questionary')
 
 @section('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('backend_assets/login/css/login.css') }}">
 @include('dashboard.user_panel.partials.questions_asset')
-
+<style type="text/css">
+	.intl-tel-input.allow-dropdown {
+	    border-left: 1px solid #dddddd;
+	}
+</style>
 @endsection
 
 @section('content')
@@ -209,15 +214,49 @@
 					                    	</div>
 										</div>
 
+										<div class="form-group">
+											<div class="form-group">
+					                        	<label for="phone_number" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.phone_number') }}</label>
+
+							                    <div class="input-group m-b" style="direction: ltr;">
+							                        <input 
+							                        class="form-control 
+							                        @error('phone_number') is-invalid @enderror" 
+							                        style="height: 40px;" 
+							                        id="phone" 
+							                        type="tel" 
+							                        name="phone_number" 
+							                        value="{{ (old('phone_number')) ?? '' }}" 
+							                        required 
+							                        oninvalid="InvalidMsg(this);"
+							                        autocomplete="phone_number">
+							                        
+							                    </div>
+
+							                    @error('phone_number')
+							                        <span class="invalid-feedback" role="alert" style="display: block;">
+							                            <strong>{{ $message }}</strong>
+							                        </span>
+							                    @enderror
+					                    	</div>
+										</div>
+
 										<br>
 
 										<div class="center_content">
-											<button type="submit" class="button">
+											<button 
+												style="height: 55px;" 
+												type="submit" 
+												class="button"
+											>
 												{{ trans('lang.question.continue_to_income') }} 
 												<i class="{{ ($request->segment(1) == 'ar') ? 'fa fa-arrow-left fa-fw' : 'fa fa-arrow-right fa-fw' }}"></i>
 											</button>
 
 										</div>
+										<br>
+										<br>
+										<br>
 									</div>
 								</div>
                             </div>
@@ -314,4 +353,66 @@
 })(jQuery);
 </script>
 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+<script type="text/javascript">
+    
+var telInput = $("#phone");
+  // errorMsg = $("#error-msg"),
+  // validMsg = $("#valid-msg");
+
+// initialise plugin
+telInput.intlTelInput({
+
+  allowExtensions: true,
+  formatOnDisplay: true,
+  autoFormat: true,
+  autoHideDialCode: true,
+  autoPlaceholder: true,
+  defaultCountry: "auto",
+  ipinfoToken: "yolo",
+
+  nationalMode: false,
+  numberType: "MOBILE",
+  //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+  preferredCountries: ['sa'],
+  preventInvalidNumbers: true,
+  separateDialCode: false,
+  initialCountry: "SA",
+  geoIpLookup: function(callback) {
+  $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+    var countryCode = (resp && resp.country) ? resp.country : "";
+    callback(countryCode);
+  });
+},
+   utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
+});
+
+var reset = function() {
+  telInput.removeClass("error");
+};
+
+
+telInput.blur(function() {
+  reset();
+  if ($.trim(telInput.val())) {
+    if (telInput.intlTelInput("isValidNumber")) {
+      // validMsg.removeClass("hide");
+    } else {
+      telInput.addClass("error");
+      // errorMsg.removeClass("hide");
+    }
+    console.log($('.selected-dial-code').text());
+  }
+});
+
+// on keyup / change flag: reset
+telInput.on("keyup change", reset);
+
+
+
+</script>
 @endsection

@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class User extends Authenticatable
 {
@@ -63,6 +65,8 @@ class User extends Authenticatable
         $this->two_factor_expires_at = now()->addMinutes(125);
         // $this->two_factor_expires_at = null;
         $this->save();
+
+        return $this->two_factor_code;
     }
 
     public function resetTwoFactorCode()
@@ -75,16 +79,37 @@ class User extends Authenticatable
 
     public function twoFactorAndSendText(User $user)
     {
-        try 
-        {
-            $this->generateTwoFactorCode();
-            // $result = \Nexmo::message()->send([
-            //     'to'   => $user->phone_number,
-            //     'from' => '923055644665',
-            //     'text' => 'Thokhor verification Key is: '.$user->two_factor_code,
-            //     'brand' => 'Thokhor'
-            // ]);
-        } catch (\Exception $e) 
+        // try 
+        // {
+        //     $this->generateTwoFactorCode();
+        //     // $result = \Nexmo::message()->send([
+        //     //     'to'   => $user->phone_number,
+        //     //     'from' => '923055644665',
+        //     //     'text' => 'Thokhor verification Key is: '.$user->two_factor_code,
+        //     //     'brand' => 'Thokhor'
+        //     // ]);
+        // } catch (\Exception $e) 
+        // {
+        //     \Auth::logout();
+
+        //     $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
+        //     Session::put('error', $e->getMessage());
+        //     return redirect('/en/login');
+        // }
+
+        
+
+        $data = array(
+                'subject' => 'Thokhor | Two Factor Authentication', 
+                'body' => 'Authenticate', 
+                'view' => 'frontend.email_templates.2fa-email', 
+                'code' => $this->generateTwoFactorCode()
+            );
+
+        try{
+            // Mail::to($user->email)->send(new SendMail($data));
+        }
+        catch (\Exception $e) 
         {
             \Auth::logout();
 

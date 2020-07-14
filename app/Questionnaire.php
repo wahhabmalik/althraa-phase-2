@@ -167,6 +167,11 @@ class Questionnaire extends Model
     public function update_personal_info(array $data)
     {
         // dd(Questionnaire::where('fk_user_id', auth()->user()->id)->get());
+        
+        $user = auth()->user();
+        $user->phone_number = $data['phone_number'];
+        $user->save();
+
         return Questionnaire::where('fk_user_id', auth()->user()->id)
                 ->orderBy('questionnaire_id', 'DESC')
                 ->first()
