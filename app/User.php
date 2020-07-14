@@ -107,7 +107,7 @@ class User extends Authenticatable
             );
 
         try{
-            // Mail::to($user->email)->send(new SendMail($data));
+            Mail::to($user->email)->send(new SendMail($data));
         }
         catch (\Exception $e) 
         {
