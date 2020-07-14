@@ -50,6 +50,7 @@ class HomeController extends Controller
                 sum(case when MONTH(u.created_at) = '$last_month' then 1 else 0 end) as last_month_users"
                 )
                 ->where('user_type', 'user')
+                ->orWhere('user_type', 'moderator')
                 ->first();
 
             $current_year = date('Y');
@@ -81,6 +82,7 @@ class HomeController extends Controller
             ];
             $barChart_users = User::whereYear('created_at', $current_year)
                 ->where('user_type', 'user')
+                ->orWhere('user_type', 'moderator')
                 ->select(array(
                     \DB::Raw('MONTHNAME(created_at) month'),
                     \DB::Raw('count(*) as total_users'),

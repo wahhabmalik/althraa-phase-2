@@ -2069,53 +2069,53 @@ class Questionnaire extends Model
     {
         $accumulativeSaving = $this->getAccomulativeSavingtoday();
         $age = $this->getCurrentAge();
-        $monthlySalary = $this->getIncome($user)['income']['salary'];
+        $monthlyIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getRetirementGOCIMonthlyIncome($user);
         $savingRating = '';
 
-        // dd($monthlySalary, $accumulativeSaving);
+        // dd($monthlyIncome);
         if($age < 30)
         {
-            if($monthlySalary >= $accumulativeSaving)
+            if($monthlyIncome >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if(($monthlySalary * 2) >= $accumulativeSaving || ($monthlySalary * 4) <= $accumulativeSaving)
+            else if(($monthlyIncome * 2) >= $accumulativeSaving || ($monthlyIncome * 4) <= $accumulativeSaving)
                 $savingRating = 'Fair';
-            else if(($monthlySalary * 5) >= $accumulativeSaving)
+            else if(($monthlyIncome * 5) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 30 && $age < 40)
         {
-            if(($monthlySalary * 4) >= $accumulativeSaving)
+            if(($monthlyIncome * 4) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if(($monthlySalary * 5) <= $accumulativeSaving || ($monthlySalary * 11) <= $accumulativeSaving)
+            else if(($monthlyIncome * 5) <= $accumulativeSaving || ($monthlyIncome * 11) <= $accumulativeSaving)
                 $savingRating = 'Fair';
-            else if(($monthlySalary * 12) >= $accumulativeSaving)
+            else if(($monthlyIncome * 12) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 40 && $age < 50)
         {
-            if((($monthlySalary * 4) * 3) >= $accumulativeSaving)
+            if((($monthlyIncome * 4) * 3) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if((($monthlySalary * 5) * 3) <= $accumulativeSaving || (($monthlySalary * 11) * 3) <= $accumulativeSaving)
+            else if((($monthlyIncome * 5) * 3) <= $accumulativeSaving || (($monthlyIncome * 11) * 3) <= $accumulativeSaving)
                 $savingRating = 'Fair';
-            else if((($monthlySalary * 12) * 3) >= $accumulativeSaving)
+            else if((($monthlyIncome * 12) * 3) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 50 && $age < 60)
         {
-            if((($monthlySalary * 4) * 6) >= $accumulativeSaving)
+            if((($monthlyIncome * 4) * 6) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if((($monthlySalary * 5) * 6) <= $accumulativeSaving || (($monthlySalary * 11) * 6) <= $accumulativeSaving)
+            else if((($monthlyIncome * 5) * 6) <= $accumulativeSaving || (($monthlyIncome * 11) * 6) <= $accumulativeSaving)
                 $savingRating = 'Fair';
-            else if((($monthlySalary * 12) * 6) >= $accumulativeSaving)
+            else if((($monthlyIncome * 12) * 6) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else if($age >= 60)
         {
-            if((($monthlySalary * 4) * 8) >= $accumulativeSaving)
+            if((($monthlyIncome * 4) * 8) >= $accumulativeSaving)
                 $savingRating = 'Poor';
-            else if((($monthlySalary * 5) * 8) <= $accumulativeSaving || (($monthlySalary * 11) * 8) <= $accumulativeSaving)
+            else if((($monthlyIncome * 5) * 8) <= $accumulativeSaving || (($monthlyIncome * 11) * 8) <= $accumulativeSaving)
                 $savingRating = 'Fair';
-            else if((($monthlySalary * 12) * 8) >= $accumulativeSaving)
+            else if((($monthlyIncome * 12) * 8) >= $accumulativeSaving)
                 $savingRating = 'Good';
         }
         else

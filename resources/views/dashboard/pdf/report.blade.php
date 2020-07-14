@@ -359,7 +359,7 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ currency($data['netWorthToday'] ?? 0) }} 
+						    	{{ currency($data['totalAssetsToday'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
 						    	{{ percentage(100) }}
@@ -389,7 +389,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['cashAndEquivlentPercentage'],1) * $data['netWorthToday']) / 100 ) }}
+												{{ currency((percentage($data['cashAndEquivlentPercentage'],1) * $data['totalAssetsToday']) / 100 ) }}
 											</p>
 										</td>
 									</tr>
@@ -407,7 +407,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['equitiesPercentage'], 1) * $data['netWorthToday'])/100) }} 
+												{{ currency((percentage($data['equitiesPercentage'], 1) * $data['totalAssetsToday'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -425,7 +425,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['fixIncomePercentage'], 1) * $data['netWorthToday']) / 100) }} 
+												{{ currency((percentage($data['fixIncomePercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
 											</p>
 										</td>
 									</tr>
@@ -443,7 +443,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['netWorthToday']) / 100) }} 
+												{{ currency((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
 											</p>
 										</td>
 									</tr>
@@ -461,7 +461,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['netWorthToday'] ?? 0) }} 
+												{{ currency($data['totalAssetsToday'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -1079,12 +1079,12 @@
 						            {{ currency($pl['value_end_year']) ?? '' }}
 						          </td>
 						        </tr>
-						        @if($pl['age'] == 65)
+						        @if($pl['age'] == 80)
 						        	@break
 						        @endif
-						        @if($count == 30)
+						        {{-- @if($count == 30)
 						        	@break
-						        @endif
+						        @endif --}}
 						      @empty
 						        <tr>
 						          <td colspan="6" class="btm_table_td">No Data Found</td>

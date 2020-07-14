@@ -100,7 +100,7 @@ return [
                 'above' => 'الدكتوراه',
             ],
 
-        'planned_retirement_age' => '  سن التقاعد المخطط مثلا ٦٠ سنة    ',
+        'planned_retirement_age' => '  سن التقاعد المخطط له مثلا   ٦٠ سنه ',
 
         'continue_to_income' => '  الاستمرار الى الدخل    ',
 

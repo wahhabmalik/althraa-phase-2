@@ -133,7 +133,7 @@ function loggedInUser()
 function currency($value, $currency = 1)
 {
     if($value == null)
-        return '';
+        return 'SAR 0';
     else if(($value) && $currency == 0)
     // else if(is_numeric($value) && $currency == 0)
         return number_format($value, 0);

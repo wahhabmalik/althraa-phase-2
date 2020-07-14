@@ -120,7 +120,7 @@
                         @enderror
 					</div>
 
-					<div class="col-sm-12">
+					{{-- <div class="col-sm-12">
 						<div class="form-group">
 							<label class="control-label {{ ($request->segment(1) == 'ar') ? 'text-right float-right' : 'text-left' }}">{{ trans('lang.password') }}</label>
 							<input 
@@ -150,7 +150,7 @@
 								required 
 								>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 
 				<div class="row">
