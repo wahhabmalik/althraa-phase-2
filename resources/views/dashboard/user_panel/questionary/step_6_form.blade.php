@@ -157,6 +157,7 @@
 				                          		 value="More than 60">
 				                          		{{ trans('lang.question.more_than_60') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          </select>
 
 				                          @error('risks.age')
@@ -217,6 +218,7 @@
 				                          		value="Almost five time (5x) of my annual income">
 				                          		{{ trans('lang.question.almost_five_time_(5x)_of_my_annual_income') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 				                          @error('risks.total_saving_and_investment_amount')
@@ -259,6 +261,7 @@
 				                          		value="Unstable (from my investment)">
 				                          		{{ trans('lang.question.unstable_(from_my_investment)') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
@@ -312,6 +315,7 @@
 				                          		value="I don’t have expected expenses">
 				                          		{{ trans('lang.question.i_dont_have_expected_expenses') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
@@ -359,6 +363,7 @@
 				                          		value="Almost no">
 				                          		{{ trans('lang.question.almost_no') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
@@ -405,6 +410,7 @@
 				                          		value="I have a good knowledge. I have invested in international public equity markets and in other investment tools and financial derivatives">
 				                          		{{ trans('lang.question.i_have_a_good_knowledge_i_have_invested_in_international_public_equity_markets_and_in_other_investment_tools_and_financial_derivatives') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
@@ -459,6 +465,7 @@
 				                          		value="I have no saving or I have already withdrawing from it">
 				                          		{{ trans('lang.question.i_have_no_saving_or_i_have_already_withdrawing_from_it') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          	
 				                          </select>
@@ -507,6 +514,7 @@
 				                          		value="Investing more money to reduce the cost of investments">
 				                          		{{ trans('lang.question.investing_more_money_to_reduce_the_cost_of_investments') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
@@ -554,6 +562,7 @@
 				                          		value="After 10 years, The probability of best investment value = 150,000 and the worst = 100,000">
 				                          		{{ trans('lang.question.after_10_years,_the_probability_of_best_investment_value_=_150,000_and_the_worst_=_100,000') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
@@ -601,6 +610,7 @@
 				                          		value="I prefer not buying a care insurance">
 				                          		{{ trans('lang.question.i_prefer_not_buying_a_care_insurance') }}
 				                          	</option>
+				                          	<optgroup label=""></optgroup>
 				                          	
 				                          </select>
 
