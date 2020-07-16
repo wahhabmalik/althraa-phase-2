@@ -362,8 +362,8 @@
 						    	{{ currency($data['totalAssetsToday'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
-						    	{{ percentage(100) }}
-						    	{{-- {{ percentage($data['totalCurrentAssetAllocationPercentage'] ?? 0) }} --}}
+						    	{{-- {{ percentage(100) }} --}}
+						    	{{ percentage($data['totalCurrentAssetAllocationPercentage'] ?? 0) }}
 						    </p>
 						    
 
