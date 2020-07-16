@@ -1,5 +1,5 @@
 @inject('request', 'Illuminate\Http\Request')
-
+{{-- {{ dd($data['plan']) }} --}}
 @extends('dashboard.layouts.user_layout.user_report')
 
 @section('styles')

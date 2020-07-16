@@ -2944,10 +2944,10 @@ class QuestionnaireController extends Controller
         $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
 
         //  Current Asset Allocation
-        $cashAndEquivlentPercentage = ($cashAndEquivlent / $netWorthToday)*100;
-        $equitiesPercentage         = ($equities / $netWorthToday)*100;
-        $fixIncomePercentage        = ($fixIncome / $netWorthToday)*100;
-        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $netWorthToday)*100;
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / $netWorthToday ?? 1)*100;
+        $equitiesPercentage         = ($equities / $netWorthToday ?? 1)*100;
+        $fixIncomePercentage        = ($fixIncome / $netWorthToday ?? 1)*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $netWorthToday ?? 1)*100;
 
 
         $totalCurrentAssetAllocationPercentage  = round($cashAndEquivlentPercentage, 0)+round($equitiesPercentage, 0)+round($fixIncomePercentage, 0)+round($alternativeInvestmentsPercentage, 0);
@@ -3118,10 +3118,12 @@ class QuestionnaireController extends Controller
             );
 
         try{
-            Mail::to($user->email)->send(new SendMail($data));
+            // Mail::to($user->email)->send(new SendMail($data));
         }catch ( \Exception $exception) {
             dd($exception->getMessage());
         }
+
+        dd($report->public_id);
         
 
 
