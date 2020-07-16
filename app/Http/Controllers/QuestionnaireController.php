@@ -2730,7 +2730,7 @@ class QuestionnaireController extends Controller
 
         $withdrawl_amount_per_year = $extraInfo['extra_info']['withdrawl_amount_per_month'] * 12;
 
-        $inflation_adjusted_withdrawl_amount_per_year = $withdrawl_amount_per_year * ((100 + $assumed_inflation_rate) / 100) ** ($retirement_age - $current_age);
+        $inflation_adjusted_withdrawl_amount_per_year = $withdrawl_amount_per_year * ((100 + $assumed_inflation_rate) / 100) * ($retirement_age - $current_age);
 
         // dd($inflation_adjusted_withdrawl_amount_per_year);
 
@@ -2940,7 +2940,7 @@ class QuestionnaireController extends Controller
         $monthlySavingPercentageToday    = ($monthlySavingToday/$monthlyIncomeToday)*100;
         $assetsToday                = $totalAssetsToday;
         $liabilitiesToday           = $totalLiabilitiesToday;
-        $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)?: 1;
+        $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)? $assetsToday - $liabilitiesToday: 1;
         $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
 
         //  Current Asset Allocation
