@@ -2997,9 +2997,9 @@ class QuestionnaireController extends Controller
         $uncertain_bottom = [];
         $uncertainty = $constants["( In Returns , Saving )"]["constant_value"] ?? null;
 
-        dd(($retirement_age < 80) ? 80 : $retirement_age, $retirement_age);
+        // dd(($retirement_age < 80) ? 80 : $retirement_age, $retirement_age);
         if($current_age < $retirement_age){
-            for ($i = (int) $current_age; $i <= ($retirement_age < 80)?: 80; $i++) {
+            for ($i = (int) $current_age; $i <= ($retirement_age < 80) ? 80 : $retirement_age; $i++) {
             // for ($i = (int) $current_age; $i <= $retirement_age; $i++) {
             // for ($i = (int) $current_age; $i <= $retirement_age; $i++) {
                 if ($i == $current_age) 
