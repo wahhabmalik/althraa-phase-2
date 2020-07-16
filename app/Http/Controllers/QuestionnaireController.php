@@ -3000,45 +3000,49 @@ class QuestionnaireController extends Controller
         // dd(($retirement_age < 80) ? 80 : $retirement_age, $retirement_age);
         if($current_age < $retirement_age){
             for ($i = (int) $current_age; $i <= ($retirement_age < 80) ? 80 : $retirement_age; $i++) {
+
+                echo $i;
+            
             // for ($i = (int) $current_age; $i <= $retirement_age; $i++) {
-            // for ($i = (int) $current_age; $i <= $retirement_age; $i++) {
-                if ($i == $current_age) 
-                {
-                    $graphAge[] = $i;
-                    $plan[$i]['age']= $i;
+                // if ($i == $current_age) 
+                // {
+                //     $graphAge[] = $i;
+                //     $plan[$i]['age']= $i;
     
-                    $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
-                    $graphContribution[] = $plan[$i]['contribution'] = $annualSavingToday;
+                //     $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
+                //     $graphContribution[] = $plan[$i]['contribution'] = $annualSavingToday;
     
-                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
+                //     $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
     
-                    $graphValueBegYear[] = $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+                //     $graphValueBegYear[] = $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
     
-                    $uncertain_top[] = $plan[$i]['value_end_year'] + ($plan[$i]['value_end_year'] * $uncertainty)/100;
-                    $uncertain_bottom[] = $plan[$i]['value_end_year'] - ($plan[$i]['value_end_year'] * $uncertainty)/100;
+                //     $uncertain_top[] = $plan[$i]['value_end_year'] + ($plan[$i]['value_end_year'] * $uncertainty)/100;
+                //     $uncertain_bottom[] = $plan[$i]['value_end_year'] - ($plan[$i]['value_end_year'] * $uncertainty)/100;
     
-                }
-                else
-                {
-                    $graphAge[] = $i;
-                    $plan[$i]['age']= $i;
-                    $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
+                // }
+                // else
+                // {
+                //     $graphAge[] = $i;
+                //     $plan[$i]['age']= $i;
+                //     $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
     
-                    $graphContribution[] = $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
+                //     $graphContribution[] = $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
     
-                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
+                //     $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
     
-                    $graphValueBegYear[] =  $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
+                //     $graphValueBegYear[] =  $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
     
-                    $uncertain_top[] = $plan[$i]['value_end_year'] + ($plan[$i]['value_end_year'] * $uncertainty)/100;
-                    $uncertain_bottom[] = $plan[$i]['value_end_year'] - ($plan[$i]['value_end_year'] * $uncertainty)/100;
+                //     $uncertain_top[] = $plan[$i]['value_end_year'] + ($plan[$i]['value_end_year'] * $uncertainty)/100;
+                //     $uncertain_bottom[] = $plan[$i]['value_end_year'] - ($plan[$i]['value_end_year'] * $uncertainty)/100;
     
-                }
+                // }
     
             }
         }
         else
             dd('Age Error');
+
+        dd('a');
 
         $monthlySalary = (($netReturnAfterRetirement/100)*$plan[$retirement_age]['value_end_year'] ?? 1)/12;
 
