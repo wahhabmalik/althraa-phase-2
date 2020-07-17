@@ -301,7 +301,7 @@ return [
         'above_the_average' => '     .اعلى من المتوسط             ',
         'average' => '     المتوسط تقريبا                   ',
         'unlikely' => '       احتمال ضئيل                   ',
-        'almost_no' => '     احتمال شبه معدوم بإذن ا              ',
+        'almost_no' => '     احتمال شبه معدوم بإذن             ',
 
         // q6
         'i_can_say_about_my_investment_experience' => '     يمكن شرح خبرتي الاستثمارية كالتالي:               ',
@@ -966,7 +966,7 @@ return [
             'total_assets_today' => 'اجمالي الاصول الشخصية اليوم ',
             'total_liabilities_today' => 'اجمالي الديون الشخصية اليوم ',
             'net_worth' => 'صافي الثروة الشخصية',
-            'accomulative_saving_today' => 'اجمالي المدخرت حتى اليوم ',
+            'accomulative_saving_today' => 'إجمالي مبلغ الإستثمار لخطة التقاعد',
 
         'current_asset_allocation' => 'التوزيع الاستراتيجي للأصول حاليا لصافي الثروة',
             'cash_and_equivalent' => 'النقد وما يعادله (الودائع والمرابحات)',
@@ -1022,7 +1022,7 @@ return [
                 'per_month' => '',
             'monthly_saving_today' => 'معدل الاخار',
                 'of_monthly_income' => 'الشهري حاليا ',
-            'accumulative_saving_today' => 'اجمالي المدخرت حتى اليوم ',
+            'accumulative_saving_today' => 'إجمالي مبلغ الإستثمار لخطة التقاعد',
         'returns_assumptions' => 'إقتراضات العوائد السنوية ',
             'net_return_before_reitement' => 'صافي العوائد السنوية  - مرحلة ماقبل التقاعد  ',
             'net_return_after_reitement' => 'صافي العوائد السنوية  - مرحلة مابعد التقاعد  ',

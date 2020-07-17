@@ -1150,24 +1150,29 @@ class Questionnaire extends Model
 
     public function getRiskAbilityAndRiskTolerance(? User $user = null)
     {
-        if ($this->getRiskTotalPoints($user) <= 30) {
+        if ($this->getRiskTotalPoints($user) <= 19) {
+            return [
+                'result' => 'very_conservative',
+                'valid' => 'yes'
+            ];
+        } else if ($this->getRiskTotalPoints($user) >= 20 && $this->getRiskTotalPoints($user) <= 39){
             return [
                 'result' => 'conservative',
                 'valid' => 'yes'
             ];
-        } else if ($this->getRiskTotalPoints($user) > 30 && $this->getRiskTotalPoints($user) <= 80){
+        } else if ($this->getRiskTotalPoints($user) >= 40 && $this->getRiskTotalPoints($user) <= 59){
             return [
                 'result' => 'natural',
                 'valid' => 'yes'
             ];
-        } else if ($this->getRiskTotalPoints($user) > 80 && $this->getRiskTotalPoints($user) <= 100){
+        } else if ($this->getRiskTotalPoints($user) >= 60 && $this->getRiskTotalPoints($user) <= 79){
             return [
                 'result' => 'aggressive',
                 'valid' => 'yes'
             ];
         } else {
             return [
-                'result' => 'aggressive',
+                'result' => 'very_aggressive',
                 'valid' => 'no'
             ];
         }
@@ -1979,7 +1984,7 @@ class Questionnaire extends Model
 
     public function getNetReturnBeforeRetirement(User $user = null)
     {
-        $before_retirement = Constant::where('constant_attribute' , 'Net_Return/Year_(Before_Retirement)')->first();
+        $before_retirement = Constant::where('constant_meta_type' , 'Net_Return/Year_(Before_Retirement)')->where('constant_attribute' , $this->getRiskAbilityAndRiskTolerance($user)['result'])->first();
         return (float)$before_retirement->constant_value ?? 7.85;
     }
 
