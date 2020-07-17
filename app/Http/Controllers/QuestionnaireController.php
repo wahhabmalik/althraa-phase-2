@@ -115,9 +115,14 @@ class QuestionnaireController extends Controller
                 // return $this->questionnaire->update_risks($request->except('_token'))
                 //         ?   redirect()->route('payment', $locale)
                 //         : redirect()->route('step_6', $locale);
+                // return $this->questionnaire->update_risks($request->except('_token'))
+                //         ?   redirect()->route('email_verification', $locale)
+                //         : redirect()->route('step_6', $locale);
+
                 return $this->questionnaire->update_risks($request->except('_token'))
-                        ?   redirect()->route('email_verification', $locale)
+                        ?   $this->getReport()
                         : redirect()->route('step_6', $locale);
+
                 break;
             case '/payment':
                 return auth()->user()->fill($request->all())->update()
@@ -2885,16 +2890,17 @@ class QuestionnaireController extends Controller
 
     }
 
-    public function getReport(Request $request)
+    // public function getReport(Request $request)
+    public function getReport()
     {
         $user = loggedInUser();
 
-        $request->validate([
-            'email' => 'required|email',
-        ]);
+        // $request->validate([
+        //     'email' => 'required|email',
+        // ]);
 
-        $user->email = $request->email;
-        $user->save();
+        // $user->email = $request->email;
+        // $user->save();
 
         // $initialInvestment = $this->questionnaire->getInitialInvestment($user); 
 
