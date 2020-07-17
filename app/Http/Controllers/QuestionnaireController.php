@@ -3118,12 +3118,12 @@ class QuestionnaireController extends Controller
             );
 
         try{
-            // Mail::to($user->email)->send(new SendMail($data));
+            Mail::to($user->email)->send(new SendMail($data));
         }catch ( \Exception $exception) {
             dd($exception->getMessage());
         }
 
-        dd($report->public_id);
+        // dd($report->public_id);
         
 
 
