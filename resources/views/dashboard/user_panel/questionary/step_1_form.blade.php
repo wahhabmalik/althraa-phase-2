@@ -226,7 +226,7 @@
 							                        id="phone" 
 							                        type="tel" 
 							                        name="phone_number" 
-							                        value="{{ (old('phone_number')) ?? '' }}" 
+							                        value="{{ (old('phone_number')) ?? auth()->user()->phone_number ?? '' }}" 
 							                        required 
 							                        oninvalid="InvalidMsg(this);"
 							                        autocomplete="phone_number">
@@ -368,18 +368,19 @@ var telInput = $("#phone");
 telInput.intlTelInput({
 
   allowExtensions: true,
-  formatOnDisplay: true,
+  formatOnDisplay: false,
   autoFormat: true,
   autoHideDialCode: true,
   autoPlaceholder: true,
   defaultCountry: "auto",
+  defaultValue: "999999",
   ipinfoToken: "yolo",
 
   nationalMode: false,
   numberType: "MOBILE",
   //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
   preferredCountries: ['sa'],
-  preventInvalidNumbers: true,
+  preventInvalidNumbers: false,
   separateDialCode: false,
   initialCountry: "SA",
   geoIpLookup: function(callback) {
