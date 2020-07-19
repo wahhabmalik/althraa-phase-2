@@ -4239,13 +4239,17 @@ textarea {
 		padding: .5rem .75rem;
 		font-size: 3.5rem;
 	}
+    
+}
+
+
+@media only screen and (max-width: 767px) {
     .contact_input {
-        height: 60px !important;
-        font-size: 1.5rem !important;
-        padding: 2em;
-        display: none;
+        height: 6rem;
+        font-size: 1.5rem;
     }
 }
+
 
 .about_heading{
     text-align: center;
