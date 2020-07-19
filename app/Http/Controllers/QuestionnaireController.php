@@ -2949,16 +2949,19 @@ class QuestionnaireController extends Controller
         $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)? $assetsToday - $liabilitiesToday: 1;
         $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
 
+
+        // dd($cashAndEquivlent ,$equities  ,$fixIncome ,$alternativeInvestments);
+
         //  Current Asset Allocation
-        $cashAndEquivlentPercentage = ($cashAndEquivlent / $netWorthToday)*100;
-        $equitiesPercentage         = ($equities / $netWorthToday)*100;
-        $fixIncomePercentage        = ($fixIncome / $netWorthToday)*100;
-        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $netWorthToday)*100;
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / $totalCurrentAssetAllocation)*100;
+        $equitiesPercentage         = ($equities / $totalCurrentAssetAllocation)*100;
+        $fixIncomePercentage        = ($fixIncome / $totalCurrentAssetAllocation)*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $totalCurrentAssetAllocation)*100;
 
 
-        $totalCurrentAssetAllocationPercentage  = round($cashAndEquivlentPercentage, 0)+round($equitiesPercentage, 0)+round($fixIncomePercentage, 0)+round($alternativeInvestmentsPercentage, 0);
+        round(($totalCurrentAssetAllocationPercentage = ($cashAndEquivlentPercentage)+($equitiesPercentage)+($fixIncomePercentage)+($alternativeInvestmentsPercentage)) , 0) ;
 
-
+        $totalCurrentAssetAllocationPercentage = ($totalCurrentAssetAllocationPercentage > 100) ? 100 : $totalCurrentAssetAllocationPercentage;
 
         // dd($totalCurrentAssetAllocationPercentage, $cashAndEquivlentPercentage , $equitiesPercentage , $fixIncomePercentage , $alternativeInvestmentsPercentage);
 
@@ -3123,13 +3126,13 @@ class QuestionnaireController extends Controller
                 'public_id' => $report->public_id,
             );
 
-        // try{
-        //     Mail::to($user->email)->send(new SendMail($data));
-        // }catch ( \Exception $exception) {
-        //     dd($exception->getMessage());
-        // }
+        try{
+            Mail::to($user->email)->send(new SendMail($data));
+        }catch ( \Exception $exception) {
+            dd($exception->getMessage());
+        }
 
-        dd($report->public_id, $report->user_id);
+        // dd($report->public_id, $report->user_id);
         
 
 

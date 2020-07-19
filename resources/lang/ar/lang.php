@@ -301,7 +301,7 @@ return [
         'above_the_average' => '     .اعلى من المتوسط             ',
         'average' => '     المتوسط تقريبا                   ',
         'unlikely' => '       احتمال ضئيل                   ',
-        'almost_no' => '     احتمال شبه معدوم بإذن             ',
+        'almost_no' => '    احتمال شبه معدوم باذن الله          ',
 
         // q6
         'i_can_say_about_my_investment_experience' => '     يمكن شرح خبرتي الاستثمارية كالتالي:               ',
@@ -332,7 +332,7 @@ return [
         'in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years' => '        لو عرض عليك اربع فرص استثمارية (d, c, b, a )لإستثمار  100,000مدة 10 سنوات، اي من الفرص التالية تفضل:            ',
 
         'after_10_years,_the_probability_of_best_investment_value_=_500,000_and_the_worst_=_50,000' => '       احتمال افضل قيمة للإستثمار بعد 10 سنوات = 500,000 ريال ، واسوء قيمة = 50,000 ريال                ',
-        'after_10_years,_the_probability_of_best_investment_value_=_850,000_and_the_worst_=_20,000' => '   احتمال أفضل قيمة للإستثمار بعد عشر سنوات =850,000 ريال ، واسوء قيمة =65,000 ريال         ',
+        'after_10_years,_the_probability_of_best_investment_value_=_850,000_and_the_worst_=_20,000' => '  احتمال أفضل قيمة للإستثمار بعد 10 سنوات =850,000 ريال ، واسوء قيمة =65,000 ريال      ',
         'after_10_years,_the_probability_of_best_investment_value_=_300,000_and_the_worst_=_65,000' => '       احتمال افضل قيمة للإستثمار بعد 10 سنوات = 300,000 ريال ، واسوء قيمة = 65,000 ريال                ',
         'after_10_years,_the_probability_of_best_investment_value_=_150,000_and_the_worst_=_100,000' => '       احتمال افضل قيمة للإستثمار بعد 10 سنوات = 150,000 ريال ، واسوء قيمة = 100,000 ريال                 ',
 
@@ -695,7 +695,7 @@ return [
 
 
         'user' => '    المستخدم  ',
-        'questionnaire_settings' => '  إعدادات االستبيان      ',
+        'questionnaire_settings' => '  إعدادات الاستبيان   ',
         'change_log' => '  تغيير السجل     ',
         'welcome' => '  أهلا بك    ',
 
@@ -954,7 +954,7 @@ return [
             'name' => 'الاسم ',
             'education' => 'المستوى التعليمي',
             'current_age' => 'العمر حالياً',
-            'planned_retirement_age' => 'سن التقاعد المخطط ',
+            'planned_retirement_age' => 'سن التقاعد المخطط له',
 
         'financial_position_today' => 'الملاءة',
             // 'monthly_income_today' => 'المبلغ الاولي المخصص لخطة التقاعد (دفعة واحدة) ',
