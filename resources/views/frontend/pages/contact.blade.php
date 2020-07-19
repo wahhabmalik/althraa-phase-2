@@ -23,6 +23,14 @@
 .button {
     padding: 0.6rem 3.3rem !important;
 }
+
+@media only screen and (max-width: 767px) {
+    .contact_input {
+        height: 6rem !important;
+        font-size: 1.5rem;
+    }
+}
+
 </style>
 @endsection
 
