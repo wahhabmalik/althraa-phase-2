@@ -292,6 +292,12 @@ li span {
 {{-- {!! date("M d, Y h:m:s", strtotime('May 14, 2020 16:00:00')) !!} --}}
 {{-- {!! auth()->user()->two_factor_expires_at !!} --}}
 
+function convertDateForIos(date) {
+    var arr = date.split(/[- :]/);
+    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
+    return date;
+}
+
 
 $(document).ready(function() {
     const second = 1000,
@@ -300,7 +306,7 @@ $(document).ready(function() {
       day = hour * 24;
 
 // let countDown = new Date('Sep 30, 2020 00:00:00').getTime(),
-let countDown = new Date('{!! auth()->user()->two_factor_expires_at !!}').getTime(),
+let countDown = new Date(convertDateForIos('{!! auth()->user()->two_factor_expires_at !!}')).getTime(),
     x = setInterval(function() {    
 
       let now = new Date().getTime(),
