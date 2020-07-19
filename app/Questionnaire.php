@@ -654,7 +654,7 @@ class Questionnaire extends Model
                     ];
                     break;
                 
-                case 'Almost five times (5x) of my annual income':
+                case 'Almost five time (5x) of my annual income':
                     $riskTotalSavingsAndInvestments = [
                         'total_saving_and_investment_amount' => $this->getRisks($user)["risks"]["total_saving_and_investment_amount"],
                         'value' => $this->getRisks($user)["risks"]["total_saving_and_investment_amount"],

@@ -114,7 +114,7 @@ class QuestionnaireRequest extends FormRequest
 
                                 'risks.age' => 'required|in:"Less than 31","31 – 40","41 – 50","51 – 60","More than 60"',
 
-                                'risks.total_saving_and_investment_amount' => 'required|in:"Less than 50% of my annual income","Almost 50% of my annual income","Equal to my annual income","Almost double (2x) of my annual income","Almost triple (3x) of my annual income","Almost five times (5x) of my annual income"',
+                                'risks.total_saving_and_investment_amount' => 'required|in:"Less than 50% of my annual income","Almost 50% of my annual income","Equal to my annual income","Almost double (2x) of my annual income","Almost triple (3x) of my annual income","Almost five time (5x) of my annual income"',
 
                                 'risks.during_the_next_few_years,_the_likelihood_of_annual_income_change_would_be' => 'required|in:"Slightly decrease","No change","Slightly increase than the annual inflation","Remarkable increase than the annual inflation","Unstable (from my investment)"',
 
