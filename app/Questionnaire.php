@@ -1975,7 +1975,7 @@ class Questionnaire extends Model
     {
         $before_retirement = Constant::where('constant_meta_type' , 'Net_Return/Year_(Before_Retirement)')->where('constant_attribute' , $this->getRiskAbilityAndRiskTolerance($user)['result'])->first();
 
-        dd('Risk points: '.$this->getRiskTotalPoints($user),'Before riterement constant value: ' . (float)$before_retirement->constant_value);
+        // dd('Risk points: '.$this->getRiskTotalPoints($user),'Before riterement constant value: ' . (float)$before_retirement->constant_value);
         return (float)$before_retirement->constant_value ?? 7.85;
     }
 
