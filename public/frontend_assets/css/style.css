@@ -4240,9 +4240,9 @@ textarea {
 		font-size: 3.5rem;
 	}
     .contact_input {
-        height: 6rem !important;
+        height: 6em !important;
         font-size: 1.5rem !important;
-        padding: 2rem;
+        padding: 2em;
     }
 }
 
