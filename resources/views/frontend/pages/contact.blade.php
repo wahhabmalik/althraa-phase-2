@@ -27,7 +27,7 @@
 @media only screen and (max-width: 767px) {
     .contact_input {
         height: 6rem !important;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
 }
 
