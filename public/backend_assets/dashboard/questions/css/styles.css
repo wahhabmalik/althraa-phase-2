@@ -95,6 +95,9 @@ ul.nav.nav-pills:before {
 ul.nav.nav-pills{
     height: 0px;
 }
+.tab-mob > p {
+    font-size: 13px;
+}
 }
 
 
@@ -660,8 +663,3 @@ input[type=number] {
         font-size: 14px;
     }
 }
-
-.tab-mob > p {
-    font-size: 13px;
-}
-

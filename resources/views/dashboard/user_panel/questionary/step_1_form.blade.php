@@ -227,7 +227,7 @@
 						                            >
 						                            <option {{ (auth()->user()->gender == 'Male') ? 'selected' : '' }} value="Male">{{ trans('lang.male') }}</option>
 						                            <option {{ (auth()->user()->gender == 'Female') ? 'selected' : '' }} value="Female">{{ trans('lang.female') }}</option>
-						                            <option {{ (auth()->user()->gender == 'Others') ? 'selected' : '' }} value="Others">{{ trans('lang.other') }}</option>
+						                            {{-- <option {{ (auth()->user()->gender == 'Others') ? 'selected' : '' }} value="Others">{{ trans('lang.other') }}</option> --}}
 						                        </select>
 
 						                        @error('gender')

@@ -31,7 +31,7 @@ input[type=number] {
     border: solid 1px #ccc;
     /*box-shadow: 0 0 5px #ccc inset;*/
     outline: none;
-    width: 21%;
+    width: 22%;
     transition: all 0.2s ease-in-out;
     border-radius: 3px;
 }
