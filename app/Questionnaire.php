@@ -159,6 +159,7 @@ class Questionnaire extends Model
         
         $user = auth()->user();
         $user->phone_number = $data['phone_number'];
+        $user->gender = $data['gender'];
         $user->save();
 
         return Questionnaire::where('fk_user_id', auth()->user()->id)
