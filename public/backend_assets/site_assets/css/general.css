@@ -907,3 +907,7 @@ body:after {
     margin: 0 1em 0 1em;
     color: #9b9d9b;
 }
+
+.alert {
+    font-size: 14px;
+}
