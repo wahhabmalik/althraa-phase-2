@@ -13,6 +13,9 @@
     .progress-bar{
         width: 50% !important;
     }
+    .wizard-card .wizard-navigation .progress-with-circle{
+	    height: 0px;
+	}
 }
 </style>
 @endsection
