@@ -193,8 +193,8 @@ class LoginController extends Controller
         $user = User::create([
             'name' => 'User',
             'gender' => 'gender',
-            'email' => 'user@'.$data['phone_number'],
-            'phone_number' => $data['phone_number'],
+            'email' => 'user@'.$data['email'],
+            'phone_number' => $data['phone_number'] ?? '',
             'password' => Hash::make('$data[]'),
         ]);
 

@@ -68,7 +68,7 @@ body{
         width: 33% !important;
     }
     .progress-bar{
-        width: 15% !important;
+        width: 0% !important;
     }
     ul.navbar-nav.ml-auto{
         display: -webkit-box;
@@ -78,6 +78,25 @@ body{
         margin: 10px;
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+.tab-mob > p {
+    height: 45px;
+}
+.nav-pills:before {
+    background-color: #F3F2EE;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 23px;
+    text-align: center;
+}
+.nav-pills{
+    height: 0px;
+}
+}
+
 
 
 .wizard-card[data-color="green"] .nav-pills .icon-circle.checked {
@@ -630,3 +649,19 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+
+
+.progressbar_text p, .progressbar_text{
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 380px) {
+  .progressbar_text span, .progressbar_text{
+        font-size: 14px;
+    }
+}
+
+.tab-mob > p {
+    font-size: 13px;
+}
+

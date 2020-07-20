@@ -216,6 +216,30 @@
 
 										<div class="form-group">
 											<div class="form-group">
+												<label for="gender" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.gender') }}</label>
+
+						                        <select 
+						                            class="form-control @error('gender') is-invalid @enderror" 
+						                            id="gender" 
+						                            name="gender" 
+						                            required
+						                            oninvalid="InvalidMsg(this);"
+						                            >
+						                            <option value="Male">{{ trans('lang.male') }}</option>
+						                            <option value="Female">{{ trans('lang.female') }}</option>
+						                            <option value="Others">{{ trans('lang.other') }}</option>
+						                        </select>
+
+						                        @error('gender')
+						                            <span class="invalid-feedback" role="alert">
+						                                <strong>{{ $message }}</strong>
+						                            </span>
+						                        @enderror
+						                        
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="form-group">
 					                        	<label for="phone_number" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.phone_number') }}</label>
 
 							                    <div class="input-group m-b" style="direction: ltr;">

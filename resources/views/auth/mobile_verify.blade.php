@@ -44,6 +44,12 @@ input[type=number] {
 #wrapper #dialog #form input::selection {
     background: transparent;
 }
+
+@media only screen and (max-width: 1024px) {
+    /*#wrapper #dialog #form input {
+        margin: 0 0.5rem;
+    }*/
+}
 .login__form {
     direction: ltr;
 }
@@ -54,7 +60,9 @@ input[type=number] {
     /*padding: 2rem 0;*/
 }
 
-
+.digit_inputs {
+    display: flex !important;
+}
 
 </style>
 @endsection

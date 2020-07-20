@@ -36,6 +36,22 @@ input[type=number] {
     border-radius: 3px;
 }
 
+
+@media only screen and (max-width: 380px) {
+    /*#wrapper #dialog #form input {
+        margin: 0 0.5rem;
+    }*/
+}
+
+@media (max-width:900px) and (min-width:600px) {
+    /*#wrapper #dialog #form input {
+        margin: 0 0.3rem;
+    }*/
+}​
+
+
+
+
 #wrapper #dialog #form input:focus {
     border-color: #016216;
     box-shadow: 0 0 5px #016216 inset;
@@ -78,6 +94,12 @@ li span {
   section.login.container{
     overflow-x: hidden;
   }
+}
+
+
+
+.digit_inputs {
+    display: flex !important;
 }
 
 </style>
@@ -163,13 +185,15 @@ li span {
                     <div id="form">
                         <form method="POST" class="login__form" action="{{ route('verify.store', app()->getLocale()) }}">
                             @csrf
-                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
+                            <div class="digit_inputs">
+                              <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
                             
-                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
+                              <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
 
-                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
+                              <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa" />
 
-                            <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa"  />
+                              <input type="tel" name="two_factor_code[]" maxLength="1" pattern="[0-9]{1}" size="1" min="0" max="9"  class="two-fa"  />
+                            </div>
 
                             <button type="submit" class="button button__block">{!! ($request->segment(1) == 'ar') ? '&larr;&nbsp; ' . trans('lang.frontend.verify') : trans('lang.frontend.verify') . '&nbsp; &rarr;' !!}
                             </button>
