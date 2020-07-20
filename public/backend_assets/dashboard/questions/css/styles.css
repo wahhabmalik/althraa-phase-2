@@ -84,7 +84,7 @@ body{
 .tab-mob > p {
     height: 45px;
 }
-.nav-pills:before {
+ul.nav.nav-pills:before {
     background-color: #F3F2EE;
     position: absolute;
     width: 100%;
@@ -92,7 +92,7 @@ body{
     top: 23px;
     text-align: center;
 }
-.nav-pills{
+ul.nav.nav-pills{
     height: 0px;
 }
 }
