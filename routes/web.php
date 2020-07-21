@@ -207,7 +207,7 @@ Route::group([
       // --------------------------------- User Routes -------------------------------
       Route::get('/user/{type?}', 'UserController@index')->name('user');
       Route::patch('/switch_role/{user}', 'UserController@switchRole')->name('switch_role');
-      Route::delete('/delete_user/{user}', 'UserController@destroy')->name('delete_user');
+      Route::delete('/remove/user/{user}', 'UserController@destroy')->name('remove-user');
       Route::post('search_user_by_name', 'UserController@search_user_by_name')->name('search_user_by_name');
       Route::get('user-report', 'ReportController@getUserReport')->name('report');
 

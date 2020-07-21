@@ -191,7 +191,7 @@ class UserController extends Controller
         $user->delete();
         // $status = array('msg' => "User removed successfully.", 'toastr' => "successToastr");
         // Session::flash($status['toastr'] ?? null, $status['msg']);
-        return redirect()->route('user', [app()->getLocale(), 'staff']);
+        return redirect()->back();
     }
 
 

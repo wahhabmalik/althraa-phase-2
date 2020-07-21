@@ -58,6 +58,12 @@ tr td:last-child {
 a.button {
     padding: 8px 18px !important;
 }
+button.del-button {
+    background: #01630a;
+    border: unset;
+    padding: 12px 20px 11px 20px;
+    color: #fff;
+}
 
 </style>
 @endsection
@@ -79,7 +85,7 @@ a.button {
                     >
                 <br>
             </div>
-           {{--  <div class="col-md-2 col-sm-6 mt-sm-3">
+            <div class="col-md-2 col-sm-6 mt-sm-3">
                 <select 
                     class="form-control" 
                     name="gender" 
@@ -87,11 +93,11 @@ a.button {
                     <option value="">{{ trans('lang.select_gender') }}</option>
                     <option {{ isset($searched_gender) && $searched_gender == 'Male' ? 'selected' : ''}}>{{ trans('lang.male') }}</option>
                     <option {{ isset($searched_gender) && $searched_gender == 'Female' ? 'selected' : ''}}>{{ trans('lang.female') }}</option>
-                    <option {{ isset($searched_gender) && $searched_gender == 'Others' ? 'selected' : ''}}>{{ trans('lang.other') }}</option>
+                    
                 </select>
                 <br>
-            </div> --}}
-            <div class="col-md-3 col-sm-6 mt-sm-3">
+            </div>
+            <div class="col-md-2 col-sm-6 mt-sm-3">
                 <input 
                     type="number" 
                     class="form-control" 
@@ -103,7 +109,7 @@ a.button {
                     >
                 <br>
             </div>
-            <div class="col-md-3 col-sm-6 mt-sm-3">
+            <div class="col-md-2 col-sm-6 mt-sm-3">
                 <input 
                     type="number" 
                     class="form-control" 
@@ -135,7 +141,7 @@ a.button {
                             {{-- <th><p>{{ trans('lang.user.renewal_date') }}</p></th> --}}
                             <th><p>{{ trans('lang.user.email_address') }}</p></th>
                             {{-- <th><p>{{ trans('lang.user.password') }}</p></th> --}}
-                            {{-- <th><p>{{ trans('lang.user.gender') }}</p></th> --}}
+                            <th><p>{{ trans('lang.user.gender') }}</p></th>
                             {{-- <th><p>{{ trans('lang.user.country') }}Country</p></th> --}}
                             <th><p>{{ trans('lang.user.phone') }}</p></th>
                             <th><p>{{ trans('lang.user.report') }}</p></th>
@@ -166,17 +172,23 @@ a.button {
                                     </p></td>
                                     {{-- <td class="align-middle"><p class="text_black">
                                         ********
-                                    </p></td>
+                                    </p></td> --}}
                                     <td class="align-middle"><p class="text_black">
                                         {{ $user->gender }}
-                                    </p></td> --}}
+                                    </p></td>
                                     {{-- <td class="align-middle"><p class="text_black">
                                         
                                     </p></td> --}}
                                     <td class="align-middle"><p class="text_black text-left">{{  $user->phone_number }}
                                     </p></td>
                                     <td>
-                                        <div class="mt-4"><a class="button" target="_blank" href="{{ route('report', [app()->getLocale(), 'user' => $user]) }}">Report</a>
+                                        <div class="mt-4">
+                                            <a class="button" target="_blank" href="{{ route('report', [app()->getLocale(), 'user' => $user]) }}">Report</a>
+                                            <form method="POST" action="{{ route('remove-user', [app()->getLocale(), $user]) }}" style="display: inline-block;">
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <button title="Delete record" type="submit" class="del-button"><i class="fa fa-trash"></i></button>
+                                            </form>
                                         </div>
                                         
                                     </td>
