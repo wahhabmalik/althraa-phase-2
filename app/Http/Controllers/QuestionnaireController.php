@@ -3126,13 +3126,13 @@ class QuestionnaireController extends Controller
                 'public_id' => $report->public_id,
             );
 
-        // try{
-        //     Mail::to($user->email)->send(new SendMail($data));
-        // }catch ( \Exception $exception) {
-        //     dd($exception->getMessage());
-        // }
+        try{
+            Mail::to($user->email)->send(new SendMail($data));
+        }catch ( \Exception $exception) {
+            dd($exception->getMessage());
+        }
 
-        dd($report->public_id, $report->user_id);
+        // dd($report->public_id, $report->user_id);
         
 
 
