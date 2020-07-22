@@ -920,6 +920,6 @@ select > caption { text-align:right; }*/
 
 @media (max-width: 600px){
   .extra-font{
-    font-size: 20px;
+    font-size: 25px;
   }
 }
