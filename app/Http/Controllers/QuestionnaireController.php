@@ -3006,7 +3006,7 @@ class QuestionnaireController extends Controller
         $uncertain_bottom = [];
         $uncertainty = $constants["( In Returns , Saving )"]["constant_value"] ?? null;
 
-        $graph_limit = ($retirement_age < 80) ? 80 : $retirement_age;
+        $graph_limit = ($retirement_age < 65) ? 65 : $retirement_age;
         if($current_age < $retirement_age){
             for ($i = (int) $current_age; $i <= $graph_limit; $i++) {
             // for ($i = (int) $current_age; $i <= $retirement_age; $i++) {
@@ -3032,7 +3032,7 @@ class QuestionnaireController extends Controller
                     $plan[$i]['age']= $i;
                     $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
     
-                    $graphContribution[] = $plan[$i]['contribution'] = ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
+                    $graphContribution[] = $plan[$i]['contribution'] = ($i >= $retirement_age) ? 0 : ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
     
                     $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
     
@@ -3126,13 +3126,13 @@ class QuestionnaireController extends Controller
                 'public_id' => $report->public_id,
             );
 
-        try{
-            Mail::to($user->email)->send(new SendMail($data));
-        }catch ( \Exception $exception) {
-            dd($exception->getMessage());
-        }
+        // try{
+        //     Mail::to($user->email)->send(new SendMail($data));
+        // }catch ( \Exception $exception) {
+        //     dd($exception->getMessage());
+        // }
 
-        // dd($report->public_id, $report->user_id);
+        dd($report->public_id, $report->user_id);
         
 
 

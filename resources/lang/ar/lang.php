@@ -968,7 +968,7 @@ return [
             'net_worth' => 'صافي الثروة الشخصية',
             'accomulative_saving_today' => 'إجمالي مبلغ الإستثمار لخطة التقاعد',
 
-        'current_asset_allocation' => 'التوزيع الاستراتيجي للأصول حاليا لصافي الثروة',
+        'current_asset_allocation' => 'التوزيع الاستراتيجي للأصول حاليا',
             'cash_and_equivalent' => 'النقد وما يعادله (الودائع والمرابحات)',
             'equities' => 'الأسهم',
             'fix_income' => 'الصكوك والسندات',
@@ -1024,7 +1024,7 @@ return [
                 'of_monthly_income' => 'الشهري حاليا ',
             'accumulative_saving_today' => 'إجمالي مبلغ الإستثمار لخطة التقاعد',
         'returns_assumptions' => 'إقتراضات العوائد السنوية ',
-            'net_return_before_reitement' => 'صافي العوائد السنوية  - مرحلة ماقبل التقاعد  ',
+            'net_return_before_reitement' => 'صافي العوائد السنوية',
             'net_return_after_reitement' => 'صافي العوائد السنوية  - مرحلة مابعد التقاعد  ',
 
         'income_and_wealth_at_retirement' => 'مبلغ الثروة والدخل عند التقاعد ',

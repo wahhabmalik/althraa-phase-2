@@ -914,3 +914,4 @@ body:after {
 
 
 select > option { text-align:right; } 
+select > caption { text-align:right; }

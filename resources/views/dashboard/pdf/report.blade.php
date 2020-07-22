@@ -307,15 +307,15 @@
 				<table>
 					<tr>
 						<td>{{ trans('lang.report.monthly_income_today') }}</td>
-						<td>{{ currency($data['monthlyIncomeToday'] ?? 0) }}</td>
+						<td>{{ currencyR($data['monthlyIncomeToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.question.gosi_or_ppa_monthly_subscription') }}</td>
-						<td>{{ currency($data['gosi_or_ppa_monthlySubscription'] ?? 0) }}</td>
+						<td>{{ currencyR($data['gosi_or_ppa_monthlySubscription'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.question.monthly_saving_plan_for_retirement') }}</td>
-						<td>{{ currency($data['monthlySavingPlanForRetirement'] ?? 0) }}</td>
+						<td>{{ currencyR($data['monthlySavingPlanForRetirement'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.monthly_saving_percentage_today') }}</td>
@@ -328,19 +328,19 @@
 				<table>
 					<tr>
 						<td>{{ trans('lang.report.total_assets_today') }}</td>
-						<td>{{ currency($data['totalAssetsToday'] ?? 0) }}</td>
+						<td>{{ currencyR($data['totalAssetsToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.total_liabilities_today') }}</td>
-						<td>{{ currency($data['totalLiabilitiesToday'] ?? 0) }}</td>
+						<td>{{ currencyR($data['totalLiabilitiesToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.net_worth') }}</td>
-						<td>{{ currency($data['netWorthToday'] ?? 0) }}</td>
+						<td>{{ currencyR($data['netWorthToday'] ?? 0) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.accomulative_saving_today') }}</td>
-						<td>{{ currency($data['accomulativeSavingtoday'] ?? 0) }}</td>
+						<td>{{ currencyR($data['accomulativeSavingtoday'] ?? 0) }}</td>
 					</tr>
 					
 				</table>
@@ -359,7 +359,7 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ currency($data['totalAssetsToday'] ?? 0) }} 
+						    	{{ currencyR($data['totalAssetsToday'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
 						    	{{-- {{ percentage(100) }} --}}
@@ -389,7 +389,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['cashAndEquivlentPercentage'],1) * $data['totalAssetsToday']) / 100 ) }}
+												{{ currencyR((percentage($data['cashAndEquivlentPercentage'],1) * $data['totalAssetsToday']) / 100 ) }}
 											</p>
 										</td>
 									</tr>
@@ -407,7 +407,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['equitiesPercentage'], 1) * $data['totalAssetsToday'])/100) }} 
+												{{ currencyR((percentage($data['equitiesPercentage'], 1) * $data['totalAssetsToday'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -425,7 +425,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['fixIncomePercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
+												{{ currencyR((percentage($data['fixIncomePercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
 											</p>
 										</td>
 									</tr>
@@ -443,7 +443,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
+												{{ currencyR((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
 											</p>
 										</td>
 									</tr>
@@ -461,7 +461,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['totalAssetsToday'] ?? 0) }} 
+												{{ currencyR($data['totalAssetsToday'] ?? 0) }} 
 											</p>
 										</td>
 									</tr>
@@ -761,7 +761,7 @@
 						    <!--graph inner-->
 						    <br>
 						    <p class="text-center inner_price donut_inner">
-						    	{{ currency($data['accomulativeSavingtoday'] ?? 0) }} 
+						    	{{ currencyR($data['accomulativeSavingtoday'] ?? 0) }} 
 						    </p>
 						    <p class="text-center donut_inner">
 						    	{{ round(100, 2) ?? 100 }} %
@@ -790,7 +790,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['cash_and_equivlent'])/100) }}
+												{{ currencyR(($data['accomulativeSavingtoday']*$data['recommended']['cash_and_equivlent'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -808,7 +808,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['equities'])/100) }} 
+												{{ currencyR(($data['accomulativeSavingtoday']*$data['recommended']['equities'])/100) }} 
 											</p>
 										</td>
 									</tr>
@@ -826,7 +826,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['fix_income'])/100) }}
+												{{ currencyR(($data['accomulativeSavingtoday']*$data['recommended']['fix_income'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -844,7 +844,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency(($data['accomulativeSavingtoday']*$data['recommended']['alternative_investments'])/100) }}
+												{{ currencyR(($data['accomulativeSavingtoday']*$data['recommended']['alternative_investments'])/100) }}
 											</p>
 										</td>
 									</tr>
@@ -862,7 +862,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currency($data['accomulativeSavingtoday']) ?? '0' }} 
+												{{ currencyR($data['accomulativeSavingtoday']) ?? '0' }} 
 											</p>
 										</td>
 									</tr>
@@ -897,7 +897,7 @@
 	            </h2>
 	            <p class="heading-secondary mt-5">{{ trans('lang.report.financil_forcast') }}</p>
 	            <p class="alertBox__p">
-	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} <span>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</span>
+	              <span>{{ trans('lang.financial_plan.congratulations') }}</span>&nbsp;{{ trans('lang.current_state.at_age') }} {{ $data['retirement_age'] }} {{ trans('lang.current_state.you_will_have_savings_balance_of') }} <span>{{ currencyR($data['plan'][$data['retirement_age']]['value_end_year']) }}</span>
 	            </p>
 			</div>
 		</div>
@@ -933,7 +933,7 @@
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.monthly_saving_plan') }}</td>
-						<td>{{ currency($data['monthlySavingPlanForRetirement']) }} {{ trans('lang.report.per_month') }}</td>
+						<td>{{ currencyR($data['monthlySavingPlanForRetirement']) }} {{ trans('lang.report.per_month') }}</td>
 					</tr>
 					<tr>
 						<td>
@@ -947,13 +947,13 @@
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.accumulative_saving_today') }}</td>
-						<td>{{ currency($data['accomulativeSavingtoday']) }}</td>
+						<td>{{ currencyR($data['accomulativeSavingtoday']) }}</td>
 					</tr>
 					
 				</table>
 			</div>
 			<div class="col-5">
-				<p class="text-secondary mt-4">{{ trans('lang.report.returns_assumptions') }}</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.returns_assumptions') }}</p>
 				<table>
 					<tr>
 						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
@@ -975,10 +975,10 @@
 						<td>{{ trans('lang.report.net_return_before_reitement') }}</td>
 						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
 					</tr>
-					<tr>
+					{{-- <tr>
 						<td>{{ trans('lang.report.net_return_after_reitement') }}</td>
 						<td>{{ percentage($data['netReturnAfterRetirement']) }}</td>
-					</tr>
+					</tr> --}}
 					
 				</table>
 			</div>
@@ -996,19 +996,19 @@
 					</tr> --}}
 					<tr>
 						<td>{{ trans('lang.report.retirement_plan_value_at') }} {{ $data['retirement_age'] }} {{ trans('lang.report.years_old') }}</td>
-						<td>{{ currency($data['plan'][$data['retirement_age']]['value_end_year']) }}</td>
+						<td>{{ currencyR($data['plan'][$data['retirement_age']]['value_end_year']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.total_monthly_income') }}</td>
-						<td>{{ currency($data['totalMonthlyIncome']) }}</td>
+						<td>{{ currencyR($data['totalMonthlyIncome']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.income_from_retirement_plan') }}</td>
-						<td>{{ currency($data['monthlySalary']) }}</td>
+						<td>{{ currencyR($data['monthlySalary']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.income_from_GOSI_or_PPA') }}</td>
-						<td>{{ currency($data['retirementGOCIMonthlyIncome']) }}</td>
+						<td>{{ currencyR($data['retirementGOCIMonthlyIncome']) }}</td>
 					</tr>
 					
 				</table>
@@ -1067,16 +1067,16 @@
 						            {{ $pl['age'] ?? '' }}
 						          </td>
 						          <td class="btm_table_td">
-						            {{ currency($pl['value_beginning_of_year']) ?? '' }}
+						            {{ currencyR($pl['value_beginning_of_year']) ?? '' }}
 						          </td>
 						          <td class="btm_table_td">
-						            {{ currency($pl['contribution']) ?? '' }}
+						            {{ currencyR($pl['contribution']) ?? '' }}
 						          </td>
 						          <td class="btm_table_td">
-						            {{ currency($pl['returns']) ?? '' }}
+						            {{ currencyR($pl['returns']) ?? '' }}
 						          </td>
 						          <td class="btm_table_td">
-						            {{ currency($pl['value_end_year']) ?? '' }}
+						            {{ currencyR($pl['value_end_year']) ?? '' }}
 						          </td>
 						        </tr>
 						        @if($pl['age'] == 80)

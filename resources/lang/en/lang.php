@@ -970,7 +970,7 @@ return [
             'net_worth' => 'Net worth',
             'accomulative_saving_today' => 'Accomulative saving today',
 
-        'current_asset_allocation' => 'Current Strategic Assets Allocation for Net Worth',
+        'current_asset_allocation' => 'Current Strategic Assets Allocation',
             'cash_and_equivalent' => 'Cash and Equivalent',
             'equities' => 'Equities',
             'fix_income' => 'Bonds & Sukuks ',
@@ -1026,7 +1026,7 @@ return [
                 'of_monthly_income' => 'of Monthly Income',
             'accumulative_saving_today' => 'Accumulative saving today',
         'returns_assumptions' => 'Returns Assumptions',
-            'net_return_before_reitement' => 'Net Return/Year (Before retirement)',
+            'net_return_before_reitement' => 'Net Return/Year',
             'net_return_after_reitement' => 'Net Return/Year (After retirement)',
 
         'income_and_wealth_at_retirement' => 'Income and Wealth at Retirement',

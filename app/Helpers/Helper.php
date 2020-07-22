@@ -146,6 +146,22 @@ function currency($value, $currency = 1)
         return 0;
 }
 
+function currencyR($value, $currency = 1)
+{
+    if($value == null)
+        return 'SAR ' . 0;
+    else if(($value) && $currency == 0)
+    // else if(is_numeric($value) && $currency == 0)
+        return number_format((is_numeric($value)) ? $value : 0, 0);
+    
+    
+    if(($value) && $currency == 1)
+    // if(is_numeric($value) && $currency == 1)
+        return 'SAR ' . number_format((is_numeric($value)) ? $value : 0, 0);
+    else
+        return 0;
+}
+
 
 function percentage($value, $no_sign = 0)
 {
