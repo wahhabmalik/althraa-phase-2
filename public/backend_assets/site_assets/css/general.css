@@ -918,8 +918,8 @@ body:after {
 /*select > option { text-align:right; } 
 select > caption { text-align:right; }*/
 
-@media (max-width: 600px){
+/*@media (max-width: 600px){
   .extra-font option{
     font-size: 25px;
   }
-}
+}*/
