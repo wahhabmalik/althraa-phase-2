@@ -919,7 +919,7 @@ body:after {
 select > caption { text-align:right; }*/
 
 @media (max-width: 600px){
-  .extra-font{
+  .extra-font option{
     font-size: 25px;
   }
 }
