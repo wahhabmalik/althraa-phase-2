@@ -913,4 +913,4 @@ body:after {
 }
 
 
-select > popup > option { text-align:right; } 
+select > option { text-align:right; } 
