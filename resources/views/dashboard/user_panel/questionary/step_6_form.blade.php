@@ -382,7 +382,7 @@
 				                          	{{ trans('lang.question.i_can_say_about_my_investment_experience') }}
 				                          </label>
 				                          <select 
-				                          	class="form-control" 
+				                          	class="form-control extra-font" 
 				                          	name="risks[about_investment_experience]"
 				                          	>
 				                          	<option 
@@ -534,7 +534,7 @@
 				                          	{{ trans('lang.question.in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years') }}
 				                          </label>
 				                          <select 
-				                          	class="form-control" 
+				                          	class="form-control extra-font" 
 				                          	name="risks[in_which_investment_opportunity_would_you_invest_a_100,000_for_10_years]"
 				                          	>
 				                          	<option 

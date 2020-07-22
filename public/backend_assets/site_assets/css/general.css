@@ -886,6 +886,8 @@ li.nav-item.cp-button a {
 	}
 }
 
+
+
 .btn-althraa:hover {
     color: #fff !important;
 }
@@ -913,5 +915,11 @@ body:after {
 }
 
 
-select > option { text-align:right; } 
-select > caption { text-align:right; }
+/*select > option { text-align:right; } 
+select > caption { text-align:right; }*/
+
+@media (max-width: 600px){
+  .extra-font{
+    font-size: 20px;
+  }
+}
