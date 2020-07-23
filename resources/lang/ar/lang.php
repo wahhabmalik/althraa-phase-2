@@ -611,7 +611,7 @@ return [
         'waleed_li_5' => 'يعمل حاليا مدير إدارة تطوير الأعمال في هيئة حكومية .',
 
 
-        'bakarman' => 'وليد باكرمان',
+        'bakarman' => 'وليد بن عبدالله باكرمان',
         'ali' => ' د. علي بن عبدالرحمن الشهري ',
         'ali_designation' => ' (الشريك التقني) ',
 
@@ -1057,7 +1057,7 @@ return [
     'you' => 'أنت',
 
     'Mobile_Verification' => 'التحقق من رقم الجوال',
-    'Please_enter_last_4_digits_of_your_mobile_number' => 'ادخل آخر أربع أرقام من رقم الجوال  لفتح الملف المرفق.',
+    'Please_enter_last_4_digits_of_your_mobile_number' => 'ادخل آخر أربعة ارقام من رقم جوالك للإطلاع على التقرير',
 
 
     'no_users_found' => 'No users found',

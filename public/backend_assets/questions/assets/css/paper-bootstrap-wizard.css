@@ -942,10 +942,14 @@ input[type="button"]:focus {
 .nav-pills {
   background-color: #F3F2EE;
   position: absolute;
+  left: 0;
   width: 100%;
   height: 4px;
   top: 40px;
   text-align: center;
+}
+.nav-pills>li {
+    float: unset !important;
 }
 .nav-pills > li + li {
   margin-left: 0;
