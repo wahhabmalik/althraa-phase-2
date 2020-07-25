@@ -2066,58 +2066,56 @@ class Questionnaire extends Model
     {
         $accumulativeSavingToday = $this->getAccomulativeSavingtoday();
         $age = $this->getCurrentAge();
-        $monthlyIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getRetirementGOCIMonthlyIncome($user);
+        $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getRetirementGOCIMonthlyIncome($user);
         $savingRating = '';
 
-        // dd($monthlyIncome);
         if($age < 30)
         {
-            dd('F');
-            if($monthlyIncome >= $accumulativeSavingToday)
+            if($accumulativeSavingToday >= $totalIncome)
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday >= ($monthlyIncome * 2) || $accumulativeSavingToday <= ($monthlyIncome * 4))
+            else if($accumulativeSavingToday >= ($totalIncome * 2) || $accumulativeSavingToday <= ($totalIncome * 4))
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= ($monthlyIncome * 5))
+            else if($accumulativeSavingToday >= ($totalIncome * 5))
                 $savingRating = 'Good';
         }
         else if($age >= 30 && $age < 40)
         {
 
-            // dd($monthlyIncome, $accumulativeSavingToday);
-            if($accumulativeSavingToday >= ($monthlyIncome * 4))
+            if($accumulativeSavingToday >= ($totalIncome * 4))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= ($monthlyIncome * 5) || $accumulativeSavingToday <= ($monthlyIncome * 11))
+            else if($accumulativeSavingToday <= ($totalIncome * 5) || $accumulativeSavingToday <= ($totalIncome * 11))
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= ($monthlyIncome * 12))
+            else if($accumulativeSavingToday >= ($totalIncome * 12))
                 $savingRating = 'Good';
-
-            // dd($savingRating);
         }
         else if($age >= 40 && $age < 50)
         {
-            if($accumulativeSavingToday >= (($monthlyIncome * 4) * 3))
+
+            if($accumulativeSavingToday >= (($totalIncome * 4) * 3))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($monthlyIncome * 5) * 3) || $accumulativeSavingToday <= (($monthlyIncome * 11) * 3))
+            else if($accumulativeSavingToday <= (($totalIncome * 5) * 3) || $accumulativeSavingToday <= (($totalIncome * 11) * 3))
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= (($monthlyIncome * 12) * 3))
+            else if($accumulativeSavingToday >= (($totalIncome * 12) * 3))
                 $savingRating = 'Good';
         }
         else if($age >= 50 && $age < 60)
         {
-            if($accumulativeSavingToday >= (($monthlyIncome * 4) * 6))
+
+            if($accumulativeSavingToday >= (($totalIncome * 4) * 6))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($monthlyIncome * 5) * 6) || $accumulativeSavingToday <= (($monthlyIncome * 11) * 6))
+            else if($accumulativeSavingToday <= (($totalIncome * 5) * 6) || $accumulativeSavingToday <= (($totalIncome * 11) * 6))
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= (($monthlyIncome * 12) * 6))
+            else if($accumulativeSavingToday >= (($totalIncome * 12) * 6))
                 $savingRating = 'Good';
         }
         else if($age >= 60)
         {
-            if($accumulativeSavingToday >= (($monthlyIncome * 4) * 8))
+            
+            if($accumulativeSavingToday >= (($totalIncome * 4) * 8))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($monthlyIncome * 5) * 8) || $accumulativeSavingToday <= (($monthlyIncome * 11) * 8))
+            else if($accumulativeSavingToday <= (($totalIncome * 5) * 8) || $accumulativeSavingToday <= (($totalIncome * 11) * 8))
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= (($monthlyIncome * 12) * 8))
+            else if($accumulativeSavingToday >= (($totalIncome * 12) * 8))
                 $savingRating = 'Good';
         }
         else
