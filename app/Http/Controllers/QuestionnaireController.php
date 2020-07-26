@@ -2943,7 +2943,9 @@ class QuestionnaireController extends Controller
         //Status Today
         $gosi_or_ppa_monthlySubscription = $this->questionnaire->getGOSIorPPAmonthlySubscription($user);
         $monthlySavingPlanForRetirement  = $this->questionnaire->getMonthlySavingPlanForRetirement($user);
+        
         $monthlySavingPercentageToday    = ($monthlySavingToday/$monthlyIncomeToday)*100;
+        
         $assetsToday                = $totalAssetsToday;
         $liabilitiesToday           = $totalLiabilitiesToday;
         $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)? $assetsToday - $liabilitiesToday: 1;
