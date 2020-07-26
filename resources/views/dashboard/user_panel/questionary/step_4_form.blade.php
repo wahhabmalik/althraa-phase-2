@@ -215,8 +215,8 @@
 											</div>
 										  
 										</div>
-
-										<div class="tab-content col-sm-4" style="padding-top: 0px;" id="v-pills-tabContent">
+					
+										<div class="tab-content col-lg-4 col-md-6 col-sm-6" style="padding-top: 0px;" id="v-pills-tabContent">
 											
 											<div class="tab-pane fade show active in" id="v-pills-financial-assets" role="tabpanel" aria-labelledby="v-pills-financial-assets-tab">
 												

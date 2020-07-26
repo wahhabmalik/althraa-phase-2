@@ -107,8 +107,8 @@
 	                        <div class="tab-content">
 	                        	<div class="tab-pane active" id="income">
 	                            	<div class="row">
-	                            		<div class="col-sm-4"></div>
-	                            		<div class="col-sm-4">
+	                            		<div class="col-lg-4 col-md-3 col-sm-3"></div>
+                            			<div class="col-lg-4 col-md-6 col-sm-6">
 											<div class="form-group">
 												<div class="form-group">
 						                          <label for="text" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">
