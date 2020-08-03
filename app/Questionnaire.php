@@ -11,34 +11,6 @@ class Questionnaire extends Model
 
     public function __construct()
     {
-        // $this->cash_and_equivlent = [
-        //     'value' => 2,
-        //     'percentage' => 2,
-        //     'unit' => '%',
-        //     'tag' => 'of investments',
-        // ];
-        // $this->equities = [
-        //     'value' => 10,
-        //     'percentage' => 10,
-        //     'unit' => '%',
-        //     'tag' => 'of investments',
-        // ];
-        // $this->fix_income = [
-        //     'value' => 5,
-        //     'percentage' => 5,
-        //     'unit' => '%',
-        //     'tag' => 'of investments',
-        // ];
-        // $this->alternative_investments = [
-        //     'value' => 12,
-        //     'percentage' => 12,
-        //     'unit' => '%',
-        //     'tag' => 'of investments',
-        // ];
-
-
-        
-
         // $this->questionnaire = null;
     }
 
@@ -2073,7 +2045,7 @@ class Questionnaire extends Model
         {
             if($accumulativeSavingToday >= $totalIncome)
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday >= ($totalIncome * 2) || $accumulativeSavingToday <= ($totalIncome * 4))
+            else if($accumulativeSavingToday >= ($totalIncome * 1.01) || $accumulativeSavingToday <= ($totalIncome * 4.99))
                 $savingRating = 'Fair';
             else if($accumulativeSavingToday >= ($totalIncome * 5))
                 $savingRating = 'Good';
@@ -2083,7 +2055,7 @@ class Questionnaire extends Model
 
             if($accumulativeSavingToday >= ($totalIncome * 4))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= ($totalIncome * 5) || $accumulativeSavingToday <= ($totalIncome * 11))
+            else if($accumulativeSavingToday <= ($totalIncome * 4.01) || $accumulativeSavingToday <= ($totalIncome * 11.99))
                 $savingRating = 'Fair';
             else if($accumulativeSavingToday >= ($totalIncome * 12))
                 $savingRating = 'Good';
@@ -2093,7 +2065,7 @@ class Questionnaire extends Model
 
             if($accumulativeSavingToday >= (($totalIncome * 4) * 3))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($totalIncome * 5) * 3) || $accumulativeSavingToday <= (($totalIncome * 11) * 3))
+            else if($accumulativeSavingToday <= (($totalIncome * 4.01) * 3) || $accumulativeSavingToday <= (($totalIncome * 11.99) * 3))
                 $savingRating = 'Fair';
             else if($accumulativeSavingToday >= (($totalIncome * 12) * 3))
                 $savingRating = 'Good';
@@ -2103,7 +2075,7 @@ class Questionnaire extends Model
 
             if($accumulativeSavingToday >= (($totalIncome * 4) * 6))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($totalIncome * 5) * 6) || $accumulativeSavingToday <= (($totalIncome * 11) * 6))
+            else if($accumulativeSavingToday <= (($totalIncome * 4.01) * 6) || $accumulativeSavingToday <= (($totalIncome * 11.99) * 6))
                 $savingRating = 'Fair';
             else if($accumulativeSavingToday >= (($totalIncome * 12) * 6))
                 $savingRating = 'Good';
@@ -2113,7 +2085,7 @@ class Questionnaire extends Model
             
             if($accumulativeSavingToday >= (($totalIncome * 4) * 8))
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($totalIncome * 5) * 8) || $accumulativeSavingToday <= (($totalIncome * 11) * 8))
+            else if($accumulativeSavingToday <= (($totalIncome * 4.01) * 8) || $accumulativeSavingToday <= (($totalIncome * 11.99) * 8))
                 $savingRating = 'Fair';
             else if($accumulativeSavingToday >= (($totalIncome * 12) * 8))
                 $savingRating = 'Good';
