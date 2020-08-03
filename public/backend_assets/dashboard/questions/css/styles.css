@@ -59,7 +59,7 @@ body{
     }
 }
 
-@media screen and (max-width: 994px) {
+@media screen and (max-width: 1025px) {
     ul.nav.nav-pills li{
         display: none;
     }
