@@ -141,9 +141,9 @@ li span {
 
         <div class="col-md-4 login__container ">
         
-            <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
+            {{-- <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
                 {{ trans('lang.frontend.two_factor_verification') }}
-            </h2>
+            </h2> --}}
 
             <p class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
                 {{ trans('lang.frontend.two_factor_message') }}

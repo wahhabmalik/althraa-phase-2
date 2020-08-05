@@ -100,9 +100,9 @@ input[type=number] {
                 
             @endif
 
-            <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
+            {{-- <h2 class="login__heading {{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
                 {{ trans('lang.Mobile_Verification') }}
-            </h2>
+            </h2> --}}
 
             <p class="{{ ($request->segment(1) == 'ar') ? 'text-right' : '' }}">
                 {{ trans('lang.Please_enter_last_4_digits_of_your_mobile_number') }}
