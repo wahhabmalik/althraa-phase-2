@@ -28,7 +28,7 @@ class SendContactEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@thokhor.com','Thokhor')
+        return $this->from('team@thokhor.com','Thokhor')
                     ->subject('New Customer Enquiry')
                     ->view('frontend.email_templates.contact')
                     ->with('data',$this->data);
