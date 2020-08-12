@@ -30,7 +30,7 @@ class SendMail extends Mailable
     public function build()
     {
         // dd($this->data['certificate_id']);
-        return $this->from('team@thokhor.com','Thokhor')
+        return $this->from('send@thokhor.com','Thokhor')
                     ->subject($this->data['subject'])
                     ->view($this->data['view'])
                     ->with('data',$this->data);
