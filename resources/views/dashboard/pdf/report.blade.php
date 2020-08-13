@@ -1,5 +1,5 @@
 @inject('request', 'Illuminate\Http\Request')
-{{-- {{ dd($data['plan']) }} --}}
+{{-- {{ dd($data['constants']) }} --}}
 @extends('dashboard.layouts.user_layout.user_report')
 
 @section('styles')
@@ -18,54 +18,54 @@
 	}
 @endphp
 <style>
-{!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
-.financial-position tr td:first-child {
-    text-align: {{ ($request->segment(1) == 'ar') ? 'right' : 'left' }};
-}
+	{!! ($request->segment(1) == 'ar') ? '.progressbar li:after{ right: -50%; }' : '' !!}
+	.financial-position tr td:first-child {
+	    text-align: {{ ($request->segment(1) == 'ar') ? 'right' : 'left' }};
+	}
 
 
-.factor span:first-child {
-    border-top-{{ $direction }}-radius: 10px;
-    border-bottom-{{ $direction }}-radius: 10px;
-}
-.factor span:last-child {
-    border-top-{{ $direction_op }}-radius: 10px;
-    border-bottom-{{ $direction_op }}-radius: 10px;
-}
+	.factor span:first-child {
+	    border-top-{{ $direction }}-radius: 10px;
+	    border-bottom-{{ $direction }}-radius: 10px;
+	}
+	.factor span:last-child {
+	    border-top-{{ $direction_op }}-radius: 10px;
+	    border-bottom-{{ $direction_op }}-radius: 10px;
+	}
 
-.factor-s span:first-child {
-    border-top-{{ $direction }}-radius: 10px;
-    border-bottom-{{ $direction }}-radius: 10px;
-}
-.factor-vs span:first-child {
-    border-top-{{ $direction }}-radius: 10px;
-    border-bottom-{{ $direction }}-radius: 10px;
-}
-.factor-s span:last-child {
-    border-top-{{ $direction_op }}-radius: 10px;
-    border-bottom-{{ $direction_op }}-radius: 10px;
-}
-.factor-vs span:last-child {
-    border-top-{{ $direction_op }}-radius: 10px;
-    border-bottom-{{ $direction_op }}-radius: 10px;
-}
-.financial-position tr td {
-    text-align: {{ $direction_op }};
-}
+	.factor-s span:first-child {
+	    border-top-{{ $direction }}-radius: 10px;
+	    border-bottom-{{ $direction }}-radius: 10px;
+	}
+	.factor-vs span:first-child {
+	    border-top-{{ $direction }}-radius: 10px;
+	    border-bottom-{{ $direction }}-radius: 10px;
+	}
+	.factor-s span:last-child {
+	    border-top-{{ $direction_op }}-radius: 10px;
+	    border-bottom-{{ $direction_op }}-radius: 10px;
+	}
+	.factor-vs span:last-child {
+	    border-top-{{ $direction_op }}-radius: 10px;
+	    border-bottom-{{ $direction_op }}-radius: 10px;
+	}
+	.financial-position tr td {
+	    text-align: {{ $direction_op }};
+	}
 
-#disclaimer{
-	page-break-before: always;
-}
+	#disclaimer{
+		page-break-before: always;
+	}
 
 
-#intro, #table_of_contents, #about_us, #personal_information, #personal_indicators, #asset_allocation, #financial_forecast{
-	page-break-after: always;
-}
-.highlight{
-  background-color: #000000 !important;
-    color: #fff !important;
-    font-family: 'Cairo', sans-serif;
-}
+	#intro, #table_of_contents, #about_us, #personal_information, #personal_indicators, #asset_allocation, #financial_forecast{
+		page-break-after: always;
+	}
+	.highlight{
+	  background-color: #000000 !important;
+	    color: #fff !important;
+	    font-family: 'Cairo', sans-serif;
+	}
 
 </style>
 
@@ -1102,6 +1102,138 @@
 	</div>
 
 
+
+	{{-- Page 8 start --}}
+
+
+	<div id="parent-report" class="container-fluid mb-5" {{ $not_found ?? '' }}>
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<br><br><br><br><br>
+				<h2 class="mt-5 pt-5 mb-4">
+	                {{ 'thokhor' }}
+	                {{-- {{ althraa_site_title() }} --}}
+	            </h2>
+	            <br><br>
+	            <h1 class="heading-main">Investing Plan</h1>
+	            
+			</div>
+		</div>
+
+		<div class="row investing-plan">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<p class="text-secondary mt-5">Investments Seletion</p>
+				<table>
+					<thead>
+						<tr>
+							<th>ASSET CLASS</th>
+							<th>OOPTION 1</th>
+							<th>OOPTION 2</th>
+							<th>OOPTION 3</th>
+						</tr>
+					</thead>
+					<tr>
+						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
+						@foreach($constants->where('constant_meta_type', 'Asset Class (Cash & Equivlent)') as $constant)
+							<td class="text-right">{{ $constant->constant_value }}</td>
+						@endforeach
+					</tr>
+					<tr>
+						<td>{{ trans('lang.report.equities') }}</td>
+						@foreach($constants->where('constant_meta_type', 'Asset Class (Equities)') as $constant)
+							<td class="text-right">{{ $constant->constant_value }}</td>
+						@endforeach
+					</tr>
+					<tr>
+						<td>{{ trans('lang.report.fix_income') }}</td>
+						@foreach($constants->where('constant_meta_type', 'Asset Class (Alternative Investments)') as $constant)
+							<td class="text-right">{{ $constant->constant_value }}</td>
+						@endforeach
+					</tr>
+					<tr>
+						<td>{{ trans('lang.report.alternative_investment') }}</td>
+						@foreach($constants->where('constant_meta_type', 'Net Return/Year (Before Retirement)') as $constant)
+							<td class="text-right">{{ $constant->constant_value }}</td>
+						@endforeach
+					</tr>
+					
+				</table>
+			</div>
+			
+		</div>
+
+
+		<div class="row investing-plan">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<p class="text-secondary mt-5">Capitel Deployment</p>
+				<table>
+					<thead>
+						<tr>
+							<th>ASSET CLASS</th>
+							<th>PAYMENTS</th>
+							<th>NO. OF FUNDS</th>
+							<th>ASSET ALLOCATION</th>
+							<th>INVESABLE AMOUNT</th>
+						</tr>
+					</thead>
+					<tr>
+						<td>Cash & Equivlent</td>
+						<td>1 payment</td>
+						<td>1</td>
+						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
+					</tr>
+					<tr>
+						<td>Equities</td>
+						<td>4 payment over one year</td>
+						<td>1</td>
+						<td>{{ percentage($data['recommended']['equities']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
+					</tr>
+					<tr>
+						<td>Fix Income</td>
+						<td>1 payment</td>
+						<td>1</td>
+						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
+					</tr>
+					<tr>
+						<td>Alternative Investments</td>
+						<td>Manual process</td>
+						<td>1</td>
+						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['alternative_investments']) }}</td>
+					</tr>
+					<tr>
+						<td>Total</td>
+						<td></td>
+						<td>6</td>
+						<td>{{ $data['totalCapitalPercentage'] = percentage($data['recommended']['cash_and_equivlent']+$data['recommended']['equities']+$data['recommended']['fix_income']+$data['recommended']['alternative_investments']) }}</td>
+						<td>{{ currency(($data['netWorthToday']/100)*(integer)$data['totalCapitalPercentage']) }}</td>
+					</tr>
+					
+					
+					
+				</table>
+			</div>
+			
+		</div>
+		
+
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		
+		<p class="text-center mr-5">{{ $data['credits'] }}</p>
+	</div>
+
+
+
+
+	{{-- Page 9 start --}}
 
 
 	<div id="disclaimer" class="container-fluid parent-report" >

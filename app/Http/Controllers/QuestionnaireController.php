@@ -2904,7 +2904,7 @@ class QuestionnaireController extends Controller
 
         // $initialInvestment = $this->questionnaire->getInitialInvestment($user); 
 
-        // dd($initialInvestment);
+        
 
         $constants = Constant::where('constant_meta_type', 'LIKE',  'retirement_planner_' . '%')
                     ->orWhere('constant_meta_type', 'inflation')
@@ -3056,8 +3056,6 @@ class QuestionnaireController extends Controller
 
         $returnAssumptions = $this->questionnaire->getReturnAssumptions($user);
 
-        // dd($plan);
-
         $data = [
             'personalInfo' => $personalInfo,
 
@@ -3128,6 +3126,7 @@ class QuestionnaireController extends Controller
                 'public_id' => $report->public_id,
             );
 
+
         try{
             Mail::to($user->email)->send(new SendMail($data));
         }catch ( \Exception $exception) {
@@ -3139,7 +3138,11 @@ class QuestionnaireController extends Controller
 
 
         return view('dashboard.thanks')->with('message', 'Thankyou for submitting. Please check you email to print/download the report');
-        // return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
+
+        // $constants = Constant::whereIn('constant_attribute', ['Option_1','Option_2','Option_3',])->get();
+        // return view('dashboard.pdf.report')
+        //         ->with('data', json_decode($report->report_data, true))
+        //         ->with('constants', $constants);
 
         
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Report;
 // use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use App\Constant;
 use PDF;
 use Session;
 
@@ -67,7 +68,10 @@ class ReportController extends Controller
         // dd(Session::get('public_id'), $report->public_id);
         if(Session::get('verified') && Session::get('public_id') == $report->public_id){
             Session::put('verified', 0);
-            return view('dashboard.pdf.report')->with('data', json_decode($report->report_data, true));
+            $constants = Constant::whereIn('constant_attribute', ['Option_1','Option_2','Option_3',])->get();
+            return view('dashboard.pdf.report')
+                        ->with('data', json_decode($report->report_data, true))
+                         ->with('constants', $constants);
         }
 
         Session::put('public_id', $request->q);
