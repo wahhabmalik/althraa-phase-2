@@ -1180,28 +1180,28 @@
 						</tr>
 					</thead>
 					<tr>
-						<td>Cash & Equivlent</td>
+						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
 						<td>1 payment</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
-						<td>Equities</td>
+						<td>{{ trans('lang.report.equities') }}</td>
 						<td>4 payment over one year</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['equities']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
 					</tr>
 					<tr>
-						<td>Fix Income</td>
+						<td>{{ trans('lang.report.fix_income') }}</td>
 						<td>1 payment</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
 					</tr>
 					<tr>
-						<td>Alternative Investments</td>
+						<td>{{ trans('lang.report.alternative_investment') }}</td>
 						<td>Manual process</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
