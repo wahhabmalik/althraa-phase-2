@@ -1137,25 +1137,25 @@
 					<tr>
 						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
 						@foreach($constants->where('constant_meta_type', 'Asset Class (Cash & Equivlent)') as $constant)
-							<td class="text-right">{{ $constant->constant_value }}</td>
+							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.equities') }}</td>
 						@foreach($constants->where('constant_meta_type', 'Asset Class (Equities)') as $constant)
-							<td class="text-right">{{ $constant->constant_value }}</td>
+							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.fix_income') }}</td>
 						@foreach($constants->where('constant_meta_type', 'Asset Class (Alternative Investments)') as $constant)
-							<td class="text-right">{{ $constant->constant_value }}</td>
+							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.alternative_investment') }}</td>
 						@foreach($constants->where('constant_meta_type', 'Net Return/Year (Before Retirement)') as $constant)
-							<td class="text-right">{{ $constant->constant_value }}</td>
+							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
 					
