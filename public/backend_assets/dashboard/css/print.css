@@ -597,3 +597,18 @@ table {
     color: #fff !important;
     font-family: 'Cairo', sans-serif;
 }
+
+
+
+
+@media (max-width: 991px){
+  .investing-plan th {
+    font-size: 12px;
+  }
+  .investing-plan tr td:first-child {
+    font-size: 12px;
+  }
+  .investing-plan tr td {
+    font-size: 12px;
+  }
+}

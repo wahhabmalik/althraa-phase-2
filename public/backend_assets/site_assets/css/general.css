@@ -823,6 +823,7 @@ img.user_image {
 	color: #989898 !important;
     font-size: 12px !important;
     font-weight: bold;
+        font-family: inherit !important;
 }
 
 td.btm_table_td {
@@ -885,6 +886,9 @@ li.nav-item.cp-button a {
 		display:block !important;
 	}
 }
+
+
+
 
 
 

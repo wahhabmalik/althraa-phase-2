@@ -1125,7 +1125,7 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
 				<p class="text-secondary mt-5">{{ trans('lang.report.Investments_Seletion') }}</p>
-				<table>
+				<table class="tbl-assumptions">
 					<thead>
 						<tr>
 							<th>{{ trans('lang.report.ASSET_CLASS') }}</th>
