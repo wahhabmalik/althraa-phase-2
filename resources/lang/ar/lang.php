@@ -1048,6 +1048,27 @@ return [
 
 
 
+            'Capitel_Deployment' => 'توظيف رأس المال',
+            
+            'ASSET_CLASS' => 'فئة الاصول',
+            'PAYMENTS' => 'الدفعات',
+            'NO_OF_FUNDS' => 'عدد الصناديق',
+            'ASSET_ALLOCATION' => 'توزيع الأصول',
+            'INVESABLE_AMOUNT' => 'المبلغ القابل للإستثمار',
+
+            '1_payment' => 'دفعه شراء واحده',
+            '4_payment_over_one_year' => 'اربع دفعات شراء خلال السنة',
+            'Manual_process' => 'اجراء يدوي',
+            'Total' => '  الاجمالي  ',
+
+            'Investing_Plan' => 'خطة الاستثمار',
+            'Investments_Seletion' => 'الاستثمارات المرشحة للاختيار',
+            'OOPTION_1' => 'الخيار الأول',
+            'OOPTION_2' => 'الخيار الثاني',
+            'OOPTION_3' => 'الخيار الثالث',
+
+
+
 
     ],
 

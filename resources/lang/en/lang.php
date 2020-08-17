@@ -1049,6 +1049,26 @@ return [
             'year' => 'Year',
 
 
+            'Capitel_Deployment' => 'Capitel Deployment',
+            
+            'ASSET_CLASS' => 'ASSET CLASS',
+            'PAYMENTS' => 'PAYMENTS',
+            'NO_OF_FUNDS' => 'NO. OF FUNDS',
+            'ASSET_ALLOCATION' => 'ASSET ALLOCATION',
+            'INVESABLE_AMOUNT' => 'INVESTABLE AMOUNT',
+
+            '1_payment' => '1 payment',
+            '4_payment_over_one_year' => '4 payment over one year',
+            'Manual_process' => 'Manual process',
+            'Total' => 'Total',
+
+            'Investing_Plan' => 'Investing Plan',
+            'Investments_Seletion' => 'Investments Seletion',
+            'OOPTION_1' => 'OOPTION 1',
+            'OOPTION_2' => 'OOPTION 2',
+            'OOPTION_3' => 'OOPTION 3',
+
+
     ],
 
     'thokhor_dot_com' => 'Thokhor.com',

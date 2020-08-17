@@ -1116,7 +1116,7 @@
 	                {{-- {{ althraa_site_title() }} --}}
 	            </h2>
 	            <br><br>
-	            <h1 class="heading-main">Investing Plan</h1>
+	            <h1 class="heading-main">{{ trans('lang.report.Investing_Plan') }}</h1>
 	            
 			</div>
 		</div>
@@ -1124,14 +1124,14 @@
 		<div class="row investing-plan">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Investments Seletion</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.Investments_Seletion') }}</p>
 				<table>
 					<thead>
 						<tr>
-							<th>ASSET CLASS</th>
-							<th>OOPTION 1</th>
-							<th>OOPTION 2</th>
-							<th>OOPTION 3</th>
+							<th>{{ trans('lang.report.ASSET_CLASS') }}</th>
+							<th>{{ trans('lang.report.OOPTION_1') }}</th>
+							<th>{{ trans('lang.report.OOPTION_2') }}</th>
+							<th>{{ trans('lang.report.OOPTION_3') }}</th>
 						</tr>
 					</thead>
 					<tr>
@@ -1168,47 +1168,47 @@
 		<div class="row investing-plan">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10">
-				<p class="text-secondary mt-5">Capitel Deployment</p>
+				<p class="text-secondary mt-5">{{ trans('lang.report.Capitel_Deployment') }}</p>
 				<table>
 					<thead>
 						<tr>
-							<th>ASSET CLASS</th>
-							<th>PAYMENTS</th>
-							<th>NO. OF FUNDS</th>
-							<th>ASSET ALLOCATION</th>
-							<th>INVESABLE AMOUNT</th>
+							<th>{{ trans('lang.report.ASSET_CLASS') }}</th>
+							<th>{{ trans('lang.report.PAYMENTS') }}</th>
+							<th>{{ trans('lang.report.NO_OF_FUNDS') }}</th>
+							<th>{{ trans('lang.report.ASSET_ALLOCATION') }}</th>
+							<th>{{ trans('lang.report.INVESABLE_AMOUNT') }}</th>
 						</tr>
 					</thead>
 					<tr>
 						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
-						<td>1 payment</td>
+						<td>{{ trans('lang.report.1_payment') }}</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.equities') }}</td>
-						<td>4 payment over one year</td>
+						<td>{{ trans('lang.report.4_payment_over_one_year') }}</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['equities']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.fix_income') }}</td>
-						<td>1 payment</td>
+						<td>{{ trans('lang.report.1_payment') }}</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.alternative_investment') }}</td>
-						<td>Manual process</td>
+						<td>{{ trans('lang.report.Manual_process') }}</td>
 						<td>1</td>
 						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
-						<td>Total</td>
+						<td>{{ trans('lang.report.Total') }}</td>
 						<td></td>
 						<td>6</td>
 						<td>{{ $data['totalCapitalPercentage'] = percentage($data['recommended']['cash_and_equivlent']+$data['recommended']['equities']+$data['recommended']['fix_income']+$data['recommended']['alternative_investments']) }}</td>
