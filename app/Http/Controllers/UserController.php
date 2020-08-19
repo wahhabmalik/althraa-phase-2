@@ -188,7 +188,8 @@ class UserController extends Controller
      */
     public function destroy($locale = 'en', User $user)
     {
-        $user->delete();
+        if (auth()->user()->hasRole('admin')) 
+            $user->delete();
         // $status = array('msg' => "User removed successfully.", 'toastr' => "successToastr");
         // Session::flash($status['toastr'] ?? null, $status['msg']);
         return redirect()->back();

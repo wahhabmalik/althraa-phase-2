@@ -209,6 +209,7 @@ Route::group([
       Route::patch('/switch_role/{user}', 'UserController@switchRole')->name('switch_role');
       Route::delete('/remove/user/{user}', 'UserController@destroy')->name('remove-user');
       Route::post('search_user_by_name', 'UserController@search_user_by_name')->name('search_user_by_name');
+      Route::delete('delete_user/{user}', 'UserController@destroy')->name('delete_user');
       Route::get('user-report', 'ReportController@getUserReport')->name('report');
 
       Route::get('/add_user/moderator', 'UserController@create')->name('add_user/moderator');
