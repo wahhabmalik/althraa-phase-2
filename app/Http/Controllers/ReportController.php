@@ -66,13 +66,13 @@ class ReportController extends Controller
         }
 
         // dd(Session::get('public_id'), $report->public_id);
-        if(Session::get('verified') && Session::get('public_id') == $report->public_id){
+        // if(Session::get('verified') && Session::get('public_id') == $report->public_id){
             Session::put('verified', 0);
-            $constants = Constant::whereIn('constant_attribute', ['Option_1','Option_2','Option_3',])->get();
+            $constants = Constant::whereIn('constant_attribute', ['Option_1','Option_2','Option_3',])->orWhere('constant_meta_type', 'Capitel_Deployment')->get();
             return view('dashboard.pdf.report')
                         ->with('data', json_decode($report->report_data, true))
                          ->with('constants', $constants);
-        }
+        // }
 
         Session::put('public_id', $request->q);
         Session::put('user_id', $report->user_id);
