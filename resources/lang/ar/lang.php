@@ -1068,6 +1068,10 @@ return [
             'OOPTION_3' => 'الخيار الثالث',
 
 
+            'All_returns_will_be_fully_reinvested' => 'سوف يتم اعادة استثمار جميع العوائد السنوية .',
+            'No_redemption_amount_before_retirement_year' => 'لن يتم استرداد اي مبلغ من الحفظة قبل سن التقاعد .',
+
+
 
 
     ],

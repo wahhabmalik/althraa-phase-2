@@ -1068,6 +1068,10 @@ return [
             'OOPTION_2' => 'OOPTION 2',
             'OOPTION_3' => 'OOPTION 3',
 
+            'All_returns_will_be_fully_reinvested' => 'All returns will be fully reinvested .',
+            'No_redemption_amount_before_retirement_year' => 'No redemption amount before retirement year .',
+
+
 
     ],
 

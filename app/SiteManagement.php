@@ -68,6 +68,18 @@ class SiteManagement extends Model
             ]);
         }
 
+        if ($this->getGeneralDescriptionAr()) {
+            $this->getGeneralDescriptionAr()
+                ->update([
+                    'meta_value' => $general_settings_data['description_ar'],
+                ]);
+        } else {
+            SiteManagement::create([
+                'meta_key' => 'description',
+                'meta_value' => $general_settings_data['description_ar'],
+            ]);
+        }
+
         return 1;
     }
 
@@ -85,6 +97,11 @@ class SiteManagement extends Model
     public function getGeneralDescription()
     {
         return SiteManagement::where('meta_key', 'description')->first();
+    }
+
+    public function getGeneralDescriptionAr()
+    {
+        return SiteManagement::where('meta_key', 'description_ar')->first();
     }
 
     public function getGeneralLogo()

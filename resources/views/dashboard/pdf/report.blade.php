@@ -389,7 +389,8 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currencyR((percentage($data['cashAndEquivlentPercentage'],1) * $data['totalAssetsToday']) / 100 ) }}
+												{{ currencyR((($data['cashAndEquivlentPercentage']) * $data['totalAssetsToday']) / 100 ) }}
+												{{-- {{ currencyR((percentage($data['cashAndEquivlentPercentage'],1) * $data['totalAssetsToday']) / 100 ) }} --}}
 											</p>
 										</td>
 									</tr>
@@ -407,7 +408,8 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currencyR((percentage($data['equitiesPercentage'], 1) * $data['totalAssetsToday'])/100) }} 
+												{{ currencyR((($data['equitiesPercentage']) * $data['totalAssetsToday'])/100) }} 
+												{{-- {{ currencyR((percentage($data['equitiesPercentage'], 1) * $data['totalAssetsToday'])/100) }}  --}}
 											</p>
 										</td>
 									</tr>
@@ -425,7 +427,8 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currencyR((percentage($data['fixIncomePercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
+												{{ currencyR((($data['fixIncomePercentage']) * $data['totalAssetsToday']) / 100) }} 
+												{{-- {{ currencyR((percentage($data['fixIncomePercentage'], 1) * $data['totalAssetsToday']) / 100) }}  --}}
 											</p>
 										</td>
 									</tr>
@@ -443,7 +446,8 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ currencyR((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['totalAssetsToday']) / 100) }} 
+												{{ currencyR((($data['alternativeInvestmentsPercentage']) * $data['totalAssetsToday']) / 100) }} 
+												{{-- {{ currencyR((percentage($data['alternativeInvestmentsPercentage'], 1) * $data['totalAssetsToday']) / 100) }} --}}
 											</p>
 										</td>
 									</tr>
@@ -974,6 +978,14 @@
 					<tr>
 						<td>{{ trans('lang.report.net_return_before_reitement') }}</td>
 						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
+					</tr>
+					<tr>
+						<td>{{ trans('lang.report.All_returns_will_be_fully_reinvested') }}</td>
+						
+					</tr>
+					<tr>
+						<td>{{ trans('lang.report.No_redemption_amount_before_retirement_year') }}</td>
+						
 					</tr>
 					{{-- <tr>
 						<td>{{ trans('lang.report.net_return_after_reitement') }}</td>
