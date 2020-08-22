@@ -2038,7 +2038,7 @@ class Questionnaire extends Model
     {
         $accumulativeSavingToday = $this->getAccomulativeSavingtoday();
         $age = $this->getCurrentAge();
-        $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getRetirementGOCIMonthlyIncome($user);
+        $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getIncome($user)['income']['private_buisness_or_freelancing'] + (int)$this->getIncome($user)['income']['other'];
         $savingRating = '';
 
 
