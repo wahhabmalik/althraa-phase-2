@@ -2050,14 +2050,6 @@ class Questionnaire extends Model
 
         if($age < 30)
         {   
-            // if($accumulativeSavingToday >= ($totalIncome * 1))
-            //     $savingRating = 'Poor';
-            // else if($accumulativeSavingToday >= ($totalIncome * 1.00001) || $accumulativeSavingToday <= ($totalIncome * 4.99999))
-            //     $savingRating = 'Fair';
-            // else if($accumulativeSavingToday >= ($totalIncome * 5))
-            //     $savingRating = 'Good';
-
-
             if($totalIncome >= $accumulativeSavingToday)
                 $savingRating = 'Poor';
             else if(($totalIncome * 4.99999) >= $accumulativeSavingToday && ($totalIncome * 1.00001) <= $accumulativeSavingToday)
@@ -2065,7 +2057,7 @@ class Questionnaire extends Model
             else if(($totalIncome * 5) >= $accumulativeSavingToday)
                 $savingRating = 'Good';
             else
-                $savingRating = 'Chawal';
+                $savingRating = 'Good';
             
         }
         else if($age >= 30 && $age < 40)
@@ -2083,31 +2075,37 @@ class Questionnaire extends Model
         else if($age >= 40 && $age < 50)
         {
 
-            if( (($totalIncome * 4) * 3) >= $accumulativeSavingToday)
+            if((($totalIncome * 4) * 3) >= $accumulativeSavingToday)
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($totalIncome * 4.00001) * 3) || $accumulativeSavingToday <= (($totalIncome * 11.99999) * 3))
+            else if((($totalIncome * 4.00001) * 3) >= $accumulativeSavingToday && (($totalIncome * 11.99999) * 3) <= $accumulativeSavingToday)
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= (($totalIncome * 12) * 3))
+            else if((($totalIncome * 12) * 3) >= $accumulativeSavingToday)
+                $savingRating = 'Good';
+            else
                 $savingRating = 'Good';
         }
         else if($age >= 50 && $age < 60)
         {
 
-            if($accumulativeSavingToday >= (($totalIncome * 4) * 6))
+            if((($totalIncome * 4) * 6) >= $accumulativeSavingToday)
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($totalIncome * 4.00001) * 6) || $accumulativeSavingToday <= (($totalIncome * 11.99999) * 6))
+            else if((($totalIncome * 4.00001) * 6) >= $accumulativeSavingToday && (($totalIncome * 11.99999) * 6) <= $accumulativeSavingToday)
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= (($totalIncome * 12) * 6))
+            else if((($totalIncome * 12) * 6) >= $accumulativeSavingToday)
+                $savingRating = 'Good';
+            else
                 $savingRating = 'Good';
         }
         else if($age >= 60)
         {
             
-            if($accumulativeSavingToday >= (($totalIncome * 4) * 8))
+            if((($totalIncome * 4) * 8) >= $accumulativeSavingToday)
                 $savingRating = 'Poor';
-            else if($accumulativeSavingToday <= (($totalIncome * 4.00001) * 8) || $accumulativeSavingToday <= (($totalIncome * 11.99999) * 8))
+            else if((($totalIncome * 4.00001) * 8) >= $accumulativeSavingToday && (($totalIncome * 11.99999) * 8) <= $accumulativeSavingToday)
                 $savingRating = 'Fair';
-            else if($accumulativeSavingToday >= (($totalIncome * 12) * 8))
+            else if((($totalIncome * 12) * 8) >= $accumulativeSavingToday )
+                $savingRating = 'Good';
+            else
                 $savingRating = 'Good';
         }
         else

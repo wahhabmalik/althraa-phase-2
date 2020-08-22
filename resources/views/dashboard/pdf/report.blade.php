@@ -953,6 +953,15 @@
 						<td>{{ trans('lang.report.accumulative_saving_today') }}</td>
 						<td>{{ currencyR($data['accomulativeSavingtoday']) }}</td>
 					</tr>
+
+					<tr>
+						<td><b style="color: #000000;"> * {{ trans('lang.report.All_returns_will_be_fully_reinvested') }}</b></td>
+						
+					</tr>
+					<tr>
+						<td><b style="color: #000000;"> * {{ trans('lang.report.No_redemption_amount_before_retirement_year') }}</b></td>
+						
+					</tr>
 					
 				</table>
 			</div>
@@ -979,14 +988,7 @@
 						<td>{{ trans('lang.report.net_return_before_reitement') }}</td>
 						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
 					</tr>
-					<tr>
-						<td>{{ trans('lang.report.All_returns_will_be_fully_reinvested') }}</td>
-						
-					</tr>
-					<tr>
-						<td>{{ trans('lang.report.No_redemption_amount_before_retirement_year') }}</td>
-						
-					</tr>
+					
 					{{-- <tr>
 						<td>{{ trans('lang.report.net_return_after_reitement') }}</td>
 						<td>{{ percentage($data['netReturnAfterRetirement']) }}</td>
