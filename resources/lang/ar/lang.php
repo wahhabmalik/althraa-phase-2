@@ -1062,7 +1062,8 @@ return [
             'Total' => '  الاجمالي  ',
 
             'Investing_Plan' => 'خطة الاستثمار',
-            'Investments_Seletion' => 'الاستثمارات المرشحة للاختيار',
+            // 'Investments_Seletion' => 'الاستثمارات المرشحة للاختيار',
+            'Investments_Seletion' => 'صناديق الاستثمار المرشحة',
             'OOPTION_1' => 'الخيار الأول',
             'OOPTION_2' => 'الخيار الثاني',
             'OOPTION_3' => 'الخيار الثالث',
