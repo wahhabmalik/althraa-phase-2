@@ -56,7 +56,7 @@ class QuestionnaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QuestionnaireRequest $request)
+    public function store(Request $request)
     {
         
         $locale = app()->getLocale();
