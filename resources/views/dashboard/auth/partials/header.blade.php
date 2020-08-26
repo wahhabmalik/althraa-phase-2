@@ -24,6 +24,6 @@
 	@isset($title)
 		{{ $title }} {{ ' | ' }}
 	@endif
-	{{ config('app.name', 'Thokhor') }}
+	{{ althraa_site_title() }}
 </title>
 
