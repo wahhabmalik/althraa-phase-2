@@ -70,6 +70,8 @@ class QuestionnaireController extends Controller
         switch ($previous_url) {                
             case '/step_1':
                 if ($user_questionnaire) {
+
+                    dd($request->all());
                     
                     return $this->questionnaire->update_personal_info($request->except(['_token', 'started_year_for_personal_financial_plan']))
                         ?   redirect()->route('step_2', $locale)
