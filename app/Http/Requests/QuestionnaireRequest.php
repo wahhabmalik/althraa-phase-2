@@ -43,7 +43,7 @@ class QuestionnaireRequest extends FormRequest
                                 'personal_info.years_old' => 'required|numeric|max:120|min:5',
                                 'personal_info.education_level' => 'required|string|max:255',
                                 'personal_info.retirement_age' => 'required|numeric|gte:personal_info.years_old|max:120',
-                                'phone_number' => 'required|numeric|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:12',
+                                'phone_number' => 'required|numeric|digits:12',
                             ];
                             break;
 
