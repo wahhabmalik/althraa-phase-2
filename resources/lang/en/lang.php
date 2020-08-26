@@ -90,6 +90,7 @@ return [
         'retirement_age' => 'Retirement age',
         'no_of_dependents' => 'No of Dependents',
         'current_age' => 'Current age',
+        'phone_number' => 'The phone number must be 12 digits.',
 
         'education_level_options' => [
                 'highschool' => 'High School & Bleow',

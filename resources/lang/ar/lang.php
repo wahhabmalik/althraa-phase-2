@@ -91,6 +91,8 @@ return [
         'retirement_age' => 'سن التقاعد',
         'no_of_dependents' => '  عدد المعالين    ',
         'current_age' => ' العمر حالياً ',
+        'phone_number' => ' رقم الهاتف يجب أن يكون 12 رقم ',
+
 
 
             'education_level_options' => [

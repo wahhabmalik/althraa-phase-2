@@ -170,6 +170,8 @@ class QuestionnaireRequest extends FormRequest
             'personal_info.education_level' => trans('lang.question.education_level'),
             'personal_info.retirement_age' => trans('lang.question.retirement_age'),
             'personal_info.no_of_dependents' => trans('lang.question.no_of_dependents'),
+            'phone_number' => trans('lang.question.phone_number'),
+            
 
             // --------------------------------------
             // step 2
