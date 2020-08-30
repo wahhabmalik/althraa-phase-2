@@ -2046,7 +2046,7 @@ class Questionnaire extends Model
         // $totalIncome = 50000;
         // $age = 25;
 
-        // dd(($totalIncome * 1.00001) , ($totalIncome * 4.99999));
+        dd($accumulativeSavingToday , $totalIncome );
 
         if($age < 30)
         {   
