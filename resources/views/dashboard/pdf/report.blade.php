@@ -1199,35 +1199,35 @@
 						<td>{{ trans('lang.report.cash_and_equivalent') }}</td>
 						<td>{{ trans('lang.report.1_payment') }}</td>
 						<td>{{ $constants->where('constant_attribute', 'Number Of Funds 1')->first()->constant_value ?? 0 }}</td>
-						<td>{{ percentage($data['recommended']['cash_and_equivlent']) }}</td>
+						<td>{{ percentage($data['cashAndEquivlentPercentage']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['cash_and_equivlent']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.equities') }}</td>
 						<td>{{ trans('lang.report.4_payment_over_one_year') }}</td>
 						<td>{{ $constants->where('constant_attribute', 'Number Of Funds 2')->first()->constant_value ?? 0 }}</td>
-						<td>{{ percentage($data['recommended']['equities']) }}</td>
+						<td>{{ percentage($data['equitiesPercentage']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['equities']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.fix_income') }}</td>
 						<td>{{ trans('lang.report.1_payment') }}</td>
 						<td>{{ $constants->where('constant_attribute', 'Number Of Funds 3')->first()->constant_value ?? 0 }}</td>
-						<td>{{ percentage($data['recommended']['fix_income']) }}</td>
+						<td>{{ percentage($data['fixIncomePercentage']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['fix_income']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.alternative_investment') }}</td>
 						<td>{{ trans('lang.report.Manual_process') }}</td>
 						<td>{{ $constants->where('constant_attribute', 'Number Of Funds 4')->first()->constant_value ?? 0 }}</td>
-						<td>{{ percentage($data['recommended']['alternative_investments']) }}</td>
+						<td>{{ percentage($data['alternativeInvestmentsPercentage']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*$data['recommended']['alternative_investments']) }}</td>
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.Total') }}</td>
 						<td></td>
 						<td>{{ (integer)$constants->where('constant_attribute', 'Number Of Funds 1')->first()->constant_value + (integer)$constants->where('constant_attribute', 'Number Of Funds 2')->first()->constant_value + (integer)$constants->where('constant_attribute', 'Number Of Funds 3')->first()->constant_value + (integer)$constants->where('constant_attribute', 'Number Of Funds 4')->first()->constant_value   }}</td>
-						<td>{{ $data['totalCapitalPercentage'] = percentage($data['recommended']['cash_and_equivlent']+$data['recommended']['equities']+$data['recommended']['fix_income']+$data['recommended']['alternative_investments']) }}</td>
+						<td>{{ $data['totalCapitalPercentage'] = percentage($data['totalCurrentAssetAllocationPercentage']) }}</td>
 						<td>{{ currency(($data['netWorthToday']/100)*(integer)$data['totalCapitalPercentage']) }}</td>
 					</tr>
 					

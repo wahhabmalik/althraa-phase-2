@@ -246,7 +246,7 @@
 							                        <input 
 							                        class="form-control 
 							                        @error('phone_number') is-invalid @enderror" 
-							                        style="height: 40px;" 
+							                        style="height: 40px;background: transparent !important;" 
 							                        id="phone" 
 							                        type="tel" 
 							                        name="phone_number" 
@@ -404,7 +404,7 @@ telInput.intlTelInput({
   numberType: "MOBILE",
   //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
   preferredCountries: ['sa'],
-  preventInvalidNumbers: false,
+  preventInvalidNumbers: true,
   separateDialCode: false,
   initialCountry: "SA",
   geoIpLookup: function(callback) {
