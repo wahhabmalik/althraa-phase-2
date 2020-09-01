@@ -2041,15 +2041,6 @@ class Questionnaire extends Model
         $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getIncome($user)['income']['private_buisness_or_freelancing'] + (int)$this->getIncome($user)['income']['other'];
         $savingRating = '';
 
-        // dd($networth, $totalIncome, );
-
-
-        // $networth = 125000;
-        // $totalIncome = 50000;
-        // $age = 25;
-
-        // dd($networth , $totalIncome );
-
         if($age < 30)
         {   
             if($totalIncome >= $networth)
@@ -2184,10 +2175,10 @@ class Questionnaire extends Model
     public function getPorfolioExpectedReturn($value='')
     {
         // dd($this->getReturnAssumptions(), $this->getRecomendedAssetAllocation());
-        dd( (((integer)$this->getRecomendedAssetAllocation()['cash_and_equivlent'] * (integer)$this->getReturnAssumptions()['cash_and_equivlent'])/100) + 
-                        (((integer)$this->getRecomendedAssetAllocation()['equities'] * (integer)$this->getReturnAssumptions()['equities'])/100) + 
-                        (((integer)$this->getRecomendedAssetAllocation()['fix_income'] * (integer)$this->getReturnAssumptions()['fix_income'])/100) + 
-                        (((integer)$this->getRecomendedAssetAllocation()['alternative_investments'] * (integer)$this->getReturnAssumptions()['alternative_investments'])/100)) ;
+        return  (((integer)$this->getRecomendedAssetAllocation()['cash_and_equivlent'] * (integer)$this->getReturnAssumptions()['cash_and_equivlent'])/100) + 
+                (((integer)$this->getRecomendedAssetAllocation()['equities'] * (integer)$this->getReturnAssumptions()['equities'])/100) + 
+                (((integer)$this->getRecomendedAssetAllocation()['fix_income'] * (integer)$this->getReturnAssumptions()['fix_income'])/100) + 
+                (((integer)$this->getRecomendedAssetAllocation()['alternative_investments'] * (integer)$this->getReturnAssumptions()['alternative_investments'])/100) ;
         
     }
 
