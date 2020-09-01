@@ -2041,7 +2041,7 @@ class Questionnaire extends Model
         $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getIncome($user)['income']['private_buisness_or_freelancing'] + (int)$this->getIncome($user)['income']['other'];
         $savingRating = '';
 
-        dd($accumulativeSavingToday, $totalIncome, $this->getNetWorthAssetsToday($user));
+        // dd($accumulativeSavingToday, $totalIncome, $this->getNetWorthAssetsToday($user));
 
 
         // $accumulativeSavingToday = 125000;
