@@ -2036,12 +2036,12 @@ class Questionnaire extends Model
 
     public function getAccomulativeSavingRating(User $user = null)
     {
-        $accumulativeSavingToday = $this->getAccomulativeSavingtoday();
+        $accumulativeSavingToday = $this->questionnaire->getNetWorthAssetsToday($user) - $this->questionnaire->getNetWorthLiabilitiesToday($user);
         $age = $this->getCurrentAge();
         $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getIncome($user)['income']['private_buisness_or_freelancing'] + (int)$this->getIncome($user)['income']['other'];
         $savingRating = '';
 
-        dd($accumulativeSavingToday, $totalIncome, $this->questionnaire->getNetWorthAssetsToday($user)-$this->questionnaire->getNetWorthLiabilitiesToday($user));
+        // dd($accumulativeSavingToday, $totalIncome, );
 
 
         // $accumulativeSavingToday = 125000;
