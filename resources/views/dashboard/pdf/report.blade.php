@@ -384,7 +384,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($data['cashAndEquivlentPercentage']) }}
+												{{ ($data['cashAndEquivlentPercentage']) }}
 											</p>
 										</td>
 										<td>
@@ -403,7 +403,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($data['equitiesPercentage']) }}
+												{{ ($data['equitiesPercentage']) }}
 											</p>
 										</td>
 										<td>
@@ -422,7 +422,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($data['fixIncomePercentage']) }}
+												{{ ($data['fixIncomePercentage']) }}
 											</p>
 										</td>
 										<td>
@@ -441,7 +441,7 @@
 										</td>
 										<td>
 											<p class="text_black text-left">
-												{{ percentage($data['alternativeInvestmentsPercentage']) }}
+												{{ ($data['alternativeInvestmentsPercentage']) }}
 											</p>
 										</td>
 										<td>
