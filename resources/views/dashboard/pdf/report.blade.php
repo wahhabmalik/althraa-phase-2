@@ -1173,12 +1173,12 @@
 							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
-					<tr>
+					{{-- <tr>
 						<td>{{ trans('lang.report.total') }}</td>
 						@foreach($constants->where('constant_meta_type', 'Asset Class (Total)') as $constant)
 							<td >{{ $constant->constant_value }}</td>
 						@endforeach
-					</tr>
+					</tr> --}}
 					
 				</table>
 			</div>
