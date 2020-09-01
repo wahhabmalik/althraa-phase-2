@@ -2036,27 +2036,27 @@ class Questionnaire extends Model
 
     public function getAccomulativeSavingRating(User $user = null)
     {
-        $accumulativeSavingToday = $this->questionnaire->getNetWorthAssetsToday($user) - $this->questionnaire->getNetWorthLiabilitiesToday($user);
+        $networth = $this->questionnaire->getNetWorthAssetsToday($user) - $this->questionnaire->getNetWorthLiabilitiesToday($user);
         $age = $this->getCurrentAge();
         $totalIncome = (int)$this->getIncome($user)['income']['salary'] + (int)$this->getIncome($user)['income']['private_buisness_or_freelancing'] + (int)$this->getIncome($user)['income']['other'];
         $savingRating = '';
 
-        // dd($accumulativeSavingToday, $totalIncome, );
+        // dd($networth, $totalIncome, );
 
 
-        // $accumulativeSavingToday = 125000;
+        // $networth = 125000;
         // $totalIncome = 50000;
         // $age = 25;
 
-        // dd($accumulativeSavingToday , $totalIncome );
+        // dd($networth , $totalIncome );
 
         if($age < 30)
         {   
-            if($totalIncome >= $accumulativeSavingToday)
+            if($totalIncome >= $networth)
                 $savingRating = 'Poor';
-            else if(($totalIncome * 4.99999) >= $accumulativeSavingToday && ($totalIncome * 1.00001) <= $accumulativeSavingToday)
+            else if(($totalIncome * 4.99999) >= $networth && ($totalIncome * 1.00001) <= $networth)
                 $savingRating = 'Fair';
-            else if(($totalIncome * 5) >= $accumulativeSavingToday)
+            else if(($totalIncome * 5) >= $networth)
                 $savingRating = 'Good';
             else
                 $savingRating = 'Good';
@@ -2065,11 +2065,11 @@ class Questionnaire extends Model
         else if($age >= 30 && $age < 40)
         {
 
-            if(($totalIncome * 4) >= $accumulativeSavingToday)
+            if(($totalIncome * 4) >= $networth)
                 $savingRating = 'Poor';
-            else if(($totalIncome * 11.99999) >= $accumulativeSavingToday && ($totalIncome * 4.00001) <= $accumulativeSavingToday)
+            else if(($totalIncome * 11.99999) >= $networth && ($totalIncome * 4.00001) <= $networth)
                 $savingRating = 'Fair';
-            else if(($totalIncome * 12) >= $accumulativeSavingToday)
+            else if(($totalIncome * 12) >= $networth)
                 $savingRating = 'Good';
             else
                 $savingRating = 'Good';
@@ -2077,11 +2077,11 @@ class Questionnaire extends Model
         else if($age >= 40 && $age < 50)
         {
 
-            if((($totalIncome * 4) * 3) >= $accumulativeSavingToday)
+            if((($totalIncome * 4) * 3) >= $networth)
                 $savingRating = 'Poor';
-            else if((($totalIncome * 4.00001) * 3) >= $accumulativeSavingToday && (($totalIncome * 11.99999) * 3) <= $accumulativeSavingToday)
+            else if((($totalIncome * 4.00001) * 3) >= $networth && (($totalIncome * 11.99999) * 3) <= $networth)
                 $savingRating = 'Fair';
-            else if((($totalIncome * 12) * 3) >= $accumulativeSavingToday)
+            else if((($totalIncome * 12) * 3) >= $networth)
                 $savingRating = 'Good';
             else
                 $savingRating = 'Good';
@@ -2089,11 +2089,11 @@ class Questionnaire extends Model
         else if($age >= 50 && $age < 60)
         {
 
-            if((($totalIncome * 4) * 6) >= $accumulativeSavingToday)
+            if((($totalIncome * 4) * 6) >= $networth)
                 $savingRating = 'Poor';
-            else if((($totalIncome * 4.00001) * 6) >= $accumulativeSavingToday && (($totalIncome * 11.99999) * 6) <= $accumulativeSavingToday)
+            else if((($totalIncome * 4.00001) * 6) >= $networth && (($totalIncome * 11.99999) * 6) <= $networth)
                 $savingRating = 'Fair';
-            else if((($totalIncome * 12) * 6) >= $accumulativeSavingToday)
+            else if((($totalIncome * 12) * 6) >= $networth)
                 $savingRating = 'Good';
             else
                 $savingRating = 'Good';
@@ -2101,11 +2101,11 @@ class Questionnaire extends Model
         else if($age >= 60)
         {
             
-            if((($totalIncome * 4) * 8) >= $accumulativeSavingToday)
+            if((($totalIncome * 4) * 8) >= $networth)
                 $savingRating = 'Poor';
-            else if((($totalIncome * 4.00001) * 8) >= $accumulativeSavingToday && (($totalIncome * 11.99999) * 8) <= $accumulativeSavingToday)
+            else if((($totalIncome * 4.00001) * 8) >= $networth && (($totalIncome * 11.99999) * 8) <= $networth)
                 $savingRating = 'Fair';
-            else if((($totalIncome * 12) * 8) >= $accumulativeSavingToday )
+            else if((($totalIncome * 12) * 8) >= $networth )
                 $savingRating = 'Good';
             else
                 $savingRating = 'Good';
@@ -2114,7 +2114,7 @@ class Questionnaire extends Model
             $savingRating = null;
 
 
-        // dd($savingRating, $accumulativeSavingToday, $totalIncome, $age);
+        // dd($savingRating, $networth, $totalIncome, $age);
 
         return $savingRating;
             
