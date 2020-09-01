@@ -2923,21 +2923,22 @@ class QuestionnaireController extends Controller
 
         $annualSavingToday    = $this->questionnaire->getAnnualSavingToday($user);
 
-        $netReturnBeforeRetirement  = $this->questionnaire->getNetReturnBeforeRetirement($user);
-        $netReturnAfterRetirement   = $this->questionnaire->getNetReturnAfterRetirement($user);
+        $netReturnBeforeRetirement   = $this->questionnaire->getNetReturnBeforeRetirement($user);
+        $porfolioExpectedReturn      = $this->questionnaire->getPorfolioExpectedReturn($user);
+        $netReturnAfterRetirement    = $this->questionnaire->getNetReturnAfterRetirement($user);
 
         //GOSI or PPA Plan
-        $startingYearInPlan         = $this->questionnaire->getStartingyearInPlan($user);
-        $expectedSalaryAtRetirement = $this->questionnaire->getExpectedSalaryAtRetirement($user);
-        $yourPlannedRetirementAge   = $this->questionnaire->getPlannedRetirementAge($user);
-        $subscriptionMonths         = $this->questionnaire->getSubscriptionMonth($user);
-        $retirementGOCIMonthlyIncome= $this->questionnaire->getRetirementGOCIMonthlyIncome($user);
+        $startingYearInPlan          = $this->questionnaire->getStartingyearInPlan($user);
+        $expectedSalaryAtRetirement  = $this->questionnaire->getExpectedSalaryAtRetirement($user);
+        $yourPlannedRetirementAge    = $this->questionnaire->getPlannedRetirementAge($user);
+        $subscriptionMonths          = $this->questionnaire->getSubscriptionMonth($user);
+        $retirementGOCIMonthlyIncome = $this->questionnaire->getRetirementGOCIMonthlyIncome($user);
 
         //Current Asset Allocation
-        $cashAndEquivlent           = $this->questionnaire->getCashAndEquivlent($user);
-        $equities                   = $this->questionnaire->getEquities($user);
-        $fixIncome                  = $this->questionnaire->getFixIncome($user);
-        $alternativeInvestments     = $this->questionnaire->getAlternativeInvestments($user);
+        $cashAndEquivlent            = $this->questionnaire->getCashAndEquivlent($user);
+        $equities                    = $this->questionnaire->getEquities($user);
+        $fixIncome                   = $this->questionnaire->getFixIncome($user);
+        $alternativeInvestments      = $this->questionnaire->getAlternativeInvestments($user);
 
         $totalCurrentAssetAllocation = $cashAndEquivlent + $equities + $fixIncome + $alternativeInvestments ;
 
@@ -2984,7 +2985,7 @@ class QuestionnaireController extends Controller
         $yourCurrentAge   = $this->questionnaire->getCurrentAge($user);
         $valueBegYear     = $accomulativeSavingtoday;
         $contribution     = $annualSavingToday;
-        $returns          = ($valueBegYear + ($contribution)/2)*($netReturnBeforeRetirement / 100);
+        $returns          = ($valueBegYear + ($contribution)/2)*($porfolioExpectedReturn / 100);
         $valueEndYear     = $valueBegYear + $contribution + $returns;
 
         $annualIncreaseInSavingPlan = $this->questionnaire->getAnnualIncreaseInSavingPlan($user);
@@ -3022,7 +3023,7 @@ class QuestionnaireController extends Controller
                     $plan[$i]['value_beginning_of_year'] = $accomulativeSavingtoday;
                     $graphContribution[] = $plan[$i]['contribution'] = $annualSavingToday;
     
-                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
+                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($porfolioExpectedReturn / 100);
     
                     $graphValueBegYear[] = $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
     
@@ -3038,7 +3039,7 @@ class QuestionnaireController extends Controller
     
                     $graphContribution[] = $plan[$i]['contribution'] = ($i >= $retirement_age) ? 0 : ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
     
-                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnBeforeRetirement / 100);
+                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($porfolioExpectedReturn / 100);
     
                     $graphValueBegYear[] =  $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
     

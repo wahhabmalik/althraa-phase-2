@@ -2171,4 +2171,22 @@ class Questionnaire extends Model
         ]);
     }
 
+
+
+    public function getHistoricalTotalReturnConstants()
+    {
+        return Constant::where('constant_meta_type', 'historical_total_returns')
+                        ->get();
+    }
+
+    public function getPorfolioExpectedReturn($value='')
+    {
+        // dd($this->getReturnAssumptions());
+        return  (((integer)$this->getRecomendedAssetAllocation()['cash_and_equivlent'] * (integer)$this->getReturnAssumptions()['cash_and_equivlent'])/100) + 
+                (((integer)$this->getRecomendedAssetAllocation()['equities'] * (integer)$this->getReturnAssumptions()['equities'])/100) + 
+                (((integer)$this->getRecomendedAssetAllocation()['fix_income'] * (integer)$this->getReturnAssumptions()['fix_income'])/100) + 
+                (((integer)$this->getRecomendedAssetAllocation()['alternative_investments'] * (integer)$this->getReturnAssumptions()['alternative_investments'])/100) ;
+        
+    }
+
 }

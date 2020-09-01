@@ -1161,14 +1161,21 @@
 						@endforeach
 					</tr>
 					<tr>
+						{{-- @dd($constants) --}}
 						<td>{{ trans('lang.report.fix_income') }}</td>
-						@foreach($constants->where('constant_meta_type', 'Asset Class (Alternative Investments)') as $constant)
+						@foreach($constants->where('constant_meta_type', 'Asset Class (Fix Income)') as $constant)
 							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.alternative_investment') }}</td>
-						@foreach($constants->where('constant_meta_type', 'Net Return/Year (Before Retirement)') as $constant)
+						@foreach($constants->where('constant_meta_type', 'Asset Class (Alternative Investments)') as $constant)
+							<td >{{ $constant->constant_value }}</td>
+						@endforeach
+					</tr>
+					<tr>
+						<td>{{ trans('lang.report.total') }}</td>
+						@foreach($constants->where('constant_meta_type', 'Asset Class (Total)') as $constant)
 							<td >{{ $constant->constant_value }}</td>
 						@endforeach
 					</tr>
