@@ -2952,8 +2952,6 @@ class QuestionnaireController extends Controller
         $assetsToday                = $totalAssetsToday;
         $liabilitiesToday           = $totalLiabilitiesToday;
         $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)? $assetsToday - $liabilitiesToday: 1;
-
-        dd($netWorthToday);
         $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
 
 
