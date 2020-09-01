@@ -1026,7 +1026,7 @@ return [
                 'of_monthly_income' => 'الشهري حاليا ',
             'accumulative_saving_today' => 'إجمالي مبلغ الإستثمار لخطة التقاعد',
         'returns_assumptions' => 'إقتراضات العوائد السنوية ',
-            'net_return_before_reitement' => 'صافي العوائد السنوية',
+            'net_return_before_reitement' => '  صافي العوائد السنوية  - مرحلة مابعد التقاعد   ',
             'net_return_after_reitement' => 'صافي العوائد السنوية  - مرحلة مابعد التقاعد  ',
 
         'income_and_wealth_at_retirement' => 'مبلغ الثروة والدخل عند التقاعد ',
