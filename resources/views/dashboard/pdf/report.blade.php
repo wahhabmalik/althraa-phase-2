@@ -986,7 +986,7 @@
 					</tr>
 					<tr>
 						<td>{{ trans('lang.report.net_return_before_reitement') }}</td>
-						<td>{{ percentage($data['netReturnBeforeRetirement']) }}</td>
+						<td>{{ percentage($data['netReturnAfterRetirement']) }}</td>
 					</tr>
 					
 					{{-- <tr>
