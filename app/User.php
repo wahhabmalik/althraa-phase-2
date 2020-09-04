@@ -106,18 +106,18 @@ class User extends Authenticatable
                 'code' => $this->generateTwoFactorCode()
             );
 
-        // try{
-        //     Mail::to($user->email)->send(new SendMail($data));
-        // }
-        // catch (\Exception $e) 
-        // {
-        //     \Auth::logout();
+        try{
+            Mail::to($user->email)->send(new SendMail($data));
+        }
+        catch (\Exception $e) 
+        {
+            \Auth::logout();
 
-        //     $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
-        //     Session::put('error', $e->getMessage());
+            $status = array('msg' => "2F Auth Expired. You can not login at this time due to some technical issues. Consult Admin for further inquiries.", 'toastr' => "errorToastr");
+            Session::put('error', $e->getMessage());
             
-        //     return redirect('/en/login');
-        // }
+            return redirect('/en/login');
+        }
     }
 
 

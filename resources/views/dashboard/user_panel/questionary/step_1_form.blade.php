@@ -243,7 +243,7 @@
 					                        	<label for="phone_number" class="{{ ($request->segment(1) == 'ar') ? 'float-right' : '' }}">{{ trans('lang.register_form.phone_number') }}</label>
 
 							                    <div class="input-group m-b" style="direction: ltr;">
-							                        <input 
+							                        {{-- <input 
 							                        class="form-control 
 							                        @error('phone_number') is-invalid @enderror" 
 							                        style="height: 40px;background: transparent !important;" 
@@ -253,6 +253,16 @@
 							                        value="{{ (old('phone_number')) ?? auth()->user()->phone_number ?? '' }}" 
 							                        required 
 							                        oninvalid="InvalidMsg(this);"
+							                        autocomplete="phone_number"> --}}
+							                        <input 
+							                        class="form-control 
+							                        @error('phone_number') is-invalid @enderror" 
+							                        
+							                        type="tel" 
+							                        name="phone_number" 
+							                        value="{{ (old('phone_number')) ?? auth()->user()->phone_number ?? '' }}" 
+							                        required 
+							                        style="border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;" 
 							                        autocomplete="phone_number">
 							                        
 							                    </div>
@@ -378,7 +388,7 @@
 </script>
 
 
-
+{{-- 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
@@ -439,5 +449,5 @@ telInput.on("keyup change", reset);
 
 
 
-</script>
+</script> --}}
 @endsection
