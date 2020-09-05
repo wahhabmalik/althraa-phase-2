@@ -3058,7 +3058,7 @@ class QuestionnaireController extends Controller
         else
             dd('Age Error, Please fix your age and try again.');
 
-        dd($plan);
+        dd($plan, $riskTestIndex);
 
         $monthlySalary = (($netReturnAfterRetirement/100)*$plan[$retirement_age]['value_end_year'] ?? 1)/12;
 
