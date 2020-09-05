@@ -975,7 +975,7 @@ return [
             'cash_and_equivalent' => 'Cash and Equivalent',
             'equities' => 'Equities',
             'fix_income' => 'Bonds & Sukuks ',
-            'alternative_investment' => 'Alternative investments',
+            'alternative_investment' => 'Alternative investments( Business , proprieties , gold and others )',
             'total' => 'Total',
 
 
