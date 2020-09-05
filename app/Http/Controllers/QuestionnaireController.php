@@ -3038,8 +3038,13 @@ class QuestionnaireController extends Controller
                     $plan[$i]['value_beginning_of_year'] = ($plan[$i-1]['value_end_year']);
     
                     $graphContribution[] = $plan[$i]['contribution'] = ($i >= $retirement_age) ? 0 : ($plan[$i-1]['contribution'] * ((100 + $annualIncreaseInSavingPlan) / 100));
+
+                    if($i > $retirement_age)
+                        $plan[$i]['retirementValue'] = $retirementValue = $netReturnAfterRetirement;
+                    else
+                        $plan[$i]['retirementValue'] = $retirementValue = $porfolioExpectedReturn;
     
-                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($netReturnAfterRetirement / 100);
+                    $plan[$i]['returns'] = ($plan[$i]['value_beginning_of_year'] + ($plan[$i]['contribution'])/2)*($retirementValue / 100);
     
                     $graphValueBegYear[] =  $plan[$i]['value_end_year'] = $plan[$i]['value_beginning_of_year'] + $plan[$i]['contribution'] + $plan[$i]['returns'];
     
@@ -3052,6 +3057,8 @@ class QuestionnaireController extends Controller
         }
         else
             dd('Age Error, Please fix your age and try again.');
+
+        // dd($plan);
 
         $monthlySalary = (($netReturnAfterRetirement/100)*$plan[$retirement_age]['value_end_year'] ?? 1)/12;
 
