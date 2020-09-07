@@ -1012,13 +1012,13 @@ return [
             'very_conservative' => 'Very Conservative',
             'conservative' => 'Conservative',
             'natural' => 'Natural',
-            'agressive' => 'Agressive',
-            'very_agressive' => 'Very Agressive',
+            'agressive' => 'Aggressive',
+            'very_agressive' => 'Very Aggressive',
 
         'recommended_assets_allocation' => 'Recommended Assets Allocation',
 
 
-        'financial_forecast' => 'Financil Projections',
+        'financial_forecast' => 'Financial Projections',
 
         'assumptions' => 'Assumptions',
             'monthly_saving_plan' => 'Monthly saving amount',
@@ -1065,9 +1065,9 @@ return [
 
             'Investing_Plan' => 'Investing Plan',
             'Investments_Seletion' => 'Investments Seletion',
-            'OOPTION_1' => 'OOPTION 1',
-            'OOPTION_2' => 'OOPTION 2',
-            'OOPTION_3' => 'OOPTION 3',
+            'OOPTION_1' => 'OPTION 1',
+            'OOPTION_2' => 'OPTION 2',
+            'OOPTION_3' => 'OPTION 3',
 
             'All_returns_will_be_fully_reinvested' => 'All returns will be fully reinvested .',
             'No_redemption_amount_before_retirement_year' => 'No redemption amount before retirement year .',
