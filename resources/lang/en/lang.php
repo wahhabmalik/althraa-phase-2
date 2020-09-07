@@ -1044,7 +1044,7 @@ return [
             // 'financial_health_checkup' =>  'جFinancial Health Checkup',
             // 'personal_indicators' =>  'جPersonal Indicators',
             // 'asset_allocation' =>  'جAsset Allocation',
-            'financil_forcast' =>  'Financil Projections',
+            'financil_forcast' =>  'Financial Projections',
             'investing_plan' =>  'Plan Details',
 
             'year' => 'Year',
