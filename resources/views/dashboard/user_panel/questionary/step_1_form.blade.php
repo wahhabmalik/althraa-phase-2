@@ -257,7 +257,6 @@
 							                        <input 
 							                        class="form-control 
 							                        @error('phone_number') is-invalid @enderror" 
-							                        
 							                        type="tel" 
 							                        name="phone_number" 
 							                        placeholder="966xxxxxxxxx" 

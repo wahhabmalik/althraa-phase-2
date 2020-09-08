@@ -171,6 +171,7 @@ class LoginController extends Controller
                 'email' => 'required|email|unique:users',
             ]);
 
+            
             event(new Registered($user = $this->create($request->all())));
 
             Auth::login($user);
@@ -194,7 +195,7 @@ class LoginController extends Controller
             'name' => 'User',
             'gender' => 'gender',
             'email' => $data['email'],
-            'phone_number' => $data['phone_number'] ?? '',
+            'phone_number' => $data['phone_number'] ?? NULL,
             'password' => Hash::make('$data[]'),
         ]);
 

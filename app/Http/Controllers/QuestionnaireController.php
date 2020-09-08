@@ -2947,21 +2947,21 @@ class QuestionnaireController extends Controller
         $gosi_or_ppa_monthlySubscription = $this->questionnaire->getGOSIorPPAmonthlySubscription($user);
         $monthlySavingPlanForRetirement  = $this->questionnaire->getMonthlySavingPlanForRetirement($user);
         
-        $monthlySavingPercentageToday    = ($monthlySavingToday/$monthlyIncomeToday)*100;
+        $monthlySavingPercentageToday    = ($monthlySavingToday/($monthlyIncomeToday == 0) ? 1 : $monthlyIncomeToday )*100;
         
         $assetsToday                = $totalAssetsToday;
         $liabilitiesToday           = $totalLiabilitiesToday;
-        $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)? $assetsToday - $liabilitiesToday: 1;
+        $netWorthToday              = ($assetsToday - $liabilitiesToday > 0)? $assetsToday - $liabilitiesToday: 0;
         $accomulativeSavingtoday    = $this->questionnaire->getAccomulativeSavingtoday($user);
 
 
         // dd($cashAndEquivlent ,$equities  ,$fixIncome ,$alternativeInvestments);
 
         //  Current Asset Allocation
-        $cashAndEquivlentPercentage = ($cashAndEquivlent / $totalCurrentAssetAllocation)*100;
-        $equitiesPercentage         = ($equities / $totalCurrentAssetAllocation)*100;
-        $fixIncomePercentage        = ($fixIncome / $totalCurrentAssetAllocation)*100;
-        $alternativeInvestmentsPercentage       = ($alternativeInvestments / $totalCurrentAssetAllocation)*100;
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
+        $equitiesPercentage         = ($equities / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
+        $fixIncomePercentage        = ($fixIncome / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
 
 
         round(($totalCurrentAssetAllocationPercentage = ($cashAndEquivlentPercentage)+($equitiesPercentage)+($fixIncomePercentage)+($alternativeInvestmentsPercentage)) , 0) ;
