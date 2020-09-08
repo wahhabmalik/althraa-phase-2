@@ -260,7 +260,7 @@
 							                        
 							                        type="tel" 
 							                        name="phone_number" 
-							                        value="{{ (old('phone_number')) ?? auth()->user()->phone_number ?? '' }}" 
+							                        value="{{ (old('phone_number')) ?? auth()->user()->phone_number ?? '966' }}" 
 							                        required 
 							                        style="border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;" 
 							                        autocomplete="phone_number">
