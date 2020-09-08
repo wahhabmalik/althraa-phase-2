@@ -260,6 +260,7 @@
 							                        
 							                        type="tel" 
 							                        name="phone_number" 
+							                        placeholder="966xxxxxxxxx" 
 							                        value="{{ (old('phone_number')) ?? auth()->user()->phone_number ?? '966' }}" 
 							                        required 
 							                        style="border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;" 
