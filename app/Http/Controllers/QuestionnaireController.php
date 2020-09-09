@@ -2947,7 +2947,7 @@ class QuestionnaireController extends Controller
         $gosi_or_ppa_monthlySubscription = $this->questionnaire->getGOSIorPPAmonthlySubscription($user);
         $monthlySavingPlanForRetirement  = $this->questionnaire->getMonthlySavingPlanForRetirement($user);
         
-        $monthlySavingPercentageToday    = ($monthlySavingToday/($monthlyIncomeToday == 0) ? 1 : $monthlyIncomeToday )*100;
+        $monthlySavingPercentageToday    = ($monthlySavingToday/(($monthlyIncomeToday == 0) ? 1 : $monthlyIncomeToday) )*100;
         
         $assetsToday                = $totalAssetsToday;
         $liabilitiesToday           = $totalLiabilitiesToday;
@@ -2958,10 +2958,10 @@ class QuestionnaireController extends Controller
         // dd($cashAndEquivlent ,$equities  ,$fixIncome ,$alternativeInvestments);
 
         //  Current Asset Allocation
-        $cashAndEquivlentPercentage = ($cashAndEquivlent / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
-        $equitiesPercentage         = ($equities / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
-        $fixIncomePercentage        = ($fixIncome / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
-        $alternativeInvestmentsPercentage       = ($alternativeInvestments / ($totalCurrentAssetAllocation == 0) ?: 1)*100;
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
+        $equitiesPercentage         = ($equities / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
+        $fixIncomePercentage        = ($fixIncome / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
 
 
         round(($totalCurrentAssetAllocationPercentage = ($cashAndEquivlentPercentage)+($equitiesPercentage)+($fixIncomePercentage)+($alternativeInvestmentsPercentage)) , 0) ;
@@ -3137,13 +3137,13 @@ class QuestionnaireController extends Controller
             );
 
 
-        try{
-            Mail::to($user->email)->send(new SendMail($data));
-        }catch ( \Exception $exception) {
-            dd($exception->getMessage());
-        }
+        // try{
+        //     Mail::to($user->email)->send(new SendMail($data));
+        // }catch ( \Exception $exception) {
+        //     dd($exception->getMessage());
+        // }
 
-        // dd($report->public_id, $report->user_id);
+        dd($report->public_id, $report->user_id);
         
 
 
