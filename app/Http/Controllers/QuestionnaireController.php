@@ -2958,10 +2958,10 @@ class QuestionnaireController extends Controller
         // dd($cashAndEquivlent ,$equities  ,$fixIncome ,$alternativeInvestments);
 
         //  Current Asset Allocation
-        $cashAndEquivlentPercentage = ($cashAndEquivlent / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
-        $equitiesPercentage         = ($equities / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
-        $fixIncomePercentage        = ($fixIncome / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
-        $alternativeInvestmentsPercentage       = ($alternativeInvestments / (($totalCurrentAssetAllocation == 0) ?: 1))*100;
+        $cashAndEquivlentPercentage = ($cashAndEquivlent / (($totalCurrentAssetAllocation == 0) ? 1 : $totalCurrentAssetAllocation))*100;
+        $equitiesPercentage         = ($equities / (($totalCurrentAssetAllocation == 0) ? 1 : $totalCurrentAssetAllocation))*100;
+        $fixIncomePercentage        = ($fixIncome / (($totalCurrentAssetAllocation == 0) ? 1 : $totalCurrentAssetAllocation))*100;
+        $alternativeInvestmentsPercentage       = ($alternativeInvestments / (($totalCurrentAssetAllocation == 0) ? 1 : $totalCurrentAssetAllocation))*100;
 
 
         round(($totalCurrentAssetAllocationPercentage = ($cashAndEquivlentPercentage)+($equitiesPercentage)+($fixIncomePercentage)+($alternativeInvestmentsPercentage)) , 0) ;
