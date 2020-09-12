@@ -32,14 +32,14 @@ return [
         'already_have_account' => "Already have an account?",
         'login_with_google' => "Login with Google",
         'or' => "OR",
-    	'login_with_another_account' => "login with another account",
+        'login_with_another_account' => "login with another account",
     ],
 
     'register_form' => [
         'name' => 'Name',
         'gender' => 'Gender',
-    	'phone_number' => 'Phone Number',
-    	'confirm_password' => 'Confirm Password',
+        'phone_number' => 'Phone Number',
+        'confirm_password' => 'Confirm Password',
         'type_your_password_here' => 'Type your password here',
         'type_your_email_here' => 'Type your email here',
         'register_with_google' => 'Register with Google',
@@ -50,8 +50,8 @@ return [
     ],
 
     'reset_password_form' => [
-    	'reset_password' => 'Reset Password',
-    	'send_password_reset_link' => 'Send Password Reset Link',    	
+        'reset_password' => 'Reset Password',
+        'send_password_reset_link' => 'Send Password Reset Link',       
     ],
 
 
@@ -477,7 +477,7 @@ return [
 
         'hi_my_name_is' => 'Hi! My name is',
         'and_i_am' => 'and I am',
-        'years_old' => 'years old.',
+        'years_old' => 'years.',
 
         'start_the_questionnaire' => 'Start the Questionnaire',
 
@@ -1031,8 +1031,8 @@ return [
             'net_return_after_reitement' => 'Net Return/Year (After retirement)',
 
         'income_and_wealth_at_retirement' => 'Income and Wealth at Retirement',
-            'retirement_plan_value_at' => 'Retirement plan value at',
-                'years_old' => 'years old',
+            'retirement_plan_value_at' => 'portfolio value at retirement age of ',
+                'years_old' => 'years',
             'total_monthly_income' => 'Total monthly income',
             'income_from_retirement_plan' => 'Income from retirement plan',
             'income_from_GOSI_or_PPA' => 'Income from GOSI or PPA',
@@ -1059,8 +1059,8 @@ return [
             'INVESABLE_AMOUNT' => 'INVESTABLE AMOUNT',
 
             '1_payment' => '1 payment',
-            '4_payment_over_one_year' => '4 payment over one year',
-            'Manual_process' => 'Manual process',
+            '4_payment_over_one_year' => 'Quarterly payments over a one year',
+            'Manual_process' => 'Quarterly payments over a one year',
             'Total' => 'Total',
 
             'Investing_Plan' => 'Investing Plan',
@@ -1071,6 +1071,7 @@ return [
 
             'All_returns_will_be_fully_reinvested' => 'All returns will be fully reinvested .',
             'No_redemption_amount_before_retirement_year' => 'No redemption amount before retirement year .',
+            'please_could_you_response_to_the_following_survey' => 'Please could you response to the following survey',
 
 
 

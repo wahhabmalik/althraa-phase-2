@@ -1241,6 +1241,11 @@
 					
 					
 				</table>
+
+				<div class="mt-5">
+					<a href="https://www.surveymonkey.com/r/3MX5GTV" target="_blank" class="survey_link" >{{ trans('lang.report.please_could_you_response_to_the_following_survey') }}</a>
+				</div>
+
 			</div>
 			
 		</div>

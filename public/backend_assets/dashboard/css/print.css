@@ -612,3 +612,10 @@ table {
     font-size: 12px;
   }
 }
+
+
+.survey_link{
+    color: #b41d19;
+    font-size: 18px;
+    font-weight: 600;
+}

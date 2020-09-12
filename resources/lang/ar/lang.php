@@ -1,4 +1,4 @@
-<?php
+    <?php
 /**
  * All translation constants
  *
@@ -1074,7 +1074,7 @@ return [
 
             'All_returns_will_be_fully_reinvested' => 'سوف يتم اعادة استثمار جميع العوائد السنوية .',
             'No_redemption_amount_before_retirement_year' => 'لن يتم استرداد اي مبلغ من الحفظة قبل سن التقاعد .',
-
+            'please_could_you_response_to_the_following_survey' => 'الرجاء تعبئة الاستبيان التالي مع جزيل الشكر',
 
 
 
